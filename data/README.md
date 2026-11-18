@@ -21,7 +21,8 @@ return journey. The selected patterns matter:
   Other variants differ. Operator notice independently confirms Matraman 3 rather
   than Simpang Matraman for the 5M boarding:
   https://transjakarta.co.id/berita/penyesuaian-rute-kampung-melayu-tanah-abang-via-cikini-5m
-- Turnaround card (website Arkadia section, not this outbound map): the Flyover
+- Turnaround (drawn in the all-stops map below the Arkadia 7E leg, plus a text
+  card in the Arkadia section): the Flyover
   Raya Bogor stop name appears in both 7E direction listings - Kampung
   Rambutan-bound stop 14 of 21, Ragunan-bound stop 8 of 24 - and it is the first
   stop past Jln. Gabus Raya shared by both patterns, so the shortest candidate
@@ -31,8 +32,8 @@ return journey. The selected patterns matter:
   (https://catenarymaps.org/en/agency/Transjakarta/route/7e), cross-checked with
   jaGOdetabek (https://jagodetabek.id/lin/TJ7E, stop G00315). The official feed
   had no DNS A record at that moment, so the return-leg stop names are not in
-  route-stops.json. The all-stops map stays outbound-only; a footer line points
-  at the card.
+  route-stops.json. The dashed switch in the map marks an unverified physical
+  link, and the map otherwise stays listed-direction-only.
 
 The 4C and 5M share Masjid Jami Matraman and Tugu Proklamasi; the diagram draws
 those shared stops once. The corridor 10-to-9 change uses different platform IDs

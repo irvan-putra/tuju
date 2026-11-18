@@ -23,7 +23,9 @@ return journey. The selected patterns matter:
   https://transjakarta.co.id/berita/penyesuaian-rute-kampung-melayu-tanah-abang-via-cikini-5m
 - Turnaround (drawn in the all-stops map - the 7E leg continues past Gabus Raya
   to Flyover Raya Bogor and the Ragunan-bound return runs back up the left side
-  to Baung, plus a text card in the Arkadia section): the Flyover
+  to Baung, which sits off the corridor on a left branch with a get-off note;
+  a single venue marker between the two directions carries both dashed walks,
+  plus a text card in the Arkadia section): the Flyover
   Raya Bogor stop name appears in both 7E direction listings - Kampung
   Rambutan-bound stop 14 of 21, Ragunan-bound stop 8 of 24 - and it is the first
   stop past Jln. Gabus Raya shared by both patterns, so the shortest candidate
@@ -33,8 +35,12 @@ return journey. The selected patterns matter:
   (https://catenarymaps.org/en/agency/Transjakarta/route/7e), cross-checked with
   jaGOdetabek (https://jagodetabek.id/lin/TJ7E, stop G00315). The official feed
   had no DNS A record at that moment, so the return-leg stop names are not in
-  route-stops.json. The dashed switch in the map marks an unverified physical
-  link, and the map otherwise stays listed-direction-only.
+  route-stops.json. Firsthand on-site check the same day: the two 7E directions
+  stop on opposite road sides by the venue - Jln. Gabus Raya (Kampung
+  Rambutan-bound) is across the road, reached by a pedestrian bridge (~1 min),
+  while Baung (Ragunan-bound) is on the venue side. The dashed switch in the
+  map still marks an unverified physical link, and the map otherwise stays
+  listed-direction-only.
 
 The 4C and 5M share Masjid Jami Matraman and Tugu Proklamasi; the diagram draws
 those shared stops once. The corridor 10-to-9 change uses different platform IDs

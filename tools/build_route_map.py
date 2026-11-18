@@ -31,7 +31,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
   if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers)
  return end
 add('<title id="all-stops-title">All intermediate stops on the selected outbound routes</title>')
-add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after an unverified direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops.</desc>')
+add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after an unverified direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The Jln. Gabus Raya walk crosses the road via a pedestrian bridge and Baung is on the venue side (firsthand 18 Nov 2026); the Flyover Raya Bogor direction switch itself remains unverified.</desc>')
 text(60,45,'Every stop, in travel order',30,weight='600')
 text(60,78,'Corridor legs in listed direction · 7E return leg drawn back up the left · schematic, not to scale',20)
 text(60,108,'Operator GTFS checked 18 Nov 2026. Route patterns and temporary stops can change.',17)
@@ -62,11 +62,15 @@ line(630,y6+12,630,y6+110,'#888',True)
 text(655,y6+50,'Walk ~2 min to the curbside 7E stop',15)
 text(585,y6+145,'7E',22,COL['7E'],anchor='end',weight='600')
 y7=chain('7E',630,y6+120,60,transfers=['B07989P','B01062P'])
-# The 7E continues toward Kampung Rambutan past the Arkadia stop; venue walk branches left.
-line(630,y7+12,630,y7+255,COL['7E'])
-add(f'<path d="M 624 {y7+10} L 582 {y7+34}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
-text(560,y7+30,'Walk ~1 min to De Entrance',15,anchor='end')
-text(560,y7+64,'Arkadia Green Park',22,'#27803c',weight='600',anchor='end')
+# The 7E continues toward Kampung Rambutan past the Arkadia stop.
+line(630,y7+12,630,y7+268,COL['7E'])
+# One shared venue marker between the columns; both walks arrive at the same place.
+add(f'<rect x="457" y="{y7+50}" width="16" height="16" rx="3" fill="#27803c"/>')
+text(465,y7+84,'De Entrance -',19,'#27803c',weight='600',anchor='middle')
+text(465,y7+108,'Arkadia Green Park',19,'#27803c',weight='600',anchor='middle')
+text(465,y7+130,'same road side as Baung',13,anchor='middle')
+add(f'<path d="M 618 {y7+8} C 570 {y7+30}, 530 {y7+44}, 483 {y7+54}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+text(600,y7-2,'Walk ~1 min via footbridge',15,anchor='end')
 for i,name in enumerate(['Jln. H. Saidi','Jln. Nangka 1','Jln. Muara 1','Plaza Pp Condet 2','RSUD Pasar Rebo 2']):
  node(630,y7+56+i*44,name,COL['7E'])
 fy=y7+280
@@ -91,11 +95,9 @@ for i,name in enumerate(['Gg. Nanas','Jln. Nangka Raya','Telkomsel Jln. Nangka',
  node(300,by+48+i*44,name,COL['7E'],anchor='end')
 for ay in (by+30,by+70,by+158,by+246,by+334,by+379):tri(300,ay,COL['7E'])
 node(300,by,'Baung - get off',COL['7E'],True,anchor='end')
-text(323,by+22,'or ride 1 more:',13)
-text(323,by+40,'Phe Tower Kebagusan (~5 min walk)',13)
-add(f'<path d="M 312 {by-2} C 420 {by-10}, 520 {by-12}, 606 {y7-80}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
-text(620,y7-124,'De Entrance - Arkadia Green Park',20,'#27803c',weight='600',anchor='end')
-text(620,y7-96,'Walk ~4 min (285 m) from Baung',15,anchor='end')
+text(277,by+30,'or 1 more: Phe Tower Kebagusan (~5 min)',13,anchor='end')
+add(f'<path d="M 312 {by-2} C 360 {by+38}, 410 {by+80}, 449 {y7+54}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+text(323,by-10,'Walk ~4 min (285 m)',15)
 text(1155,270,'4C',22,COL['4C'],anchor='end',weight='600')
 yc=chain('4C',1200,240,62,transfers=['B07260P','B05812P'])
 # Both 4C and 5M serve Masjid Jami Matraman before Tugu Proklamasi.
@@ -118,10 +120,11 @@ foot0=max(ry+50,fy+76,yend+116,y9+96)+50
 text(60,foot0,'Rings = boarding / transfer / get off · small circles = intermediate stops · arrowheads = travel direction · dashed = walk or an unverified direction switch',20)
 text(60,foot0+35,'Corridor legs show the listed direction only - do not reverse them. The drawn 7E return leg is the actual Ragunan-bound pattern.',18)
 text(60,foot0+70,'The 7E Flyover Raya Bogor switch is a candidate from GTFS-derived listings - the physical link and re-tap fare are unverified.',17)
-text(60,foot0+105,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)
-text(60,foot0+140,'Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.',17)
+text(60,foot0+105,'Firsthand 18 Nov 2026: the two 7E directions stop on opposite road sides by the venue - Jln. Gabus Raya is across the road (pedestrian bridge); Baung is on the venue side.',17)
+text(60,foot0+140,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)
+text(60,foot0+175,'Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.',17)
 add('</svg>')
-H=foot0+180
+H=foot0+215
 svg=f'<svg viewBox="0 0 1700 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.

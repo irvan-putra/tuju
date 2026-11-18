@@ -1,6 +1,6 @@
-<svg viewBox="0 0 1700 2992" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
+<svg viewBox="0 0 1700 3027" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
 <title id="all-stops-title">All intermediate stops on the selected outbound routes</title>
-<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after an unverified direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops.</desc>
+<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after an unverified direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The Jln. Gabus Raya walk crosses the road via a pedestrian bridge and Baung is on the venue side (firsthand 18 Nov 2026); the Flyover Raya Bogor direction switch itself remains unverified.</desc>
 <text x="60" y="45" font-size="30" fill="currentColor" text-anchor="start" font-weight="600">Every stop, in travel order</text>
 <text x="60" y="78" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Corridor legs in listed direction · 7E return leg drawn back up the left · schematic, not to scale</text>
 <text x="60" y="108" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Operator GTFS checked 18 Nov 2026. Route patterns and temporary stops can change.</text>
@@ -156,10 +156,13 @@
 <text x="653" y="2322" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Mujair Raya</text>
 <circle cx="630" cy="2376" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
 <text x="653" y="2382" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Jln. Gabus Raya</text>
-<path d="M 630 2388 L 630 2631" fill="none" stroke="#00838f" stroke-width="6"/>
-<path d="M 624 2386 L 582 2410" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="560" y="2406" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">Walk ~1 min to De Entrance</text>
-<text x="560" y="2440" font-size="22" fill="#27803c" text-anchor="end" font-weight="600">Arkadia Green Park</text>
+<path d="M 630 2388 L 630 2644" fill="none" stroke="#00838f" stroke-width="6"/>
+<rect x="457" y="2426" width="16" height="16" rx="3" fill="#27803c"/>
+<text x="465" y="2460" font-size="19" fill="#27803c" text-anchor="middle" font-weight="600">De Entrance -</text>
+<text x="465" y="2484" font-size="19" fill="#27803c" text-anchor="middle" font-weight="600">Arkadia Green Park</text>
+<text x="465" y="2506" font-size="13" fill="currentColor" text-anchor="middle" font-weight="normal">same road side as Baung</text>
+<path d="M 618 2384 C 570 2406, 530 2420, 483 2430" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="600" y="2374" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">Walk ~1 min via footbridge</text>
 <circle cx="630" cy="2432" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
 <text x="653" y="2438" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. H. Saidi</text>
 <circle cx="630" cy="2476" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
@@ -212,11 +215,9 @@
 <path d="M 300 2672 L 289 2696 L 311 2696 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <circle cx="300" cy="2306" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
 <text x="277" y="2312" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Baung - get off</text>
-<text x="323" y="2328" font-size="13" fill="currentColor" text-anchor="start" font-weight="normal">or ride 1 more:</text>
-<text x="323" y="2346" font-size="13" fill="currentColor" text-anchor="start" font-weight="normal">Phe Tower Kebagusan (~5 min walk)</text>
-<path d="M 312 2304 C 420 2296, 520 2294, 606 2296" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="620" y="2252" font-size="20" fill="#27803c" text-anchor="end" font-weight="600">De Entrance - Arkadia Green Park</text>
-<text x="620" y="2280" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">Walk ~4 min (285 m) from Baung</text>
+<text x="277" y="2336" font-size="13" fill="currentColor" text-anchor="end" font-weight="normal">or 1 more: Phe Tower Kebagusan (~5 min)</text>
+<path d="M 312 2304 C 360 2344, 410 2386, 449 2430" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="323" y="2296" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">Walk ~4 min (285 m)</text>
 <text x="1155" y="270" font-size="22" fill="#c52d36" text-anchor="end" font-weight="600">4C</text>
 <path d="M 1200 240 L 1200 674" fill="none" stroke="#c52d36" stroke-width="6"/>
 <circle cx="1200" cy="240" r="12" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
@@ -286,6 +287,7 @@
 <text x="60" y="2812" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rings = boarding / transfer / get off · small circles = intermediate stops · arrowheads = travel direction · dashed = walk or an unverified direction switch</text>
 <text x="60" y="2847" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Corridor legs show the listed direction only - do not reverse them. The drawn 7E return leg is the actual Ragunan-bound pattern.</text>
 <text x="60" y="2882" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">The 7E Flyover Raya Bogor switch is a candidate from GTFS-derived listings - the physical link and re-tap fare are unverified.</text>
-<text x="60" y="2917" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip</text>
-<text x="60" y="2952" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.</text>
+<text x="60" y="2917" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Firsthand 18 Nov 2026: the two 7E directions stop on opposite road sides by the venue - Jln. Gabus Raya is across the road (pedestrian bridge); Baung is on the venue side.</text>
+<text x="60" y="2952" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip</text>
+<text x="60" y="2987" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.</text>
 </svg>

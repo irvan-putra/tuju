@@ -1,6 +1,10 @@
 package com.vanipy.tuju;
 
-import android.test.ActivityInstrumentationTestCase2;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import static org.junit.Assert.assertTrue;
 import android.os.SystemClock;
 import android.view.InputDevice;
 import android.view.MotionEvent;
@@ -8,8 +12,9 @@ import android.webkit.WebView;
 
 /** Debug-only device test: real two-pointer pinch events, then a drag. */
 @SuppressWarnings("deprecation")
-public class MapGestureTest extends ActivityInstrumentationTestCase2<MainActivity> {
-    public MapGestureTest() { super(MainActivity.class); }
+@RunWith(AndroidJUnit4.class)
+public class MapGestureTest {
+    private android.app.Instrumentation getInstrumentation() { return InstrumentationRegistry.getInstrumentation(); }
 
     private void touch(long start, int action, float x1, float y1, float x2, float y2, int count) {
         MotionEvent.PointerProperties[] props = new MotionEvent.PointerProperties[count];
@@ -30,8 +35,11 @@ public class MapGestureTest extends ActivityInstrumentationTestCase2<MainActivit
         event.recycle();
     }
 
+    @Test
     public void testPinchAndPan() throws Exception {
-        MainActivity activity = getActivity();
+        android.content.Intent launch = new android.content.Intent(getInstrumentation().getTargetContext(), MainActivity.class);
+        launch.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+        MainActivity activity = (MainActivity) getInstrumentation().startActivitySync(launch);
         getInstrumentation().waitForIdleSync();
         Thread.sleep(1500);
         WebView web = (WebView) ((android.view.ViewGroup) activity.findViewById(android.R.id.content)).getChildAt(0);

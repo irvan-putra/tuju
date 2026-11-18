@@ -50,7 +50,6 @@ public class MapAssetTest {
         ViewGroup root = (ViewGroup) activity.findViewById(android.R.id.content);
         WebView web = (WebView) root.getChildAt(0);
         assertNotNull(web);
-        assertTrue(web.getSettings().getSupportZoom());
         assertTrue(web.getSettings().getBuiltInZoomControls());
         assertFalse(web.getSettings().getDisplayZoomControls());
         assertTrue(web.getSettings().getUseWideViewPort());

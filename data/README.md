@@ -66,3 +66,16 @@ python android/tools/build_map_asset.py --check
 Review trip IDs, directional endpoints and source changes before refreshing. The
 map deliberately starts fit-to-screen; pinch zoom is needed to read all labels on
 a phone. SVG text stays sharp when zoomed. No added app permissions or network.
+
+## Arkadia homebound options (0.1.5)
+
+`return-stops.json` stores independently listed directional sequences from Catenary's
+TransJakarta GTFS rendering, checked 18 November 2026. It is not a new official
+feed download: that host could not be resolved. Each segment records its source URL.
+7E starts beside the venue toward Ragunan. The northbound 6 includes Flyover
+Kuningan; the 4 homeward leg uses the listed Pulo Gadung pattern, not a reversed
+outbound route. The separate Gojek alternative joins 7F at Flyover Raya Bogor.
+Both are drawn below the outbound schematic in the same SVG and offline asset.
+No precise Ragunan transfer access, paid-area continuity, ride time, empty bus,
+seat availability or late 7F operation is promised. Existing firsthand fare
+observations for the earlier outbound journey remain unchanged.

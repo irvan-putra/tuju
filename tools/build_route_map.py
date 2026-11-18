@@ -32,7 +32,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
  for i,st in enumerate(ss):
   if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers)
  return end
-add('<title id="all-stops-title">All intermediate stops on the selected outbound routes</title>')
+add('<title id="all-stops-title">Outbound routes and Arkadia homebound options, with intermediate stops</title>')
 add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026).</desc>')
 text(60,45,'Every stop, in travel order',30,weight='600')
 text(60,78,'Corridor legs in listed direction · 7E return leg drawn back up the left · schematic, not to scale',20)
@@ -165,8 +165,86 @@ text(60,foot0+130,'Phe Tower stops; Jln. Gabus Raya (far side) and Baung (venue 
 text(60,foot0+235,'4 and 4D share their first ten stops (same stop IDs): one drawn column. 4D then branches right to Rasuna Said (outbound only); that list is from jaGOdetabek and halte.id, not GTFS.',17)
 text(60,foot0+165,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)
 text(60,foot0+200,'Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.',17)
+# Complete homebound journeys have their own actual directional stop sequences.
+# Do not reverse any outbound column to generate these.
+R={s['key']:s for s in json.loads((ROOT/'data/return-stops.json').read_text())['segments']}
+r0=foot0+350
+line(60,r0-50,1640,r0-50,'#888',True)
+text(60,r0,'Going home from Arkadia',32,weight='600')
+text(60,r0+36,'Two separate choices. Follow the arrows downward here, not the outbound columns above.',20)
+text(60,r0+69,'Directional stops: Catenary GTFS rendering, checked 18 Nov 2026. Confirm the bus headsign and service before boarding.',17)
+text(60,r0+125,'A  Arkadia side → Ragunan → Galunggung',24,'#00838f',weight='600')
+text(940,r0+125,'B  Far side → Gojek → 7F',24,'#6536b0',weight='600')
+text(60,r0+161,'Start beside the venue: no bridge crossing for 7E.',19)
+text(60,r0+191,'Ride to the terminus, then start the northbound 6 there.',18)
+text(60,r0+219,'Starting at a terminus is not a guarantee of an empty bus or seat.',17)
+text(940,r0+161,'Cross using the pedestrian bridge, not the road.',18)
+text(940,r0+191,'Pickup on the opposite side of Arkadia.',18)
+text(940,r0+219,'Gojek fare and travel time not checked.',17)
+
+def home_chain(key,x,y,step,color):
+ ss=R[key]['stops'];end=y+step*(len(ss)-1)
+ line(x,y,x,end,color)
+ for i,name in enumerate(ss):
+  node(x,y+i*step,name,color,i==0 or i==len(ss)-1)
+  if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,color,False)
+ return end
+
+ay=r0+280
+text(65,ay+8,'7E',24,COL['7E'],anchor='end',weight='600')
+text(175,ay+29,'board toward Ragunan',16)
+ay=home_chain('7E-return',150,ay,58,COL['7E'])
+line(150,ay+14,150,ay+138,'#888',True)
+text(175,ay+45,'Get off 7E. Board a separate 6 toward Galunggung.',17)
+text(175,ay+73,'Check the terminal boarding point; allow a fresh tap/fare.',17)
+text(175,ay+101,'Exact 7E-to-6 access / paid-area continuity not verified.',16)
+ay+=150
+text(65,ay+8,'6',24,COL['6'],anchor='end',weight='600')
+ay=home_chain('6-return',150,ay,58,COL['6'])
+line(150,ay+14,150,ay+118,'#888',True)
+text(175,ay+49,'Change to 4 toward Pulo Gadung, not the Manggarai shuttle.',17)
+text(175,ay+80,'Check the platform; no return-direction fare promise.',16)
+ay+=130
+text(65,ay+8,'4',24,COL['4'],anchor='end',weight='600')
+ay=home_chain('4-return',150,ay,58,COL['4'])
+line(150,ay+14,150,ay+90,'#888',True)
+text(175,ay+55,'Walk to the Green Pramuka area.',20,'#2e9e50',weight='600')
+text(175,ay+84,'Use the return-side exit; exact walk not checked.',16)
+
+by=r0+280
+node(1030,by,'Arkadia - far-side pickup','#777',True)
+line(1030,by+16,1030,by+132,'#888',True)
+text(1055,by+60,'Gojek to Flyover Raya Bogor',20,weight='600')
+text(1055,by+91,'Get off near the 7F boarding access.',17)
+by+=150
+text(995,by+8,'7F',24,'#6536b0',anchor='end',weight='600')
+by=home_chain('7F-return',1030,by,70,'#6536b0')
+text(1055,by+38,'Get off here for Green Pramuka.',18,'#2e9e50',weight='600')
+line(1030,by+16,1030,by+120,'#888',True)
+text(1055,by+83,'Walk ~230 m to the Green Pramuka area.',17)
+by+=175
+for i,t in enumerate([
+ 'Board a 7F serving the Juanda-bound segment.',
+ 'Some headsigns describe a combined / loop service.',
+ 'Check it serves Kayu Putih Rawasari before boarding.',
+ '',
+ '7F service-hour listings disagree:',
+ 'jaGOdetabek: combined patterns until 20:30;',
+ 'Moovit: Juanda pattern 07:00-08:20;',
+ 'Traveloka: 05:00-22:00. Do not assume late service.',
+ '',
+ 'Gojek-to-7F boarding access and total fare unverified.',
+ 'No guaranteed arrival times for either route.',
+ '7E → 6 → 4 is a separate option, not a 7F detour.',
+]):text(940,by+i*31,t,17,weight='600' if i==4 else 'normal')
+end=max(ay+150,by+420)
+for i,t in enumerate([
+ 'Return sources: catenarymaps.org/en/agency/Transjakarta/route/7e, /6, /4, /7f',
+ '4 return cross-check: halte.id/rute/4-pulo-gadung-galunggung/ · 7F: Moovit / Traveloka / jaGOdetabek',
+ 'Return patterns are independently listed, not reversed outbound routes. Service patterns and boarding arrangements can change.',
+]):text(60,end+i*31,t,17)
 add('</svg>')
-H=foot0+280
+H=end+110
 svg=f'<svg viewBox="0 0 1700 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.

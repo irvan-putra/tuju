@@ -35,6 +35,20 @@ class StopMapTest(unittest.TestCase):
  def test_no_outbound_return_stop_mix(self):
   names=[s['name'] for s in S['7E']['stops']]
   self.assertNotIn('Baung',names); self.assertNotIn('Phe Tower Kebagusan',names)
+ def test_homebound_patterns_are_independent_and_complete(self):
+  ret=json.loads((ROOT/'data/return-stops.json').read_text())
+  r={x['key']:x['stops'] for x in ret['segments']}
+  self.assertEqual(r['7E-return'][0],'Phe Tower Kebagusan')
+  self.assertEqual(r['7E-return'][-1],'Ragunan')
+  self.assertIn('Flyover Kuningan',r['6-return'])
+  self.assertIn('Halte Manggarai Temporer 1',r['4-return'])
+  self.assertNotIn('Matraman',r['4-return'])
+  self.assertEqual(r['7F-return'],['Flyover Raya Bogor','Trikora','Pasar Induk','Utan Kayu Rawamangun','Pemuda Pramuka','Kayu Putih Rawasari'])
+  svg=(ROOT/'data/all-stops.svg').read_text()
+  for stops in r.values():
+   for name in stops:self.assertIn(name,svg)
+  for term in ['Going home from Arkadia','Gojek to Flyover Raya Bogor','fresh tap/fare','not a guarantee','7F service-hour listings disagree']:
+   self.assertIn(term,svg)
  def test_offline_asset(self):
   page=(ROOT/'android/app/src/main/assets/map.html').read_text()
   self.assertNotIn('<script',page)

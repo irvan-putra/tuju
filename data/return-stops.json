@@ -1,0 +1,75 @@
+{
+  "checked": "2026-11-18",
+  "source_type": "Catenary rendering of TransJakarta GTFS, not a fresh official feed download",
+  "segments": [
+    {
+      "key": "7E-return",
+      "route": "7E",
+      "source": "https://catenarymaps.org/en/agency/Transjakarta/route/7e",
+      "stops": [
+        "Phe Tower Kebagusan",
+        "Plaza Oleos",
+        "Kebagusan Raya",
+        "Kementan",
+        "Kementan 2",
+        "Simpang Ragunan Ar-Raudhah",
+        "Ragunan"
+      ]
+    },
+    {
+      "key": "6-return",
+      "route": "6",
+      "source": "https://catenarymaps.org/en/agency/Transjakarta/route/6",
+      "stops": [
+        "Ragunan",
+        "Simpang Ragunan Ar-Raudhah",
+        "Jati Barat",
+        "Jati Padang",
+        "Pejaten",
+        "Buncit Indah",
+        "Warung Jati",
+        "Warung Buncit",
+        "Duren Tiga",
+        "Mampang Prapatan",
+        "Underpass Kuningan",
+        "Patra Kuningan",
+        "Kuningan",
+        "Rasuna Said",
+        "Karet Kuningan",
+        "Kuningan Madya",
+        "Setiabudi Integritas",
+        "Flyover Kuningan",
+        "Galunggung"
+      ]
+    },
+    {
+      "key": "4-return",
+      "route": "4",
+      "source": "https://catenarymaps.org/en/agency/Transjakarta/route/4",
+      "stops": [
+        "Galunggung",
+        "Halimun",
+        "Pasar Rumput",
+        "Halte Manggarai Temporer 1",
+        "Flyover Pramuka",
+        "Pasar Genjing",
+        "Utan Kayu",
+        "Pramuka Sari",
+        "Simpang Pramuka 1"
+      ]
+    },
+    {
+      "key": "7F-return",
+      "route": "7F",
+      "source": "https://catenarymaps.org/en/agency/Transjakarta/route/7f",
+      "stops": [
+        "Flyover Raya Bogor",
+        "Trikora",
+        "Pasar Induk",
+        "Utan Kayu Rawamangun",
+        "Pemuda Pramuka",
+        "Kayu Putih Rawasari"
+      ]
+    }
+  ]
+}

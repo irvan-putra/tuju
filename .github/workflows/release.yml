@@ -70,7 +70,9 @@ jobs:
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network, no permissions. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
 
-          Shows every intermediate stop on the selected outbound routes (4 via Saharjo, 6, 7E toward Kampung Rambutan, 10, 9 toward Pluit, 4C and 5M via Cikini), sourced from the TransJakarta operator GTFS checked 18 November 2026. 0.1.4 adds the 4D branch to Rasuna Said (Plaza Festival), drawn as a branch off the shared first ten stops of corridor 4; the 4D stop list is from jaGOdetabek and halte.id, not GTFS. Route patterns and temporary stops may change; this is not live arrival information. Paid-area/fare uncertainties remain visible.
+          Shows every intermediate stop on the selected outbound routes (4 via Saharjo, 6, 7E toward Kampung Rambutan, 10, 9 toward Pluit, 4C and 5M via Cikini), sourced from the TransJakarta operator GTFS checked 18 November 2026. The earlier 0.1.4 adds the 4D branch to Rasuna Said (Plaza Festival), drawn as a branch off the shared first ten stops of corridor 4; the 4D stop list is from jaGOdetabek and halte.id, not GTFS. Route patterns and temporary stops may change; this is not live arrival information. Paid-area/fare uncertainties remain visible.
+
+          0.1.5 embeds both Arkadia homebound options in the offline map: Arkadia-side 7E to Ragunan, 6 to Galunggung, 4 to Simpang Pramuka 1; or opposite-side Gojek to Flyover Raya Bogor, 7F to Kayu Putih Rawasari. Actual directional stop sequences are from Catenary GTFS rendering; terminal access/fare continuity, 7F hours and ride times remain caveated.
 
           Pixel 6 / API 34 emulator checks cover map fit, actual pinch zoom and dragging. Not tested on a physical Samsung. Same package and pinned signing certificate as 0.1.0; intended as an in-place update.
 

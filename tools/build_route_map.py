@@ -26,7 +26,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
  for i,st in enumerate(ss):
   if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers)
  return end
-add('<svg viewBox="0 0 1700 2820" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">')
+add('<svg viewBox="0 0 1700 2860" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">')
 add('<title id="all-stops-title">All intermediate stops on the selected outbound routes</title>')
 add('<desc id="all-stops-desc">One connected schematic, not to scale. Read down each line in travel order. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops.</desc>')
 text(60,45,'Every stop, in travel order',30,weight='600')
@@ -85,11 +85,12 @@ text(60,2685,'Only the travel direction shown is covered. Do not reverse this di
 text(60,2720,'7E return-direction stops Phe Tower Kebagusan and Baung are in the destination closeup, not this outbound line.',17)
 text(60,2755,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)
 text(60,2790,'Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.',17)
+text(60,2825,'Passed Jln. Gabus Raya on the 7E? Turn around at Flyover Raya Bogor - card with the Arkadia Green Park route (vanipy.com/tuju/).',17)
 add('</svg>')
 svg='\n'.join(A)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.
-src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|1700 (?:2620|2820))".*?</svg>',lambda _:svg,src,flags=re.S)
+src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
 assert n==2,n
 p.write_text(src)
 (ROOT/'data/all-stops.svg').write_text(svg+'\n')

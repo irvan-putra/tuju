@@ -33,7 +33,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
   if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers)
  return end
 add('<title id="all-stops-title">All intermediate stops on the selected outbound routes</title>')
-add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after an unverified direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan (firsthand 18 Nov 2026); the Flyover Raya Bogor direction switch itself remains unverified.</desc>')
+add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026).</desc>')
 text(60,45,'Every stop, in travel order',30,weight='600')
 text(60,78,'Corridor legs in listed direction · 7E return leg drawn back up the left · schematic, not to scale',20)
 text(60,108,'Operator GTFS checked 18 Nov 2026. Route patterns and temporary stops can change.',17)
@@ -55,13 +55,13 @@ mat=240+next(i for i,s in enumerate(S['4']['stops']) if s['id']=='G00216')*62
 add(f'<path d="M 630 {mat+12} L 630 {mat+30} L 1000 {mat+30} L 1040 {mat+70}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 node(1040,mat+70,'Matraman 3',COL['5M'],True,anchor='end')
 text(1040,mat+110,'Tap out; ~1 min walk',15,anchor='end')
-# Walk from corridor 4 to 6 at Galunggung is not assumed paid-area continuous.
+# Firsthand 18 Nov 2026: the 4 to 6 change at Galunggung stayed in one paid area, no new tap.
 line(630,y4+12,630,y4+110,'#888',True)
-text(655,y4+55,'4 to 6: paid-area continuity unconfirmed',15)
+text(655,y4+55,'4 to 6: no new tap, same paid area (firsthand)',15)
 text(585,y4+145,'6',22,COL['6'],anchor='end',weight='600')
 y6=chain('6',630,y4+120,61,transfers=['G00204','G00243'])
 line(630,y6+12,630,y6+110,'#888',True)
-text(655,y6+50,'Walk ~2 min to the curbside 7E stop',15)
+text(655,y6+50,'Exit the paid area - really short walk to the curbside 7E stop',15)
 text(585,y6+145,'7E',22,COL['7E'],anchor='end',weight='600')
 y7=chain('7E',630,y6+120,60,transfers=['B07989P','B01062P'])
 # The 7E continues toward Kampung Rambutan past the Arkadia stop.
@@ -96,17 +96,17 @@ fy=y7+280
 node(630,fy,'Flyover Raya Bogor - get off',COL['7E'],True)
 text(607,fy-120,'Rode past Jln. Gabus Raya?',14,anchor='end')
 text(607,fy-100,'Ride on to Flyover Raya Bogor and',13,anchor='end')
-text(607,fy-84,'switch direction there - the physical',13,anchor='end')
-text(607,fy-68,'link and re-tap fare are unverified.',13,anchor='end')
+text(607,fy-84,'switch direction there - inside the',13,anchor='end')
+text(607,fy-68,'paid area, no exit or new fare.',13,anchor='end')
 for ay in (y7-150,y7+28,y7+122,y7+210,y7+254):tri(630,ay,COL['7E'],up=False)
-# Direction switch: a candidate from the listings, not a confirmed physical link.
+# Direction switch: firsthand 18 Nov 2026 the link stays inside the paid area.
 ry=y7+452
 add(f'<path d="M 618 {fy+6} C 470 {fy+120}, 400 {ry-30}, 346 {ry+2}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<path d="M 312 {ry+2} L 344 {ry-11} L 344 {ry+15} Z" fill="currentColor" opacity=".6" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
 add(f"<circle cx='300' cy='{ry}' r='12' fill='Canvas' stroke='{COL['7E']}' stroke-width='4'/>")
 text(277,ry+6,'Flyover Raya Bogor',20,weight='600',anchor='end')
 text(277,ry+30,'board toward Ragunan',13,anchor='end')
-text(277,ry+46,'physical link unverified',13,anchor='end')
+text(277,ry+46,'inside the paid area (firsthand)',13,anchor='end')
 # Return leg runs back UP the left column, toward the venue.
 line(300,py+12,300,ry-12,COL['7E'])
 for i,name in enumerate(['Gg. Nanas','Jln. Nangka Raya','Telkomsel Jln. Nangka','ACC Simatupang','Muara Dalam','Plaza Pp Condet 1','SMAN 104','RSUD Pasar Rebo 1']):
@@ -135,9 +135,9 @@ line(1200,yend+12,1200,yend+100,'#888',True)
 text(1225,yend+83,'Walk ~300 m',17)
 text(1225,yend+116,'Markas Indonesia',24,'#2e9e50',weight='600')
 foot0=max(ry+50,fy+76,yend+116,y9+96)+50
-text(60,foot0,'Rings = boarding / transfer / get off · small circles = intermediate stops · arrowheads = travel direction · dashed = walk or an unverified direction switch',20)
+text(60,foot0,'Rings = boarding / transfer / get off · small circles = intermediate stops · arrowheads = travel direction · dashed = walk or a direction switch',20)
 text(60,foot0+35,'Corridor legs show the listed direction only - do not reverse them. The drawn 7E return leg is the actual Ragunan-bound pattern.',18)
-text(60,foot0+70,'The 7E Flyover Raya Bogor switch is a candidate from GTFS-derived listings - the physical link and re-tap fare are unverified.',17)
+text(60,foot0+70,'The 7E Flyover Raya Bogor switch was a candidate from GTFS-derived listings - firsthand 18 Nov 2026 it stays inside the paid area, no new fare.',17)
 text(60,foot0+105,'Firsthand 18 Nov 2026: the venue sits beside the Phe Tower Kebagusan stop; the pedestrian bridge is between the Mujair and',17)
 text(60,foot0+130,'Phe Tower stops; Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan.',17)
 text(60,foot0+165,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)

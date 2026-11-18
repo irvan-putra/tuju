@@ -85,7 +85,7 @@ text(60,2685,'Only the travel direction shown is covered. Do not reverse this di
 text(60,2720,'7E return-direction stops Phe Tower Kebagusan and Baung are in the destination closeup, not this outbound line.',17)
 text(60,2755,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)
 text(60,2790,'Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.',17)
-text(60,2825,'Passed Jln. Gabus Raya on the 7E? Turn around at Flyover Raya Bogor - card with the Arkadia Green Park route (vanipy.com/tuju/).',17)
+text(60,2825,'Passed Jln. Gabus Raya on the 7E? Candidate turnaround at Flyover Raya Bogor - see the Arkadia route card (vanipy.com/tuju/).',17)
 add('</svg>')
 svg='\n'.join(A)
 p=ROOT/'index.html'; src=p.read_text()

@@ -35,6 +35,8 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
  return end
 add('<title id="all-stops-title">Outbound routes and Arkadia homebound options, with intermediate stops</title>')
 add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026).</desc>')
+SH=420  # whole network shifts right so the 7F homebound column can sit at the far left
+add(f'<g transform="translate({SH} 0)">')
 add('<g transform="translate(700 0)">')
 node(700,155,'Green Pramuka area','#777',True)
 for x in [-530,630,1200]:line(700,170,x,230,'#888',True)
@@ -213,32 +215,44 @@ def return_chain(key,x,bottom,top,color,skipfirst=False):
   if not(skipfirst and i==0):node(x,yy,name,color,i in (0,len(ss)-1))
   if i<len(ss)-1:tri(x,yy-step/2,color)
  return top
-text(60,45,'One network · out and home',30,weight='600')
-text(60,80,'Shared 4 / 6 spine · down outbound, up homebound · only different stops branch.',19)
-text(60,110,'Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.',17)
+text(60-SH,45,'One network · out and home',30,weight='600')
+text(60-SH,80,'Shared 4 / 6 spine · down outbound, up homebound · only different stops branch.',19)
+text(60-SH,110,'Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.',17)
 text(1580,fy+100,'A · from Phe Tower beside the venue',20,COL['7E'],weight='600')
 text(1580,fy+128,'7E toward Ragunan: no bridge crossing',17)
 text(1580,fy+156,'Ragunan: check 7E → 6 boarding access;',17)
 text(1580,fy+184,'allow a fresh tap/fare. Continuity unverified.',17)
 text(1580,fy+212,'A terminus is not a guarantee of a seat.',17)
-# Far-side homebound choice connects to the existing venue bridge and Flyover area.
-fx=2600
-return_chain('7F-return',fx,fy,240,'#6536b0')
-text(2625,590,'7F ↑ Juanda segment',20,'#6536b0',weight='600')
-text(2625,620,'Confirm Kayu Putih Rawasari',16)
-text(2625,646,'on this service / loop headsign.',16)
-# Link its endpoint to the SAME Kayu Putih stop in the outbound 10 branch.
-add('<path d="M 2588 240 L 2588 130 L 170 130 L 170 228" fill="none" stroke="Canvas" stroke-width="10"/>')
-add('<path d="M 2588 240 L 2588 130 L 170 130 L 170 228" fill="none" stroke="#6536b0" stroke-width="3" stroke-dasharray="5 7"/>')
-text(1800,118,'Same Kayu Putih Rawasari · walk ~230 m to Green Pramuka',16,anchor='middle')
-# Deliberately NOT a guaranteed paid-area connection from 7E to 7F.
-add(f'<path d="M 1324 {y7-43} Q 1510 {y7-43} 1510 {y7+90} L 1510 {fy-76} L {fx-12} {fy-12}" fill="none" stroke="currentColor" opacity=".6" stroke-width="3" stroke-dasharray="5 7"/>')
+# Far-side homebound choice: the 7F column sits at the far LEFT, near the venue-side return
+# column and beside the 10 outbound column, and its Gojek link runs below the network.
+fx=300-SH
+def return_chain_left(key,x,bottom,top,color):
+ ss=R[key]['stops']; step=(bottom-top)/(len(ss)-1)
+ line(x,bottom,x,top,color)
+ for i,name in enumerate(ss):
+  yy=bottom-i*step
+  node(x,yy,name,color,i in (0,len(ss)-1),anchor='end')
+  if i<len(ss)-1:tri(x,yy-step/2,color)
+return_chain_left('7F-return',fx,fy,240,'#6536b0')
+text(fx-23,205,'7F ↑ Juanda segment',20,'#6536b0',anchor='end',weight='600')
+text(fx-23,fy+44,'Get on 7F here; check access.',16,anchor='end')
+# The 7F end is the SAME Kayu Putih Rawasari stop as the first outbound 10 stop, right beside it.
+add(f'<path d="M {fx+12} 240 L {170-12} 240" fill="none" stroke="Canvas" stroke-width="10"/>')
+add(f'<path d="M {fx+12} 240 L {170-12} 240" fill="none" stroke="#6536b0" stroke-width="3" stroke-dasharray="5 7"/>')
+text(fx+22,228,'same stop as 10 outbound',14)
+text(fx-23,640,'Confirm Kayu Putih Rawasari',16,anchor='end')
+text(fx-23,666,'on this service / loop headsign.',16,anchor='end')
+# Deliberately NOT a guaranteed paid-area connection from 7E to 7F: a separate Gojek hop.
+gy=ry+80
+add(f'<path d="M 1324 {y7-43} Q 1510 {y7-43} 1510 {y7+90} L 1510 {gy} L {fx} {gy} L {fx} {fy+12}" fill="none" stroke="currentColor" opacity=".6" stroke-width="3" stroke-dasharray="5 7"/>')
+tri(fx,fy+60,'#6536b0',up=True)
 text(1580,fy-210,'B · bridge to far-side pickup → Gojek to Flyover Raya Bogor',21,weight='600')
 text(1580,fy-180,'Gojek fare/time and 7F boarding access unverified.',17)
 text(1580,fy-150,'Separate option, not a detour on 7E → 6 → 4.',17)
-text(2625,fy+40,'Get on 7F here; check access.',16)
+text(900,gy-10,'Gojek hop to the 7F pickup (left)',16)
+add('</g>')
 # Source/service caveats stay within the unified map, below the network only as notes.
-end=max(ry+100,2760)
+end=max(ry+150,2760)
 for i,t in enumerate([
  'Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.',
  '7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;',

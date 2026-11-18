@@ -78,6 +78,8 @@ jobs:
 
           0.1.7 merges the shared outbound/homebound 4 and 6 station areas into a single two-way spine. Only the different 4 approach and Flyover Kuningan branch locally; the distinct roadside 7E stops and all access/fare/service caveats stay visible.
 
+          0.1.8 moves the Gojek / 7F homebound option to the far left, beside the venue-side 7E return column. Same stops, directions and caveats; the Gojek hop is drawn as a separate dashed link below the network.
+
           Pixel 6 / API 34 emulator checks cover map fit, actual pinch zoom and dragging. Not tested on a physical Samsung. Same package and pinned signing certificate as 0.1.0; intended as an in-place update.
 
           SHA-256 of the APK is in the attached .sha256 file.

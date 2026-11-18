@@ -137,11 +137,12 @@ foot0=max(ry+50,fy+76,yend+116,y9+96)+50
 text(60,foot0,'Rings = boarding / transfer / get off · small circles = intermediate stops · arrowheads = travel direction · dashed = walk or an unverified direction switch',20)
 text(60,foot0+35,'Corridor legs show the listed direction only - do not reverse them. The drawn 7E return leg is the actual Ragunan-bound pattern.',18)
 text(60,foot0+70,'The 7E Flyover Raya Bogor switch is a candidate from GTFS-derived listings - the physical link and re-tap fare are unverified.',17)
-text(60,foot0+105,'Firsthand 18 Nov 2026: the venue sits beside the Phe Tower Kebagusan stop, just past Jln. Gabus Raya toward Kampung Rambutan; the pedestrian bridge is between the Mujair and Phe Tower stops; Baung is farther along on the venue side.',17)
-text(60,foot0+140,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)
-text(60,foot0+175,'Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.',17)
+text(60,foot0+105,'Firsthand 18 Nov 2026: the venue sits beside the Phe Tower Kebagusan stop, just past Jln. Gabus Raya toward Kampung Rambutan;',17)
+text(60,foot0+130,'the pedestrian bridge is between the Mujair and Phe Tower stops; Baung is farther along on the venue side.',17)
+text(60,foot0+165,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)
+text(60,foot0+200,'Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.',17)
 add('</svg>')
-H=foot0+215
+H=foot0+240
 svg=f'<svg viewBox="0 0 1700 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.

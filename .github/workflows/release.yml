@@ -1,0 +1,76 @@
+name: tuju signed release
+
+# Manual only. Builds the release APK, signs it with the tuju key from repository secrets,
+# verifies the signature and package, then publishes a GitHub pre-release with a direct APK link.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    working-directory: android
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      EXPECTED_CERT_SHA256: "PLACEHOLDER_SET_AFTER_FIRST_KEY"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Map asset is in sync with index.html
+        run: python3 tools/build_map_asset.py --check
+      - run: chmod +x ./gradlew
+      - name: Read version
+        id: v
+        run: |
+          VER=$(sed -n 's/^val appVersionName = "\(.*\)"/\1/p' app/build.gradle.kts)
+          test -n "$VER"
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+      - name: Unit tests
+        run: ./gradlew --no-daemon testDebugUnitTest
+      - name: Build and sign
+        env:
+          TUJU_KEYSTORE_B64: ${{ secrets.TUJU_KEYSTORE_B64 }}
+          TUJU_STORE_PASSWORD: ${{ secrets.TUJU_STORE_PASSWORD }}
+          TUJU_KEY_ALIAS: ${{ secrets.TUJU_KEY_ALIAS }}
+          TUJU_KEY_PASSWORD: ${{ secrets.TUJU_KEY_PASSWORD }}
+        run: |
+          echo "$TUJU_KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/tuju.jks"
+          export TUJU_KEYSTORE_FILE="$RUNNER_TEMP/tuju.jks"
+          ./gradlew --no-daemon assembleRelease
+          rm -f "$RUNNER_TEMP/tuju.jks"
+      - name: Verify signature, package and permissions
+        shell: bash
+        run: |
+          set -euo pipefail
+          VER="${{ steps.v.outputs.version }}"
+          APK="app/build/outputs/apk/release/tuju-v${VER}-release.apk"
+          test -f "$APK"
+          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
+          "$BT/apksigner" verify --verbose --print-certs "$APK" | tee /tmp/cert.txt
+          GOT=$(grep -m1 'certificate SHA-256 digest' /tmp/cert.txt | awk '{print toupper($NF)}')
+          test "$GOT" = "$EXPECTED_CERT_SHA256"
+          if "$BT/apksigner" verify --print-certs "$APK" | grep -q 'DEBUG'; then exit 1; fi
+          if "$BT/aapt" dump permissions "$APK" | grep -q 'uses-permission'; then exit 1; fi
+          cp "$APK" "tuju-v${VER}.apk"
+          sha256sum "tuju-v${VER}.apk" | tee "tuju-v${VER}.apk.sha256"
+      - name: Publish pre-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VER="${{ steps.v.outputs.version }}"
+          cat > notes.md <<NOTES
+          tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network, no permissions. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
+
+          SHA-256 of the APK is in the attached .sha256 file.
+          NOTES
+          gh release create "v${VER}" "tuju-v${VER}.apk" "tuju-v${VER}.apk.sha256" \
+            --title "tuju ${VER}" --notes-file notes.md --prerelease --target "${GITHUB_SHA}"

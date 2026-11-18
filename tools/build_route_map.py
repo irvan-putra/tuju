@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'data/route-stops.json').read_text())
 S={s['route']:s for s in D['segments']}
-COL={'10':'#6536b0','9':'#27803c','4':'#1769aa','6':'#d36300','7E':'#00838f','4C':'#c52d36','5M':'#9045ac'}
+COL={'10':'#6536b0','9':'#27803c','4':'#1769aa','6':'#d36300','7E':'#00838f','4C':'#c52d36','5M':'#9045ac','4D':'#0f6e6e'}
 A=[]
 def add(s): A.append(s)
 def text(x,y,s,size=20,color='currentColor',anchor='start',weight='normal'):
@@ -134,16 +134,27 @@ text(1225,yend+43,'via Cikini pattern; other 5M patterns differ',15)
 line(1200,yend+12,1200,yend+100,'#888',True)
 text(1225,yend+83,'Walk ~300 m',17)
 text(1225,yend+116,'Markas Indonesia',24,'#2e9e50',weight='600')
-foot0=max(ry+50,fy+76,yend+116,y9+96)+50
+# 4D to Rasuna Said, stacked below Markas Indonesia. Stop order is NOT from the GTFS snapshot (see data/route-stops.json).
+y4d0=yend+250
+text(1155,y4d0+30,'4D',22,COL['4D'],anchor='end',weight='600')
+text(1225,y4d0-48,'Rasuna Said: walk ~290 m to the same Simpang Pramuka 2',15)
+text(1225,y4d0-28,'stop as corridor 4, but board 4D toward Patra Kuningan',15)
+y4d=chain('4D',1200,y4d0,58,transfers=['B08048P','G00289'])
+line(1200,y4d+12,1200,y4d+100,'#888',True)
+text(1225,y4d+62,'Walk ~100 m',17)
+text(1225,y4d+95,'Plaza Festival / Usmar Ismail Hall',22,'#2e9e50',weight='600')
+text(1225,y4d+120,'stop order from jaGOdetabek / halte.id, not GTFS',14)
+foot0=max(ry+50,fy+76,y4d+130,y9+96)+50
 text(60,foot0,'Rings = boarding / transfer / get off · small circles = intermediate stops · arrowheads = travel direction · dashed = walk or a direction switch',20)
 text(60,foot0+35,'Corridor legs show the listed direction only - do not reverse them. The drawn 7E return leg is the actual Ragunan-bound pattern.',18)
 text(60,foot0+70,'The 7E Flyover Raya Bogor switch was a candidate from GTFS-derived listings - firsthand 18 Nov 2026 it stays inside the paid area, no new fare.',17)
 text(60,foot0+105,'Firsthand 18 Nov 2026: the venue sits beside the Phe Tower Kebagusan stop; the pedestrian bridge is between the Mujair and',17)
 text(60,foot0+130,'Phe Tower stops; Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan.',17)
+text(60,foot0+235,'The 4D leg (to Rasuna Said, outbound only) is from jaGOdetabek and halte.id listings; the GTFS feed could not be reached to confirm it.',17)
 text(60,foot0+165,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)
 text(60,foot0+200,'Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.',17)
 add('</svg>')
-H=foot0+240
+H=foot0+280
 svg=f'<svg viewBox="0 0 1700 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.

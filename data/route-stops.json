@@ -506,6 +506,84 @@
           "sequence": 30
         }
       ]
+    },
+    {
+      "route": "4D",
+      "trip": null,
+      "direction": "Patra Kuningan (westbound pattern)",
+      "source": "NOT from the GTFS snapshot (feed unreachable 18 Nov 2026): stop order and stop IDs from jaGOdetabek https://jagodetabek.id/lin/TJ4D and halte.id https://halte.id/rute/4d-pulo-gadung-kuningan/, matching Wikipedia Transjakarta Corridor 4. Re-pull from official GTFS when reachable.",
+      "stops": [
+        {
+          "id": "B08048P",
+          "name": "Simpang Pramuka 2",
+          "sequence": 0
+        },
+        {
+          "id": "G00190",
+          "name": "Pramuka Sari",
+          "sequence": 1
+        },
+        {
+          "id": "G00193",
+          "name": "Utan Kayu",
+          "sequence": 2
+        },
+        {
+          "id": "G00195",
+          "name": "Pasar Genjing",
+          "sequence": 3
+        },
+        {
+          "id": "G00216",
+          "name": "Matraman",
+          "sequence": 4
+        },
+        {
+          "id": "G00214",
+          "name": "Tegalan",
+          "sequence": 5
+        },
+        {
+          "id": "G00212",
+          "name": "Kesatrian",
+          "sequence": 6
+        },
+        {
+          "id": "B08302P",
+          "name": "Halte Manggarai Temporer 2",
+          "sequence": 7
+        },
+        {
+          "id": "G00699",
+          "name": "Pasar Rumput",
+          "sequence": 8
+        },
+        {
+          "id": "G00733",
+          "name": "Halimun",
+          "sequence": 9
+        },
+        {
+          "id": "G00301",
+          "name": "Setiabudi Integritas",
+          "sequence": 10
+        },
+        {
+          "id": "G00295",
+          "name": "Kuningan Madya",
+          "sequence": 11
+        },
+        {
+          "id": "G00291",
+          "name": "Karet Kuningan",
+          "sequence": 12
+        },
+        {
+          "id": "G00289",
+          "name": "Rasuna Said",
+          "sequence": 13
+        }
+      ]
     }
   ]
 }

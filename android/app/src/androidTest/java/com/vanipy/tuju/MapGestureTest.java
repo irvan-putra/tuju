@@ -16,6 +16,11 @@ import android.webkit.WebView;
 public class MapGestureTest {
     private android.app.Instrumentation getInstrumentation() { return InstrumentationRegistry.getInstrumentation(); }
 
+    private float scale(WebView web) {
+        final float[] value = new float[1];
+        getInstrumentation().runOnMainSync(() -> value[0] = web.getScale());
+        return value[0];
+    }
     private void touch(long start, int action, float x1, float y1, float x2, float y2, int count) {
         MotionEvent.PointerProperties[] props = new MotionEvent.PointerProperties[count];
         MotionEvent.PointerCoords[] coords = new MotionEvent.PointerCoords[count];
@@ -43,7 +48,7 @@ public class MapGestureTest {
         getInstrumentation().waitForIdleSync();
         Thread.sleep(1500);
         WebView web = (WebView) ((android.view.ViewGroup) activity.findViewById(android.R.id.content)).getChildAt(0);
-        float before = web.getScale();
+        float before = scale(web);
         int[] position = new int[2];
         web.getLocationOnScreen(position);
         float cx = position[0] + web.getWidth() * .38f;
@@ -59,7 +64,7 @@ public class MapGestureTest {
         touch(t, MotionEvent.ACTION_POINTER_UP | (1 << MotionEvent.ACTION_POINTER_INDEX_SHIFT), cx-169, cy-96, cx+169, cy+96, 2);
         touch(t, MotionEvent.ACTION_UP, cx-169, cy-96, 0, 0, 1);
         Thread.sleep(800);
-        assertTrue("Pinch must enlarge actual WebView scale", web.getScale() > before * 1.5f);
+        assertTrue("Pinch must enlarge actual WebView scale", scale(web) > before * 1.5f);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "map-zoom.png")));
         // Drag the zoomed map and record resulting pixels.
         int oldX=web.getScrollX(), oldY=web.getScrollY();

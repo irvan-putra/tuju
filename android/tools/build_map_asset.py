@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Build the app's offline map asset from the tuju website source.
 
-Extracts the combined "all routes at a glance" SVG (the first
-<svg viewBox="0 0 560 ...> block in ../index.html) and wraps it in a
-minimal standalone page for the app's WebView. The app shows only this
-map; the route cards stay on the website.
+Extracts the combined "all routes at a glance" card from ../index.html:
+the first <svg viewBox="0 0 560 ...> map plus the card's intro and closing
+notes (they carry the route-uncertainty caveats, which must stay with the
+map). The closing note is adapted for the app: the route cards live on the
+website, not "below", and the map is already enlarged here.
 
 Usage:
     tools/build_map_asset.py           write app/src/main/assets/map.html
@@ -25,30 +26,50 @@ PAGE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>tuju</title>
 <style>
-  :root { color-scheme: light dark; }
-  * { box-sizing: border-box; }
-  body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; }
-  svg { width: 100vw; height: auto; display: block; margin: 0; }
+  :root {{ color-scheme: light dark; }}
+  body {{ font-family: system-ui, -apple-system, sans-serif; margin: 0; line-height: 1.55; }}
+  svg {{ width: 100%; height: auto; display: block; }}
+  .note {{ font-size: .85rem; opacity: .8; padding: .4rem .75rem .2rem; margin: 0; }}
+  .note:last-child {{ padding-bottom: .9rem; }}
 </style>
 </head>
 <body>
-%s
+{intro}
+{svg}
+{closing}
 </body>
 </html>
 """
 
 
-def extract_svg(html):
-    m = re.search(r'<svg viewBox="0 0 560 \d+".*?</svg>', html, re.S)
+def extract_card(html):
+    m = re.search(
+        r'<p class="note">(?P<intro>.*?)</p>\s*'
+        r'<svg viewBox="0 0 560 \d+".*?</svg>\s*'
+        r'<details class="mapzoom">.*?</details>\s*'
+        r'<p class="note">(?P<closing>.*?)</p>',
+        html, re.S)
     if not m:
-        sys.exit("no combined 560-wide map svg found in " + SRC)
-    return m.group(0)
+        sys.exit("combined map card (intro note + 560-wide svg + closing note) not found in " + SRC)
+    svg = re.search(r'<svg viewBox="0 0 560 \d+".*?</svg>', m.group(0), re.S).group(0)
+    closing = m.group("closing")
+    # The app has no route cards "below" and the map is already enlarged.
+    closing = closing.replace("details and fares in the route cards below",
+                              "details and fares in the route cards at vanipy.com/tuju/")
+    closing = re.sub(r"\s*Small print\?.*", "", closing)
+    return m.group("intro"), svg, closing
+
+
+def render():
+    with open(os.path.normpath(SRC), encoding="utf-8") as f:
+        intro, svg, closing = extract_card(f.read())
+    return PAGE.format(intro='<p class="note">%s</p>' % intro,
+                       svg=svg,
+                       closing='<p class="note">%s</p>' % closing)
 
 
 def main():
-    with open(os.path.normpath(SRC), encoding="utf-8") as f:
-        svg = extract_svg(f.read())
-    page = PAGE % svg
+    page = render()
     if "--check" in sys.argv:
         try:
             with open(OUT, encoding="utf-8") as f:

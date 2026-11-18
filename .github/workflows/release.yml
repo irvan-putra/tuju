@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      EXPECTED_CERT_SHA256: "PLACEHOLDER_SET_AFTER_FIRST_KEY"
+      EXPECTED_CERT_SHA256: "0A53B9A50A4487772E138F6FE24591FACAE97A5D6DDA97D31E8370B8DD0A2CB4"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4

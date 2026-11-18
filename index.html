@@ -18,6 +18,8 @@
   ol.legs { padding-left: 1.3rem; }
   ol.legs li { margin: .35rem 0; }
   svg { width: 100%; height: auto; display: block; margin: 1rem 0; }
+  .routesvg { overflow-x: auto; }
+  .routesvg svg { min-width: 34rem; }
   .note { font-size: .85rem; opacity: .8; }
   footer { margin-top: 3rem; font-size: .8rem; opacity: .7; }
   a { color: #4a7ddb; }
@@ -56,6 +58,7 @@
 
 <div class="card">
 <h3>Route A - busway, fewer transfers <span class="tag">TransJakarta</span></h3>
+<div class="routesvg">
 <svg viewBox="-90 0 730 410" role="img" aria-label="Route A schematic: walk from the Green Pramuka area to Halte Simpang Pramuka, corridor 4 to Halte Galunggung, corridor 6 to Simpang Ragunan Ar-Raudhah, then 7E to Jln. Gabus Raya near Arkadia">
   <circle cx="90" cy="30" r="7" fill="#888"/>
   <text x="115" y="34" font-size="13" fill="currentColor">Green Pramuka area (start)</text>
@@ -82,6 +85,7 @@
   <rect x="83" y="373" width="14" height="14" rx="3" fill="#3f7d4e"/>
   <text x="115" y="384" font-size="13" fill="currentColor">De Entrance - Arkadia Green Park</text>
 </svg>
+</div>
 <p class="note">Schematic, not to scale. Each colored line is one service; the rings mark transfers.</p>
 <ol class="legs">
   <li>Walk to <strong>Halte Simpang Pramuka</strong> (corridor 4, ~290 m from the Green Pramuka area).</li>
@@ -95,6 +99,7 @@
 
 <div class="card">
 <h3>Route B - checked this morning on Google Maps <span class="tag">TransJakarta</span> <span class="tag">KRL</span></h3>
+<div class="routesvg">
 <svg viewBox="-90 0 730 440" role="img" aria-label="Route B schematic: walk to Kayu Putih Rawasari, bus 10 to Flyover Jatinegara, walk to Jatinegara station, KRL Cikarang Line to Manggarai, KRL Bogor Line to Tanjung Barat, then D21 or walk to Arkadia">
   <circle cx="90" cy="25" r="7" fill="#888"/>
   <text x="115" y="29" font-size="13" fill="currentColor">Green Pramuka area (start)</text>
@@ -129,6 +134,7 @@
   <rect x="83" y="403" width="14" height="14" rx="3" fill="#3f7d4e"/>
   <text x="115" y="414" font-size="13" fill="currentColor">De Entrance - Arkadia Green Park</text>
 </svg>
+</div>
 <p class="note">Schematic, not to scale. Each colored line is one service; the ring marks the train change.</p>
 <ol class="legs">
   <li>Walk ~230 m to <strong>Halte Kayu Putih Rawasari</strong> (platform D-E-F).</li>

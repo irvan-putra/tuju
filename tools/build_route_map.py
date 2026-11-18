@@ -137,11 +137,11 @@ text(1225,yend+116,'Markas Indonesia',24,'#2e9e50',weight='600')
 # 4D to Rasuna Said, stacked below Markas Indonesia. Stop order is NOT from the GTFS snapshot (see data/route-stops.json).
 y4d0=yend+250
 text(1155,y4d0+30,'4D',22,COL['4D'],anchor='end',weight='600')
-text(1225,y4d0-48,'Rasuna Said: walk ~290 m to the same Simpang Pramuka 2',15)
-text(1225,y4d0-28,'stop as corridor 4, but board 4D toward Patra Kuningan',15)
+text(1225,y4d0-48,'Rasuna Said: board 4D toward Patra Kuningan at Simpang Pramuka 2',15)
+text(1225,y4d0-28,'(walk ~14 min per Google Maps; ride ~54 min scheduled)',15)
 y4d=chain('4D',1200,y4d0,58,transfers=['B08048P','G00289'])
 line(1200,y4d+12,1200,y4d+100,'#888',True)
-text(1225,y4d+62,'Walk ~100 m',17)
+text(1225,y4d+62,'Exit Akses E, walk ~2 min',17)
 text(1225,y4d+95,'Plaza Festival / Usmar Ismail Hall',22,'#2e9e50',weight='600')
 text(1225,y4d+120,'stop order from jaGOdetabek / halte.id, not GTFS',14)
 foot0=max(ry+50,fy+76,y4d+130,y9+96)+50

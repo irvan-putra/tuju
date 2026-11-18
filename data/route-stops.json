@@ -1,0 +1,511 @@
+{
+  "source": "https://gtfs.transjakarta.co.id/files/file_gtfs.zip",
+  "checked": "2026-11-18",
+  "feed_sha256": "fd20783ee216aa9ebac2555098ceedea36cb2f6ea03ee4e4b49acbd093617fc0",
+  "segments": [
+    {
+      "route": "4",
+      "trip": "4-R26",
+      "direction": "Galunggung via Saharjo",
+      "stops": [
+        {
+          "id": "B08048P",
+          "name": "Simpang Pramuka 2",
+          "sequence": 8
+        },
+        {
+          "id": "G00190",
+          "name": "Pramuka Sari",
+          "sequence": 9
+        },
+        {
+          "id": "G00193",
+          "name": "Utan Kayu",
+          "sequence": 10
+        },
+        {
+          "id": "G00195",
+          "name": "Pasar Genjing",
+          "sequence": 11
+        },
+        {
+          "id": "G00216",
+          "name": "Matraman",
+          "sequence": 12
+        },
+        {
+          "id": "G00214",
+          "name": "Tegalan",
+          "sequence": 13
+        },
+        {
+          "id": "G00212",
+          "name": "Kesatrian",
+          "sequence": 14
+        },
+        {
+          "id": "B08302P",
+          "name": "Halte Manggarai Temporer 2",
+          "sequence": 15
+        },
+        {
+          "id": "G00699",
+          "name": "Pasar Rumput",
+          "sequence": 16
+        },
+        {
+          "id": "G00733",
+          "name": "Halimun",
+          "sequence": 17
+        },
+        {
+          "id": "G00202",
+          "name": "Galunggung",
+          "sequence": 18
+        }
+      ]
+    },
+    {
+      "route": "6",
+      "trip": "6-R04",
+      "direction": "Ragunan",
+      "stops": [
+        {
+          "id": "G00204",
+          "name": "Galunggung",
+          "sequence": 0
+        },
+        {
+          "id": "G00299",
+          "name": "Setiabudi Integritas",
+          "sequence": 1
+        },
+        {
+          "id": "G00297",
+          "name": "Kuningan Madya",
+          "sequence": 2
+        },
+        {
+          "id": "G00293",
+          "name": "Karet Kuningan",
+          "sequence": 3
+        },
+        {
+          "id": "G00287",
+          "name": "Rasuna Said",
+          "sequence": 4
+        },
+        {
+          "id": "G00283",
+          "name": "Kuningan",
+          "sequence": 5
+        },
+        {
+          "id": "G00281",
+          "name": "Patra Kuningan",
+          "sequence": 6
+        },
+        {
+          "id": "G00277",
+          "name": "Underpass Kuningan",
+          "sequence": 7
+        },
+        {
+          "id": "G00271",
+          "name": "Mampang Prapatan",
+          "sequence": 8
+        },
+        {
+          "id": "G00266",
+          "name": "Duren Tiga",
+          "sequence": 9
+        },
+        {
+          "id": "G00264",
+          "name": "Warung Buncit",
+          "sequence": 10
+        },
+        {
+          "id": "G00263",
+          "name": "Warung Jati",
+          "sequence": 11
+        },
+        {
+          "id": "G00260",
+          "name": "Buncit Indah",
+          "sequence": 12
+        },
+        {
+          "id": "G00258",
+          "name": "Pejaten",
+          "sequence": 13
+        },
+        {
+          "id": "G00255",
+          "name": "Jati Padang",
+          "sequence": 14
+        },
+        {
+          "id": "G00250",
+          "name": "Jati Barat",
+          "sequence": 15
+        },
+        {
+          "id": "G00243",
+          "name": "Simpang Ragunan Ar-Raudhah",
+          "sequence": 16
+        }
+      ]
+    },
+    {
+      "route": "7E",
+      "trip": "7E-R05",
+      "direction": "Kampung Rambutan",
+      "stops": [
+        {
+          "id": "B07989P",
+          "name": "Masjid Ar-Raudhah",
+          "sequence": 2
+        },
+        {
+          "id": "B00035P",
+          "name": "Ampera 1",
+          "sequence": 3
+        },
+        {
+          "id": "B01733P",
+          "name": "Jatipadang Raya",
+          "sequence": 4
+        },
+        {
+          "id": "B01170P",
+          "name": "Jln. Jatipadang Poncol",
+          "sequence": 5
+        },
+        {
+          "id": "B01407P",
+          "name": "Jln. Mujair Raya",
+          "sequence": 6
+        },
+        {
+          "id": "B01062P",
+          "name": "Jln. Gabus Raya",
+          "sequence": 7
+        }
+      ]
+    },
+    {
+      "route": "10",
+      "trip": "10-R01",
+      "direction": "PGC",
+      "stops": [
+        {
+          "id": "G00473",
+          "name": "Kayu Putih Rawasari",
+          "sequence": 10
+        },
+        {
+          "id": "G00469",
+          "name": "Pemuda Pramuka",
+          "sequence": 11
+        },
+        {
+          "id": "G00465",
+          "name": "Utan Kayu Rawamangun",
+          "sequence": 12
+        },
+        {
+          "id": "G00460",
+          "name": "Pisangan",
+          "sequence": 13
+        },
+        {
+          "id": "G00459",
+          "name": "Flyover Jatinegara",
+          "sequence": 14
+        },
+        {
+          "id": "G00456",
+          "name": "Pedati Prumpung",
+          "sequence": 15
+        },
+        {
+          "id": "G00455",
+          "name": "Kebon Nanas",
+          "sequence": 16
+        },
+        {
+          "id": "G00453",
+          "name": "Halim",
+          "sequence": 17
+        },
+        {
+          "id": "G00451",
+          "name": "Simpang Cawang",
+          "sequence": 18
+        },
+        {
+          "id": "G00718",
+          "name": "Cawang Sentral",
+          "sequence": 19
+        }
+      ]
+    },
+    {
+      "route": "9",
+      "trip": "9-R01",
+      "direction": "Pluit",
+      "stops": [
+        {
+          "id": "G00721",
+          "name": "Cawang Sentral",
+          "sequence": 2
+        },
+        {
+          "id": "G00344",
+          "name": "Cawang",
+          "sequence": 3
+        },
+        {
+          "id": "G00408",
+          "name": "Ciliwung Arah Barat",
+          "sequence": 4
+        },
+        {
+          "id": "G00412",
+          "name": "Cikoko Arah Barat",
+          "sequence": 5
+        },
+        {
+          "id": "G00415",
+          "name": "Tebet Eco Park Arah Barat",
+          "sequence": 6
+        },
+        {
+          "id": "G00417",
+          "name": "Pancoran Tugu Arah Barat",
+          "sequence": 7
+        },
+        {
+          "id": "G00738",
+          "name": "Pancoran Arah Barat",
+          "sequence": 8
+        },
+        {
+          "id": "G00419",
+          "name": "Tegal Parang Arah Barat",
+          "sequence": 9
+        },
+        {
+          "id": "G00421",
+          "name": "Simpang Kuningan",
+          "sequence": 10
+        },
+        {
+          "id": "G00425",
+          "name": "Denpasar Arah Barat",
+          "sequence": 11
+        },
+        {
+          "id": "G00665",
+          "name": "Widya Chandra Telkomsel Arah Barat",
+          "sequence": 12
+        },
+        {
+          "id": "G00429",
+          "name": "Semanggi",
+          "sequence": 13
+        },
+        {
+          "id": "G00077",
+          "name": "Gerbang Pemuda Arah Barat",
+          "sequence": 14
+        },
+        {
+          "id": "G00726",
+          "name": "Petamburan",
+          "sequence": 15
+        },
+        {
+          "id": "G00433",
+          "name": "Kemanggisan Arah Utara",
+          "sequence": 16
+        },
+        {
+          "id": "G00436",
+          "name": "Kota Bambu Arah Utara",
+          "sequence": 17
+        },
+        {
+          "id": "G00403",
+          "name": "Tanjung Duren Arah Barat",
+          "sequence": 18
+        }
+      ]
+    },
+    {
+      "route": "4C",
+      "trip": "4C-R09",
+      "direction": "Bundaran Senayan",
+      "stops": [
+        {
+          "id": "B07260P",
+          "name": "Pramuka BPKP 2",
+          "sequence": 15
+        },
+        {
+          "id": "B07261P",
+          "name": "Pramuka LIA 2",
+          "sequence": 16
+        },
+        {
+          "id": "B08077P",
+          "name": "Utan Kayu 2",
+          "sequence": 17
+        },
+        {
+          "id": "B06425P",
+          "name": "Jln. Pramuka 4",
+          "sequence": 18
+        },
+        {
+          "id": "B06445P",
+          "name": "Jln. Pramuka 2",
+          "sequence": 19
+        },
+        {
+          "id": "B05003P",
+          "name": "Simpang Matraman 2",
+          "sequence": 20
+        },
+        {
+          "id": "B02350P",
+          "name": "Masjid Jami Matraman",
+          "sequence": 21
+        },
+        {
+          "id": "B05812P",
+          "name": "Tugu Proklamasi",
+          "sequence": 22
+        }
+      ]
+    },
+    {
+      "route": "5M",
+      "trip": "5M-L04",
+      "direction": "Tanah Abang via Cikini",
+      "stops": [
+        {
+          "id": "B02386P",
+          "name": "Matraman 3",
+          "sequence": 9
+        },
+        {
+          "id": "B02350P",
+          "name": "Masjid Jami Matraman",
+          "sequence": 10
+        },
+        {
+          "id": "B05812P",
+          "name": "Tugu Proklamasi",
+          "sequence": 11
+        },
+        {
+          "id": "B05813P",
+          "name": "Tugu Proklamasi 2",
+          "sequence": 12
+        },
+        {
+          "id": "B01468P",
+          "name": "Jln. Penataran",
+          "sequence": 13
+        },
+        {
+          "id": "B05391P",
+          "name": "SMPN 8",
+          "sequence": 14
+        },
+        {
+          "id": "B05730P",
+          "name": "Teuku Cik Ditiro",
+          "sequence": 15
+        },
+        {
+          "id": "B03149P",
+          "name": "RS Mata Menteng",
+          "sequence": 16
+        },
+        {
+          "id": "B03192P",
+          "name": "RSIA Bunda 2",
+          "sequence": 17
+        },
+        {
+          "id": "B02076P",
+          "name": "Konsil Kedokteran Indonesia",
+          "sequence": 18
+        },
+        {
+          "id": "B05128P",
+          "name": "Simpang RP Soeroso",
+          "sequence": 19
+        },
+        {
+          "id": "B00346P",
+          "name": "Farmasi RP Soeroso",
+          "sequence": 20
+        },
+        {
+          "id": "B01813P",
+          "name": "Kanisius",
+          "sequence": 21
+        },
+        {
+          "id": "B05693P",
+          "name": "Telkom Grapari",
+          "sequence": 22
+        },
+        {
+          "id": "B00102P",
+          "name": "Balai Kota 1",
+          "sequence": 23
+        },
+        {
+          "id": "B02755P",
+          "name": "Perpustakaan Nasional",
+          "sequence": 24
+        },
+        {
+          "id": "B00291P",
+          "name": "Dana Reksa",
+          "sequence": 25
+        },
+        {
+          "id": "B05891P",
+          "name": "Wisma Mandiri 2",
+          "sequence": 26
+        },
+        {
+          "id": "B01966P",
+          "name": "Kementerian Agama",
+          "sequence": 27
+        },
+        {
+          "id": "B03884P",
+          "name": "Sbr. Jembatan Serong",
+          "sequence": 28
+        },
+        {
+          "id": "B01639P",
+          "name": "Jln. Taman Kb. Sirih",
+          "sequence": 29
+        },
+        {
+          "id": "B01786P",
+          "name": "JPO Blok E",
+          "sequence": 30
+        }
+      ]
+    }
+  ]
+}

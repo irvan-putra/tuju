@@ -23,7 +23,7 @@
   a { color: #4a7ddb; }
   .mapzoom summary { cursor: pointer; color: #4a7ddb; font-size: .9rem; margin: .2rem 0 .4rem; }
   .mapzoom .zoomscroll { overflow: auto; max-height: 75vh; border: 1px solid #8884; border-radius: .5rem; }
-  .mapzoom .zoomscroll svg { width: 760px; max-width: none; margin: 0; }
+  .mapzoom .zoomscroll svg { width: 1700px; max-width: none; margin: 0; }
 
 </style>
 </head>
@@ -33,229 +33,473 @@
 
 <div class="card">
 <h3>All routes at a glance</h3>
-<p class="note">One shared map of every busway route on this page, schematic and not to scale. Rings mark transfers; dashed lines are walks. Corridor 4 is one shared line - the Arkadia route rides it all the way to Galunggung; the Markas route leaves it at Matraman.</p>
-<svg viewBox="0 0 560 910" role="img" aria-label="One combined schematic map of all busway routes from the Green Pramuka area: corridor 4 is a shared spine from Halte Simpang Pramuka through Pramuka Sari and Matraman to Halte Galunggung; the Arkadia route stays on it to Galunggung, then corridor 6 to Simpang Ragunan Ar-Raudhah and 7E to the TB Simatupang stops by De Entrance; the Markas route leaves corridor 4 at Matraman for the 5M feeder, or boards 4C at Pramuka BPKP 2 and joins the same 5M at Tugu Proklamasi, both ending at JPO Blok E; the Central Park route takes corridor 10 from Kayu Putih Rawasari to Cawang Sentral, then corridor 9 to Tanjung Duren Arah Barat; 7E bends around the Jl. S. Parman stops without meeting them - no S Parman to 7E transfer">
-  <circle cx="260" cy="26" r="8" fill="#888"/>
-  <text x="282" y="30" font-size="15" fill="currentColor">Green Pramuka area (start)</text>
-  <line x1="260" y1="34" x2="255" y2="103" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  
-  <line x1="260" y1="34" x2="85" y2="103" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="120" y="46" font-size="11" opacity=".7" fill="currentColor">walk ~230 m</text>
-  <line x1="260" y1="34" x2="395" y2="103" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="300" y="90" font-size="11" opacity=".7" fill="currentColor">walk ~850 m</text>
-  <polyline points="260,34 480,70 260,165" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="450" y="50" font-size="11" opacity=".7" fill="currentColor">walk ~1.1 km</text>
-  <line x1="85" y1="117" x2="85" y2="220" stroke="#5e35b1" stroke-width="5"/>
-  <text x="70" y="170" font-size="11.5" text-anchor="end" fill="#5e35b1">corridor 10</text>
-  <line x1="85" y1="240" x2="85" y2="540" stroke="#2e7d32" stroke-width="5"/>
-  <line x1="85" y1="540" x2="104" y2="549" stroke="#2e7d32" stroke-width="5"/>
-  <text x="70" y="390" font-size="11.5" text-anchor="end" fill="#2e7d32">corridor 9</text>
-  <line x1="255" y1="117" x2="255" y2="338" stroke="#1565c0" stroke-width="5"/>
-  <text x="240" y="200" font-size="11.5" text-anchor="end" fill="#1565c0">corridor 4</text>
-  <text x="240" y="305" font-size="11.5" text-anchor="end" fill="#1565c0">toward Galunggung</text>
-  <line x1="255" y1="355" x2="255" y2="430" stroke="#ef6c00" stroke-width="5"/>
-  <text x="240" y="395" font-size="11.5" text-anchor="end" fill="#ef6c00">corridor 6</text>
-  <polyline points="255,450 255,470 335,520 335,652 257,673" fill="none" stroke="#00838f" stroke-width="5"/>
-  <text x="322" y="600" font-size="11.5" text-anchor="end" fill="#00838f">7E</text>
-  <line x1="395" y1="117" x2="395" y2="220" stroke="#c62828" stroke-width="5"/>
-  <text x="380" y="145" font-size="11.5" text-anchor="end" fill="#c62828">4C</text>
-  <line x1="263" y1="264" x2="290" y2="294" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <circle cx="296" cy="299" r="6" fill="#8e44ad"/>
-  <line x1="302" y1="307" x2="514" y2="350" stroke="#8e44ad" stroke-width="5"/>
-  <line x1="410" y1="242" x2="512" y2="350" stroke="#8e44ad" stroke-width="5"/>
-  <circle cx="520" cy="356" r="5" fill="#8e44ad"/>
-  <line x1="520" y1="356" x2="520" y2="840" stroke="#8e44ad" stroke-width="5"/>
-  <text x="505" y="500" font-size="11.5" text-anchor="end" fill="#8e44ad">5M toward Tanah Abang</text>
-  <circle cx="255" cy="110" r="7" fill="#1565c0"/>
-  <text x="240" y="148" font-size="14" text-anchor="end" fill="currentColor">Halte Simpang Pramuka</text>
-  <text x="240" y="162" font-size="11" text-anchor="end" opacity=".7" fill="currentColor">walk ~290 m</text>
-  <circle cx="85" cy="110" r="7" fill="#5e35b1"/>
-  <text x="103" y="114" font-size="13" fill="currentColor">Kayu Putih Rawasari</text>
-  <text x="107" y="128" font-size="11" opacity=".7" fill="currentColor">platform D-E-F</text>
-  <circle cx="395" cy="110" r="7" fill="#c62828"/>
-  <text x="425" y="114" font-size="14" fill="currentColor">Pramuka BPKP 2</text>
-  <text x="425" y="128" font-size="11" opacity=".7" fill="currentColor">curbside, tap on bus</text>
-  <circle cx="255" cy="175" r="7" fill="#1565c0"/>
-  <text x="277" y="172" font-size="14" fill="currentColor">Pramuka Sari</text>
-  <text x="277" y="186" font-size="11" opacity=".7" fill="currentColor">4/4D halte, tap in</text>
-  <circle cx="85" cy="230" r="10" fill="#5e35b1" stroke="#2e7d32" stroke-width="4"/>
-  <text x="107" y="234" font-size="14" fill="currentColor">Cawang Sentral</text>
-  <text x="107" y="248" font-size="10" opacity=".7" fill="currentColor">platform change 10 to 9</text>
-  <text x="107" y="262" font-size="10" opacity=".7" fill="currentColor">inside one paid halte</text>
-  <text x="107" y="276" font-size="10" opacity=".7" fill="currentColor">~1 min, per Google Maps</text>
-  <text x="107" y="290" font-size="10" opacity=".7" fill="currentColor">Intermoda interchange</text>
-  <circle cx="395" cy="230" r="10" fill="#c62828" stroke="#8e44ad" stroke-width="4"/>
-  <text x="425" y="227" font-size="14" fill="currentColor">Tugu Proklamasi</text>
-  <text x="425" y="241" font-size="11" opacity=".7" fill="currentColor">same curbside stop,</text>
-  <text x="425" y="255" font-size="11" opacity=".7" fill="currentColor">change to 5M</text>
-  <circle cx="255" cy="255" r="10" fill="#1565c0" stroke="#8e44ad" stroke-width="4"/>
-  <text x="277" y="259" font-size="14" fill="currentColor">Matraman</text>
-  <text x="294" y="273" font-size="11" opacity=".7" fill="currentColor">tap out, ~1 min walk</text>
-  <text x="294" y="287" font-size="11" opacity=".7" fill="currentColor">to Matraman 3 curbside</text>
-  <circle cx="255" cy="345" r="10" fill="#1565c0" stroke="#ef6c00" stroke-width="4"/>
-  <text x="277" y="342" font-size="14" fill="currentColor">Halte Galunggung</text>
-  <text x="277" y="356" font-size="11" opacity=".7" fill="currentColor">transfer corridor 4 to 6</text>
-  <text x="277" y="370" font-size="11" opacity=".7" fill="currentColor">paid-area continuity unconfirmed</text>
-  <circle cx="255" cy="440" r="10" fill="#ef6c00" stroke="#00838f" stroke-width="4"/>
-  <text x="277" y="444" font-size="14" fill="currentColor">Simpang Ragunan Ar-Raudhah</text>
-  <text x="277" y="458" font-size="11" opacity=".7" fill="currentColor">transfer corridor 6 to 7E</text>
-  <text x="277" y="472" font-size="11" opacity=".7" fill="currentColor">7E toward Kampung Rambutan boards</text>
-  <text x="295" y="486" font-size="11" opacity=".7" fill="currentColor">at Masjid Ar-Raudhah, ~2 min walk</text>
-  <line x1="15" y1="555" x2="280" y2="555" stroke="#888" stroke-width="4"/>
-  <text x="278" y="546" font-size="12" text-anchor="end" fill="currentColor">Jl. S. Parman (west)</text>
-  <rect x="112" y="494" width="140" height="40" rx="8" fill="#3f7d4e"/>
-  <text x="121" y="511" font-size="12" fill="#fff">Central Park Mall</text>
-  <text x="121" y="525" font-size="10" fill="#fff">Podomoro City, Kav 28</text>
-  <circle cx="110" cy="555" r="7" fill="#2e7d32"/>
-  <line x1="110" y1="562" x2="110" y2="580" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <text x="110" y="594" font-size="14" text-anchor="middle" fill="currentColor">Tanjung Duren Arah Barat</text>
-  <text x="110" y="608" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">corridors 8/9, ~350 m walk</text>
-  <circle cx="250" cy="555" r="7" fill="#d9534f"/>
-  <line x1="250" y1="562" x2="250" y2="600" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <text x="250" y="626" font-size="13" text-anchor="middle" fill="currentColor">Gerbang Tol Tj. Duren</text>
-  <text x="250" y="640" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">8K/8M/S11/JAK.53</text>
-  <text x="250" y="654" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">~2 min walk</text>
-  <line x1="30" y1="680" x2="460" y2="680" stroke="#888" stroke-width="4"/>
-  <text x="30" y="626" font-size="12" fill="currentColor">TB Simatupang (west)</text>
-  <text x="455" y="668" font-size="12" fill="currentColor">(east)</text>
-  <rect x="30" y="638" width="132" height="40" rx="8" fill="#3f7d4e"/>
-  <text x="39" y="655" font-size="12" fill="#fff">De Entrance</text>
-  <text x="39" y="669" font-size="10" fill="#fff">Arkadia Green Park</text>
-  <circle cx="255" cy="680" r="7" fill="#00838f"/>
-  <line x1="255" y1="687" x2="255" y2="705" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <text x="255" y="718" font-size="14" text-anchor="middle" fill="currentColor">Jln. Gabus Raya</text>
-  <text x="255" y="732" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">7A/7E/D21, ~1 min walk</text>
-  <text x="255" y="746" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">7E toward Kp. Rambutan</text>
-  <circle cx="345" cy="680" r="7" fill="#8e44ad"/>
-  <line x1="345" y1="687" x2="345" y2="735" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <text x="345" y="762" font-size="14" text-anchor="middle" fill="currentColor">Phe Tower Kebagusan</text>
-  <text x="345" y="776" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">7A/7E/D21, ~5 min walk; 7E toward Ragunan</text>
-  <circle cx="430" cy="680" r="7" fill="#d9534f"/>
-  <line x1="430" y1="687" x2="430" y2="705" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <text x="430" y="718" font-size="14" text-anchor="middle" fill="currentColor">Baung</text>
-  <text x="430" y="732" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">~4 min walk; 7E toward Ragunan</text>
-  <line x1="330" y1="846" x2="545" y2="846" stroke="#888" stroke-width="4"/>
-  <text x="332" y="802" font-size="11" fill="currentColor">Jl. H. Fachrudin</text>
-  <circle cx="520" cy="846" r="7" fill="#8e44ad"/>
-  <text x="510" y="802" font-size="13" text-anchor="end" fill="currentColor">JPO Blok E</text>
-  <text x="510" y="816" font-size="11" text-anchor="end" opacity=".7" fill="currentColor">1R/5M/8M/9D feeder stop,</text>
-  <text x="510" y="830" font-size="11" text-anchor="end" opacity=".7" fill="currentColor">~300 m walk to the venue</text>
-  <rect x="330" y="856" width="150" height="42" rx="8" fill="#3f7d4e"/>
-  <text x="339" y="873" font-size="12" fill="#fff">Markas Indonesia</text>
-  <text x="339" y="887" font-size="10" fill="#fff">Midpoint Place, Kp. Bali</text>
-  <line x1="513" y1="850" x2="450" y2="872" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
+<p class="note">Every intermediate stop, in outbound travel order. Pinch to zoom and drag to pan. Schematic, not to scale.</p>
+<svg viewBox="0 0 1700 2820" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
+<title id="all-stops-title">All intermediate stops on the selected outbound routes</title>
+<desc id="all-stops-desc">One connected schematic, not to scale. Read down each line in travel order. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops.</desc>
+<text x="60" y="45" font-size="30" fill="currentColor" text-anchor="start" font-weight="600">Every stop, in travel order</text>
+<text x="60" y="78" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Outbound routes only · schematic, not to scale · pinch to zoom and drag to pan</text>
+<text x="60" y="108" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Operator GTFS checked 18 Nov 2026. Route patterns and temporary stops can change.</text>
+<circle cx="700" cy="155" r="12" fill="Canvas" stroke="#777" stroke-width="4"/>
+<text x="723" y="161" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Green Pramuka area</text>
+<path d="M 700 170 L 70 230" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 700 170 L 630 230" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 700 170 L 1200 230" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="95" y="204" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">walk ~230 m</text>
+<text x="655" y="204" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">walk to boarding point</text>
+<text x="1230" y="204" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">walk ~850 m</text>
+<text x="40" y="270" font-size="22" fill="#6536b0" text-anchor="end" font-weight="600">10</text>
+<path d="M 70 240 L 70 735" fill="none" stroke="#6536b0" stroke-width="6"/>
+<circle cx="70" cy="240" r="12" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="246" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Kayu Putih Rawasari</text>
+<circle cx="70" cy="295" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="301" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pemuda Pramuka</text>
+<circle cx="70" cy="350" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="356" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Utan Kayu Rawamangun</text>
+<circle cx="70" cy="405" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="411" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pisangan</text>
+<circle cx="70" cy="460" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="466" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Flyover Jatinegara</text>
+<circle cx="70" cy="515" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="521" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pedati Prumpung</text>
+<circle cx="70" cy="570" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="576" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kebon Nanas</text>
+<circle cx="70" cy="625" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="631" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Halim</text>
+<circle cx="70" cy="680" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="686" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Cawang</text>
+<circle cx="70" cy="735" r="12" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="741" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Cawang Sentral</text>
+<text x="95" y="768" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">Change platform inside the same paid halte</text>
+<text x="25" y="825" font-size="22" fill="#27803c" text-anchor="end" font-weight="600">9</text>
+<path d="M 70 735 L 70 1775" fill="none" stroke="#27803c" stroke-width="6"/>
+<circle cx="70" cy="800" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="806" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Cawang</text>
+<circle cx="70" cy="865" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="871" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Ciliwung Arah Barat</text>
+<circle cx="70" cy="930" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="936" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Cikoko Arah Barat</text>
+<circle cx="70" cy="995" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1001" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Tebet Eco Park Arah Barat</text>
+<circle cx="70" cy="1060" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1066" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pancoran Tugu Arah Barat</text>
+<circle cx="70" cy="1125" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1131" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pancoran Arah Barat</text>
+<circle cx="70" cy="1190" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1196" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Tegal Parang Arah Barat</text>
+<circle cx="70" cy="1255" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1261" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Kuningan</text>
+<circle cx="70" cy="1320" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1326" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Denpasar Arah Barat</text>
+<circle cx="70" cy="1385" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1391" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Widya Chandra Telkomsel Arah</text>
+<text x="93" y="1415" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Barat</text>
+<circle cx="70" cy="1450" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1456" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Semanggi</text>
+<circle cx="70" cy="1515" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1521" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Gerbang Pemuda Arah Barat</text>
+<circle cx="70" cy="1580" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1586" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Petamburan</text>
+<circle cx="70" cy="1645" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1651" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kemanggisan Arah Utara</text>
+<circle cx="70" cy="1710" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1716" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kota Bambu Arah Utara</text>
+<circle cx="70" cy="1775" r="12" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1781" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Tanjung Duren Arah Barat</text>
+<path d="M 70 1787 L 70 1850" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="95" y="1838" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">Walk ~350 m</text>
+<text x="95" y="1871" font-size="24" fill="#27803c" text-anchor="start" font-weight="600">Central Park Mall</text>
+<text x="585" y="270" font-size="22" fill="#1769aa" text-anchor="end" font-weight="600">4</text>
+<path d="M 630 240 L 630 860" fill="none" stroke="#1769aa" stroke-width="6"/>
+<circle cx="630" cy="240" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="246" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Pramuka 2</text>
+<circle cx="630" cy="302" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="308" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pramuka Sari</text>
+<circle cx="630" cy="364" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="370" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Utan Kayu</text>
+<circle cx="630" cy="426" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="432" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pasar Genjing</text>
+<circle cx="630" cy="488" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="494" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Matraman</text>
+<circle cx="630" cy="550" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="556" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Tegalan</text>
+<circle cx="630" cy="612" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="618" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kesatrian</text>
+<circle cx="630" cy="674" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="680" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Halte Manggarai Temporer 2</text>
+<circle cx="630" cy="736" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="742" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pasar Rumput</text>
+<circle cx="630" cy="798" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="804" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Halimun</text>
+<circle cx="630" cy="860" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="866" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Galunggung</text>
+<text x="655" y="273" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">temporary stop · toward Galunggung via Saharjo</text>
+<path d="M 630 500 L 630 518 L 1000 518 L 1040 558" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<circle cx="1040" cy="558" r="12" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1017" y="564" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Matraman 3</text>
+<text x="1040" y="598" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">Tap out; ~1 min walk</text>
+<path d="M 630 872 L 630 970" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="655" y="915" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">4 to 6: paid-area continuity unconfirmed</text>
+<text x="585" y="1005" font-size="22" fill="#d36300" text-anchor="end" font-weight="600">6</text>
+<path d="M 630 980 L 630 1956" fill="none" stroke="#d36300" stroke-width="6"/>
+<circle cx="630" cy="980" r="12" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="986" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Galunggung</text>
+<circle cx="630" cy="1041" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1047" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Setiabudi Integritas</text>
+<circle cx="630" cy="1102" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1108" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kuningan Madya</text>
+<circle cx="630" cy="1163" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1169" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Karet Kuningan</text>
+<circle cx="630" cy="1224" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1230" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rasuna Said</text>
+<circle cx="630" cy="1285" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1291" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kuningan</text>
+<circle cx="630" cy="1346" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1352" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Patra Kuningan</text>
+<circle cx="630" cy="1407" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1413" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Underpass Kuningan</text>
+<circle cx="630" cy="1468" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1474" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Mampang Prapatan</text>
+<circle cx="630" cy="1529" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1535" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Duren Tiga</text>
+<circle cx="630" cy="1590" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1596" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Warung Buncit</text>
+<circle cx="630" cy="1651" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1657" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Warung Jati</text>
+<circle cx="630" cy="1712" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1718" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Buncit Indah</text>
+<circle cx="630" cy="1773" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1779" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pejaten</text>
+<circle cx="630" cy="1834" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1840" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jati Padang</text>
+<circle cx="630" cy="1895" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1901" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jati Barat</text>
+<circle cx="630" cy="1956" r="12" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1962" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Ragunan Ar-Raudhah</text>
+<path d="M 630 1968 L 630 2066" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="655" y="2006" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">Walk ~2 min to the curbside 7E stop</text>
+<text x="585" y="2101" font-size="22" fill="#00838f" text-anchor="end" font-weight="600">7E</text>
+<path d="M 630 2076 L 630 2376" fill="none" stroke="#00838f" stroke-width="6"/>
+<circle cx="630" cy="2076" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2082" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Masjid Ar-Raudhah</text>
+<circle cx="630" cy="2136" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2142" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Ampera 1</text>
+<circle cx="630" cy="2196" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2202" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jatipadang Raya</text>
+<circle cx="630" cy="2256" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2262" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Jatipadang Poncol</text>
+<circle cx="630" cy="2316" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2322" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Mujair Raya</text>
+<circle cx="630" cy="2376" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2382" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Jln. Gabus Raya</text>
+<path d="M 630 2388 L 630 2456" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="655" y="2438" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Walk ~1 min to De Entrance</text>
+<text x="655" y="2472" font-size="24" fill="#27803c" text-anchor="start" font-weight="600">Arkadia Green Park</text>
+<text x="1155" y="270" font-size="22" fill="#c52d36" text-anchor="end" font-weight="600">4C</text>
+<path d="M 1200 240 L 1200 674" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="1200" cy="240" r="12" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="246" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Pramuka BPKP 2</text>
+<circle cx="1200" cy="302" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="308" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pramuka LIA 2</text>
+<circle cx="1200" cy="364" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="370" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Utan Kayu 2</text>
+<circle cx="1200" cy="426" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="432" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Pramuka 4</text>
+<circle cx="1200" cy="488" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="494" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Pramuka 2</text>
+<circle cx="1200" cy="550" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="556" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Matraman 2</text>
+<circle cx="1200" cy="612" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="618" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Masjid Jami Matraman</text>
+<circle cx="1200" cy="674" r="12" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="680" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Tugu Proklamasi</text>
+<path d="M 1040 558 L 1200 612" fill="none" stroke="#9045ac" stroke-width="6"/>
+<text x="1110" y="596" font-size="18" fill="#9045ac" text-anchor="end" font-weight="normal">5M</text>
+<path d="M 1192 612 L 1192 674" fill="none" stroke="#9045ac" stroke-width="6"/>
+<text x="1225" y="708" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">Same curbside stop: change 4C to 5M</text>
+<path d="M 1200 674 L 1200 1833" fill="none" stroke="#9045ac" stroke-width="6"/>
+<circle cx="1200" cy="735" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="741" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Tugu Proklamasi 2</text>
+<circle cx="1200" cy="796" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="802" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Penataran</text>
+<circle cx="1200" cy="857" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="863" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">SMPN 8</text>
+<circle cx="1200" cy="918" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="924" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Teuku Cik Ditiro</text>
+<circle cx="1200" cy="979" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="985" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">RS Mata Menteng</text>
+<circle cx="1200" cy="1040" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1046" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">RSIA Bunda 2</text>
+<circle cx="1200" cy="1101" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1107" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Konsil Kedokteran Indonesia</text>
+<circle cx="1200" cy="1162" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1168" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang RP Soeroso</text>
+<circle cx="1200" cy="1223" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1229" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Farmasi RP Soeroso</text>
+<circle cx="1200" cy="1284" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1290" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kanisius</text>
+<circle cx="1200" cy="1345" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1351" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Telkom Grapari</text>
+<circle cx="1200" cy="1406" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1412" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Balai Kota 1</text>
+<circle cx="1200" cy="1467" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1473" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Perpustakaan Nasional</text>
+<circle cx="1200" cy="1528" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1534" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Dana Reksa</text>
+<circle cx="1200" cy="1589" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1595" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Wisma Mandiri 2</text>
+<circle cx="1200" cy="1650" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1656" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kementerian Agama</text>
+<circle cx="1200" cy="1711" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1717" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sbr. Jembatan Serong</text>
+<circle cx="1200" cy="1772" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1778" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Taman Kb. Sirih</text>
+<circle cx="1200" cy="1833" r="12" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1839" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">JPO Blok E</text>
+<text x="1155" y="764" font-size="22" fill="#9045ac" text-anchor="end" font-weight="600">5M</text>
+<text x="1225" y="1876" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">via Cikini pattern; other 5M patterns differ</text>
+<path d="M 1200 1845 L 1200 1933" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="1225" y="1916" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Walk ~300 m</text>
+<text x="1225" y="1949" font-size="24" fill="#27803c" text-anchor="start" font-weight="600">Markas Indonesia</text>
+<text x="60" y="2650" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rings = boarding / transfer / get off · small circles = intermediate stops · dashed = walk</text>
+<text x="60" y="2685" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Only the travel direction shown is covered. Do not reverse this diagram for the return trip.</text>
+<text x="60" y="2720" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">7E return-direction stops Phe Tower Kebagusan and Baung are in the destination closeup, not this outbound line.</text>
+<text x="60" y="2755" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip</text>
+<text x="60" y="2790" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.</text>
 </svg>
 <details class="mapzoom"><summary>Enlarge map</summary>
-<div class="zoomscroll"><svg viewBox="0 0 560 910" role="img" aria-label="One combined schematic map of all busway routes from the Green Pramuka area: corridor 4 is a shared spine from Halte Simpang Pramuka through Pramuka Sari and Matraman to Halte Galunggung; the Arkadia route stays on it to Galunggung, then corridor 6 to Simpang Ragunan Ar-Raudhah and 7E to the TB Simatupang stops by De Entrance; the Markas route leaves corridor 4 at Matraman for the 5M feeder, or boards 4C at Pramuka BPKP 2 and joins the same 5M at Tugu Proklamasi, both ending at JPO Blok E; the Central Park route takes corridor 10 from Kayu Putih Rawasari to Cawang Sentral, then corridor 9 to Tanjung Duren Arah Barat; 7E bends around the Jl. S. Parman stops without meeting them - no S Parman to 7E transfer">
-  <circle cx="260" cy="26" r="8" fill="#888"/>
-  <text x="282" y="30" font-size="15" fill="currentColor">Green Pramuka area (start)</text>
-  <line x1="260" y1="34" x2="255" y2="103" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  
-  <line x1="260" y1="34" x2="85" y2="103" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="120" y="46" font-size="11" opacity=".7" fill="currentColor">walk ~230 m</text>
-  <line x1="260" y1="34" x2="395" y2="103" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="300" y="90" font-size="11" opacity=".7" fill="currentColor">walk ~850 m</text>
-  <polyline points="260,34 480,70 260,165" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="450" y="50" font-size="11" opacity=".7" fill="currentColor">walk ~1.1 km</text>
-  <line x1="85" y1="117" x2="85" y2="220" stroke="#5e35b1" stroke-width="5"/>
-  <text x="70" y="170" font-size="11.5" text-anchor="end" fill="#5e35b1">corridor 10</text>
-  <line x1="85" y1="240" x2="85" y2="540" stroke="#2e7d32" stroke-width="5"/>
-  <line x1="85" y1="540" x2="104" y2="549" stroke="#2e7d32" stroke-width="5"/>
-  <text x="70" y="390" font-size="11.5" text-anchor="end" fill="#2e7d32">corridor 9</text>
-  <line x1="255" y1="117" x2="255" y2="338" stroke="#1565c0" stroke-width="5"/>
-  <text x="240" y="200" font-size="11.5" text-anchor="end" fill="#1565c0">corridor 4</text>
-  <text x="240" y="305" font-size="11.5" text-anchor="end" fill="#1565c0">toward Galunggung</text>
-  <line x1="255" y1="355" x2="255" y2="430" stroke="#ef6c00" stroke-width="5"/>
-  <text x="240" y="395" font-size="11.5" text-anchor="end" fill="#ef6c00">corridor 6</text>
-  <polyline points="255,450 255,470 335,520 335,652 257,673" fill="none" stroke="#00838f" stroke-width="5"/>
-  <text x="322" y="600" font-size="11.5" text-anchor="end" fill="#00838f">7E</text>
-  <line x1="395" y1="117" x2="395" y2="220" stroke="#c62828" stroke-width="5"/>
-  <text x="380" y="145" font-size="11.5" text-anchor="end" fill="#c62828">4C</text>
-  <line x1="263" y1="264" x2="290" y2="294" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <circle cx="296" cy="299" r="6" fill="#8e44ad"/>
-  <line x1="302" y1="307" x2="514" y2="350" stroke="#8e44ad" stroke-width="5"/>
-  <line x1="410" y1="242" x2="512" y2="350" stroke="#8e44ad" stroke-width="5"/>
-  <circle cx="520" cy="356" r="5" fill="#8e44ad"/>
-  <line x1="520" y1="356" x2="520" y2="840" stroke="#8e44ad" stroke-width="5"/>
-  <text x="505" y="500" font-size="11.5" text-anchor="end" fill="#8e44ad">5M toward Tanah Abang</text>
-  <circle cx="255" cy="110" r="7" fill="#1565c0"/>
-  <text x="240" y="148" font-size="14" text-anchor="end" fill="currentColor">Halte Simpang Pramuka</text>
-  <text x="240" y="162" font-size="11" text-anchor="end" opacity=".7" fill="currentColor">walk ~290 m</text>
-  <circle cx="85" cy="110" r="7" fill="#5e35b1"/>
-  <text x="103" y="114" font-size="13" fill="currentColor">Kayu Putih Rawasari</text>
-  <text x="107" y="128" font-size="11" opacity=".7" fill="currentColor">platform D-E-F</text>
-  <circle cx="395" cy="110" r="7" fill="#c62828"/>
-  <text x="425" y="114" font-size="14" fill="currentColor">Pramuka BPKP 2</text>
-  <text x="425" y="128" font-size="11" opacity=".7" fill="currentColor">curbside, tap on bus</text>
-  <circle cx="255" cy="175" r="7" fill="#1565c0"/>
-  <text x="277" y="172" font-size="14" fill="currentColor">Pramuka Sari</text>
-  <text x="277" y="186" font-size="11" opacity=".7" fill="currentColor">4/4D halte, tap in</text>
-  <circle cx="85" cy="230" r="10" fill="#5e35b1" stroke="#2e7d32" stroke-width="4"/>
-  <text x="107" y="234" font-size="14" fill="currentColor">Cawang Sentral</text>
-  <text x="107" y="248" font-size="10" opacity=".7" fill="currentColor">platform change 10 to 9</text>
-  <text x="107" y="262" font-size="10" opacity=".7" fill="currentColor">inside one paid halte</text>
-  <text x="107" y="276" font-size="10" opacity=".7" fill="currentColor">~1 min, per Google Maps</text>
-  <text x="107" y="290" font-size="10" opacity=".7" fill="currentColor">Intermoda interchange</text>
-  <circle cx="395" cy="230" r="10" fill="#c62828" stroke="#8e44ad" stroke-width="4"/>
-  <text x="425" y="227" font-size="14" fill="currentColor">Tugu Proklamasi</text>
-  <text x="425" y="241" font-size="11" opacity=".7" fill="currentColor">same curbside stop,</text>
-  <text x="425" y="255" font-size="11" opacity=".7" fill="currentColor">change to 5M</text>
-  <circle cx="255" cy="255" r="10" fill="#1565c0" stroke="#8e44ad" stroke-width="4"/>
-  <text x="277" y="259" font-size="14" fill="currentColor">Matraman</text>
-  <text x="294" y="273" font-size="11" opacity=".7" fill="currentColor">tap out, ~1 min walk</text>
-  <text x="294" y="287" font-size="11" opacity=".7" fill="currentColor">to Matraman 3 curbside</text>
-  <circle cx="255" cy="345" r="10" fill="#1565c0" stroke="#ef6c00" stroke-width="4"/>
-  <text x="277" y="342" font-size="14" fill="currentColor">Halte Galunggung</text>
-  <text x="277" y="356" font-size="11" opacity=".7" fill="currentColor">transfer corridor 4 to 6</text>
-  <text x="277" y="370" font-size="11" opacity=".7" fill="currentColor">paid-area continuity unconfirmed</text>
-  <circle cx="255" cy="440" r="10" fill="#ef6c00" stroke="#00838f" stroke-width="4"/>
-  <text x="277" y="444" font-size="14" fill="currentColor">Simpang Ragunan Ar-Raudhah</text>
-  <text x="277" y="458" font-size="11" opacity=".7" fill="currentColor">transfer corridor 6 to 7E</text>
-  <text x="277" y="472" font-size="11" opacity=".7" fill="currentColor">7E toward Kampung Rambutan boards</text>
-  <text x="295" y="486" font-size="11" opacity=".7" fill="currentColor">at Masjid Ar-Raudhah, ~2 min walk</text>
-  <line x1="15" y1="555" x2="280" y2="555" stroke="#888" stroke-width="4"/>
-  <text x="278" y="546" font-size="12" text-anchor="end" fill="currentColor">Jl. S. Parman (west)</text>
-  <rect x="112" y="494" width="140" height="40" rx="8" fill="#3f7d4e"/>
-  <text x="121" y="511" font-size="12" fill="#fff">Central Park Mall</text>
-  <text x="121" y="525" font-size="10" fill="#fff">Podomoro City, Kav 28</text>
-  <circle cx="110" cy="555" r="7" fill="#2e7d32"/>
-  <line x1="110" y1="562" x2="110" y2="580" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <text x="110" y="594" font-size="14" text-anchor="middle" fill="currentColor">Tanjung Duren Arah Barat</text>
-  <text x="110" y="608" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">corridors 8/9, ~350 m walk</text>
-  <circle cx="250" cy="555" r="7" fill="#d9534f"/>
-  <line x1="250" y1="562" x2="250" y2="600" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <text x="250" y="626" font-size="13" text-anchor="middle" fill="currentColor">Gerbang Tol Tj. Duren</text>
-  <text x="250" y="640" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">8K/8M/S11/JAK.53</text>
-  <text x="250" y="654" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">~2 min walk</text>
-  <line x1="30" y1="680" x2="460" y2="680" stroke="#888" stroke-width="4"/>
-  <text x="30" y="626" font-size="12" fill="currentColor">TB Simatupang (west)</text>
-  <text x="455" y="668" font-size="12" fill="currentColor">(east)</text>
-  <rect x="30" y="638" width="132" height="40" rx="8" fill="#3f7d4e"/>
-  <text x="39" y="655" font-size="12" fill="#fff">De Entrance</text>
-  <text x="39" y="669" font-size="10" fill="#fff">Arkadia Green Park</text>
-  <circle cx="255" cy="680" r="7" fill="#00838f"/>
-  <line x1="255" y1="687" x2="255" y2="705" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <text x="255" y="718" font-size="14" text-anchor="middle" fill="currentColor">Jln. Gabus Raya</text>
-  <text x="255" y="732" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">7A/7E/D21, ~1 min walk</text>
-  <text x="255" y="746" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">7E toward Kp. Rambutan</text>
-  <circle cx="345" cy="680" r="7" fill="#8e44ad"/>
-  <line x1="345" y1="687" x2="345" y2="735" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <text x="345" y="762" font-size="14" text-anchor="middle" fill="currentColor">Phe Tower Kebagusan</text>
-  <text x="345" y="776" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">7A/7E/D21, ~5 min walk; 7E toward Ragunan</text>
-  <circle cx="430" cy="680" r="7" fill="#d9534f"/>
-  <line x1="430" y1="687" x2="430" y2="705" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
-  <text x="430" y="718" font-size="14" text-anchor="middle" fill="currentColor">Baung</text>
-  <text x="430" y="732" font-size="11" text-anchor="middle" opacity=".7" fill="currentColor">~4 min walk; 7E toward Ragunan</text>
-  <line x1="330" y1="846" x2="545" y2="846" stroke="#888" stroke-width="4"/>
-  <text x="332" y="802" font-size="11" fill="currentColor">Jl. H. Fachrudin</text>
-  <circle cx="520" cy="846" r="7" fill="#8e44ad"/>
-  <text x="510" y="802" font-size="13" text-anchor="end" fill="currentColor">JPO Blok E</text>
-  <text x="510" y="816" font-size="11" text-anchor="end" opacity=".7" fill="currentColor">1R/5M/8M/9D feeder stop,</text>
-  <text x="510" y="830" font-size="11" text-anchor="end" opacity=".7" fill="currentColor">~300 m walk to the venue</text>
-  <rect x="330" y="856" width="150" height="42" rx="8" fill="#3f7d4e"/>
-  <text x="339" y="873" font-size="12" fill="#fff">Markas Indonesia</text>
-  <text x="339" y="887" font-size="10" fill="#fff">Midpoint Place, Kp. Bali</text>
-  <line x1="513" y1="850" x2="450" y2="872" stroke="#888" stroke-width="2" stroke-dasharray="2 3"/>
+<div class="zoomscroll"><svg viewBox="0 0 1700 2820" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
+<title id="all-stops-title">All intermediate stops on the selected outbound routes</title>
+<desc id="all-stops-desc">One connected schematic, not to scale. Read down each line in travel order. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops.</desc>
+<text x="60" y="45" font-size="30" fill="currentColor" text-anchor="start" font-weight="600">Every stop, in travel order</text>
+<text x="60" y="78" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Outbound routes only · schematic, not to scale · pinch to zoom and drag to pan</text>
+<text x="60" y="108" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Operator GTFS checked 18 Nov 2026. Route patterns and temporary stops can change.</text>
+<circle cx="700" cy="155" r="12" fill="Canvas" stroke="#777" stroke-width="4"/>
+<text x="723" y="161" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Green Pramuka area</text>
+<path d="M 700 170 L 70 230" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 700 170 L 630 230" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 700 170 L 1200 230" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="95" y="204" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">walk ~230 m</text>
+<text x="655" y="204" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">walk to boarding point</text>
+<text x="1230" y="204" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">walk ~850 m</text>
+<text x="40" y="270" font-size="22" fill="#6536b0" text-anchor="end" font-weight="600">10</text>
+<path d="M 70 240 L 70 735" fill="none" stroke="#6536b0" stroke-width="6"/>
+<circle cx="70" cy="240" r="12" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="246" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Kayu Putih Rawasari</text>
+<circle cx="70" cy="295" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="301" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pemuda Pramuka</text>
+<circle cx="70" cy="350" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="356" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Utan Kayu Rawamangun</text>
+<circle cx="70" cy="405" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="411" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pisangan</text>
+<circle cx="70" cy="460" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="466" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Flyover Jatinegara</text>
+<circle cx="70" cy="515" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="521" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pedati Prumpung</text>
+<circle cx="70" cy="570" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="576" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kebon Nanas</text>
+<circle cx="70" cy="625" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="631" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Halim</text>
+<circle cx="70" cy="680" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="686" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Cawang</text>
+<circle cx="70" cy="735" r="12" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="93" y="741" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Cawang Sentral</text>
+<text x="95" y="768" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">Change platform inside the same paid halte</text>
+<text x="25" y="825" font-size="22" fill="#27803c" text-anchor="end" font-weight="600">9</text>
+<path d="M 70 735 L 70 1775" fill="none" stroke="#27803c" stroke-width="6"/>
+<circle cx="70" cy="800" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="806" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Cawang</text>
+<circle cx="70" cy="865" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="871" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Ciliwung Arah Barat</text>
+<circle cx="70" cy="930" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="936" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Cikoko Arah Barat</text>
+<circle cx="70" cy="995" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1001" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Tebet Eco Park Arah Barat</text>
+<circle cx="70" cy="1060" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1066" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pancoran Tugu Arah Barat</text>
+<circle cx="70" cy="1125" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1131" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pancoran Arah Barat</text>
+<circle cx="70" cy="1190" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1196" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Tegal Parang Arah Barat</text>
+<circle cx="70" cy="1255" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1261" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Kuningan</text>
+<circle cx="70" cy="1320" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1326" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Denpasar Arah Barat</text>
+<circle cx="70" cy="1385" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1391" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Widya Chandra Telkomsel Arah</text>
+<text x="93" y="1415" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Barat</text>
+<circle cx="70" cy="1450" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1456" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Semanggi</text>
+<circle cx="70" cy="1515" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1521" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Gerbang Pemuda Arah Barat</text>
+<circle cx="70" cy="1580" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1586" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Petamburan</text>
+<circle cx="70" cy="1645" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1651" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kemanggisan Arah Utara</text>
+<circle cx="70" cy="1710" r="7" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1716" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kota Bambu Arah Utara</text>
+<circle cx="70" cy="1775" r="12" fill="Canvas" stroke="#27803c" stroke-width="4"/>
+<text x="93" y="1781" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Tanjung Duren Arah Barat</text>
+<path d="M 70 1787 L 70 1850" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="95" y="1838" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">Walk ~350 m</text>
+<text x="95" y="1871" font-size="24" fill="#27803c" text-anchor="start" font-weight="600">Central Park Mall</text>
+<text x="585" y="270" font-size="22" fill="#1769aa" text-anchor="end" font-weight="600">4</text>
+<path d="M 630 240 L 630 860" fill="none" stroke="#1769aa" stroke-width="6"/>
+<circle cx="630" cy="240" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="246" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Pramuka 2</text>
+<circle cx="630" cy="302" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="308" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pramuka Sari</text>
+<circle cx="630" cy="364" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="370" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Utan Kayu</text>
+<circle cx="630" cy="426" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="432" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pasar Genjing</text>
+<circle cx="630" cy="488" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="494" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Matraman</text>
+<circle cx="630" cy="550" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="556" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Tegalan</text>
+<circle cx="630" cy="612" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="618" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kesatrian</text>
+<circle cx="630" cy="674" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="680" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Halte Manggarai Temporer 2</text>
+<circle cx="630" cy="736" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="742" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pasar Rumput</text>
+<circle cx="630" cy="798" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="804" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Halimun</text>
+<circle cx="630" cy="860" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="653" y="866" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Galunggung</text>
+<text x="655" y="273" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">temporary stop · toward Galunggung via Saharjo</text>
+<path d="M 630 500 L 630 518 L 1000 518 L 1040 558" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<circle cx="1040" cy="558" r="12" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1017" y="564" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Matraman 3</text>
+<text x="1040" y="598" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">Tap out; ~1 min walk</text>
+<path d="M 630 872 L 630 970" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="655" y="915" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">4 to 6: paid-area continuity unconfirmed</text>
+<text x="585" y="1005" font-size="22" fill="#d36300" text-anchor="end" font-weight="600">6</text>
+<path d="M 630 980 L 630 1956" fill="none" stroke="#d36300" stroke-width="6"/>
+<circle cx="630" cy="980" r="12" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="986" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Galunggung</text>
+<circle cx="630" cy="1041" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1047" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Setiabudi Integritas</text>
+<circle cx="630" cy="1102" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1108" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kuningan Madya</text>
+<circle cx="630" cy="1163" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1169" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Karet Kuningan</text>
+<circle cx="630" cy="1224" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1230" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rasuna Said</text>
+<circle cx="630" cy="1285" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1291" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kuningan</text>
+<circle cx="630" cy="1346" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1352" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Patra Kuningan</text>
+<circle cx="630" cy="1407" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1413" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Underpass Kuningan</text>
+<circle cx="630" cy="1468" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1474" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Mampang Prapatan</text>
+<circle cx="630" cy="1529" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1535" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Duren Tiga</text>
+<circle cx="630" cy="1590" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1596" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Warung Buncit</text>
+<circle cx="630" cy="1651" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1657" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Warung Jati</text>
+<circle cx="630" cy="1712" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1718" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Buncit Indah</text>
+<circle cx="630" cy="1773" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1779" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pejaten</text>
+<circle cx="630" cy="1834" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1840" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jati Padang</text>
+<circle cx="630" cy="1895" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1901" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jati Barat</text>
+<circle cx="630" cy="1956" r="12" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="653" y="1962" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Ragunan Ar-Raudhah</text>
+<path d="M 630 1968 L 630 2066" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="655" y="2006" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">Walk ~2 min to the curbside 7E stop</text>
+<text x="585" y="2101" font-size="22" fill="#00838f" text-anchor="end" font-weight="600">7E</text>
+<path d="M 630 2076 L 630 2376" fill="none" stroke="#00838f" stroke-width="6"/>
+<circle cx="630" cy="2076" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2082" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Masjid Ar-Raudhah</text>
+<circle cx="630" cy="2136" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2142" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Ampera 1</text>
+<circle cx="630" cy="2196" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2202" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jatipadang Raya</text>
+<circle cx="630" cy="2256" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2262" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Jatipadang Poncol</text>
+<circle cx="630" cy="2316" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2322" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Mujair Raya</text>
+<circle cx="630" cy="2376" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="653" y="2382" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Jln. Gabus Raya</text>
+<path d="M 630 2388 L 630 2456" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="655" y="2438" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Walk ~1 min to De Entrance</text>
+<text x="655" y="2472" font-size="24" fill="#27803c" text-anchor="start" font-weight="600">Arkadia Green Park</text>
+<text x="1155" y="270" font-size="22" fill="#c52d36" text-anchor="end" font-weight="600">4C</text>
+<path d="M 1200 240 L 1200 674" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="1200" cy="240" r="12" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="246" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Pramuka BPKP 2</text>
+<circle cx="1200" cy="302" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="308" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pramuka LIA 2</text>
+<circle cx="1200" cy="364" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="370" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Utan Kayu 2</text>
+<circle cx="1200" cy="426" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="432" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Pramuka 4</text>
+<circle cx="1200" cy="488" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="494" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Pramuka 2</text>
+<circle cx="1200" cy="550" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="556" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Matraman 2</text>
+<circle cx="1200" cy="612" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="618" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Masjid Jami Matraman</text>
+<circle cx="1200" cy="674" r="12" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="1223" y="680" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Tugu Proklamasi</text>
+<path d="M 1040 558 L 1200 612" fill="none" stroke="#9045ac" stroke-width="6"/>
+<text x="1110" y="596" font-size="18" fill="#9045ac" text-anchor="end" font-weight="normal">5M</text>
+<path d="M 1192 612 L 1192 674" fill="none" stroke="#9045ac" stroke-width="6"/>
+<text x="1225" y="708" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">Same curbside stop: change 4C to 5M</text>
+<path d="M 1200 674 L 1200 1833" fill="none" stroke="#9045ac" stroke-width="6"/>
+<circle cx="1200" cy="735" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="741" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Tugu Proklamasi 2</text>
+<circle cx="1200" cy="796" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="802" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Penataran</text>
+<circle cx="1200" cy="857" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="863" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">SMPN 8</text>
+<circle cx="1200" cy="918" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="924" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Teuku Cik Ditiro</text>
+<circle cx="1200" cy="979" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="985" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">RS Mata Menteng</text>
+<circle cx="1200" cy="1040" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1046" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">RSIA Bunda 2</text>
+<circle cx="1200" cy="1101" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1107" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Konsil Kedokteran Indonesia</text>
+<circle cx="1200" cy="1162" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1168" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang RP Soeroso</text>
+<circle cx="1200" cy="1223" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1229" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Farmasi RP Soeroso</text>
+<circle cx="1200" cy="1284" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1290" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kanisius</text>
+<circle cx="1200" cy="1345" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1351" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Telkom Grapari</text>
+<circle cx="1200" cy="1406" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1412" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Balai Kota 1</text>
+<circle cx="1200" cy="1467" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1473" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Perpustakaan Nasional</text>
+<circle cx="1200" cy="1528" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1534" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Dana Reksa</text>
+<circle cx="1200" cy="1589" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1595" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Wisma Mandiri 2</text>
+<circle cx="1200" cy="1650" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1656" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kementerian Agama</text>
+<circle cx="1200" cy="1711" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1717" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sbr. Jembatan Serong</text>
+<circle cx="1200" cy="1772" r="7" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1778" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Taman Kb. Sirih</text>
+<circle cx="1200" cy="1833" r="12" fill="Canvas" stroke="#9045ac" stroke-width="4"/>
+<text x="1223" y="1839" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">JPO Blok E</text>
+<text x="1155" y="764" font-size="22" fill="#9045ac" text-anchor="end" font-weight="600">5M</text>
+<text x="1225" y="1876" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">via Cikini pattern; other 5M patterns differ</text>
+<path d="M 1200 1845 L 1200 1933" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="1225" y="1916" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Walk ~300 m</text>
+<text x="1225" y="1949" font-size="24" fill="#27803c" text-anchor="start" font-weight="600">Markas Indonesia</text>
+<text x="60" y="2650" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rings = boarding / transfer / get off · small circles = intermediate stops · dashed = walk</text>
+<text x="60" y="2685" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Only the travel direction shown is covered. Do not reverse this diagram for the return trip.</text>
+<text x="60" y="2720" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">7E return-direction stops Phe Tower Kebagusan and Baung are in the destination closeup, not this outbound line.</text>
+<text x="60" y="2755" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip</text>
+<text x="60" y="2790" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.</text>
 </svg></div></details>
 <p class="note">7E is a south Jakarta route (Ragunan - Kampung Rambutan): it does not stop on Jl. S. Parman and Gerbang Tol Tj. Duren is served by 8K/8M/S11/JAK.53, so there is no S Parman to 7E transfer. The Galunggung paid-area uncertainty still applies - details and fares in the route cards below. Small print? Tap <strong>Enlarge map</strong> above and drag to pan around the same map, bigger.</p>
 </div>

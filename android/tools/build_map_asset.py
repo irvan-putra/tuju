@@ -2,7 +2,7 @@
 """Build the app's offline map asset from the tuju website source.
 
 Extracts the combined "all routes at a glance" card from ../index.html:
-the first <svg viewBox="0 0 560 ...> map plus the card's intro and closing
+the first <svg viewBox="0 0 1700 ...> map plus the card's intro and closing
 notes (they carry the route-uncertainty caveats, which must stay with the
 map). The closing note is adapted for the app: the route cards live on the
 website, not "below", and the map is already enlarged here.
@@ -23,7 +23,7 @@ PAGE = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=8">
 <title>tuju</title>
 <style>
   :root {{ color-scheme: light dark; }}
@@ -45,13 +45,13 @@ PAGE = """<!DOCTYPE html>
 def extract_card(html):
     m = re.search(
         r'<p class="note">(?P<intro>.*?)</p>\s*'
-        r'<svg viewBox="0 0 560 \d+".*?</svg>\s*'
+        r'<svg viewBox="0 0 1700 \d+".*?</svg>\s*'
         r'<details class="mapzoom">.*?</details>\s*'
         r'<p class="note">(?P<closing>.*?)</p>',
         html, re.S)
     if not m:
-        sys.exit("combined map card (intro note + 560-wide svg + closing note) not found in " + SRC)
-    svg = re.search(r'<svg viewBox="0 0 560 \d+".*?</svg>', m.group(0), re.S).group(0)
+        sys.exit("combined map card (intro note + 1700-wide svg + closing note) not found in " + SRC)
+    svg = re.search(r'<svg viewBox="0 0 1700 \d+".*?</svg>', m.group(0), re.S).group(0)
     closing = m.group("closing")
     # The app has no route cards "below" and the map is already enlarged.
     closing = closing.replace("details and fares in the route cards below",

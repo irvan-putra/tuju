@@ -52,7 +52,7 @@ public class MapGestureTest extends ActivityInstrumentationTestCase2<MainActivit
         touch(t, MotionEvent.ACTION_UP, cx-169, cy-96, 0, 0, 1);
         Thread.sleep(800);
         assertTrue("Pinch must enlarge actual WebView scale", web.getScale() > before * 1.5f);
-        getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream("/sdcard/Download/tuju-map-zoom.png"));
+        getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "map-zoom.png")));
         // Drag the zoomed map and record resulting pixels.
         int oldX=web.getScrollX(), oldY=web.getScrollY();
         t=SystemClock.uptimeMillis();
@@ -64,6 +64,6 @@ public class MapGestureTest extends ActivityInstrumentationTestCase2<MainActivit
         touch(t,MotionEvent.ACTION_UP,cx-100,cy-240,0,0,1);
         Thread.sleep(700);
         assertTrue("Drag must move the enlarged map",web.getScrollX()!=oldX || web.getScrollY()!=oldY);
-        getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream("/sdcard/Download/tuju-map-pan.png"));
+        getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "map-pan.png")));
     }
 }

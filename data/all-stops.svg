@@ -103,7 +103,7 @@
 <text x="1017" y="564" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Matraman 3</text>
 <text x="1040" y="598" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">Tap out; ~1 min walk</text>
 <path d="M 630 872 L 630 970" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="655" y="915" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">4 to 6: no new tap, same paid area (firsthand)</text>
+<text x="655" y="915" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">4 to 6: no additional fare (firsthand)</text>
 <text x="585" y="1005" font-size="22" fill="#d36300" text-anchor="end" font-weight="600">6</text>
 <path d="M 630 980 L 630 1956" fill="none" stroke="#d36300" stroke-width="6"/>
 <circle cx="630" cy="980" r="12" fill="Canvas" stroke="#d36300" stroke-width="4"/>

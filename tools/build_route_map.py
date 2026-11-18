@@ -55,9 +55,9 @@ mat=240+next(i for i,s in enumerate(S['4']['stops']) if s['id']=='G00216')*62
 add(f'<path d="M 630 {mat+12} L 630 {mat+30} L 1000 {mat+30} L 1040 {mat+70}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 node(1040,mat+70,'Matraman 3',COL['5M'],True,anchor='end')
 text(1040,mat+110,'Tap out; ~1 min walk',15,anchor='end')
-# Firsthand 18 Nov 2026: the 4 to 6 change at Galunggung stayed in one paid area, no new tap.
+# Firsthand 18 Nov 2026: no additional fare for the 4 to 6 change at Galunggung.
 line(630,y4+12,630,y4+110,'#888',True)
-text(655,y4+55,'4 to 6: no new tap, same paid area (firsthand)',15)
+text(655,y4+55,'4 to 6: no additional fare (firsthand)',15)
 text(585,y4+145,'6',22,COL['6'],anchor='end',weight='600')
 y6=chain('6',630,y4+120,61,transfers=['G00204','G00243'])
 line(630,y6+12,630,y6+110,'#888',True)

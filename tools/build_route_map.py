@@ -71,25 +71,25 @@ line(630,y7+12,630,y7+268,COL['7E'])
 # Along the road toward Kampung Rambutan: Jln. Mujair Raya, then the footbridge,
 # then Phe Tower Kebagusan with the venue beside it, then Jln. Gabus Raya on the
 # far side, then Baung on the venue side.
-py=y7-4
+py=y7-26
 bq=y7+52
 add(f'<rect x="306" y="{y7-52}" width="318" height="116" fill="currentColor" opacity="0.12"/>')
 add(f'<line x1="465" y1="{y7-52}" x2="465" y2="{y7+64}" stroke="currentColor" opacity="0.35" stroke-width="3" stroke-dasharray="8 8"/>')
-add(f'<text x="300" y="{y7-16}" font-size="13" fill="currentColor" text-anchor="end">Via footbridge</text>')
-add(f'<text x="618" y="{y7-38}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="end">far side</text>')
-add(f'<text x="312" y="{y7-38}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="start">venue side</text>')
+add(f'<text x="300" y="{y7-42}" font-size="13" fill="currentColor" text-anchor="end">Via footbridge</text>')
+add(f'<text x="618" y="{y7-52}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="end">far side</text>')
+add(f'<text x="312" y="{y7-52}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="start">venue side</text>')
 # Pedestrian bridge across the road, between the Mujair and Phe Tower stops.
-add(f'<line x1="306" y1="{y7-32}" x2="624" y2="{y7-32}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
-add(f'<line x1="306" y1="{y7-20}" x2="624" y2="{y7-20}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
-for bx in range(318,624,18): add(f'<line x1="{bx}" y1="{y7-32}" x2="{bx}" y2="{y7-20}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
+add(f'<line x1="306" y1="{y7-48}" x2="624" y2="{y7-48}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
+add(f'<line x1="306" y1="{y7-38}" x2="624" y2="{y7-38}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
+for bx in range(318,624,18): add(f'<line x1="{bx}" y1="{y7-48}" x2="{bx}" y2="{y7-38}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
 # One shared venue marker beside the Phe Tower stop; all walks arrive at the same place.
-add(f'<rect x="457" y="{y7-10}" width="16" height="16" rx="3" fill="#2e9e50"/>')
+add(f'<rect x="457" y="{y7-34}" width="16" height="16" rx="3" fill="#2e9e50"/>')
 text(465,y7+32,'De Entrance -',19,'#2e9e50',weight='600',anchor='middle')
 text(465,y7+56,'Arkadia Green Park',19,'#2e9e50',weight='600',anchor='middle')
 text(465,y7+78,'same side as Phe Tower + Baung',13,anchor='middle')
-add(f'<path d="M 306 {y7-20} C 340 {y7-12}, 410 {y7-6}, 449 {y7-2}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 306 {y7-38} C 340 {y7-32}, 410 {y7-28}, 449 {y7-26}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<path d="M 312 {py+2} C 360 {py-2}, 410 {py-2}, 449 {py+2}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M 312 {bq+2} C 350 {bq-20}, 410 {y7+10}, 449 {y7+6}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 312 {bq+2} C 350 {bq-20}, 410 {y7-8}, 449 {y7-18}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 for i,name in enumerate(['Jln. H. Saidi','Jln. Nangka 1','Jln. Muara 1','Plaza Pp Condet 2','RSUD Pasar Rebo 2']):
  node(630,y7+56+i*44,name,COL['7E'])
 fy=y7+280

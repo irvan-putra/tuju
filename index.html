@@ -18,8 +18,6 @@
   ol.legs { padding-left: 1.3rem; }
   ol.legs li { margin: .35rem 0; }
   svg { width: 100%; height: auto; display: block; margin: 1rem 0; }
-  .routesvg { overflow-x: auto; }
-  .routesvg svg { min-width: 34rem; }
   .note { font-size: .85rem; opacity: .8; }
   footer { margin-top: 3rem; font-size: .8rem; opacity: .7; }
   a { color: #4a7ddb; }
@@ -58,8 +56,7 @@
 
 <div class="card">
 <h3>Route A - busway, fewer transfers <span class="tag">TransJakarta</span></h3>
-<div class="routesvg">
-<svg viewBox="-90 0 730 410" role="img" aria-label="Route A schematic: walk from the Green Pramuka area to Halte Simpang Pramuka, corridor 4 to Halte Galunggung, corridor 6 to Simpang Ragunan Ar-Raudhah, then 7E to Jln. Gabus Raya near Arkadia">
+<svg viewBox="0 0 440 410" role="img" aria-label="Route A schematic: walk from the Green Pramuka area to Halte Simpang Pramuka, corridor 4 to Halte Galunggung, corridor 6 to Simpang Ragunan Ar-Raudhah, then 7E to Jln. Gabus Raya near Arkadia">
   <circle cx="90" cy="30" r="7" fill="#888"/>
   <text x="115" y="34" font-size="13" fill="currentColor">Green Pramuka area (start)</text>
   <line x1="90" y1="37" x2="90" y2="83" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
@@ -85,7 +82,6 @@
   <rect x="83" y="373" width="14" height="14" rx="3" fill="#3f7d4e"/>
   <text x="115" y="384" font-size="13" fill="currentColor">De Entrance - Arkadia Green Park</text>
 </svg>
-</div>
 <p class="note">Schematic, not to scale. Each colored line is one service; the rings mark transfers.</p>
 <ol class="legs">
   <li>Walk to <strong>Halte Simpang Pramuka</strong> (corridor 4, ~290 m from the Green Pramuka area).</li>
@@ -99,8 +95,7 @@
 
 <div class="card">
 <h3>Route B - checked this morning on Google Maps <span class="tag">TransJakarta</span> <span class="tag">KRL</span></h3>
-<div class="routesvg">
-<svg viewBox="-90 0 730 440" role="img" aria-label="Route B schematic: walk to Kayu Putih Rawasari, bus 10 to Flyover Jatinegara, walk to Jatinegara station, KRL Cikarang Line to Manggarai, KRL Bogor Line to Tanjung Barat, then D21 or walk to Arkadia">
+<svg viewBox="0 0 405 440" role="img" aria-label="Route B schematic: walk to Kayu Putih Rawasari, bus 10 to Flyover Jatinegara, walk to Jatinegara station, KRL Cikarang Line to Manggarai, KRL Bogor Line to Tanjung Barat, then D21 or walk to Arkadia">
   <circle cx="90" cy="25" r="7" fill="#888"/>
   <text x="115" y="29" font-size="13" fill="currentColor">Green Pramuka area (start)</text>
   <line x1="90" y1="32" x2="90" y2="68" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
@@ -108,7 +103,7 @@
   <circle cx="90" cy="75" r="7" fill="#1565c0"/>
   <text x="115" y="79" font-size="13" fill="currentColor">Halte Kayu Putih Rawasari (platform D-E-F)</text>
   <line x1="90" y1="82" x2="90" y2="133" stroke="#1565c0" stroke-width="5"/>
-  <text x="70" y="110" font-size="10" text-anchor="end" fill="#1565c0">bus 10 - 4 stops</text>
+  <text x="70" y="104" font-size="10" text-anchor="end" fill="#1565c0"><tspan x="70" dy="0">bus 10</tspan><tspan x="70" dy="12">4 stops</tspan></text>
   <circle cx="90" cy="140" r="7" fill="#1565c0"/>
   <text x="115" y="144" font-size="13" fill="currentColor">Flyover Jatinegara</text>
   <line x1="90" y1="147" x2="90" y2="183" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
@@ -116,16 +111,16 @@
   <circle cx="90" cy="190" r="7" fill="#c62828"/>
   <text x="115" y="194" font-size="13" fill="currentColor">Jatinegara station (KRL)</text>
   <line x1="90" y1="197" x2="90" y2="243" stroke="#c62828" stroke-width="5"/>
-  <text x="70" y="224" font-size="10" text-anchor="end" fill="#c62828">Cikarang Line - 2 stops</text>
+  <text x="70" y="218" font-size="10" text-anchor="end" fill="#c62828"><tspan x="70" dy="0">Cikarang Line</tspan><tspan x="70" dy="12">2 stops</tspan></text>
   <circle cx="90" cy="250" r="10" fill="#c62828" stroke="#2e7d32" stroke-width="4"/>
   <text x="115" y="247" font-size="13" fill="currentColor">Manggarai - change trains</text>
   <text x="115" y="263" font-size="10" opacity=".7" fill="currentColor">Cikarang Line to Bogor Line, toward Bogor</text>
   <line x1="90" y1="260" x2="90" y2="313" stroke="#2e7d32" stroke-width="5"/>
-  <text x="70" y="290" font-size="10" text-anchor="end" fill="#2e7d32">Bogor Line - 6 stops</text>
+  <text x="70" y="284" font-size="10" text-anchor="end" fill="#2e7d32"><tspan x="70" dy="0">Bogor Line</tspan><tspan x="70" dy="12">6 stops</tspan></text>
   <circle cx="90" cy="320" r="7" fill="#2e7d32"/>
   <text x="115" y="324" font-size="13" fill="currentColor">Tanjung Barat</text>
   <line x1="90" y1="327" x2="90" y2="363" stroke="#8e44ad" stroke-width="5"/>
-  <text x="70" y="349" font-size="10" text-anchor="end" fill="#8e44ad">D21 - 2 stops</text>
+  <text x="70" y="343" font-size="10" text-anchor="end" fill="#8e44ad"><tspan x="70" dy="0">D21</tspan><tspan x="70" dy="12">2 stops</tspan></text>
   <circle cx="90" cy="370" r="7" fill="#8e44ad"/>
   <text x="115" y="374" font-size="13" fill="currentColor">Phe Tower Kebagusan</text>
   <text x="115" y="390" font-size="10" opacity=".7" fill="currentColor">or walk ~20 min from Tanjung Barat straight to Arkadia</text>
@@ -134,7 +129,6 @@
   <rect x="83" y="403" width="14" height="14" rx="3" fill="#3f7d4e"/>
   <text x="115" y="414" font-size="13" fill="currentColor">De Entrance - Arkadia Green Park</text>
 </svg>
-</div>
 <p class="note">Schematic, not to scale. Each colored line is one service; the ring marks the train change.</p>
 <ol class="legs">
   <li>Walk ~230 m to <strong>Halte Kayu Putih Rawasari</strong> (platform D-E-F).</li>

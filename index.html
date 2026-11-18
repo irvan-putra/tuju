@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>tuju - getting to Arkadia Green Park</title>
+<title>tuju - busway routes from the Green Pramuka area</title>
 <style>
   :root { color-scheme: light dark; }
   * { box-sizing: border-box; }
@@ -25,73 +25,84 @@
 </head>
 <body>
 <h1>tuju</h1>
-<p class="sub">Getting to <strong>De Entrance, Arkadia Green Park</strong> - Jl. TB Simatupang Kav 88, Kebagusan, Pasar Minggu, South Jakarta 12520.</p>
+<p class="sub">Busway-only routes from the Green Pramuka area to <strong>De Entrance, Arkadia Green Park</strong> (TB Simatupang), <strong>Markas Indonesia</strong> (Tanah Abang), and <strong>Central Park Mall</strong> (Tanjung Duren).</p>
 
 <div class="card">
-<h3>Both routes at a glance</h3>
-<svg viewBox="0 0 480 592" role="img" aria-label="Combined schematic: both routes from the Green Pramuka area to the TransJakarta stops on TB Simatupang by De Entrance, Arkadia Green Park - Route A busway on the left, Route B bus plus KRL on the right, destination stops along the bottom strip">
-  <circle cx="240" cy="28" r="8" fill="#888"/>
-  <text x="258" y="32" font-size="13" fill="currentColor">Green Pramuka area (start)</text>
-  <line x1="240" y1="35" x2="110" y2="76" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="150" y="52" font-size="10" text-anchor="middle" opacity=".7" fill="currentColor">walk ~290 m</text>
-  <line x1="240" y1="35" x2="370" y2="96" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="330" y="52" font-size="10" text-anchor="middle" opacity=".7" fill="currentColor">walk ~230 m</text>
-  <circle cx="110" cy="83" r="7" fill="#1565c0"/>
-  <text x="135" y="90" font-size="13" fill="currentColor">Halte Simpang Pramuka</text>
-  <line x1="110" y1="90" x2="110" y2="172" stroke="#1565c0" stroke-width="5"/>
-  <text x="95" y="130" font-size="10" text-anchor="end" fill="#1565c0">corridor 4</text>
-  <circle cx="110" cy="182" r="10" fill="#1565c0" stroke="#ef6c00" stroke-width="4"/>
-  <text x="135" y="186" font-size="13" fill="currentColor">Halte Galunggung</text>
-  <text x="135" y="202" font-size="10" opacity=".7" fill="currentColor">transfer corridor 4 to 6</text>
-  <text x="135" y="216" font-size="10" opacity=".7" fill="currentColor">paid-area continuity unconfirmed</text>
-  <line x1="110" y1="192" x2="110" y2="306" stroke="#ef6c00" stroke-width="5"/>
-  <text x="95" y="250" font-size="10" text-anchor="end" fill="#ef6c00">corridor 6</text>
-  <circle cx="110" cy="316" r="10" fill="#ef6c00" stroke="#00838f" stroke-width="4"/>
-  <text x="135" y="320" font-size="13" fill="currentColor">Simpang Ragunan Ar-Raudhah</text>
-  <text x="135" y="336" font-size="10" opacity=".7" fill="currentColor">transfer corridor 6 to 7E</text>
-  <text x="135" y="350" font-size="10" opacity=".7" fill="currentColor">7E boarding per secondary listings</text>
-  <line x1="110" y1="326" x2="110" y2="513" stroke="#00838f" stroke-width="5"/>
-  <text x="95" y="392" font-size="10" text-anchor="end" fill="#00838f">7E</text>
-  <circle cx="370" cy="103" r="7" fill="#1565c0"/>
-  <text x="345" y="110" font-size="13" text-anchor="end" fill="currentColor">Halte Kayu Putih Rawasari</text>
-  <line x1="370" y1="110" x2="370" y2="146" stroke="#1565c0" stroke-width="5"/>
-  <text x="388" y="120" font-size="10" fill="#1565c0"><tspan x="388" dy="0">bus 10</tspan><tspan x="388" dy="12">4 stops</tspan></text>
-  <circle cx="370" cy="153" r="7" fill="#1565c0"/>
-  <text x="345" y="160" font-size="13" text-anchor="end" fill="currentColor">Flyover Jatinegara</text>
-  <line x1="370" y1="160" x2="370" y2="224" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="388" y="194" font-size="10" opacity=".7" fill="currentColor">walk ~9 min</text>
-  <circle cx="370" cy="231" r="7" fill="#c62828"/>
-  <text x="345" y="235" font-size="13" text-anchor="end" fill="currentColor">Jatinegara station (KRL)</text>
-  <line x1="370" y1="238" x2="370" y2="271" stroke="#c62828" stroke-width="5"/>
-  <text x="388" y="250" font-size="10" fill="#c62828"><tspan x="388" dy="0">Cikarang Line</tspan><tspan x="388" dy="12">2 stops</tspan></text>
-  <circle cx="370" cy="278" r="10" fill="#c62828" stroke="#2e7d32" stroke-width="4"/>
-  <text x="345" y="282" font-size="13" text-anchor="end" fill="currentColor">Manggarai - change trains</text>
-  <text x="345" y="298" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">Cikarang Line to Bogor Line</text>
-  <line x1="370" y1="288" x2="370" y2="371" stroke="#2e7d32" stroke-width="5"/>
-  <text x="388" y="325" font-size="10" fill="#2e7d32"><tspan x="388" dy="0">Bogor Line</tspan><tspan x="388" dy="12">6 stops</tspan></text>
-  <circle cx="370" cy="378" r="7" fill="#2e7d32"/>
-  <text x="345" y="384" font-size="13" text-anchor="end" fill="currentColor">Tanjung Barat</text>
-  <text x="345" y="400" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">or walk ~20 min straight to Arkadia</text>
-  <line x1="370" y1="385" x2="370" y2="513" stroke="#8e44ad" stroke-width="5"/>
-  <text x="388" y="445" font-size="10" fill="#8e44ad"><tspan x="388" dy="0">D21</tspan><tspan x="388" dy="12">2 stops</tspan></text>
-  <line x1="45" y1="520" x2="470" y2="520" stroke="#888" stroke-width="4"/>
-  <text x="8" y="508" font-size="11" fill="currentColor">TB Simatupang</text>
-  <text x="440" y="508" font-size="11" fill="currentColor">(east)</text>
-  <rect x="160" y="498" width="130" height="44" rx="8" fill="#3f7d4e"/>
-  <text x="172" y="518" font-size="12" fill="#fff">De Entrance</text>
-  <text x="170" y="534" font-size="10" fill="#fff">Arkadia Green Park</text>
-  <circle cx="110" cy="520" r="7" fill="#00838f"/>
-  <text x="110" y="552" font-size="13" text-anchor="middle" fill="currentColor">Jln. Gabus Raya</text>
-  <text x="110" y="567" font-size="10" text-anchor="middle" opacity=".7" fill="currentColor">7A/7E/D21, ~1 min walk</text>
-  <circle cx="370" cy="520" r="7" fill="#8e44ad"/>
-  <text x="365" y="552" font-size="13" text-anchor="middle" fill="currentColor">Phe Tower Kebagusan</text>
-  <text x="365" y="567" font-size="10" text-anchor="middle" opacity=".7" fill="currentColor">7A/7E/D21, ~5 min walk</text>
-  <circle cx="445" cy="520" r="7" fill="#d9534f"/>
-  <text x="450" y="570" font-size="13" text-anchor="middle" fill="currentColor">Baung</text>
-  <text x="450" y="585" font-size="10" text-anchor="middle" opacity=".7" fill="currentColor">~4 min walk</text>
+<h3>All routes at a glance</h3>
+<svg viewBox="0 0 480 500" role="img" aria-label="Combined schematic: three busway routes from the Green Pramuka area - top row to Arkadia Green Park via corridors 4, 6 and 7E, middle row to Central Park Mall via corridors 10 and 9, bottom row to Markas Indonesia via 4C and 5M">
+  <!-- row 1: Arkadia -->
+  <circle cx="28" cy="96" r="6" fill="#888"/>
+  <text x="24" y="58" font-size="9" text-anchor="middle" fill="currentColor"><tspan x="24" dy="0">Green</tspan><tspan x="24" dy="10">Pramuka</tspan><tspan x="24" dy="10">area</tspan></text>
+  <line x1="34" y1="96" x2="82" y2="96" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="58" y="116" font-size="9" text-anchor="middle" opacity=".7" fill="currentColor"><tspan x="58" dy="0">walk</tspan><tspan x="58" dy="11">~290 m</tspan></text>
+  <circle cx="90" cy="96" r="7" fill="#1565c0"/>
+  <text x="90" y="70" font-size="10" text-anchor="middle" fill="currentColor"><tspan x="90" dy="0">Halte Simpang</tspan><tspan x="90" dy="11">Pramuka</tspan></text>
+  <line x1="97" y1="96" x2="170" y2="96" stroke="#1565c0" stroke-width="5"/>
+  <text x="133" y="108" font-size="9" text-anchor="middle" fill="#1565c0">corridor 4</text>
+  <circle cx="180" cy="96" r="9" fill="#1565c0" stroke="#ef6c00" stroke-width="4"/>
+  <text x="180" y="70" font-size="10" text-anchor="middle" fill="currentColor"><tspan x="180" dy="0">Halte</tspan><tspan x="180" dy="11">Galunggung</tspan></text>
+  <text x="178" y="122" font-size="8" text-anchor="middle" opacity=".7" fill="currentColor"><tspan x="178" dy="0">transfer 4 to 6</tspan><tspan x="178" dy="10">paid area unconfirmed</tspan></text>
+  <line x1="189" y1="96" x2="262" y2="96" stroke="#ef6c00" stroke-width="5"/>
+  <text x="224" y="108" font-size="9" text-anchor="middle" fill="#ef6c00">corridor 6</text>
+  <circle cx="272" cy="96" r="9" fill="#ef6c00" stroke="#00838f" stroke-width="4"/>
+  <text x="272" y="70" font-size="10" text-anchor="middle" fill="currentColor"><tspan x="272" dy="0">Simpang Ragunan</tspan><tspan x="272" dy="11">Ar-Raudhah</tspan></text>
+  <text x="278" y="122" font-size="8" text-anchor="middle" opacity=".7" fill="currentColor"><tspan x="278" dy="0">transfer 6 to 7E</tspan></text>
+  <line x1="281" y1="96" x2="348" y2="96" stroke="#00838f" stroke-width="5"/>
+  <text x="316" y="108" font-size="9" text-anchor="middle" fill="#00838f">7E</text>
+  <circle cx="356" cy="96" r="7" fill="#00838f"/>
+  <text x="360" y="136" font-size="10" text-anchor="middle" fill="currentColor"><tspan x="360" dy="0">Jln. Gabus Raya</tspan></text>
+  <line x1="363" y1="96" x2="392" y2="96" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <rect x="392" y="76" width="82" height="40" rx="7" fill="#3f7d4e"/>
+  <text x="433" y="92" font-size="10" text-anchor="middle" fill="#fff">De Entrance</text>
+  <text x="433" y="106" font-size="7.5" text-anchor="middle" fill="#fff">Arkadia Green Park</text>
+
+  <!-- row 2: Central Park -->
+  <circle cx="28" cy="246" r="6" fill="#888"/>
+  <line x1="34" y1="246" x2="82" y2="246" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="58" y="266" font-size="9" text-anchor="middle" opacity=".7" fill="currentColor"><tspan x="58" dy="0">walk</tspan><tspan x="58" dy="11">~230 m</tspan></text>
+  <circle cx="90" cy="246" r="7" fill="#5e35b1"/>
+  <text x="90" y="220" font-size="10" text-anchor="middle" fill="currentColor"><tspan x="90" dy="0">Kayu Putih</tspan><tspan x="90" dy="11">Rawasari</tspan></text>
+  <line x1="97" y1="246" x2="195" y2="246" stroke="#5e35b1" stroke-width="5"/>
+  <text x="146" y="238" font-size="9" text-anchor="middle" fill="#5e35b1">corridor 10</text>
+  <circle cx="205" cy="246" r="9" fill="#5e35b1" stroke="#2e7d32" stroke-width="4"/>
+  <text x="205" y="220" font-size="10" text-anchor="middle" fill="currentColor"><tspan x="205" dy="0">Cawang Sentral</tspan></text>
+  <text x="205" y="270" font-size="9" text-anchor="middle" opacity=".7" fill="currentColor"><tspan x="205" dy="0">transfer 10 to 9, same halte</tspan><tspan x="205" dy="10">(Intermoda interchange)</tspan></text>
+  <line x1="214" y1="246" x2="322" y2="246" stroke="#2e7d32" stroke-width="5"/>
+  <text x="268" y="238" font-size="9" text-anchor="middle" fill="#2e7d32">corridor 9</text>
+  <circle cx="330" cy="246" r="7" fill="#2e7d32"/>
+  <text x="330" y="220" font-size="10" text-anchor="middle" fill="currentColor"><tspan x="330" dy="0">Tanjung Duren</tspan><tspan x="330" dy="11">Arah Barat</tspan></text>
+  <line x1="337" y1="246" x2="368" y2="246" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="352" y="266" font-size="9" text-anchor="middle" opacity=".7" fill="currentColor"><tspan x="352" dy="0">walk</tspan><tspan x="352" dy="11">~350 m</tspan></text>
+  <rect x="368" y="226" width="106" height="40" rx="7" fill="#3f7d4e"/>
+  <text x="421" y="242" font-size="10" text-anchor="middle" fill="#fff">Central Park Mall</text>
+  <text x="421" y="256" font-size="8" text-anchor="middle" fill="#fff">Tanjung Duren</text>
+
+  <!-- row 3: Markas -->
+  <circle cx="28" cy="396" r="6" fill="#888"/>
+  <line x1="34" y1="396" x2="82" y2="396" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="58" y="416" font-size="9" text-anchor="middle" opacity=".7" fill="currentColor"><tspan x="58" dy="0">walk</tspan><tspan x="58" dy="11">~850 m</tspan></text>
+  <circle cx="90" cy="396" r="7" fill="#c62828"/>
+  <text x="90" y="370" font-size="10" text-anchor="middle" fill="currentColor"><tspan x="90" dy="0">Pramuka</tspan><tspan x="90" dy="11">BPKP 2</tspan></text>
+  <line x1="97" y1="396" x2="195" y2="396" stroke="#c62828" stroke-width="5"/>
+  <text x="146" y="388" font-size="9" text-anchor="middle" fill="#c62828">4C</text>
+  <circle cx="205" cy="396" r="9" fill="#c62828" stroke="#8e44ad" stroke-width="4"/>
+  <text x="205" y="370" font-size="10" text-anchor="middle" fill="currentColor"><tspan x="205" dy="0">Tugu Proklamasi</tspan></text>
+  <text x="205" y="420" font-size="9" text-anchor="middle" opacity=".7" fill="currentColor"><tspan x="205" dy="0">transfer 4C to 5M,</tspan><tspan x="205" dy="10">same curbside halte</tspan></text>
+  <line x1="214" y1="396" x2="322" y2="396" stroke="#8e44ad" stroke-width="5"/>
+  <text x="268" y="388" font-size="9" text-anchor="middle" fill="#8e44ad">5M</text>
+  <circle cx="330" cy="396" r="7" fill="#8e44ad"/>
+  <text x="330" y="370" font-size="10" text-anchor="middle" fill="currentColor"><tspan x="330" dy="0">JPO Blok E</tspan></text>
+  <line x1="337" y1="396" x2="368" y2="396" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="352" y="416" font-size="9" text-anchor="middle" opacity=".7" fill="currentColor"><tspan x="352" dy="0">walk</tspan><tspan x="352" dy="11">~300 m</tspan></text>
+  <rect x="368" y="376" width="106" height="40" rx="7" fill="#3f7d4e"/>
+  <text x="421" y="392" font-size="10" text-anchor="middle" fill="#fff">Markas Indonesia</text>
+  <text x="421" y="406" font-size="8" text-anchor="middle" fill="#fff">Tanah Abang</text>
 </svg>
-<p class="note">Everything on one sketch: Route A (busway) runs down the left, Route B (bus + KRL) down the right, both ending at the TB Simatupang stops by De Entrance along the bottom. Schematic, not to scale. The Galunggung paid-area and 7E boarding uncertainties still apply - details in the route cards below.</p>
+<p class="note">Everything on one sketch, schematic and not to scale: Arkadia on top (corridors 4, 6, 7E), Central Park in the middle (corridors 10, 9), Markas Indonesia at the bottom (4C, 5M) - all three start from the Green Pramuka area. The Arkadia Galunggung and 7E boarding uncertainties still apply - details in the route cards below.</p>
 </div>
+
+<h2>De Entrance, Arkadia Green Park</h2>
+<p class="sub">Jl. TB Simatupang Kav 88, Kebagusan, Pasar Minggu, South Jakarta 12520.</p>
 
 <div class="card">
 <h3>The destination</h3>
@@ -117,12 +128,12 @@
   <line x1="126" y1="209" x2="240" y2="146" stroke="#8e44ad" stroke-width="2" stroke-dasharray="3 4"/>
   <text x="150" y="228" font-size="10" opacity=".7" fill="currentColor">~20 min walk / short ojek, or D21</text>
 </svg>
-<p class="note">Schematic, not to scale. All TransJakarta stops listed sit on TB Simatupang right by the complex.</p>
+<p class="note">Schematic, not to scale. All TransJakarta stops listed sit on TB Simatupang right by the complex. Tanjung Barat is the nearest KRL station, shown for orientation only - the route below is busway-only.</p>
 </div>
 
 <div class="card">
-<h3>Route A - busway, fewer transfers <span class="tag">TransJakarta</span></h3>
-<svg viewBox="0 0 440 410" role="img" aria-label="Route A schematic: walk from the Green Pramuka area to Halte Simpang Pramuka, corridor 4 to Halte Galunggung, corridor 6 to Simpang Ragunan Ar-Raudhah, then 7E to Jln. Gabus Raya near Arkadia">
+<h3>Busway route - fewer transfers <span class="tag">TransJakarta</span></h3>
+<svg viewBox="0 0 440 410" role="img" aria-label="Arkadia busway route schematic: walk from the Green Pramuka area to Halte Simpang Pramuka, corridor 4 to Halte Galunggung, corridor 6 to Simpang Ragunan Ar-Raudhah, then 7E to Jln. Gabus Raya near Arkadia">
   <circle cx="90" cy="30" r="7" fill="#888"/>
   <text x="115" y="34" font-size="13" fill="currentColor">Green Pramuka area (start)</text>
   <line x1="90" y1="37" x2="90" y2="83" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
@@ -159,60 +170,169 @@
 <p class="note fare">Per secondary stop listings checked Nov 18, 2026, corridors 4 and 6 share Halte Galunggung and 7E is listed as boarding inside Simpang Ragunan Ar-Raudhah - so this route may stay inside the paid area on one fare, but that is unconfirmed against current operator info. Boarding points change; check the TJ: Transjakarta app on the day. Corridor 4 and 6 run roughly 05:00-22:00+, 7E about 05:00-22:00 with ~25 min headway - budget the wait. Walk times per Moovit stop listings and Google Maps walking directions.</p>
 </div>
 
+<h2>Markas Indonesia</h2>
+<p class="sub">Midpoint Place, Jl. H. Fachrudin, Kp. Bali, Tanah Abang, Central Jakarta 10250.</p>
+
 <div class="card">
-<h3>Route B - checked this morning on Google Maps <span class="tag">TransJakarta</span> <span class="tag">KRL</span></h3>
-<svg viewBox="0 0 405 440" role="img" aria-label="Route B schematic: walk to Kayu Putih Rawasari, bus 10 to Flyover Jatinegara, walk to Jatinegara station, KRL Cikarang Line to Manggarai, KRL Bogor Line to Tanjung Barat, then D21 or walk to Arkadia">
-  <circle cx="90" cy="25" r="7" fill="#888"/>
-  <text x="115" y="29" font-size="13" fill="currentColor">Green Pramuka area (start)</text>
-  <line x1="90" y1="32" x2="90" y2="68" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="70" y="54" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">walk ~230 m</text>
-  <circle cx="90" cy="75" r="7" fill="#1565c0"/>
-  <text x="115" y="79" font-size="13" fill="currentColor">Halte Kayu Putih Rawasari (platform D-E-F)</text>
-  <line x1="90" y1="82" x2="90" y2="133" stroke="#1565c0" stroke-width="5"/>
-  <text x="70" y="104" font-size="10" text-anchor="end" fill="#1565c0"><tspan x="70" dy="0">bus 10</tspan><tspan x="70" dy="12">4 stops</tspan></text>
-  <circle cx="90" cy="140" r="7" fill="#1565c0"/>
-  <text x="115" y="144" font-size="13" fill="currentColor">Flyover Jatinegara</text>
-  <line x1="90" y1="147" x2="90" y2="183" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="70" y="169" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">walk ~9 min</text>
-  <circle cx="90" cy="190" r="7" fill="#c62828"/>
-  <text x="115" y="194" font-size="13" fill="currentColor">Jatinegara station (KRL)</text>
-  <line x1="90" y1="197" x2="90" y2="243" stroke="#c62828" stroke-width="5"/>
-  <text x="70" y="218" font-size="10" text-anchor="end" fill="#c62828"><tspan x="70" dy="0">Cikarang Line</tspan><tspan x="70" dy="12">2 stops</tspan></text>
-  <circle cx="90" cy="250" r="10" fill="#c62828" stroke="#2e7d32" stroke-width="4"/>
-  <text x="115" y="247" font-size="13" fill="currentColor">Manggarai - change trains</text>
-  <text x="115" y="263" font-size="10" opacity=".7" fill="currentColor">Cikarang Line to Bogor Line, toward Bogor</text>
-  <line x1="90" y1="260" x2="90" y2="313" stroke="#2e7d32" stroke-width="5"/>
-  <text x="70" y="284" font-size="10" text-anchor="end" fill="#2e7d32"><tspan x="70" dy="0">Bogor Line</tspan><tspan x="70" dy="12">6 stops</tspan></text>
-  <circle cx="90" cy="320" r="7" fill="#2e7d32"/>
-  <text x="115" y="324" font-size="13" fill="currentColor">Tanjung Barat</text>
-  <line x1="90" y1="327" x2="90" y2="363" stroke="#8e44ad" stroke-width="5"/>
-  <text x="70" y="343" font-size="10" text-anchor="end" fill="#8e44ad"><tspan x="70" dy="0">D21</tspan><tspan x="70" dy="12">2 stops</tspan></text>
-  <circle cx="90" cy="370" r="7" fill="#8e44ad"/>
-  <text x="115" y="374" font-size="13" fill="currentColor">Phe Tower Kebagusan</text>
-  <text x="115" y="390" font-size="10" opacity=".7" fill="currentColor">or walk ~20 min from Tanjung Barat straight to Arkadia</text>
-  <line x1="90" y1="377" x2="90" y2="403" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
-  <text x="70" y="394" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">walk ~2 min</text>
-  <rect x="83" y="403" width="14" height="14" rx="3" fill="#3f7d4e"/>
-  <text x="115" y="414" font-size="13" fill="currentColor">De Entrance - Arkadia Green Park</text>
+<h3>The destination</h3>
+<svg viewBox="0 0 640 240" role="img" aria-label="Schematic of the area around Markas Indonesia in Tanah Abang: JPO Blok E halte about 300 meters away, Tanah Abang station to the west">
+  <rect x="0" y="0" width="640" height="240" fill="none"/>
+  <line x1="40" y1="130" x2="600" y2="130" stroke="#888" stroke-width="4"/>
+  <text x="40" y="118" font-size="12" fill="currentColor">Jl. H. Fachrudin / Jatibaru (west)</text>
+  <text x="540" y="118" font-size="12" fill="currentColor">(east)</text>
+  <rect x="330" y="100" width="170" height="60" rx="8" fill="#3f7d4e"/>
+  <text x="415" y="126" font-size="12" text-anchor="middle" fill="#fff">Markas Indonesia</text>
+  <text x="415" y="143" font-size="9" text-anchor="middle" fill="#fff">Midpoint Place, Kp. Bali</text>
+  <circle cx="300" cy="130" r="7" fill="#8e44ad"/>
+  <text x="293" y="110" font-size="11" text-anchor="middle" fill="currentColor">JPO Blok E</text>
+  <text x="293" y="96" font-size="9" text-anchor="middle" opacity=".7" fill="currentColor">1R/5M/8M/9D, ~4 min walk</text>
+  <circle cx="70" cy="200" r="8" fill="#c62828"/>
+  <text x="70" y="226" font-size="11" text-anchor="middle" fill="currentColor">St. Tanah Abang (KRL)</text>
+  <line x1="77" y1="193" x2="288" y2="142" stroke="#c62828" stroke-width="2" stroke-dasharray="3 4"/>
+  <text x="170" y="210" font-size="10" text-anchor="middle" opacity=".7" fill="currentColor">~470 m west of the venue</text>
 </svg>
-<p class="note">Schematic, not to scale. Each colored line is one service; the ring marks the train change.</p>
+<p class="note">Schematic, not to scale. JPO Blok E is the closest TransJakarta stop to the venue (about 300 m per Google Maps walking directions); the feeders there run one way toward the Tanah Abang 2 terminus. Tanah Abang station is shown for orientation only - the route below is busway-only.</p>
+</div>
+
+<div class="card">
+<h3>Busway route - one transfer <span class="tag">TransJakarta</span></h3>
+<svg viewBox="0 0 440 380" role="img" aria-label="Markas busway route schematic: walk from the Green Pramuka area to Pramuka BPKP 2, 4C toward Bundaran Senayan to Tugu Proklamasi, then 5M toward Tanah Abang to JPO Blok E, short walk to Markas Indonesia">
+  <circle cx="90" cy="30" r="7" fill="#888"/>
+  <text x="115" y="34" font-size="13" fill="currentColor">Green Pramuka area (start)</text>
+  <line x1="90" y1="37" x2="90" y2="83" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="70" y="64" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">walk ~850 m</text>
+  <circle cx="90" cy="90" r="7" fill="#c62828"/>
+  <text x="115" y="94" font-size="13" fill="currentColor">Pramuka BPKP 2</text>
+  <line x1="90" y1="97" x2="90" y2="163" stroke="#c62828" stroke-width="5"/>
+  <text x="70" y="134" font-size="10" text-anchor="end" fill="#c62828">4C</text>
+  <circle cx="90" cy="170" r="10" fill="#c62828" stroke="#8e44ad" stroke-width="4"/>
+  <text x="115" y="167" font-size="13" fill="currentColor">Tugu Proklamasi - transfer 4C to 5M</text>
+  <text x="115" y="183" font-size="10" opacity=".7" fill="currentColor">both services share this curbside halte (halte.id)</text>
+  <line x1="90" y1="180" x2="90" y2="253" stroke="#8e44ad" stroke-width="5"/>
+  <text x="70" y="220" font-size="10" text-anchor="end" fill="#8e44ad">5M</text>
+  <circle cx="90" cy="260" r="7" fill="#8e44ad"/>
+  <text x="115" y="264" font-size="13" fill="currentColor">JPO Blok E</text>
+  <line x1="90" y1="267" x2="90" y2="313" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="70" y="294" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">walk ~300 m</text>
+  <rect x="83" y="313" width="14" height="14" rx="3" fill="#3f7d4e"/>
+  <text x="115" y="324" font-size="13" fill="currentColor">Markas Indonesia - Midpoint Place</text>
+</svg>
+<p class="note">Schematic, not to scale. Each colored line is one service; the ring marks the transfer.</p>
 <ol class="legs">
-  <li>Walk ~230 m to <strong>Halte Kayu Putih Rawasari</strong> (platform D-E-F).</li>
-  <li>TransJakarta <strong>10</strong> toward PGC, 4 stops (~15 min) to <strong>Flyover Jatinegara</strong>.</li>
-  <li>Walk ~9 min to <strong>Jatinegara station</strong>; KRL <strong>Cikarang Line</strong> toward Angke, 2 stops to <strong>Manggarai</strong>.</li>
-  <li>KRL <strong>Bogor Line</strong> toward Bogor, 6 stops (~15 min) to <strong>Tanjung Barat</strong>.</li>
-  <li>Either walk ~5 min to <strong>St. Tj. Barat 2</strong> and take <strong>D21</strong> toward Lebak Bulus, 2 stops to <strong>Phe Tower Kebagusan</strong> (then ~2 min walk), or walk ~20 min straight to Arkadia.</li>
+  <li>Walk ~12 min (850 m) to <strong>Pramuka BPKP 2</strong>, the Bundaran Senayan-bound side.</li>
+  <li><strong>4C</strong> toward Bundaran Senayan, ~16 min (7 stops) to <strong>Tugu Proklamasi</strong>.</li>
+  <li>Change at the same curbside halte to <strong>5M</strong> toward Tanah Abang, ~32 min (19 stops) to <strong>JPO Blok E</strong>.</li>
+  <li>Walk ~4 min (300 m) to Markas Indonesia in the Midpoint Place building.</li>
 </ol>
-<p class="note fare">~1h20 total, about IDR 13,000 including the KRL leg, per the estimate this morning. Times change; check Google Maps or the TJ: Transjakarta app before leaving.</p>
+<p class="note fare">Checked on Google Maps the morning of Nov 18, 2026: about 1 hr 30 min total, fare estimate IDR 7,000 (4C and 5M are separate curbside feeder boardings, so no paid-area question arises). halte.id confirms 4C boards at Pramuka BPKP 2, that 4C and 5M share Tugu Proklamasi, and that 5M stops at JPO Blok E. Both feeders run roughly every 10-12 min per Google; times change - check the TJ: Transjakarta app on the day.</p>
+</div>
+
+<h2>Central Park Mall</h2>
+<p class="sub">Jl. Letjen S. Parman Kav 28, Tanjung Duren, Grogol Petamburan, West Jakarta 11470.</p>
+
+<div class="card">
+<h3>The destination</h3>
+<svg viewBox="0 0 640 250" role="img" aria-label="Schematic of TransJakarta stops near Central Park Mall on Jalan S Parman: Tanjung Duren halte about 350 meters from the mall, Gerbang Tol Tanjung Duren closer to SOHO Podomoro City">
+  <rect x="0" y="0" width="640" height="250" fill="none"/>
+  <line x1="40" y1="120" x2="600" y2="120" stroke="#888" stroke-width="4"/>
+  <text x="40" y="108" font-size="12" fill="currentColor">Jl. Letjen S. Parman (east)</text>
+  <text x="480" y="108" font-size="12" fill="currentColor">(west)</text>
+  <rect x="290" y="90" width="140" height="60" rx="8" fill="#3f7d4e"/>
+  <text x="360" y="116" font-size="12" text-anchor="middle" fill="#fff">Central Park Mall</text>
+  <text x="360" y="133" font-size="9" text-anchor="middle" fill="#fff">Podomoro City, Kav 28</text>
+  <circle cx="270" cy="120" r="7" fill="#2e7d32"/>
+  <text x="200" y="158" font-size="11" fill="currentColor">Tanjung Duren</text>
+  <text x="168" y="172" font-size="10" opacity=".7" fill="currentColor">corridors 8 and 9, ~5 min walk</text>
+  <circle cx="500" cy="120" r="7" fill="#d9534f"/>
+  <text x="440" y="158" font-size="11" fill="currentColor">Gerbang Tol Tj. Duren</text>
+  <text x="440" y="172" font-size="10" opacity=".7" fill="currentColor">S11/8K/JAK.53, ~2 min walk</text>
+</svg>
+<p class="note">Schematic, not to scale. Halte Tanjung Duren has a separate building per direction (Arah Barat for Lebak Bulus/Pluit-bound arrivals; switch direction means tap out and in again, per halte.id). Gerbang Tol Tj. Duren sits by SOHO Podomoro City, on the mall's west side.</p>
+</div>
+
+<div class="card">
+<h3>Route A - fewest transfers <span class="tag">TransJakarta</span></h3>
+<svg viewBox="0 0 440 400" role="img" aria-label="Central Park route A schematic: walk to Kayu Putih Rawasari, corridor 10 to Cawang Sentral, change platform inside the halte to corridor 9 toward Pluit, off at Tanjung Duren Arah Barat, short walk to the mall">
+  <circle cx="90" cy="30" r="7" fill="#888"/>
+  <text x="115" y="34" font-size="13" fill="currentColor">Green Pramuka area (start)</text>
+  <line x1="90" y1="37" x2="90" y2="83" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="70" y="64" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">walk ~230 m</text>
+  <circle cx="90" cy="90" r="7" fill="#5e35b1"/>
+  <text x="115" y="94" font-size="13" fill="currentColor">Kayu Putih Rawasari (platform D-E-F)</text>
+  <line x1="90" y1="97" x2="90" y2="163" stroke="#5e35b1" stroke-width="5"/>
+  <text x="70" y="134" font-size="10" text-anchor="end" fill="#5e35b1">corridor 10</text>
+  <circle cx="90" cy="170" r="10" fill="#5e35b1" stroke="#2e7d32" stroke-width="4"/>
+  <text x="115" y="167" font-size="13" fill="currentColor">Cawang Sentral - transfer 10 to 9</text>
+  <text x="115" y="183" font-size="10" opacity=".7" fill="currentColor">same halte, platform D-E-F to N-P-R (~1 min, per Google Maps)</text>
+  <line x1="90" y1="180" x2="90" y2="283" stroke="#2e7d32" stroke-width="5"/>
+  <text x="70" y="235" font-size="10" text-anchor="end" fill="#2e7d32">corridor 9</text>
+  <circle cx="90" cy="290" r="7" fill="#2e7d32"/>
+  <text x="115" y="294" font-size="13" fill="currentColor">Tanjung Duren Arah Barat</text>
+  <line x1="90" y1="297" x2="90" y2="343" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="70" y="324" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">walk ~350 m</text>
+  <rect x="83" y="343" width="14" height="14" rx="3" fill="#3f7d4e"/>
+  <text x="115" y="354" font-size="13" fill="currentColor">Central Park Mall</text>
+</svg>
+<p class="note">Schematic, not to scale. Each colored line is one service; the ring marks the transfer.</p>
+<ol class="legs">
+  <li>Walk ~3 min (230 m) to <strong>Kayu Putih Rawasari</strong> (platform D-E-F).</li>
+  <li>Corridor <strong>10</strong> toward PGC, ~35 min (9 stops) to <strong>Cawang Sentral</strong>.</li>
+  <li>Change inside the same halte (platform D-E-F to N-P-R, ~1 min) to corridor <strong>9</strong> toward Pluit, ~1 hr 5 min (16 stops) to <strong>Tanjung Duren Arah Barat</strong>.</li>
+  <li>Walk ~5 min (350 m) to the mall.</li>
+</ol>
+<p class="note fare">Checked on Google Maps the morning of Nov 18, 2026: about 2 hr total, single fare IDR 3,500 - the Cawang Sentral change is a platform change inside one halte, so the route stays in the paid area. Trade-offs: Cawang Sentral is the Cawang Intermoda interchange and the corridor 9 leg is long (16 stops). halte.id confirms corridors 8 and 9 both serve Tanjung Duren.</p>
+</div>
+
+<div class="card">
+<h3>Route B - faster, two transfers <span class="tag">TransJakarta</span> <span class="tag">JakLingko</span></h3>
+<svg viewBox="0 0 440 480" role="img" aria-label="Central Park route B schematic: walk to Simpang Ahmad Yani Rawasari, JP04 to Salemba UI 2, short walk to Salemba halte, 5C to Pecenongan, platform change inside the halte to corridor 8 toward Lebak Bulus, off at Tanjung Duren Arah Barat, short walk to the mall">
+  <circle cx="90" cy="30" r="7" fill="#888"/>
+  <text x="115" y="34" font-size="13" fill="currentColor">Green Pramuka area (start)</text>
+  <line x1="90" y1="37" x2="90" y2="73" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="70" y="59" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">walk ~180 m</text>
+  <circle cx="90" cy="80" r="7" fill="#00838f"/>
+  <text x="115" y="84" font-size="13" fill="currentColor">Simpang Ahmad Yani Rawasari</text>
+  <line x1="90" y1="87" x2="90" y2="133" stroke="#00838f" stroke-width="5"/>
+  <text x="70" y="114" font-size="10" text-anchor="end" fill="#00838f">JP04</text>
+  <circle cx="90" cy="140" r="7" fill="#00838f"/>
+  <text x="115" y="144" font-size="13" fill="currentColor">Salemba UI 2</text>
+  <line x1="90" y1="147" x2="90" y2="183" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="70" y="169" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">walk ~2 min</text>
+  <circle cx="90" cy="190" r="10" fill="#ef6c00" stroke="#ef6c00" stroke-width="4"/>
+  <text x="115" y="194" font-size="13" fill="currentColor">Salemba (platform D-E-F)</text>
+  <line x1="90" y1="197" x2="90" y2="253" stroke="#ef6c00" stroke-width="5"/>
+  <text x="70" y="229" font-size="10" text-anchor="end" fill="#ef6c00">5C</text>
+  <circle cx="90" cy="260" r="10" fill="#ef6c00" stroke="#2e7d32" stroke-width="4"/>
+  <text x="115" y="257" font-size="13" fill="currentColor">Pecenongan - transfer 5C to 8</text>
+  <text x="115" y="273" font-size="10" opacity=".7" fill="currentColor">same halte, platform A-B to C-D (~1 min, per Google Maps)</text>
+  <line x1="90" y1="270" x2="90" y2="353" stroke="#2e7d32" stroke-width="5"/>
+  <text x="70" y="315" font-size="10" text-anchor="end" fill="#2e7d32">corridor 8</text>
+  <circle cx="90" cy="360" r="7" fill="#2e7d32"/>
+  <text x="115" y="364" font-size="13" fill="currentColor">Tanjung Duren Arah Barat</text>
+  <line x1="90" y1="367" x2="90" y2="413" stroke="#888" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="70" y="394" font-size="10" text-anchor="end" opacity=".7" fill="currentColor">walk ~350 m</text>
+  <rect x="83" y="413" width="14" height="14" rx="3" fill="#3f7d4e"/>
+  <text x="115" y="424" font-size="13" fill="currentColor">Central Park Mall</text>
+</svg>
+<p class="note">Schematic, not to scale. Each colored line is one service; the rings mark transfers.</p>
+<ol class="legs">
+  <li>Walk ~2 min (180 m) to <strong>Simpang Ahmad Yani Rawasari</strong>.</li>
+  <li><strong>JP04</strong> (JakLingko angkot) toward Salemba, ~14 min (12 stops) to <strong>Salemba UI 2</strong>.</li>
+  <li>Walk ~2 min to <strong>Salemba</strong> halte (platform D-E-F).</li>
+  <li><strong>5C</strong> toward Juanda, ~32 min (6 stops) to <strong>Pecenongan</strong>.</li>
+  <li>Change inside the same halte (platform A-B to C-D, ~1 min) to corridor <strong>8</strong> toward Lebak Bulus, ~22 min (4 stops) to <strong>Tanjung Duren Arah Barat</strong>.</li>
+  <li>Walk ~5 min (350 m) to the mall.</li>
+</ol>
+<p class="note fare">Checked on Google Maps the morning of Nov 18, 2026: about 1 hr 40 min total. The Pecenongan change is a platform change inside one halte (halte.id lists corridors 2 and 8 among its routes); the Salemba change is a 2-minute street walk from the JP04 stop into the BRT halte, so expect a fresh tap-in there. Google showed no single fare total for this combination - budget two boardings. Times change; check live departures before leaving.</p>
 </div>
 
 <div class="card">
 <h3>In a hurry</h3>
-<p>BlueBird / Gojek straight to De Entrance, Arkadia Green Park - about a 30-40 min drive from the Pramuka area per Google Maps this morning; the complex fronts TB Simatupang.</p>
+<p>BlueBird / Gojek straight to the venue: Arkadia Green Park about 30-40 min, Tanah Abang about 35-50 min, Central Park about 40-55 min from the Pramuka area per Google Maps this morning - allow more in rush hour.</p>
 </div>
 
 <footer>
-<p>Public route sketch for Arkadia Green Park, South Jakarta, checked Nov 18, 2026; services and boarding points change - check live arrivals before you go. Sources: <a href="https://www.google.com/maps/place/De+Entrance+Arkadia/@-6.3003864,106.8336377,17z/">Google Maps - De Entrance Arkadia</a> &middot; <a href="https://halte.id/tempat/green-pramuka-city/">halte.id - haltes near Green Pramuka City</a> &middot; <a href="https://id.wikipedia.org/wiki/Halte_Transjakarta_Galunggung">Wikipedia - Halte Galunggung</a> &middot; <a href="https://id.wikipedia.org/wiki/Halte_Transjakarta_Simpang_Ragunan_Ar-Raudhah">Wikipedia - Simpang Ragunan Ar-Raudhah</a> &middot; <a href="https://moovitapp.com/index/id/Tranportasi_Umum-De_Entrance_Arkadia-Jakarta-site_83925708-2044">Moovit - De Entrance Arkadia stops</a>. Built with tuju.</p>
+<p>Public route sketches from the Green Pramuka area, checked Nov 18, 2026; services and boarding points change - check live arrivals before you go. Sources: <a href="https://www.google.com/maps/place/De+Entrance+Arkadia/@-6.3003864,106.8336377,17z/">Google Maps - De Entrance Arkadia</a> &middot; <a href="https://www.google.com/maps/dir/Green+Pramuka+City,+Jakarta/Markas+Indonesia,+Jl.+H.+Fachrudin,+Jakarta/">Google Maps - Green Pramuka to Markas Indonesia</a> &middot; <a href="https://www.google.com/maps/dir/Green+Pramuka+City,+Jakarta/Central+Park+Mall,+Jakarta/">Google Maps - Green Pramuka to Central Park</a> &middot; <a href="https://halte.id/tempat/green-pramuka-city/">halte.id - haltes near Green Pramuka City</a> &middot; <a href="https://halte.id/halte/jpo-blok-e/">halte.id - JPO Blok E</a> &middot; <a href="https://halte.id/halte/tanjung-duren/">halte.id - Tanjung Duren</a> &middot; <a href="https://halte.id/halte/tugu-proklamasi/">halte.id - Tugu Proklamasi</a> &middot; <a href="https://halte.id/halte/cawang-sentral/">halte.id - Cawang Sentral</a> &middot; <a href="https://halte.id/halte/pramuka-bpkp-2/">halte.id - Pramuka BPKP 2</a> &middot; <a href="https://id.wikipedia.org/wiki/Halte_Transjakarta_Galunggung">Wikipedia - Halte Galunggung</a> &middot; <a href="https://id.wikipedia.org/wiki/Halte_Transjakarta_Simpang_Ragunan_Ar-Raudhah">Wikipedia - Simpang Ragunan Ar-Raudhah</a> &middot; <a href="https://moovitapp.com/index/id/Tranportasi_Umum-De_Entrance_Arkadia-Jakarta-site_83925708-2044">Moovit - De Entrance Arkadia stops</a>. Built with tuju.</p>
 </footer>
 </body>
 </html>

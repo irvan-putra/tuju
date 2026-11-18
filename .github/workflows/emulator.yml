@@ -38,7 +38,7 @@ jobs:
           target: google_apis
           profile: pixel_6
           disable-animations: true
-          script: bash ci/run.sh
+          script: bash android/ci/run.sh
       - uses: actions/upload-artifact@v4
         if: always()
         with:

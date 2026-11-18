@@ -19,6 +19,7 @@ android {
         targetSdk = 34
         versionCode = appVersionCode
         versionName = appVersionName
+        testInstrumentationRunner = "android.test.InstrumentationTestRunner"
     }
 
     signingConfigs {

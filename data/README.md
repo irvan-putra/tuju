@@ -25,7 +25,8 @@ return journey. The selected patterns matter:
   to Flyover Raya Bogor and the Ragunan-bound return runs back up the left side
   to Baung, which sits off the corridor on a left branch with a get-off note;
   a single venue marker between the two directions carries both dashed walks,
-  plus a text card in the Arkadia section): the Flyover
+  and the road between the directions is drawn there with the pedestrian
+  bridge across it; plus a text card in the Arkadia section): the Flyover
   Raya Bogor stop name appears in both 7E direction listings - Kampung
   Rambutan-bound stop 14 of 21, Ragunan-bound stop 8 of 24 - and it is the first
   stop past Jln. Gabus Raya shared by both patterns, so the shortest candidate
@@ -38,7 +39,8 @@ return journey. The selected patterns matter:
   route-stops.json. Firsthand on-site check the same day: the two 7E directions
   stop on opposite road sides by the venue - Jln. Gabus Raya (Kampung
   Rambutan-bound) is across the road, reached by a pedestrian bridge (~1 min),
-  while Baung (Ragunan-bound) is on the venue side. The dashed switch in the
+  while Baung and Phe Tower Kebagusan
+  (Ragunan-bound) are on the venue side. The dashed switch in the
   map still marks an unverified physical link, and the map otherwise stays
   listed-direction-only.
 

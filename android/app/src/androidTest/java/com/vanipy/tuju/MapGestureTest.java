@@ -40,6 +40,26 @@ public class MapGestureTest {
         event.recycle();
     }
 
+    private void mapPosition(WebView web, int x, int y) throws Exception {
+        java.util.concurrent.CountDownLatch done = new java.util.concurrent.CountDownLatch(1);
+        final float[] top = new float[1];
+        getInstrumentation().runOnMainSync(() -> {
+            web.getSettings().setJavaScriptEnabled(true); // test only, production remains disabled
+            web.evaluateJavascript("document.querySelector('svg').getBoundingClientRect().top + window.scrollY", result -> {
+                top[0] = Float.parseFloat(result);
+                done.countDown();
+            });
+        });
+        assertTrue("Read map's actual document offset",done.await(5,java.util.concurrent.TimeUnit.SECONDS));
+        final float px = web.getWidth() * scale(web) / (3000f * initialScale);
+        getInstrumentation().runOnMainSync(() -> {
+            web.getSettings().setJavaScriptEnabled(false);
+            web.scrollTo((int)(x*px),(int)(top[0]*web.getScale()+y*px));
+        });
+        Thread.sleep(600);
+    }
+    private float initialScale;
+
     @Test
     public void testPinchAndPan() throws Exception {
         android.content.Intent launch = new android.content.Intent(getInstrumentation().getTargetContext(), MainActivity.class);
@@ -49,6 +69,7 @@ public class MapGestureTest {
         Thread.sleep(1500);
         WebView web = (WebView) ((android.view.ViewGroup) activity.findViewById(android.R.id.content)).getChildAt(0);
         float before = scale(web);
+        initialScale = before;
         int[] position = new int[2];
         web.getLocationOnScreen(position);
         float cx = position[0] + web.getWidth() * .38f;
@@ -88,16 +109,16 @@ public class MapGestureTest {
         Thread.sleep(800);
         assertTrue("Return capture must remain zoomed", scale(web) > before * 1.5f);
         final float svgPixels = web.getWidth() * scale(web) / (3000f * before);
-        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(20*svgPixels),(int)(2100*svgPixels)));
+        mapPosition(web, 20, 2140);
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-a.png")));
-        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(2450*svgPixels),(int)(2300*svgPixels)));
+        mapPosition(web, 2450, 2460);
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-b.png")));
-        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(10*svgPixels),(int)(1000*svgPixels)));
+        mapPosition(web, 10, 1000);
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-a-middle.png")));
-        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(10*svgPixels),(int)(140*svgPixels)));
+        mapPosition(web, 10, 140);
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-a-bottom.png")));
     }

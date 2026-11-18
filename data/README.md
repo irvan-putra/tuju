@@ -21,8 +21,9 @@ return journey. The selected patterns matter:
   Other variants differ. Operator notice independently confirms Matraman 3 rather
   than Simpang Matraman for the 5M boarding:
   https://transjakarta.co.id/berita/penyesuaian-rute-kampung-melayu-tanah-abang-via-cikini-5m
-- Turnaround (drawn in the all-stops map below the Arkadia 7E leg, plus a text
-  card in the Arkadia section): the Flyover
+- Turnaround (drawn in the all-stops map - the 7E leg continues past Gabus Raya
+  to Flyover Raya Bogor and the Ragunan-bound return runs back up the left side
+  to Baung, plus a text card in the Arkadia section): the Flyover
   Raya Bogor stop name appears in both 7E direction listings - Kampung
   Rambutan-bound stop 14 of 21, Ragunan-bound stop 8 of 24 - and it is the first
   stop past Jln. Gabus Raya shared by both patterns, so the shortest candidate

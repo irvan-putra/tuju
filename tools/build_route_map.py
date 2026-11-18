@@ -14,6 +14,10 @@ def text(x,y,s,size=20,color='currentColor',anchor='start',weight='normal'):
  add(f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" text-anchor="{anchor}" font-weight="{weight}">{html.escape(s)}</text>')
 def line(x,y,xx,yy,color,dashed=False):
  add(f'<path d="M {x} {y} L {xx} {yy}" fill="none" stroke="{color}" stroke-width="{3 if dashed else 6}"'+(' stroke-dasharray="5 7"' if dashed else '')+'/>')
+def tri(x,y,color,up=True):
+ # Small arrowhead marking travel direction on a leg.
+ if up:add(f'<path d="M {x} {y-7} L {x-6} {y+5} L {x+6} {y+5} Z" fill="{color}"/>')
+ else:add(f'<path d="M {x} {y+7} L {x-6} {y-5} L {x+6} {y-5} Z" fill="{color}"/>')
 def node(x,y,name,color,transfer=False,note=None,anchor='start'):
  add(f'<circle cx="{x}" cy="{y}" r="{12 if transfer else 7}" fill="Canvas" stroke="{color}" stroke-width="4"/>')
  dx=23 if anchor=='start' else -23
@@ -28,9 +32,9 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
  return end
 add('<svg viewBox="0 0 1700 3300" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">')
 add('<title id="all-stops-title">All intermediate stops on the selected outbound routes</title>')
-add('<desc id="all-stops-desc">One connected schematic, not to scale. Read down each line in travel order. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops.</desc>')
+add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after an unverified direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops.</desc>')
 text(60,45,'Every stop, in travel order',30,weight='600')
-text(60,78,'Outbound routes only · schematic, not to scale · pinch to zoom and drag to pan',20)
+text(60,78,'Corridor legs in listed direction · 7E return leg drawn back up the left · schematic, not to scale',20)
 text(60,108,'Operator GTFS checked 18 Nov 2026. Route patterns and temporary stops can change.',17)
 node(700,155,'Green Pramuka area','#777',True)
 for x in [70,630,1200]:line(700,170,x,230,'#888',True)
@@ -72,21 +76,27 @@ text(607,fy-120,'Rode past Jln. Gabus Raya?',14,anchor='end')
 text(607,fy-100,'Ride on to Flyover Raya Bogor and',13,anchor='end')
 text(607,fy-84,'switch direction there - the physical',13,anchor='end')
 text(607,fy-68,'link and re-tap fare are unverified.',13,anchor='end')
+for ay in (y7-150,y7+28,y7+122,y7+210):tri(630,ay,COL['7E'],up=False)
 # Direction switch: a candidate from the listings, not a confirmed physical link.
-add(f'<path d="M 640 {fy+12} C 780 {fy+68}, 900 {fy+68}, 988 {fy+52}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
 ry=fy+50
-add(f"<circle cx='1000' cy='{ry}' r='12' fill='Canvas' stroke='{COL['7E']}' stroke-width='4'/>")
-text(977,ry-10,'Flyover Raya Bogor',20,weight='600',anchor='end')
-text(1023,ry+6,'board toward Ragunan - physical link unverified',13)
-line(1000,ry+12,1000,ry+48+36*8-9,COL['7E'])
-for i,name in enumerate(['RSUD Pasar Rebo 1','SMAN 104','Plaza Pp Condet 1','Muara Dalam','ACC Simatupang','Telkomsel Jln. Nangka','Jln. Nangka Raya','Gg. Nanas']):
- node(1000,ry+48+i*36,name,COL['7E'])
-by=ry+48+36*8
-node(1000,by,'Baung - get off',COL['7E'],True,anchor='end')
-text(977,by+32,'or ride 1 more: Phe Tower Kebagusan (~5 min walk)',13,anchor='end')
-line(1000,by+12,1000,by+36,'#888',True)
-text(1023,by+32,'Walk ~4 min (285 m)',15)
-text(1023,by+66,'De Entrance - Arkadia Green Park',22,'#27803c',weight='600')
+add(f'<path d="M 618 {fy+6} C 470 {fy+72}, 400 {fy+72}, 336 {ry+2}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 312 {ry+2} L 334 {ry-6} L 334 {ry+10} Z" fill="#888"/>')
+add(f"<circle cx='300' cy='{ry}' r='12' fill='Canvas' stroke='{COL['7E']}' stroke-width='4'/>")
+text(277,ry+6,'Flyover Raya Bogor',20,weight='600',anchor='end')
+text(277,ry+30,'board toward Ragunan',13,anchor='end')
+text(277,ry+46,'physical link unverified',13,anchor='end')
+# Return leg runs back UP the left column, toward the venue.
+by=y7-46
+line(300,by+12,300,ry-12,COL['7E'])
+for i,name in enumerate(['Gg. Nanas','Jln. Nangka Raya','Telkomsel Jln. Nangka','ACC Simatupang','Muara Dalam','Plaza Pp Condet 1','SMAN 104','RSUD Pasar Rebo 1']):
+ node(300,by+48+i*36,name,COL['7E'],anchor='end')
+for ay in (y7-22,y7+56,y7+128,y7+200,y7+284):tri(300,ay,COL['7E'])
+node(300,by,'Baung - get off',COL['7E'],True,anchor='end')
+text(323,by+22,'or ride 1 more:',13)
+text(323,by+40,'Phe Tower Kebagusan (~5 min walk)',13)
+add(f'<path d="M 312 {by-2} C 420 {by-10}, 520 {by-12}, 606 {y7-56}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+text(620,y7-100,'De Entrance - Arkadia Green Park',20,'#27803c',weight='600',anchor='end')
+text(620,y7-72,'Walk ~4 min (285 m) from Baung',15,anchor='end')
 text(1155,270,'4C',22,COL['4C'],anchor='end',weight='600')
 yc=chain('4C',1200,240,62,transfers=['B07260P','B05812P'])
 # Both 4C and 5M serve Masjid Jami Matraman before Tugu Proklamasi.
@@ -105,7 +115,7 @@ text(1225,yend+43,'via Cikini pattern; other 5M patterns differ',15)
 line(1200,yend+12,1200,yend+100,'#888',True)
 text(1225,yend+83,'Walk ~300 m',17)
 text(1225,yend+116,'Markas Indonesia',24,'#27803c',weight='600')
-text(60,3120,'Rings = boarding / transfer / get off · small circles = intermediate stops · dashed = walk or an unverified direction switch',20)
+text(60,3120,'Rings = boarding / transfer / get off · small circles = intermediate stops · arrowheads = travel direction · dashed = walk or an unverified direction switch',20)
 text(60,3155,'Corridor legs show the listed direction only - do not reverse them. The drawn 7E return leg is the actual Ragunan-bound pattern.',18)
 text(60,3190,'The 7E Flyover Raya Bogor switch is a candidate from GTFS-derived listings - the physical link and re-tap fare are unverified.',17)
 text(60,3225,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)

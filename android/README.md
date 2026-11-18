@@ -36,3 +36,8 @@ with the APK and its SHA-256.
 The "tuju emulator smoke test" workflow runs on pushes to `android/**` and
 installs the debug APK on an emulator, verifies the map WebView renders and
 uploads screenshots.
+
+
+## 0.1.6 combined network
+
+The two Arkadia homebound options are integrated into the top network, with independently sourced directional stop sequences and upward homebound arrows. The shared outbound 4/4D trunk and other destinations remain. Ragunan boarding/fare continuity, conflicting 7F hours, and Gojek access/fare/time caveats remain visible. Same package and pinned signing certificate; no phone installation or data reset.

@@ -81,23 +81,23 @@ public class MapGestureTest {
 
         // Inspect the changed homebound content in the real Android WebView.
         String bundled = new String(getInstrumentation().getTargetContext().getAssets().open("map.html").readAllBytes(), java.nio.charset.StandardCharsets.UTF_8);
-        assertTrue(bundled.contains("Going home from Arkadia"));
+        assertTrue(bundled.contains("One network · out and home"));
         assertTrue(bundled.contains("Gojek to Flyover Raya Bogor"));
         assertTrue(bundled.contains("Flyover Kuningan"));
-        getInstrumentation().runOnMainSync(() -> web.zoomBy((before * 2.1f) / web.getScale()));
+        getInstrumentation().runOnMainSync(() -> web.zoomBy((before * 6f) / web.getScale()));
         Thread.sleep(800);
         assertTrue("Return capture must remain zoomed", scale(web) > before * 1.5f);
-        final float svgPixels = web.getWidth() * scale(web) / (1700f * before);
-        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(0*svgPixels),(int)(3368*svgPixels)));
+        final float svgPixels = web.getWidth() * scale(web) / (3000f * before);
+        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(20*svgPixels),(int)(2100*svgPixels)));
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-a.png")));
-        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(830*svgPixels),(int)(3368*svgPixels)));
+        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(2450*svgPixels),(int)(2300*svgPixels)));
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-b.png")));
-        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(0*svgPixels),(int)(4228*svgPixels)));
+        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(10*svgPixels),(int)(1000*svgPixels)));
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-a-middle.png")));
-        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(0*svgPixels),(int)(5128*svgPixels)));
+        getInstrumentation().runOnMainSync(() -> web.scrollTo((int)(10*svgPixels),(int)(140*svgPixels)));
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-a-bottom.png")));
     }

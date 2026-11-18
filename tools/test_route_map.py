@@ -47,8 +47,17 @@ class StopMapTest(unittest.TestCase):
   svg=(ROOT/'data/all-stops.svg').read_text()
   for stops in r.values():
    for name in stops:self.assertIn(name,svg)
-  for term in ['Going home from Arkadia','Gojek to Flyover Raya Bogor','fresh tap/fare','not a guarantee','7F service-hour listings disagree']:
+  for term in ['One network · out and home','Gojek to Flyover Raya Bogor','fresh tap/fare','not a guarantee','7F service-hour listings disagree']:
    self.assertIn(term,svg)
+ def test_homebound_is_inside_top_network(self):
+  svg=(ROOT/'data/all-stops.svg').read_text()
+  self.assertNotIn('Going home from Arkadia',svg)
+  self.assertIn('One network · out and home',svg)
+  self.assertIn('translate(700 0)',svg)
+  self.assertIn('3000',svg.split('>')[0])
+  height=int(re.search(r'viewBox="0 0 3000 (\d+)"',svg).group(1))
+  self.assertLess(height,3400)
+  self.assertEqual(svg.count('4D leaves here'),1)
  def test_offline_asset(self):
   page=(ROOT/'android/app/src/main/assets/map.html').read_text()
   self.assertNotIn('<script',page)

@@ -74,6 +74,8 @@ jobs:
 
           0.1.5 embeds both Arkadia homebound options in the offline map: Arkadia-side 7E to Ragunan, 6 to Galunggung, 4 to Simpang Pramuka 1; or opposite-side Gojek to Flyover Raya Bogor, 7F to Kayu Putih Rawasari. Actual directional stop sequences are from Catenary GTFS rendering; terminal access/fare continuity, 7F hours and ride times remain caveated.
 
+          0.1.6 integrates those return choices into the top network itself, with northbound arrows and transfer links. No separate lower homebound panel. All directional stop lists and service/fare caveats remain.
+
           Pixel 6 / API 34 emulator checks cover map fit, actual pinch zoom and dragging. Not tested on a physical Samsung. Same package and pinned signing certificate as 0.1.0; intended as an in-place update.
 
           SHA-256 of the APK is in the attached .sha256 file.

@@ -4,12 +4,13 @@
 <g transform="translate(700 0)">
 <circle cx="700" cy="155" r="12" fill="Canvas" stroke="#777" stroke-width="4"/>
 <text x="723" y="161" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Green Pramuka area</text>
-<path d="M 700 170 L 70 230" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 700 170 L -530 230" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <path d="M 700 170 L 630 230" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <path d="M 700 170 L 1200 230" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="95" y="204" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">walk ~230 m</text>
+<text x="-505" y="204" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">walk ~230 m</text>
 <text x="655" y="204" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">walk to boarding point</text>
 <text x="1230" y="204" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">walk ~850 m</text>
+<g transform="translate(-600 0)">
 <text x="40" y="270" font-size="22" fill="#6536b0" text-anchor="end" font-weight="600">10</text>
 <path d="M 70 240 L 70 735" fill="none" stroke="#6536b0" stroke-width="6"/>
 <circle cx="70" cy="240" r="12" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
@@ -80,6 +81,7 @@
 <path d="M 70 1787 L 70 1850" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <text x="95" y="1838" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">Walk ~350 m</text>
 <text x="95" y="1871" font-size="24" fill="#2e9e50" text-anchor="start" font-weight="600">Central Park Mall</text>
+</g>
 <text x="585" y="270" font-size="22" fill="#1769aa" text-anchor="end" font-weight="600">4 + 4D</text>
 <path d="M 630 240 L 630 860" fill="none" stroke="#1769aa" stroke-width="6"/>
 <circle cx="630" cy="240" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
@@ -118,8 +120,6 @@
 <text x="655" y="915" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">4 to 6: no additional fare (firsthand)</text>
 <text x="585" y="1005" font-size="22" fill="#d36300" text-anchor="end" font-weight="600">6</text>
 <path d="M 630 980 L 630 1956" fill="none" stroke="#d36300" stroke-width="6"/>
-<circle cx="630" cy="980" r="12" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="653" y="986" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Galunggung</text>
 <path d="M 630 1023.5 L 619 999.5 L 641 999.5 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <circle cx="630" cy="1041" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
 <text x="653" y="1047" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Setiabudi Integritas</text>
@@ -351,125 +351,73 @@
 <text x="955" y="1155" font-size="22" fill="#2e9e50" text-anchor="start" font-weight="600">Usmar Ismail Hall</text>
 <text x="955" y="1179" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">stop order: jaGOdetabek /</text>
 <text x="955" y="1197" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">halte.id, not GTFS</text>
+<path d="M 360 240 L 630 302" fill="none" stroke="#1769aa" stroke-width="6"/>
+<circle cx="360" cy="240" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="337" y="246" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Simpang Pramuka 1</text>
+<path d="M 490 257 L 479 281 L 501 281 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<text x="337" y="270" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">4 ↑ Pulo Gadung · return-side exit</text>
+<path d="M 360 228 L 700 167" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="337" y="300" font-size="14" fill="currentColor" text-anchor="end" font-weight="normal">Exact walk to Green Pramuka unchecked</text>
+<path d="M 615 320 L 604 344 L 626 344 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 382 L 604 406 L 626 406 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 630 736 L 360 674 L 360 488 L 630 426" fill="none" stroke="#1769aa" stroke-width="6"/>
+<circle cx="360" cy="520" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="337" y="526" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Flyover Pramuka</text>
+<circle cx="360" cy="650" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="337" y="656" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Halte Manggarai Temporer 1</text>
+<path d="M 360 567 L 349 591 L 371 591 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 754 L 604 778 L 626 778 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 816 L 604 840 L 626 840 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<text x="337" y="710" font-size="15" fill="#1769aa" text-anchor="end" font-weight="normal">4 ↑ return-only approach</text>
+<path d="M 615 1058 L 604 1082 L 626 1082 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1119 L 604 1143 L 626 1143 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1180 L 604 1204 L 626 1204 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1241 L 604 1265 L 626 1265 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1302 L 604 1326 L 626 1326 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1363 L 604 1387 L 626 1387 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1424 L 604 1448 L 626 1448 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1485 L 604 1509 L 626 1509 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1546 L 604 1570 L 626 1570 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1607 L 604 1631 L 626 1631 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1668 L 604 1692 L 626 1692 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1729 L 604 1753 L 626 1753 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1790 L 604 1814 L 626 1814 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1851 L 604 1875 L 626 1875 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 615 1912 L 604 1936 L 626 1936 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 630 1041 L 360 1011 L 360 900 L 618 860" fill="none" stroke="#d36300" stroke-width="6"/>
+<circle cx="360" cy="948" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
+<text x="337" y="954" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Flyover Kuningan</text>
+<path d="M 360 965 L 349 989 L 371 989 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<text x="337" y="1035" font-size="18" fill="#d36300" text-anchor="end" font-weight="600">6 ↑ Galunggung</text>
+<text x="337" y="1062" font-size="14" fill="currentColor" text-anchor="end" font-weight="normal">Return-only Flyover Kuningan branch</text>
+<text x="655" y="944" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">Return 6 → 4: check platform; no fare promise</text>
+<circle cx="300" cy="2012" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="277" y="2018" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Ragunan</text>
+<path d="M 312 2012 L 618 1956" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 495 1965 L 484 1989 L 506 1989 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<text x="655" y="2040" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">6 ↑ starts at Ragunan; check boarding access / fare</text>
+<path d="M 300 2024 L 300 2338" fill="none" stroke="#00838f" stroke-width="6"/>
+<circle cx="300" cy="2070" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="277" y="2076" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Simpang Ragunan Ar-Raudhah</text>
+<circle cx="300" cy="2126" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="277" y="2132" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Kementan 2</text>
+<circle cx="300" cy="2182" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="277" y="2188" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Kementan</text>
+<circle cx="300" cy="2238" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="277" y="2244" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Kebagusan Raya</text>
+<circle cx="300" cy="2294" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
+<text x="277" y="2300" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Plaza Oleos</text>
+<path d="M 300 2029 L 289 2053 L 311 2053 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 300 2085 L 289 2109 L 311 2109 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 300 2141 L 289 2165 L 311 2165 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 300 2197 L 289 2221 L 311 2221 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 300 2253 L 289 2277 L 311 2277 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 300 2309 L 289 2333 L 311 2333 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<text x="18" y="1936" font-size="19" fill="#00838f" text-anchor="start" font-weight="600">7E ↑ Ragunan</text>
 </g>
 <text x="60" y="45" font-size="30" fill="currentColor" text-anchor="start" font-weight="600">One network · out and home</text>
-<text x="60" y="80" font-size="19" fill="currentColor" text-anchor="start" font-weight="normal">Follow the arrowheads. Homebound lanes run UP; outbound lanes run DOWN.</text>
-<text x="60" y="110" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Schematic, not to scale. Directional stop lists are independent; confirm the headsign.</text>
-<path d="M 450 860 L 450 240" fill="none" stroke="#1769aa" stroke-width="6"/>
-<circle cx="450" cy="860.0" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="427" y="866.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Galunggung</text>
-<path d="M 450 808.25 L 439 832.25 L 461 832.25 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="782.5" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="427" y="788.5" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Halimun</text>
-<path d="M 450 730.75 L 439 754.75 L 461 754.75 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="705.0" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="427" y="711.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Pasar Rumput</text>
-<path d="M 450 653.25 L 439 677.25 L 461 677.25 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="627.5" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="427" y="633.5" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Halte Manggarai Temporer 1</text>
-<path d="M 450 575.75 L 439 599.75 L 461 599.75 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="550.0" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="427" y="556.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Flyover Pramuka</text>
-<path d="M 450 498.25 L 439 522.25 L 461 522.25 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="472.5" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="427" y="478.5" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Pasar Genjing</text>
-<path d="M 450 420.75 L 439 444.75 L 461 444.75 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="395.0" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="427" y="401.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Utan Kayu</text>
-<path d="M 450 343.25 L 439 367.25 L 461 367.25 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="317.5" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="427" y="323.5" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Pramuka Sari</text>
-<path d="M 450 265.75 L 439 289.75 L 461 289.75 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="240.0" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="427" y="246.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Simpang Pramuka 1</text>
-<text x="475" y="320" font-size="20" fill="#1769aa" text-anchor="start" font-weight="600">4 ↑ Pulo Gadung</text>
-<path d="M 450 228 Q 450 155 1388 155" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="475" y="190" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">Return-side exit → Green Pramuka; exact walk unchecked</text>
-<path d="M 450 874 L 450 966" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="475" y="908" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">6 → 4: check platform</text>
-<text x="475" y="932" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">No return fare promise</text>
-<path d="M 450 2140 L 450 980" fill="none" stroke="#d36300" stroke-width="6"/>
-<circle cx="450" cy="2140.0" r="12" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="2146.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Ragunan</text>
-<path d="M 450 2094.777777777778 L 439 2118.777777777778 L 461 2118.777777777778 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="2075.5555555555557" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="2081.5555555555557" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Simpang Ragunan Ar-Raudhah</text>
-<path d="M 450 2030.3333333333335 L 439 2054.3333333333335 L 461 2054.3333333333335 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="2011.111111111111" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="2017.111111111111" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Jati Barat</text>
-<path d="M 450 1965.888888888889 L 439 1989.888888888889 L 461 1989.888888888889 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1946.6666666666667" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1952.6666666666667" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Jati Padang</text>
-<path d="M 450 1901.4444444444446 L 439 1925.4444444444446 L 461 1925.4444444444446 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1882.2222222222222" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1888.2222222222222" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Pejaten</text>
-<path d="M 450 1837.0 L 439 1861.0 L 461 1861.0 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1817.7777777777778" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1823.7777777777778" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Buncit Indah</text>
-<path d="M 450 1772.5555555555557 L 439 1796.5555555555557 L 461 1796.5555555555557 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1753.3333333333335" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1759.3333333333335" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Warung Jati</text>
-<path d="M 450 1708.1111111111113 L 439 1732.1111111111113 L 461 1732.1111111111113 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1688.888888888889" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1694.888888888889" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Warung Buncit</text>
-<path d="M 450 1643.6666666666667 L 439 1667.6666666666667 L 461 1667.6666666666667 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1624.4444444444443" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1630.4444444444443" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Duren Tiga</text>
-<path d="M 450 1579.2222222222222 L 439 1603.2222222222222 L 461 1603.2222222222222 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1560.0" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1566.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Mampang Prapatan</text>
-<path d="M 450 1514.7777777777778 L 439 1538.7777777777778 L 461 1538.7777777777778 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1495.5555555555557" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1501.5555555555557" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Underpass Kuningan</text>
-<path d="M 450 1450.3333333333335 L 439 1474.3333333333335 L 461 1474.3333333333335 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1431.111111111111" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1437.111111111111" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Patra Kuningan</text>
-<path d="M 450 1385.888888888889 L 439 1409.888888888889 L 461 1409.888888888889 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1366.6666666666667" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1372.6666666666667" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Kuningan</text>
-<path d="M 450 1321.4444444444446 L 439 1345.4444444444446 L 461 1345.4444444444446 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1302.2222222222222" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1308.2222222222222" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Rasuna Said</text>
-<path d="M 450 1257.0 L 439 1281.0 L 461 1281.0 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1237.7777777777778" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1243.7777777777778" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Karet Kuningan</text>
-<path d="M 450 1192.5555555555557 L 439 1216.5555555555557 L 461 1216.5555555555557 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1173.3333333333335" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1179.3333333333335" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Kuningan Madya</text>
-<path d="M 450 1128.1111111111113 L 439 1152.1111111111113 L 461 1152.1111111111113 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1108.888888888889" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1114.888888888889" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Setiabudi Integritas</text>
-<path d="M 450 1063.6666666666667 L 439 1087.6666666666667 L 461 1087.6666666666667 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="1044.4444444444446" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="1050.4444444444446" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Flyover Kuningan</text>
-<path d="M 450 999.2222222222224 L 439 1023.2222222222224 L 461 1023.2222222222224 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="980.0" r="12" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="427" y="986.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Galunggung</text>
-<text x="475" y="1360" font-size="20" fill="#d36300" text-anchor="start" font-weight="600">6 ↑ Galunggung</text>
-<text x="475" y="1390" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">includes Flyover Kuningan</text>
-<path d="M 450 2520 L 450 2140" fill="none" stroke="#00838f" stroke-width="6"/>
-<circle cx="450" cy="2520.0" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
-<text x="427" y="2526.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Phe Tower Kebagusan</text>
-<path d="M 450 2475.3333333333335 L 439 2499.3333333333335 L 461 2499.3333333333335 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="2456.6666666666665" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
-<text x="427" y="2462.6666666666665" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Plaza Oleos</text>
-<path d="M 450 2412.0 L 439 2436.0 L 461 2436.0 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="2393.3333333333335" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
-<text x="427" y="2399.3333333333335" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Kebagusan Raya</text>
-<path d="M 450 2348.666666666667 L 439 2372.666666666667 L 461 2372.666666666667 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="2330.0" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
-<text x="427" y="2336.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Kementan</text>
-<path d="M 450 2285.3333333333335 L 439 2309.3333333333335 L 461 2309.3333333333335 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="2266.6666666666665" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
-<text x="427" y="2272.6666666666665" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Kementan 2</text>
-<path d="M 450 2222.0 L 439 2246.0 L 461 2246.0 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="2203.3333333333335" r="7" fill="Canvas" stroke="#00838f" stroke-width="4"/>
-<text x="427" y="2209.3333333333335" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Simpang Ragunan Ar-Raudhah</text>
-<path d="M 450 2158.666666666667 L 439 2182.666666666667 L 461 2182.666666666667 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="450" cy="2140.0" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
-<text x="427" y="2146.0" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Ragunan</text>
-<path d="M 1000 2350 C 1000 2290, 900 2290, 600 2290 L 600 2520 L 462 2520" fill="none" stroke="#00838f" stroke-width="6"/>
-<path d="M 518 2520 L 542 2509 L 542 2531 Z" fill="#00838f" stroke="Canvas" stroke-width="3"/>
+<text x="60" y="80" font-size="19" fill="currentColor" text-anchor="start" font-weight="normal">Shared 4 / 6 spine · down outbound, up homebound · only different stops branch.</text>
+<text x="60" y="110" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.</text>
 <text x="1580" y="2756" font-size="20" fill="#00838f" text-anchor="start" font-weight="600">A · from Phe Tower beside the venue</text>
 <text x="1580" y="2784" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">7E toward Ragunan: no bridge crossing</text>
 <text x="1580" y="2812" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Ragunan: check 7E → 6 boarding access;</text>
@@ -496,8 +444,8 @@
 <text x="2625" y="590" font-size="20" fill="#6536b0" text-anchor="start" font-weight="600">7F ↑ Juanda segment</text>
 <text x="2625" y="620" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">Confirm Kayu Putih Rawasari</text>
 <text x="2625" y="646" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">on this service / loop headsign.</text>
-<path d="M 2588 240 L 2588 130 L 770 130 L 770 228" fill="none" stroke="Canvas" stroke-width="10"/>
-<path d="M 2588 240 L 2588 130 L 770 130 L 770 228" fill="none" stroke="#6536b0" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 2588 240 L 2588 130 L 170 130 L 170 228" fill="none" stroke="Canvas" stroke-width="10"/>
+<path d="M 2588 240 L 2588 130 L 170 130 L 170 228" fill="none" stroke="#6536b0" stroke-width="3" stroke-dasharray="5 7"/>
 <text x="1800" y="118" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">Same Kayu Putih Rawasari · walk ~230 m to Green Pramuka</text>
 <path d="M 1324 2333 Q 1510 2333 1510 2466 L 1510 2580 L 2588 2644" fill="none" stroke="currentColor" opacity=".6" stroke-width="3" stroke-dasharray="5 7"/>
 <text x="1580" y="2446" font-size="21" fill="currentColor" text-anchor="start" font-weight="600">B · bridge to far-side pickup → Gojek to Flyover Raya Bogor</text>

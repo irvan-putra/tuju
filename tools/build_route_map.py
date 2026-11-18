@@ -37,8 +37,9 @@ add('<title id="all-stops-title">Outbound routes and Arkadia homebound options, 
 add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026).</desc>')
 add('<g transform="translate(700 0)">')
 node(700,155,'Green Pramuka area','#777',True)
-for x in [70,630,1200]:line(700,170,x,230,'#888',True)
-text(95,204,'walk ~230 m',16);text(655,204,'walk to boarding point',16);text(1230,204,'walk ~850 m',16)
+for x in [-530,630,1200]:line(700,170,x,230,'#888',True)
+text(-505,204,'walk ~230 m',16);text(655,204,'walk to boarding point',16);text(1230,204,'walk ~850 m',16)
+add('<g transform="translate(-600 0)">')
 text(40,270,'10',22,COL['10'],anchor='end',weight='600')
 y10=chain('10',70,240,55,transfers=['G00473','G00718'])
 text(95,y10+33,'Change platform inside the same paid halte',15)
@@ -46,6 +47,7 @@ text(25,y10+90,'9',22,COL['9'],anchor='end',weight='600')
 y9=chain('9',70,y10,65,True,['G00403'])
 line(70,y9+12,70,y9+75,'#888',True)
 text(95,y9+63,'Walk ~350 m',16);text(95,y9+96,'Central Park Mall',24,'#2e9e50',weight='600')
+add('</g>')
 text(585,270,'4 + 4D',22,COL['4'],anchor='end',weight='600')
 y4=chain('4',630,240,62,transfers=['B08048P','G00216','G00202'])
 text(655,273,'temporary stop · 4 toward Galunggung via Saharjo',14)
@@ -59,7 +61,7 @@ text(1040,mat+110,'Tap out; ~1 min walk',15,anchor='end')
 line(630,y4+12,630,y4+110,'#888',True)
 text(655,y4+55,'4 to 6: no additional fare (firsthand)',15)
 text(585,y4+145,'6',22,COL['6'],anchor='end',weight='600')
-y6=chain('6',630,y4+120,61,transfers=['G00204','G00243'])
+y6=chain('6',630,y4+120,61,skipfirst=True,transfers=['G00204','G00243'])
 line(630,y6+12,630,y6+110,'#888',True)
 text(655,y6+50,'Exit the paid area - really short walk to the curbside 7E stop',15)
 text(585,y6+145,'7E',22,COL['7E'],anchor='end',weight='600')
@@ -155,44 +157,65 @@ text(bx+25,y4d+95,'Plaza Festival /',22,'#2e9e50',weight='600')
 text(bx+25,y4d+121,'Usmar Ismail Hall',22,'#2e9e50',weight='600')
 text(bx+25,y4d+145,'stop order: jaGOdetabek /',14)
 text(bx+25,y4d+163,'halte.id, not GTFS',14)
-# Homebound lanes occupy the SAME network extent as outbound, not a second panel.
-# Keep independently sourced sequences. Shared places are linked, never guessed by reversing.
-R={s['key']:s for s in json.loads((ROOT/'data/return-stops.json').read_text())['segments']}
-# The established outbound schematic is translated right to make room for a northbound lane.
-# Close its group before drawing homebound coordinates in the unified canvas.
+# Shared outbound/return station spine. Return-only stop sequences are local branches,
+# not an independently duplicated vertical. Common names denote the station area,
+# not a claim that opposite-direction platforms or fare gates are identical.
+# 4 return: the top curbside stop and middle approach differ.
+line(360,240,630,302,COL['4'])
+node(360,240,'Simpang Pramuka 1',COL['4'],True,anchor='end')
+tri(490,270,COL['4'])
+text(337,270,'4 ↑ Pulo Gadung · return-side exit',15,anchor='end')
+line(360,228,700,167,'#888',True)
+text(337,300,'Exact walk to Green Pramuka unchecked',14,anchor='end')
+# Shared 4 station areas: Pramuka Sari, Utan Kayu, Pasar Genjing.
+for yy in (333,395):tri(615,yy,COL['4'])
+# Outbound 4/4D uses Matraman, Tegalan, Kesatrian and Temporer 2;
+# homebound 4 branches through Flyover Pramuka and Temporer 1.
+add(f'<path d="M 630 736 L 360 674 L 360 488 L 630 426" fill="none" stroke="{COL["4"]}" stroke-width="6"/>')
+node(360,520,'Flyover Pramuka',COL['4'],anchor='end')
+node(360,650,'Halte Manggarai Temporer 1',COL['4'],anchor='end')
+tri(360,580,COL['4'])
+for yy in (767,829):tri(615,yy,COL['4'])
+text(337,710,'4 ↑ return-only approach',15,COL['4'],anchor='end')
+# 6 shares every drawn station area with its return except Flyover Kuningan.
+# Galunggung is a single station node for the 4 and 6 transfer.
+for yy in (1071,1132,1193,1254,1315,1376,1437,1498,1559,1620,1681,1742,1803,1864,1925):
+ tri(615,yy,COL['6'])
+add(f'<path d="M 630 1041 L 360 1011 L 360 900 L 618 860" fill="none" stroke="{COL["6"]}" stroke-width="6"/>')
+node(360,948,'Flyover Kuningan',COL['6'],anchor='end')
+tri(360,978,COL['6'])
+text(337,1035,'6 ↑ Galunggung',18,COL['6'],anchor='end',weight='600')
+text(337,1062,'Return-only Flyover Kuningan branch',14,anchor='end')
+text(655,944,'Return 6 → 4: check platform; no fare promise',14)
+# Reuse Galunggung instead of drawing a second labelled station for the 6 start.
+# A short orange connection leads into the shared 6 spine.
+# Ragunan is a separate terminal, not an alias for the outbound 7E curbside stop.
+rag=2012
+node(300,rag,'Ragunan',COL['7E'],True,anchor='end')
+line(312,rag,618,y6,'#888',True)
+tri(495,1978,COL['6'])
+text(655,2040,'6 ↑ starts at Ragunan; check boarding access / fare',14)
+# 7E has different stops on each side of the road. Keep those actual branches,
+# but share Phe Tower with the existing venue-side 7E line, not another copy.
+line(300,rag+12,300,py-12,COL['7E'])
+for yy,name in zip([2070,2126,2182,2238,2294],['Simpang Ragunan Ar-Raudhah','Kementan 2','Kementan','Kebagusan Raya','Plaza Oleos']):
+ node(300,yy,name,COL['7E'],anchor='end')
+for yy in (2042,2098,2154,2210,2266,2322):tri(300,yy,COL['7E'])
+text(18,1936,'7E ↑ Ragunan',19,COL['7E'],weight='600')
+# Long text belongs outside the stop columns.
 add('</g>')
-
+R={r['key']:r for r in json.loads((ROOT/'data/return-stops.json').read_text())['segments']}
 def return_chain(key,x,bottom,top,color,skipfirst=False):
- ss=R[key]['stops'];step=(bottom-top)/(len(ss)-1)
+ ss=R[key]['stops']; step=(bottom-top)/(len(ss)-1)
  line(x,bottom,x,top,color)
  for i,name in enumerate(ss):
   yy=bottom-i*step
-  if not(skipfirst and i==0):node(x,yy,name,color,i in (0,len(ss)-1),anchor='end' if x<700 else 'start')
+  if not(skipfirst and i==0):node(x,yy,name,color,i in (0,len(ss)-1))
   if i<len(ss)-1:tri(x,yy-step/2,color)
  return top
-
 text(60,45,'One network · out and home',30,weight='600')
-text(60,80,'Follow the arrowheads. Homebound lanes run UP; outbound lanes run DOWN.',19)
-text(60,110,'Schematic, not to scale. Directional stop lists are independent; confirm the headsign.',17)
-# Return 4 reaches a different curbside stop from outbound 4/4D.
-return_chain('4-return',450,y4,240,COL['4'])
-text(475,320,'4 ↑ Pulo Gadung',20,COL['4'],weight='600')
-add('<path d="M 450 228 Q 450 155 1388 155" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-text(475,190,'Return-side exit → Green Pramuka; exact walk unchecked',16)
-line(450,y4+14,450,y4+120-14,'#888',True)
-text(475,y4+48,'6 → 4: check platform',16)
-text(475,y4+72,'No return fare promise',15)
-# Ragunan starts the northbound 6. The 7E approach joins that same terminal node.
-rag=2140
-return_chain('6-return',450,rag,y4+120,COL['6'])
-text(475,1360,'6 ↑ Galunggung',20,COL['6'],weight='600')
-text(475,1390,'includes Flyover Kuningan',15)
-# Draw the actual venue-side 7E sequence toward Ragunan, with room below the venue
-# for its initial curve. It is not a mirror of the Kampung Rambutan pattern.
-return_chain('7E-return',450,2520,rag,COL['7E'],skipfirst=False)
-# Replace the duplicated approach endpoint label with its full role outside the curve.
-add(f'<path d="M {1000} {py} C 1000 {py-60}, 900 {py-60}, 600 {py-60} L 600 2520 L 462 2520" fill="none" stroke="{COL["7E"]}" stroke-width="6"/>')
-add('<path d="M 518 2520 L 542 2509 L 542 2531 Z" fill="#00838f" stroke="Canvas" stroke-width="3"/>')
+text(60,80,'Shared 4 / 6 spine · down outbound, up homebound · only different stops branch.',19)
+text(60,110,'Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.',17)
 text(1580,fy+100,'A · from Phe Tower beside the venue',20,COL['7E'],weight='600')
 text(1580,fy+128,'7E toward Ragunan: no bridge crossing',17)
 text(1580,fy+156,'Ragunan: check 7E → 6 boarding access;',17)
@@ -205,8 +228,8 @@ text(2625,590,'7F ↑ Juanda segment',20,'#6536b0',weight='600')
 text(2625,620,'Confirm Kayu Putih Rawasari',16)
 text(2625,646,'on this service / loop headsign.',16)
 # Link its endpoint to the SAME Kayu Putih stop in the outbound 10 branch.
-add('<path d="M 2588 240 L 2588 130 L 770 130 L 770 228" fill="none" stroke="Canvas" stroke-width="10"/>')
-add('<path d="M 2588 240 L 2588 130 L 770 130 L 770 228" fill="none" stroke="#6536b0" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 2588 240 L 2588 130 L 170 130 L 170 228" fill="none" stroke="Canvas" stroke-width="10"/>')
+add('<path d="M 2588 240 L 2588 130 L 170 130 L 170 228" fill="none" stroke="#6536b0" stroke-width="3" stroke-dasharray="5 7"/>')
 text(1800,118,'Same Kayu Putih Rawasari · walk ~230 m to Green Pramuka',16,anchor='middle')
 # Deliberately NOT a guaranteed paid-area connection from 7E to 7F.
 add(f'<path d="M 1324 {y7-43} Q 1510 {y7-43} 1510 {y7+90} L 1510 {fy-76} L {fx-12} {fy-12}" fill="none" stroke="currentColor" opacity=".6" stroke-width="3" stroke-dasharray="5 7"/>')

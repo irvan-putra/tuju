@@ -76,6 +76,8 @@ jobs:
 
           0.1.6 integrates those return choices into the top network itself, with northbound arrows and transfer links. No separate lower homebound panel. All directional stop lists and service/fare caveats remain.
 
+          0.1.7 merges the shared outbound/homebound 4 and 6 station areas into a single two-way spine. Only the different 4 approach and Flyover Kuningan branch locally; the distinct roadside 7E stops and all access/fare/service caveats stay visible.
+
           Pixel 6 / API 34 emulator checks cover map fit, actual pinch zoom and dragging. Not tested on a physical Samsung. Same package and pinned signing certificate as 0.1.0; intended as an in-place update.
 
           SHA-256 of the APK is in the attached .sha256 file.

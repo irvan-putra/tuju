@@ -58,6 +58,16 @@ class StopMapTest(unittest.TestCase):
   height=int(re.search(r'viewBox="0 0 3000 (\d+)"',svg).group(1))
   self.assertLess(height,3400)
   self.assertEqual(svg.count('4D leaves here'),1)
+ def test_shared_spine_is_not_a_duplicate_return_column(self):
+  root=ET.fromstring((ROOT/'data/all-stops.svg').read_text())
+  texts=[''.join(x.itertext()) for x in root.iter() if x.tag.endswith('text')]
+  for name in ['Pramuka Sari','Utan Kayu','Pasar Genjing','Pasar Rumput','Halimun','Galunggung','Kuningan','Patra Kuningan','Underpass Kuningan','Mampang Prapatan','Duren Tiga','Warung Buncit','Warung Jati','Buncit Indah','Pejaten','Jati Padang','Jati Barat']:
+   self.assertEqual(texts.count(name),1,name)
+  self.assertEqual(texts.count('Flyover Kuningan'),1)
+  self.assertEqual(texts.count('Halte Manggarai Temporer 1'),1)
+  self.assertEqual(texts.count('Phe Tower Kebagusan'),1)
+  self.assertIn('Shared 4 / 6 spine', ' '.join(texts))
+  self.assertIn('not necessarily platforms', ' '.join(texts))
  def test_offline_asset(self):
   page=(ROOT/'android/app/src/main/assets/map.html').read_text()
   self.assertNotIn('<script',page)

@@ -26,7 +26,7 @@ jobs:
           java-version: "17"
       - uses: gradle/actions/setup-gradle@v4
       - name: Map asset is in sync with index.html
-        run: python3 tools/build_map_asset.py --check
+        run: python3 ../tools/test_route_map.py && python3 tools/build_map_asset.py --check
       - run: chmod +x ./gradlew
       - name: Read version
         id: v
@@ -69,6 +69,10 @@ jobs:
           VER="${{ steps.v.outputs.version }}"
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network, no permissions. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
+
+          Shows every intermediate stop on the selected outbound routes (4 via Saharjo, 6, 7E toward Kampung Rambutan, 10, 9 toward Pluit, 4C and 5M via Cikini), sourced from the TransJakarta operator GTFS checked 18 November 2026. Route patterns and temporary stops may change; this is not live arrival information. Paid-area/fare uncertainties remain visible.
+
+          Pixel 6 / API 34 emulator checks cover map fit, actual pinch zoom and dragging. Not tested on a physical Samsung. Same package and pinned signing certificate as 0.1.0; intended as an in-place update.
 
           SHA-256 of the APK is in the attached .sha256 file.
           NOTES

@@ -13,6 +13,8 @@ def add(s): A.append(s)
 def text(x,y,s,size=20,color='currentColor',anchor='start',weight='normal'):
  add(f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" text-anchor="{anchor}" font-weight="{weight}">{html.escape(s)}</text>')
 def line(x,y,xx,yy,color,dashed=False):
+ if dashed and color=='#888':
+  add(f'<path d="M {x} {y} L {xx} {yy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>');return
  add(f'<path d="M {x} {y} L {xx} {yy}" fill="none" stroke="{color}" stroke-width="{3 if dashed else 6}"'+(' stroke-dasharray="5 7"' if dashed else '')+'/>')
 def tri(x,y,color,up=True):
  # Bold arrowhead marking travel direction; the Canvas halo keeps it distinct from the leg line.
@@ -44,13 +46,13 @@ text(95,y10+33,'Change platform inside the same paid halte',15)
 text(25,y10+90,'9',22,COL['9'],anchor='end',weight='600')
 y9=chain('9',70,y10,65,True,['G00403'])
 line(70,y9+12,70,y9+75,'#888',True)
-text(95,y9+63,'Walk ~350 m',16);text(95,y9+96,'Central Park Mall',24,'#27803c',weight='600')
+text(95,y9+63,'Walk ~350 m',16);text(95,y9+96,'Central Park Mall',24,'#2e9e50',weight='600')
 text(585,270,'4',22,COL['4'],anchor='end',weight='600')
 y4=chain('4',630,240,62,transfers=['B08048P','G00216','G00202'])
 text(655,273,'temporary stop · toward Galunggung via Saharjo',14)
 # Matraman branches into curbside 5M. The ring is not a paid-area transfer.
 mat=240+next(i for i,s in enumerate(S['4']['stops']) if s['id']=='G00216')*62
-add(f'<path d="M 630 {mat+12} L 630 {mat+30} L 1000 {mat+30} L 1040 {mat+70}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 630 {mat+12} L 630 {mat+30} L 1000 {mat+30} L 1040 {mat+70}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 node(1040,mat+70,'Matraman 3',COL['5M'],True,anchor='end')
 text(1040,mat+110,'Tap out; ~1 min walk',15,anchor='end')
 # Walk from corridor 4 to 6 at Galunggung is not assumed paid-area continuous.
@@ -67,20 +69,20 @@ line(630,y7+12,630,y7+268,COL['7E'])
 by=y7-70
 # The road between the two 7E sides by the venue (firsthand 18 Nov 2026):
 # Ragunan-bound on the venue side (left column), Kampung Rambutan-bound far side.
-add(f'<rect x="306" y="{y7-86}" width="318" height="110" fill="#e2e2e2"/>')
-add(f'<line x1="465" y1="{y7-86}" x2="465" y2="{y7+24}" stroke="#fff" stroke-width="3" stroke-dasharray="8 8"/>')
+add(f'<rect x="306" y="{y7-86}" width="318" height="110" fill="currentColor" opacity="0.12"/>')
+add(f'<line x1="465" y1="{y7-86}" x2="465" y2="{y7+24}" stroke="currentColor" opacity="0.35" stroke-width="3" stroke-dasharray="8 8"/>')
 add(f'<text x="312" y="{by+2}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="start">venue side</text>')
 add(f'<text x="618" y="{by+2}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="end">far side</text>')
 # Pedestrian bridge across the road at the Gabus stop.
-add(f'<line x1="306" y1="{y7-4}" x2="624" y2="{y7-4}" stroke="#888" stroke-width="2"/>')
-add(f'<line x1="306" y1="{y7+8}" x2="624" y2="{y7+8}" stroke="#888" stroke-width="2"/>')
-for bx in range(318,624,18): add(f'<line x1="{bx}" y1="{y7-4}" x2="{bx}" y2="{y7+8}" stroke="#888" stroke-width="2"/>')
+add(f'<line x1="306" y1="{y7-4}" x2="624" y2="{y7-4}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
+add(f'<line x1="306" y1="{y7+8}" x2="624" y2="{y7+8}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
+for bx in range(318,624,18): add(f'<line x1="{bx}" y1="{y7-4}" x2="{bx}" y2="{y7+8}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
 # One shared venue marker between the columns; both walks arrive at the same place.
-add(f'<rect x="457" y="{y7+50}" width="16" height="16" rx="3" fill="#27803c"/>')
-text(465,y7+84,'De Entrance -',19,'#27803c',weight='600',anchor='middle')
-text(465,y7+108,'Arkadia Green Park',19,'#27803c',weight='600',anchor='middle')
+add(f'<rect x="457" y="{y7+50}" width="16" height="16" rx="3" fill="#2e9e50"/>')
+text(465,y7+84,'De Entrance -',19,'#2e9e50',weight='600',anchor='middle')
+text(465,y7+108,'Arkadia Green Park',19,'#2e9e50',weight='600',anchor='middle')
 text(465,y7+130,'same road side as Baung',13,anchor='middle')
-add(f'<path d="M 306 {y7+8} C 370 {y7+34}, 420 {y7+48}, 449 {y7+54}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 306 {y7+8} C 370 {y7+34}, 420 {y7+48}, 449 {y7+54}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 text(320,y7-10,'Walk ~1 min',13)
 for i,name in enumerate(['Jln. H. Saidi','Jln. Nangka 1','Jln. Muara 1','Plaza Pp Condet 2','RSUD Pasar Rebo 2']):
  node(630,y7+56+i*44,name,COL['7E'])
@@ -93,8 +95,8 @@ text(607,fy-68,'link and re-tap fare are unverified.',13,anchor='end')
 for ay in (y7-150,y7+28,y7+122,y7+210,y7+254):tri(630,ay,COL['7E'],up=False)
 # Direction switch: a candidate from the listings, not a confirmed physical link.
 ry=fy+56
-add(f'<path d="M 618 {fy+6} C 470 {fy+76}, 400 {fy+76}, 346 {ry+2}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M 312 {ry+2} L 344 {ry-11} L 344 {ry+15} Z" fill="#888" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
+add(f'<path d="M 618 {fy+6} C 470 {fy+76}, 400 {fy+76}, 346 {ry+2}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 312 {ry+2} L 344 {ry-11} L 344 {ry+15} Z" fill="currentColor" opacity=".6" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
 add(f"<circle cx='300' cy='{ry}' r='12' fill='Canvas' stroke='{COL['7E']}' stroke-width='4'/>")
 text(277,ry+6,'Flyover Raya Bogor',20,weight='600',anchor='end')
 text(277,ry+30,'board toward Ragunan',13,anchor='end')
@@ -106,7 +108,7 @@ for i,name in enumerate(['Gg. Nanas','Jln. Nangka Raya','Telkomsel Jln. Nangka',
 for ay in (by+30,by+70,by+158,by+246,by+334,by+379):tri(300,ay,COL['7E'])
 node(300,by,'Baung - get off',COL['7E'],True,anchor='end')
 text(277,by+30,'or 1 more: Phe Tower Kebagusan (~5 min)',13,anchor='end')
-add(f'<path d="M 312 {by-2} C 360 {by+38}, 410 {by+80}, 449 {y7+54}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 312 {by-2} C 360 {by+38}, 410 {by+80}, 449 {y7+54}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 text(323,by-10,'Walk ~4 min (285 m)',15)
 text(1155,270,'4C',22,COL['4C'],anchor='end',weight='600')
 yc=chain('4C',1200,240,62,transfers=['B07260P','B05812P'])
@@ -125,7 +127,7 @@ text(1155,yc+90,'5M',22,COL['5M'],anchor='end',weight='600')
 text(1225,yend+43,'via Cikini pattern; other 5M patterns differ',15)
 line(1200,yend+12,1200,yend+100,'#888',True)
 text(1225,yend+83,'Walk ~300 m',17)
-text(1225,yend+116,'Markas Indonesia',24,'#27803c',weight='600')
+text(1225,yend+116,'Markas Indonesia',24,'#2e9e50',weight='600')
 foot0=max(ry+50,fy+76,yend+116,y9+96)+50
 text(60,foot0,'Rings = boarding / transfer / get off · small circles = intermediate stops · arrowheads = travel direction · dashed = walk or an unverified direction switch',20)
 text(60,foot0+35,'Corridor legs show the listed direction only - do not reverse them. The drawn 7E return leg is the actual Ragunan-bound pattern.',18)

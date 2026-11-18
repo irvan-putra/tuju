@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["android/**"]
+    paths: ["android/**", "data/**", "tools/**", "index.html"]
 
 permissions:
   contents: read
@@ -24,7 +24,9 @@ jobs:
           distribution: temurin
           java-version: "17"
       - uses: gradle/actions/setup-gradle@v4
-      - run: chmod +x ./gradlew && ./gradlew --no-daemon assembleDebug
+      - name: Stop coverage and generated-asset checks
+        run: python3 ../tools/test_route_map.py && python3 tools/build_map_asset.py --check
+      - run: chmod +x ./gradlew && ./gradlew --no-daemon testDebugUnitTest assembleDebug
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules

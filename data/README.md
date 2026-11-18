@@ -38,10 +38,10 @@ return journey. The selected patterns matter:
   had no DNS A record at that moment, so the return-leg stop names are not in
   route-stops.json. Firsthand on-site check the same day: the two 7E directions
   stop on opposite road sides by the venue - Jln. Gabus Raya (Kampung
-  Rambutan-bound) is across the road, reached by a pedestrian bridge (~1 min)
-  that sits between the Mujair and Phe Tower stops - while the venue sits
-  beside Phe Tower Kebagusan (Ragunan-bound), just past Gabus toward Kampung
-  Rambutan, and Baung is farther along on the same side. The dashed switch in the
+  Rambutan-bound) is across the road, reached by a short walk back
+  via the pedestrian bridge between the Mujair and Phe Tower stops - while the venue sits
+  beside Phe Tower Kebagusan (Ragunan-bound); Jln. Gabus Raya (far side) and
+  Baung (venue side) are both farther along toward Kampung Rambutan. The dashed switch in the
   map still marks an unverified physical link, and the map otherwise stays
   listed-direction-only.
 

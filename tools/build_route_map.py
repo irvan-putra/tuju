@@ -33,7 +33,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
   if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers)
  return end
 add('<title id="all-stops-title">All intermediate stops on the selected outbound routes</title>')
-add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after an unverified direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan just past Jln. Gabus Raya, and Baung is farther along - both on the venue side (firsthand 18 Nov 2026); the Flyover Raya Bogor direction switch itself remains unverified.</desc>')
+add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after an unverified direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan (firsthand 18 Nov 2026); the Flyover Raya Bogor direction switch itself remains unverified.</desc>')
 text(60,45,'Every stop, in travel order',30,weight='600')
 text(60,78,'Corridor legs in listed direction · 7E return leg drawn back up the left · schematic, not to scale',20)
 text(60,108,'Operator GTFS checked 18 Nov 2026. Route patterns and temporary stops can change.',17)
@@ -68,27 +68,28 @@ y7=chain('7E',630,y6+120,60,transfers=['B07989P','B01062P'])
 line(630,y7+12,630,y7+268,COL['7E'])
 # The road between the two 7E sides by the venue (firsthand 18 Nov 2026):
 # Ragunan-bound on the venue side (left column), Kampung Rambutan-bound far side.
-# The venue sits beside the Phe Tower Kebagusan stop, just past Jln. Gabus Raya
-# toward Kampung Rambutan; the footbridge is between the Mujair and Phe stops.
-py=y7+44
-bq=y7+88
-add(f'<rect x="306" y="{y7-16}" width="318" height="120" fill="currentColor" opacity="0.12"/>')
-add(f'<line x1="465" y1="{y7-16}" x2="465" y2="{y7+104}" stroke="currentColor" opacity="0.35" stroke-width="3" stroke-dasharray="8 8"/>')
-add(f'<text x="300" y="{y7+10}" font-size="13" fill="currentColor" text-anchor="end">Walk ~1 min</text>')
-add(f'<text x="618" y="{y7-2}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="end">far side</text>')
-add(f'<text x="312" y="{y7-2}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="start">venue side</text>')
+# Along the road toward Kampung Rambutan: Jln. Mujair Raya, then the footbridge,
+# then Phe Tower Kebagusan with the venue beside it, then Jln. Gabus Raya on the
+# far side, then Baung on the venue side.
+py=y7-4
+bq=y7+52
+add(f'<rect x="306" y="{y7-52}" width="318" height="116" fill="currentColor" opacity="0.12"/>')
+add(f'<line x1="465" y1="{y7-52}" x2="465" y2="{y7+64}" stroke="currentColor" opacity="0.35" stroke-width="3" stroke-dasharray="8 8"/>')
+add(f'<text x="300" y="{y7-16}" font-size="13" fill="currentColor" text-anchor="end">Via footbridge</text>')
+add(f'<text x="618" y="{y7-38}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="end">far side</text>')
+add(f'<text x="312" y="{y7-38}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="start">venue side</text>')
 # Pedestrian bridge across the road, between the Mujair and Phe Tower stops.
-add(f'<line x1="306" y1="{y7+4}" x2="624" y2="{y7+4}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
-add(f'<line x1="306" y1="{y7+16}" x2="624" y2="{y7+16}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
-for bx in range(318,624,18): add(f'<line x1="{bx}" y1="{y7+4}" x2="{bx}" y2="{y7+16}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
+add(f'<line x1="306" y1="{y7-32}" x2="624" y2="{y7-32}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
+add(f'<line x1="306" y1="{y7-20}" x2="624" y2="{y7-20}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
+for bx in range(318,624,18): add(f'<line x1="{bx}" y1="{y7-32}" x2="{bx}" y2="{y7-20}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
 # One shared venue marker beside the Phe Tower stop; all walks arrive at the same place.
-add(f'<rect x="457" y="{y7+38}" width="16" height="16" rx="3" fill="#2e9e50"/>')
-text(465,y7+84,'De Entrance -',19,'#2e9e50',weight='600',anchor='middle')
-text(465,y7+108,'Arkadia Green Park',19,'#2e9e50',weight='600',anchor='middle')
-text(465,y7+130,'same side as Phe Tower + Baung',13,anchor='middle')
-add(f'<path d="M 306 {y7+16} C 340 {y7+28}, 400 {y7+38}, 449 {y7+44}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<rect x="457" y="{y7-10}" width="16" height="16" rx="3" fill="#2e9e50"/>')
+text(465,y7+32,'De Entrance -',19,'#2e9e50',weight='600',anchor='middle')
+text(465,y7+56,'Arkadia Green Park',19,'#2e9e50',weight='600',anchor='middle')
+text(465,y7+78,'same side as Phe Tower + Baung',13,anchor='middle')
+add(f'<path d="M 306 {y7-20} C 340 {y7-12}, 410 {y7-6}, 449 {y7-2}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<path d="M 312 {py+2} C 360 {py-2}, 410 {py-2}, 449 {py+2}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M 312 {bq+2} C 350 {bq-24}, 410 {y7+56}, 449 {y7+52}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 312 {bq+2} C 350 {bq-20}, 410 {y7+10}, 449 {y7+6}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 for i,name in enumerate(['Jln. H. Saidi','Jln. Nangka 1','Jln. Muara 1','Plaza Pp Condet 2','RSUD Pasar Rebo 2']):
  node(630,y7+56+i*44,name,COL['7E'])
 fy=y7+280
@@ -99,7 +100,7 @@ text(607,fy-84,'switch direction there - the physical',13,anchor='end')
 text(607,fy-68,'link and re-tap fare are unverified.',13,anchor='end')
 for ay in (y7-150,y7+28,y7+122,y7+210,y7+254):tri(630,ay,COL['7E'],up=False)
 # Direction switch: a candidate from the listings, not a confirmed physical link.
-ry=y7+496
+ry=y7+452
 add(f'<path d="M 618 {fy+6} C 470 {fy+120}, 400 {ry-30}, 346 {ry+2}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<path d="M 312 {ry+2} L 344 {ry-11} L 344 {ry+15} Z" fill="currentColor" opacity=".6" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
 add(f"<circle cx='300' cy='{ry}' r='12' fill='Canvas' stroke='{COL['7E']}' stroke-width='4'/>")
@@ -110,7 +111,7 @@ text(277,ry+46,'physical link unverified',13,anchor='end')
 line(300,py+12,300,ry-12,COL['7E'])
 for i,name in enumerate(['Gg. Nanas','Jln. Nangka Raya','Telkomsel Jln. Nangka','ACC Simatupang','Muara Dalam','Plaza Pp Condet 1','SMAN 104','RSUD Pasar Rebo 1']):
  node(300,bq+44+i*44,name,COL['7E'],anchor='end')
-for ay in (y7+66,y7+110,y7+198,y7+286,y7+374,y7+462):tri(300,ay,COL['7E'])
+for ay in (y7+24,y7+74,y7+162,y7+250,y7+338,y7+426):tri(300,ay,COL['7E'])
 node(300,py,'Phe Tower Kebagusan',COL['7E'],True,anchor='end')
 text(277,py+26,'get off - right by the venue',13,anchor='end')
 node(300,bq,'Baung - get off',COL['7E'],True,anchor='end')
@@ -137,8 +138,8 @@ foot0=max(ry+50,fy+76,yend+116,y9+96)+50
 text(60,foot0,'Rings = boarding / transfer / get off · small circles = intermediate stops · arrowheads = travel direction · dashed = walk or an unverified direction switch',20)
 text(60,foot0+35,'Corridor legs show the listed direction only - do not reverse them. The drawn 7E return leg is the actual Ragunan-bound pattern.',18)
 text(60,foot0+70,'The 7E Flyover Raya Bogor switch is a candidate from GTFS-derived listings - the physical link and re-tap fare are unverified.',17)
-text(60,foot0+105,'Firsthand 18 Nov 2026: the venue sits beside the Phe Tower Kebagusan stop, just past Jln. Gabus Raya toward Kampung Rambutan;',17)
-text(60,foot0+130,'the pedestrian bridge is between the Mujair and Phe Tower stops; Baung is farther along on the venue side.',17)
+text(60,foot0+105,'Firsthand 18 Nov 2026: the venue sits beside the Phe Tower Kebagusan stop; the pedestrian bridge is between the Mujair and',17)
+text(60,foot0+130,'Phe Tower stops; Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan.',17)
 text(60,foot0+165,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)
 text(60,foot0+200,'Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.',17)
 add('</svg>')

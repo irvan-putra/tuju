@@ -74,7 +74,13 @@ TransJakarta GTFS rendering, checked 18 November 2026. It is not a new official
 feed download: that host could not be resolved. Each segment records its source URL.
 7E starts beside the venue toward Ragunan. The northbound 6 includes Flyover
 Kuningan; the 4 homeward leg uses the listed Pulo Gadung pattern, not a reversed
-outbound route. The separate Gojek alternative joins 7F at Flyover Raya Bogor.
+outbound route. The separate Gojek alternative joins 7F at Flyover Raya Bogor. The 7F
+Juanda-direction order is cross-checked against an e-kompas route listing
+(2024-05-08,
+https://e-kompas.id/rute-transjakarta-7f-kampung-rambutan-juanda-dan-halte-pemberhentiannya-e-kompas-id-otomotif/):
+same six-stop order from Flyover Raya Bogor to Kayu Putih Rawasari, whose last
+three names match the first three stops of the official 10 pattern, so the map
+draws those station areas once on a shared two-way spine.
 Both are drawn below the outbound schematic in the same SVG and offline asset.
 No precise Ragunan transfer access, paid-area continuity, ride time, empty bus,
 seat availability or late 7F operation is promised. Existing firsthand fare

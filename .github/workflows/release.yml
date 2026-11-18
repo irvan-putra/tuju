@@ -80,6 +80,8 @@ jobs:
 
           0.1.8 moves the Gojek / 7F homebound option to the far left, beside the venue-side 7E return column. Same stops, directions and caveats; the Gojek hop is drawn as a separate dashed link below the network.
 
+          0.1.9 merges the shared 10 outbound and 7F homebound station areas (Kayu Putih Rawasari, Pemuda Pramuka, Utan Kayu Rawamangun) into one two-way spine, like the 4 / 6 spine: only the different stops branch, 10 toward Cawang Sentral and 7F toward Flyover Raya Bogor. 7F order per Catenary's GTFS rendering (18 Nov 2026), cross-checked with an e-kompas route listing. The launcher icon version badge now matches the release (0.1.8 still showed 0.1.7). All service, access and fare caveats stay visible.
+
           Pixel 6 / API 34 emulator checks cover map fit, actual pinch zoom and dragging. Not tested on a physical Samsung. Same package and pinned signing certificate as 0.1.0; intended as an in-place update.
 
           SHA-256 of the APK is in the attached .sha256 file.

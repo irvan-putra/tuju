@@ -34,7 +34,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
   if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,COL[route],False)
  return end
 add('<title id="all-stops-title">Outbound routes and Arkadia homebound options, with intermediate stops</title>')
-add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026).</desc>')
+add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor.</desc>')
 SH=420  # whole network shifts right so the 7F homebound column can sit at the far left
 add(f'<g transform="translate({SH} 0)">')
 add('<g transform="translate(700 0)">')
@@ -42,8 +42,13 @@ node(700,155,'Green Pramuka area','#777',True)
 for x in [-530,630,1200]:line(700,170,x,230,'#888',True)
 text(-505,204,'walk ~230 m',16);text(655,204,'walk to boarding point',16);text(1230,204,'walk ~850 m',16)
 add('<g transform="translate(-600 0)">')
-text(40,270,'10',22,COL['10'],anchor='end',weight='600')
+text(40,258,'10 ↓ PGC',19,COL['10'],anchor='end',weight='600')
+text(40,284,'7F ↑ Juanda',19,COL['10'],anchor='end',weight='600')
 y10=chain('10',70,240,55,transfers=['G00473','G00718'])
+# 7F homebound shares the top three station areas of this column (same stop names in
+# the official 10 GTFS pattern and the 7F Juanda-direction listing). Its own stops
+# branch off at Utan Kayu Rawamangun toward Flyover Raya Bogor; drawn in the outer section.
+tri(55,267,COL['10']);tri(55,322,COL['10'])
 text(95,y10+33,'Change platform inside the same paid halte',15)
 text(25,y10+90,'9',22,COL['9'],anchor='end',weight='600')
 y9=chain('9',70,y10,65,True,['G00403'])
@@ -216,32 +221,36 @@ def return_chain(key,x,bottom,top,color,skipfirst=False):
   if i<len(ss)-1:tri(x,yy-step/2,color)
  return top
 text(60-SH,45,'One network · out and home',30,weight='600')
-text(60-SH,80,'Shared 4 / 6 spine · down outbound, up homebound · only different stops branch.',19)
+text(60-SH,80,'Shared 4 / 6 and 10 / 7F spines · down outbound, up homebound · only different stops branch.',19)
 text(60-SH,110,'Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.',17)
 text(1580,fy+100,'A · from Phe Tower beside the venue',20,COL['7E'],weight='600')
 text(1580,fy+128,'7E toward Ragunan: no bridge crossing',17)
 text(1580,fy+156,'Ragunan: check 7E → 6 boarding access;',17)
 text(1580,fy+184,'allow a fresh tap/fare. Continuity unverified.',17)
 text(1580,fy+212,'A terminus is not a guarantee of a seat.',17)
-# Far-side homebound choice: the 7F column sits at the far LEFT, near the venue-side return
-# column and beside the 10 outbound column, and its Gojek link runs below the network.
+# Far-side homebound choice: the 7F shares the top three station areas of the outbound
+# 10 column (Kayu Putih Rawasari, Pemuda Pramuka, Utan Kayu Rawamangun - same names in
+# the official 10 GTFS pattern and the 7F Juanda-direction listing: Catenary 18 Nov 2026,
+# e-kompas cross-check). Only its own stops branch left toward Flyover Raya Bogor, and
+# the Gojek link runs below the network.
 fx=300-SH
-def return_chain_left(key,x,bottom,top,color):
- ss=R[key]['stops']; step=(bottom-top)/(len(ss)-1)
- line(x,bottom,x,top,color)
- for i,name in enumerate(ss):
-  yy=bottom-i*step
-  node(x,yy,name,color,i in (0,len(ss)-1),anchor='end')
-  if i<len(ss)-1:tri(x,yy-step/2,color)
-return_chain_left('7F-return',fx,fy,240,'#6536b0')
-text(fx-23,205,'7F ↑ Juanda segment',20,'#6536b0',anchor='end',weight='600')
+assert [s['name'] for s in S['10']['stops'][:3]]==['Kayu Putih Rawasari','Pemuda Pramuka','Utan Kayu Rawamangun']
+assert R['7F-return']['stops']==['Flyover Raya Bogor','Trikora','Pasar Induk','Utan Kayu Rawamangun','Pemuda Pramuka','Kayu Putih Rawasari']
+uky=240+2*55  # Utan Kayu Rawamangun, the branch point on the shared 10 column
+by0=500
+st7=(fy-by0)/3
+add(f'<path d="M 164 {uky+8} L {fx} {by0}" fill="none" stroke="{COL["10"]}" stroke-width="6"/>')
+line(fx,by0,fx,fy,COL['10'])
+node(fx,by0+st7,'Pasar Induk',COL['10'],anchor='end')
+node(fx,by0+2*st7,'Trikora',COL['10'],anchor='end')
+node(fx,fy,'Flyover Raya Bogor',COL['10'],True,anchor='end')
+for yy in (by0+st7/2,by0+1.5*st7,by0+2.5*st7):tri(fx,yy,COL['10'])
+text(fx-23,by0-24,'7F ↑ Juanda segment',19,COL['10'],anchor='end',weight='600')
 text(fx-23,fy+44,'Get on 7F here; check access.',16,anchor='end')
-# The 7F end is the SAME Kayu Putih Rawasari stop as the first outbound 10 stop, right beside it.
-add(f'<path d="M {fx+12} 240 L {170-12} 240" fill="none" stroke="Canvas" stroke-width="10"/>')
-add(f'<path d="M {fx+12} 240 L {170-12} 240" fill="none" stroke="#6536b0" stroke-width="3" stroke-dasharray="5 7"/>')
-text(fx+22,228,'same stop as 10 outbound',14)
-text(fx-23,640,'Confirm Kayu Putih Rawasari',16,anchor='end')
-text(fx-23,666,'on this service / loop headsign.',16,anchor='end')
+# The 7F end IS the first outbound 10 stop: shared station area, not a platform claim.
+text(147,200,'Confirm Kayu Putih Rawasari',15,anchor='end')
+text(147,224,'on this service / loop headsign.',15,anchor='end')
+text(193,uky-16,'7F ↑ branches to Flyover Raya Bogor',15)
 # Deliberately NOT a guaranteed paid-area connection from 7E to 7F: a separate Gojek hop.
 gy=ry+80
 add(f'<path d="M 1324 {y7-43} Q 1510 {y7-43} 1510 {y7+90} L 1510 {gy} L {fx} {gy} L {fx} {fy+12}" fill="none" stroke="currentColor" opacity=".6" stroke-width="3" stroke-dasharray="5 7"/>')

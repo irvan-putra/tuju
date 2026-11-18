@@ -47,9 +47,10 @@ text(25,y10+90,'9',22,COL['9'],anchor='end',weight='600')
 y9=chain('9',70,y10,65,True,['G00403'])
 line(70,y9+12,70,y9+75,'#888',True)
 text(95,y9+63,'Walk ~350 m',16);text(95,y9+96,'Central Park Mall',24,'#2e9e50',weight='600')
-text(585,270,'4',22,COL['4'],anchor='end',weight='600')
+text(585,270,'4 + 4D',22,COL['4'],anchor='end',weight='600')
 y4=chain('4',630,240,62,transfers=['B08048P','G00216','G00202'])
-text(655,273,'temporary stop · toward Galunggung via Saharjo',14)
+text(655,273,'temporary stop · 4 toward Galunggung via Saharjo',14)
+text(655,288,'4D toward Patra Kuningan',14)
 # Matraman branches into curbside 5M. The ring is not a paid-area transfer.
 mat=240+next(i for i,s in enumerate(S['4']['stops']) if s['id']=='G00216')*62
 add(f'<path d="M 630 {mat+12} L 630 {mat+30} L 1000 {mat+30} L 1040 {mat+70}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
@@ -134,24 +135,34 @@ text(1225,yend+43,'via Cikini pattern; other 5M patterns differ',15)
 line(1200,yend+12,1200,yend+100,'#888',True)
 text(1225,yend+83,'Walk ~300 m',17)
 text(1225,yend+116,'Markas Indonesia',24,'#2e9e50',weight='600')
-# 4D to Rasuna Said, stacked below Markas Indonesia. Stop order is NOT from the GTFS snapshot (see data/route-stops.json).
-y4d0=yend+250
-text(1155,y4d0+30,'4D',22,COL['4D'],anchor='end',weight='600')
-text(1225,y4d0-66,'Rasuna Said: board 4D toward Patra Kuningan',15)
-text(1225,y4d0-48,'at Simpang Pramuka 2 (walk ~14 min, Google Maps;',15)
-text(1225,y4d0-30,'ride ~54 min, scheduled)',15)
-y4d=chain('4D',1200,y4d0,58,transfers=['B08048P','G00289'])
-line(1200,y4d+12,1200,y4d+100,'#888',True)
-text(1225,y4d+62,'Exit Akses E, walk ~2 min',17)
-text(1225,y4d+95,'Plaza Festival / Usmar Ismail Hall',22,'#2e9e50',weight='600')
-text(1225,y4d+120,'stop order from jaGOdetabek / halte.id, not GTFS',14)
+# 4D shares the first ten stops with corridor 4 (same stop IDs in data/route-stops.json), so it branches off the drawn 4 column at Halimun.
+# Stop order for 4D is NOT from the GTFS snapshot (see data/route-stops.json).
+s4=[x['id'] for x in S['4']['stops']]; s4d=S['4D']['stops']
+nshared=0
+while nshared<len(s4d) and nshared<len(s4) and s4d[nshared]['id']==s4[nshared]:nshared+=1
+assert nshared==10,nshared
+hy=240+(nshared-1)*62
+bx=930; by=hy+62
+add(f'<path d="M 630 {hy+14} L {bx} {by}" fill="none" stroke="{COL["4D"]}" stroke-width="6"/>')
+text(745,hy-6,'4D leaves here; 4 goes on to Galunggung',15,weight='600')
+tail=s4d[nshared:]
+y4d=by+58*(len(tail)-1)
+line(bx,by,bx,y4d,COL['4D'])
+for i,st in enumerate(tail):node(bx,by+i*58,st['name'],COL['4D'],i==len(tail)-1)
+text(bx-25,by+30,'4D',22,COL['4D'],anchor='end',weight='600')
+line(bx,y4d+12,bx,y4d+100,'#888',True)
+text(bx+25,y4d+62,'Exit Akses E, walk ~2 min',17)
+text(bx+25,y4d+95,'Plaza Festival /',22,'#2e9e50',weight='600')
+text(bx+25,y4d+121,'Usmar Ismail Hall',22,'#2e9e50',weight='600')
+text(bx+25,y4d+145,'stop order: jaGOdetabek /',14)
+text(bx+25,y4d+163,'halte.id, not GTFS',14)
 foot0=max(ry+50,fy+76,y4d+130,y9+96)+50
 text(60,foot0,'Rings = boarding / transfer / get off · small circles = intermediate stops · arrowheads = travel direction · dashed = walk or a direction switch',20)
 text(60,foot0+35,'Corridor legs show the listed direction only - do not reverse them. The drawn 7E return leg is the actual Ragunan-bound pattern.',18)
 text(60,foot0+70,'The 7E Flyover Raya Bogor switch was a candidate from GTFS-derived listings - firsthand 18 Nov 2026 it stays inside the paid area, no new fare.',17)
 text(60,foot0+105,'Firsthand 18 Nov 2026: the venue sits beside the Phe Tower Kebagusan stop; the pedestrian bridge is between the Mujair and',17)
 text(60,foot0+130,'Phe Tower stops; Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan.',17)
-text(60,foot0+235,'The 4D leg (to Rasuna Said, outbound only) is from jaGOdetabek and halte.id listings; the GTFS feed could not be reached to confirm it.',17)
+text(60,foot0+235,'4 and 4D share their first ten stops (same stop IDs): one drawn column. 4D then branches right to Rasuna Said (outbound only); that list is from jaGOdetabek and halte.id, not GTFS.',17)
 text(60,foot0+165,'Sources: TransJakarta official GTFS · gtfs.transjakarta.co.id/files/file_gtfs.zip',17)
 text(60,foot0+200,'Check the TJ: Transjakarta app and the vehicle headsign before boarding. No live arrival information.',17)
 add('</svg>')

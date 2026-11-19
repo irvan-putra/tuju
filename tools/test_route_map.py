@@ -32,6 +32,13 @@ class StopMapTest(unittest.TestCase):
   svg=(ROOT/'data/all-stops.svg').read_text().strip()
   self.assertEqual((ROOT/'index.html').read_text().count(svg),2)
   self.assertIn(svg,(ROOT/'android/app/src/main/assets/map.html').read_text())
+ def test_halimun_labels_clear_return_arrow_and_branch(self):
+  root=ET.fromstring((ROOT/'data/all-stops.svg').read_text())
+  labels={''.join(e.itertext()):e for e in root.iter() if e.tag.endswith('text')}
+  name=labels['Halimun'];note=labels['4D leaves here; 4 goes on to Galunggung']
+  self.assertEqual((name.get('x'),name.get('y')),('680','779'))
+  self.assertEqual((note.get('x'),note.get('y')),('680','800'))
+  self.assertEqual(note.get('fill'),'currentColor')
  def test_no_outbound_return_stop_mix(self):
   names=[s['name'] for s in S['7E']['stops']]
   self.assertNotIn('Baung',names); self.assertNotIn('Phe Tower Kebagusan',names)

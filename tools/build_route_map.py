@@ -20,17 +20,18 @@ def tri(x,y,color,up=True):
  # Bold arrowhead marking travel direction; the Canvas halo keeps it distinct from the leg line.
  pts=f'{x} {y-13} L {x-11} {y+11} L {x+11} {y+11}' if up else f'{x} {y+13} L {x-11} {y-11} L {x+11} {y-11}'
  add(f'<path d="M {pts} Z" fill="{color}" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
-def node(x,y,name,color,transfer=False,note=None,anchor='start'):
+def node(x,y,name,color,transfer=False,note=None,anchor='start',label_offset=None):
  add(f'<circle cx="{x}" cy="{y}" r="{12 if transfer else 7}" fill="Canvas" stroke="{color}" stroke-width="4"/>')
  dx=23 if anchor=='start' else -23
  for i,part in enumerate(textwrap.wrap(name,33)):
-  text(x+dx,y+6+i*24,part,20,anchor=anchor,weight='600' if transfer else 'normal')
+  text(x+(label_offset[0] if label_offset else dx),y+(label_offset[1] if label_offset else 6)+i*24,part,20,anchor=anchor,weight='600' if transfer else 'normal')
  if note:text(x+dx,y+32,note,15,anchor=anchor)
 def chain(route,x,y,step=58,skipfirst=False,transfers=()):
  ss=S[route]['stops']; end=y+step*(len(ss)-1)
  line(x,y,x,end,COL[route])
  for i,st in enumerate(ss):
-  if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers)
+  if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers,
+   label_offset=(50,-19) if route=='4' and st['name']=='Halimun' else None)
   if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,COL[route],False)
  return end
 add('<title id="all-stops-title">Outbound routes and Arkadia homebound options, with intermediate stops</title>')
@@ -153,7 +154,8 @@ assert nshared==10,nshared
 hy=240+(nshared-1)*62
 bx=930; by=hy+62
 add(f'<path d="M 630 {hy+14} L {bx} {by}" fill="none" stroke="{COL["4D"]}" stroke-width="6"/>')
-text(745,hy-6,'4D leaves here; 4 goes on to Galunggung',15,weight='600')
+# Keep Halimun and its note to the right of the return arrow, above the branch.
+text(680,hy+2,'4D leaves here; 4 goes on to Galunggung',15,weight='600')
 tail=s4d[nshared:]
 y4d=by+58*(len(tail)-1)
 line(bx,by,bx,y4d,COL['4D'])

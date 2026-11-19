@@ -34,7 +34,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
   if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,COL[route],False)
  return end
 add('<title id="all-stops-title">Outbound routes and Arkadia homebound options, with intermediate stops</title>')
-add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture. From there a walk via the Simpang Ragunan Ar-Raudhah station area reaches the Ragunan destination pin, and the ride home boards corridor 6 at Simpang Ragunan Ar-Raudhah toward Galunggung; walk distance, gate access and fare continuity are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor.</desc>')
+add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture, which is the same station as Simpang Ragunan Ar-Raudhah (rider, 19 Nov 2026). Corridor 6 links this station with Ragunan - the destination pin - in both directions, and the ride home boards corridor 6 / 6A there toward Galunggung - the direction, not the transfer - changing at Patra Kuningan to 4D for Simpang Pramuka 1; teal rings mark the 4D return stops. Gate access and fare continuity between 7E and corridor 6 are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor.</desc>')
 SH=420  # whole network shifts right so the 7F homebound column can sit at the far left
 add(f'<g transform="translate({SH} 0)">')
 add('<g transform="translate(700 0)">')
@@ -70,6 +70,7 @@ text(655,y4+55,'4 to 6: no additional fare (firsthand)',15)
 text(585,y4+145,'6',22,COL['6'],anchor='end',weight='600')
 y6=chain('6',630,y4+120,61,skipfirst=True,transfers=['G00204','G00243'])
 line(630,y6+12,630,y6+110,'#888',True)
+text(655,y6+28,'= Department of Agriculture (same station)',13)
 text(655,y6+50,'Exit the paid area - really short walk to the curbside 7E stop',15)
 text(585,y6+90,'7E',22,COL['7E'],anchor='end',weight='600')
 y7=chain('7E',630,y6+120,60,transfers=['B07989P','B01062P'])
@@ -193,7 +194,23 @@ node(360,948,'Flyover Kuningan',COL['6'],anchor='end')
 tri(360,978,COL['6'])
 text(337,1035,'6 ↑ Galunggung',18,COL['6'],anchor='end',weight='600')
 text(337,1062,'Return-only Flyover Kuningan branch',14,anchor='end')
-text(655,944,'Return 6 → 4: check platform; no fare promise',14)
+text(585,972,'6 → 4 at Galunggung: alternative; check platform, no fare promise',13,anchor='end')
+# Chosen return transfer (rider's Maps listing, 19 Nov 2026): leave corridor 6 at
+# Patra Kuningan and continue on 4D to Simpang Pramuka 1. Galunggung is only the
+# 6 direction, not the transfer point. The 4D return rides the drawn corridor 6
+# spine from Patra Kuningan up to Kuningan Madya (rings), then rejoins the 4
+# corridor at Halimun; from Halimun it matches the drawn 4 return path exactly
+# (Pasar Rumput, Manggarai Temporer 1, Flyover Pramuka, Pasar Genjing, Utan Kayu,
+# Pramuka Sari, Simpang Pramuka 1), so rings mark the shared stops, no redraw.
+for yy in (1346,1285,1224,1163,1102,798,736,426,364,302):
+ add(f"<circle cx='630' cy='{yy}' r='13' fill='none' stroke='{COL['4D']}' stroke-width='3'/>")
+for yy in (650,520,240):
+ add(f"<circle cx='360' cy='{yy}' r='13' fill='none' stroke='{COL['4D']}' stroke-width='3'/>")
+line(648,1098,648,806,COL['4D'])
+tri(648,788,COL['4D'])
+text(585,1090,'4D ↑ return to Halimun · no stops between',14,COL['4D'],anchor='end')
+text(655,1378,'chosen return: change 6 → 4D here (19 Nov)',14,COL['4D'])
+text(337,560,'teal rings: 4D return stops (Maps, 19 Nov)',13,COL['4D'],anchor='end')
 # Selected return itinerary corrected 19 Nov 2026 (rider): the 6N continuation was
 # a red herring and is removed. The Ragunan destination pin is reached on foot via
 # the Simpang Ragunan Ar-Raudhah station area, and the ride home boards corridor 6
@@ -206,21 +223,21 @@ for yy,name in zip([2126,2182,2238,2294],['Kementan 2','Kementan','Kebagusan Ray
 for yy in (2098,2154,2210,2266,2322):tri(300,yy,COL['7E'])
 node(300,2070,'',COL['7E'],True)
 text(277,2056,'Department of Agriculture',16,weight='600',anchor='end')
-text(277,2080,'Busway Shelter · platform A-B · 7E leg ends here',14,anchor='end')
+text(277,2080,'= Simpang Ragunan Ar-Raudhah · same station (rider)',14,anchor='end')
+text(277,2104,'Busway Shelter · platform A-B · 7E leg ends here',13,anchor='end')
 text(18,2350,'7E ↑ Ragunan headsign',17,COL['7E'],anchor='end',weight='600')
-# Walk from the 7E end up the left column to the Ragunan pin, through the
-# Simpang Ragunan Ar-Raudhah station area. Exact distance and gate access
-# unverified, so no metres are claimed.
-line(300,2058,300,1932,'#888',True)
-text(325,1998,'walk via Simpang Ragunan Ar-Raudhah',14)
-text(325,2020,'(distance / gate access unverified)',13)
-node(300,1920,'Ragunan destination pin','#777',True,anchor='end')
-# Homebound: walk from the pin to the Simpang Ragunan Ar-Raudhah node, the drawn
-# corridor 6 terminus on the shared spine, and ride 6 up toward Galunggung
-# (rider correction 19 Nov 2026). The spine's up arrows are that ride.
-add(f'<path d="M 312 1920 L 520 1920 L 520 {y6} L 618 {y6}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-text(516,1908,'walk · board 6 ↑ toward Galunggung',14,COL['6'],anchor='end')
-text(516,1938,'separate tap / fare unverified',13,anchor='end')
+# Rider, 19 Nov 2026: Department of Agriculture and Simpang Ragunan Ar-Raudhah
+# are one station, and corridor 6 links it with Ragunan - the destination pin -
+# in both directions. Drawn as a corridor 6 tail on the left column, not a walk.
+line(300,2058,300,1932,COL['6'])
+tri(300,1960,COL['6']);tri(300,2020,COL['6'],False)
+text(325,1990,'6 ↔ Ragunan, both directions',13,COL['6'])
+node(300,1920,'Ragunan (destination pin)',COL['6'],True,anchor='end')
+# Same-station link into the drawn corridor 6 spine terminus. Boarding the
+# homebound 6 / 6A toward Galunggung happens here; Galunggung is the direction.
+add(f'<path d="M 312 2058 L 618 1968" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+text(618,1938,'same station · board 6 / 6A ↑ toward Galunggung',14,anchor='end')
+text(618,1914,'7E → 6: tap / fare continuity unverified',13,anchor='end')
 # 7A / D21 is an alternative curbside arrival, not a paid-area shortcut.
 c7a='#527b9c'
 # 7A runs from Phe Tower over the same first stops as 7E, then leaves the 7E column
@@ -241,7 +258,7 @@ text(-250,2170,'Plaza Oleos, Kebagusan Raya, Kementan, Kementan 2,',13,c7a)
 text(-250,2190,'then ends at Masjid Ar-Raudhah - the same station',13,c7a)
 text(-250,2210,'as the 7E start (blue rings; selected trip only)',13,c7a)
 line(618,my-10,314,my-10,'#888',True)
-text(400,my-24,'walk ~140 m / 3 min · Akses A',14,anchor='middle')
+text(430,my+12,'walk ~140 m / 3 min · Akses A',14,anchor='middle')
 # Long text belongs outside the stop columns.
 add('</g>')
 R={r['key']:r for r in json.loads((ROOT/'data/return-stops.json').read_text())['segments']}
@@ -258,10 +275,11 @@ text(60-SH,80,'Shared 4 / 6 and 10 / 7F spines · down outbound, up homebound ·
 text(60-SH,110,'Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.',17)
 text(1580,fy+100,'A · from Phe Tower beside the venue',20,COL['7E'],weight='600')
 text(1580,fy+128,'7E toward Ragunan: no bridge crossing',17)
-text(1580,fy+156,'7E → Department of Agriculture, then walk via',17)
-text(1580,fy+184,'Simpang Ragunan Ar-Raudhah to the Ragunan pin.',17)
-text(1580,fy+212,'Home: 6 from Simpang Ragunan toward Galunggung;',17)
-text(1580,fy+240,'allow a fresh tap/fare - continuity unverified.',17)
+text(1580,fy+156,'7E → Department of Agriculture',17)
+text(1580,fy+184,'= Simpang Ragunan Ar-Raudhah; 6 ↔ Ragunan pin.',17)
+text(1580,fy+212,'Home: 6 / 6A to Patra Kuningan, then 4D to',17)
+text(1580,fy+240,'Simpang Pramuka 1. Galunggung is the 6 direction,',17)
+text(1580,fy+268,'not the transfer. Allow a fresh tap/fare.',17)
 # Far-side homebound choice: the 7F shares the top three station areas of the outbound
 # 10 column (Kayu Putih Rawasari, Pemuda Pramuka, Utan Kayu Rawamangun - same names in
 # the official 10 GTFS pattern and the 7F Juanda-direction listing: Catenary 18 Nov 2026,
@@ -300,7 +318,7 @@ for i,t in enumerate([
  'Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.',
  '7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;',
  'Traveloka 05:00-22:00. Do not assume late service. No guaranteed arrival times for either return option.',
- 'Return: 19 Nov rider corrections for 7E / 6 and 7A at Masjid Ar-Raudhah; other stops: Catenary GTFS rendering, 4 cross-check: halte.id.',
+ 'Return: 19 Nov rider corrections for 7E / 6 / 4D and 7A at Masjid Ar-Raudhah; other stops: Catenary GTFS rendering, 4 cross-check: halte.id.',
  'Ragunan access / fare continuity, Gojek fare/time and 7F access remain unverified. Patterns may change.',
  'Outbound: TransJakarta operator GTFS checked 18 Nov 2026; 4D: jaGOdetabek / halte.id, not GTFS. No live arrivals.',
 ]):text(60,end+i*31,t,18)

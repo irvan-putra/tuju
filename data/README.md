@@ -90,21 +90,23 @@ observations for the earlier outbound journey remain unchanged.
 
 The selected return itinerary is no longer drawn as a direct 7E ride to the
 Ragunan destination. Its selected 7E leg ends at Department of Agriculture
-Busway Shelter (platform A-B). A same-day 6N continuation (Term. Ragunan via
-Kemang) turned out to be a red herring and was removed at the rider's word:
-the Ragunan destination pin is reached on foot via the Simpang Ragunan
-Ar-Raudhah station area, and the ride home boards corridor 6 at Simpang
-Ragunan Ar-Raudhah toward Galunggung. The alternative 7A/D21 arrival ends at
-Masjid Ar-Raudhah, which the rider confirmed is the same station where the
-outbound 7E leg begins, about 140 m on foot via Akses A from the Department
-shelter. These itinerary-specific corrections supersede the earlier 7E
-endpoint assumption in the selected return snapshot. They are not a fresh
-route-wide GTFS import or a claim that no other 7E pattern exists.
+Busway Shelter (platform A-B), which is the same station as Simpang Ragunan
+Ar-Raudhah (his word). Corridor 6 links this station with Ragunan - the
+destination pin - in both directions. The ride home boards 6 / 6A there toward
+Galunggung - the direction, not the transfer - and changes at Patra Kuningan
+to 4D for Simpang Pramuka 1, per his Maps listing. A same-day 6N continuation
+(Term. Ragunan via Kemang) turned out to be a red herring and was removed.
+The alternative 7A/D21 arrival ends at Masjid Ar-Raudhah, which the rider
+confirmed is the same station where the Kampung Rambutan-bound 7E begins,
+about 140 m on foot via Akses A from the Department shelter. These
+itinerary-specific corrections supersede the earlier 7E endpoint assumption
+in the selected return snapshot. They are not a fresh route-wide GTFS import
+or a claim that no other 7E pattern exists.
 
-The Ragunan pin, the Simpang Ragunan Ar-Raudhah boarding node and the
-Masjid Ar-Raudhah curbside stop are kept as distinct drawn places joined by
-walks. Walk distance, gate access and fare continuity between the 7E arrival,
-the pin and corridor 6 are unverified; no paid-area link is claimed. All other
-selected routes and the firsthand paid-area Flyover Raya Bogor turnaround are
-retained. Website, enlarged map and offline asset are rebuilt together; this
-source correction does not update installed APKs.
+Department of Agriculture and Simpang Ragunan Ar-Raudhah are drawn as one
+station with both names; the Masjid Ar-Raudhah curbside stop stays a distinct
+drawn place joined by the 140 m walk, and no paid-gate or fare continuity
+between 7E and corridor 6 is claimed. All other selected routes and the
+firsthand paid-area Flyover Raya Bogor turnaround are retained. Website,
+enlarged map and offline asset are rebuilt together; this source correction
+does not update installed APKs.

@@ -41,7 +41,7 @@
         "Flyover Kuningan",
         "Galunggung"
       ],
-      "boarding": "19 Nov 2026 rider: homebound boarding is Simpang Ragunan Ar-Raudhah toward Galunggung, not the Ragunan terminus; tap / fare continuity from the 7E arrival is unverified."
+      "boarding": "19 Nov 2026 rider: Department of Agriculture and Simpang Ragunan Ar-Raudhah are the same station; corridor 6 / 6A runs between it and Ragunan in both directions. Homebound boarding toward Galunggung (direction, not the transfer), changing at Patra Kuningan to 4D; tap / fare continuity from the 7E arrival is unverified."
     },
     {
       "key": "4-return",
@@ -71,6 +71,28 @@
         "Pemuda Pramuka",
         "Kayu Putih Rawasari"
       ]
+    },
+    {
+      "key": "4D-return",
+      "route": "4D",
+      "checked": "2026-11-19",
+      "source_type": "Rider's Google Maps listing, selected itinerary only; not a route-wide GTFS refresh",
+      "stops": [
+        "Patra Kuningan",
+        "Kuningan",
+        "Rasuna Said",
+        "Karet Kuningan",
+        "Kuningan Madya",
+        "Halimun",
+        "Pasar Rumput",
+        "Halte Manggarai Temporer 1",
+        "Flyover Pramuka",
+        "Pasar Genjing",
+        "Utan Kayu",
+        "Pramuka Sari",
+        "Simpang Pramuka 1"
+      ],
+      "transfer": "Boarded by changing from corridor 6 / 6A at Patra Kuningan (Platform C-D in Maps); about a 9 min walk after Simpang Pramuka 1."
     }
   ]
 }

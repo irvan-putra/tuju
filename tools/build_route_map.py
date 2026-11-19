@@ -34,7 +34,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
   if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,COL[route],False)
  return end
 add('<title id="all-stops-title">Outbound routes and Arkadia homebound options, with intermediate stops</title>')
-add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture. A separate 6N leg continues via Kementerian Pertanian to PLN Corporate University 2, followed by a walk to the Ragunan destination pin. The 7A/D21 curbside alternative has a separate 140 m walk. BRT corridor 6 is not the destination pin; terminal entry and fare continuity are unverified. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor.</desc>')
+add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture. A separate 6N leg continues via Kementerian Pertanian to PLN Corporate University 2, followed by a walk to the Ragunan destination pin. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column to get off curbside at Masjid Ar-Raudhah, followed by a separate 140 m walk to Department of Agriculture. BRT corridor 6 is not the destination pin; terminal entry and fare continuity are unverified. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor.</desc>')
 SH=420  # whole network shifts right so the 7F homebound column can sit at the far left
 add(f'<g transform="translate({SH} 0)">')
 add('<g transform="translate(700 0)">')
@@ -225,13 +225,19 @@ add(f'<path d="M 453 1460 L 429 1449 L 429 1471 Z" fill="{COL["6"]}" stroke="Can
 text(495,1430,'6 → shared northbound spine',14,COL['6'],anchor='end')
 # 7A / D21 is an alternative curbside arrival, not a paid-area shortcut.
 c7a='#527b9c'
-line(-100,2290,-100,2182,c7a)
-tri(-100,2240,c7a)
-node(-100,2170,'Masjid Ar-Raudhah',c7a,True,anchor='end')
-text(-123,2202,'7A / D21 · get off curbside',14,c7a,anchor='end')
-line(-88,2170,288,2070,'#888',True)
-text(-100,2080,'walk ~140 m / 3 min',14)
-text(-100,2103,'entry: Akses A',14)
+# 7A runs from Phe Tower over the same first stops as 7E, then leaves the 7E column
+# before Department of Agriculture and drops you at Masjid Ar-Raudhah (Maps, 19 Nov 2026).
+# D21 is shown in the label only because the same Maps result named it; not verified identical.
+add(f'<path d="M 300 2118 C 150 2118, -100 2104, -100 2052" fill="none" stroke="{c7a}" stroke-width="6"/>')
+add(f'<path d="M -100 2074 L -88 2098 L -112 2098 Z" fill="{c7a}" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
+line(311,py-4,311,2118,c7a)
+node(-100,2040,'Masjid Ar-Raudhah',c7a,True,anchor='end')
+text(-123,2018,'7A / D21 ↑ get off curbside',14,c7a,anchor='end')
+text(-250,2150,'7A boards at Phe Tower: same stops as 7E',14,c7a)
+text(-250,2170,'Plaza Oleos, Kebagusan Raya, Kementan, Kementan 2',13,c7a)
+line(-88,2036,288,2062,'#888',True)
+text(-60,2010,'walk ~140 m / 3 min',14)
+text(-60,2030,'entry: Akses A',14)
 text(325,2150,'Gate access / extra fare unverified',13)
 # Long text belongs outside the stop columns.
 add('</g>')

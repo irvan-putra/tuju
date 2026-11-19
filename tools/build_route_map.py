@@ -70,9 +70,9 @@ text(655,y4+55,'4 to 6: no additional fare (firsthand)',15)
 text(585,y4+145,'6',22,COL['6'],anchor='end',weight='600')
 y6=chain('6',630,y4+120,61,skipfirst=True,transfers=['G00204','G00243'])
 line(630,y6+12,630,y6+110,'#888',True)
-text(655,y6+28,'= Department of Agriculture (same station)',13)
-text(655,y6+50,'Exit the paid area - really short walk to the curbside 7E stop',15)
-text(585,y6+90,'7E',22,COL['7E'],anchor='end',weight='600')
+# Station to Masjid Ar-Raudhah walk; its labels sit left of the link (below).
+# Alias carried by the left-side note below; keep clear of the 6 tail.
+text(585,y6+174,'7E',22,COL['7E'],anchor='end',weight='600')
 y7=chain('7E',630,y6+120,60,transfers=['B07989P','B01062P'])
 # The 7E continues toward Kampung Rambutan past the Arkadia stop.
 line(630,y7+12,630,y7+268,COL['7E'])
@@ -221,23 +221,24 @@ line(300,2082,300,py-12,COL['7E'])
 for yy,name in zip([2126,2182,2238,2294],['Kementan 2','Kementan','Kebagusan Raya','Plaza Oleos']):
  node(300,yy,name,COL['7E'],anchor='end')
 for yy in (2098,2154,2210,2266,2322):tri(300,yy,COL['7E'])
-node(300,2070,'',COL['7E'],True)
-text(277,2056,'Department of Agriculture',16,weight='600',anchor='end')
-text(277,2080,'= Simpang Ragunan Ar-Raudhah · same station (rider)',14,anchor='end')
-text(277,2104,'Busway Shelter · platform A-B · 7E leg ends here',13,anchor='end')
-text(18,2350,'7E ↑ Ragunan headsign',17,COL['7E'],anchor='end',weight='600')
 # Rider, 19 Nov 2026: Department of Agriculture and Simpang Ragunan Ar-Raudhah
-# are one station, and corridor 6 links it with Ragunan - the destination pin -
-# in both directions. Drawn as a corridor 6 tail on the left column, not a walk.
-line(300,2058,300,1932,COL['6'])
-tri(300,1960,COL['6']);tri(300,2020,COL['6'],False)
-text(325,1990,'6 ↔ Ragunan, both directions',13,COL['6'])
-node(300,1920,'Ragunan (destination pin)',COL['6'],True,anchor='end')
-# Same-station link into the drawn corridor 6 spine terminus. Boarding the
-# homebound 6 / 6A toward Galunggung happens here; Galunggung is the direction.
-add(f'<path d="M 312 2058 L 618 1968" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-text(618,1938,'same station · board 6 / 6A ↑ toward Galunggung',14,anchor='end')
-text(618,1914,'7E → 6: tap / fare continuity unverified',13,anchor='end')
+# are ONE station - the drawn corridor 6 terminus node on the shared spine. The
+# 7E return leg curves in from Kementan 2 and ends on that same node; no separate
+# Department node is drawn. Corridor 6 links the station with Ragunan - the
+# destination pin - in both directions, drawn as a short 6 tail, arrows both ways.
+add(f'<path d="M 300 2126 C 300 2020, 360 1966, 606 1962" fill="none" stroke="{COL["7E"]}" stroke-width="6"/>')
+add(f'<path d="M 606 1962 L 584 1954 L 584 1970 Z" fill="{COL["7E"]}" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
+add(f'<path d="M 642 1968 L 788 2032" fill="none" stroke="{COL["6"]}" stroke-width="6"/>')
+add(f'<path d="M 728 2006 L 705 2003 L 713 1985 Z" fill="{COL["6"]}" stroke="Canvas" stroke-width="2" stroke-linejoin="round"/>')
+add(f'<path d="M 668 1982 L 670 1999 L 678 1981 Z" fill="{COL["6"]}" stroke="Canvas" stroke-width="2" stroke-linejoin="round"/>')
+node(800,2040,'Ragunan (destination pin)',COL['6'],True)
+text(660,2056,'6 ↔ both directions',13,COL['6'])
+# One node, both names; boarding and walk notes sit left of the halte walk link.
+text(585,1914,'board 6 / 6A ↑ toward Galunggung',14,COL['6'],anchor='end')
+text(585,1938,'= Department of Agriculture · same station · 7E leg ends here',14,anchor='end')
+text(585,2030,'walk ~140 m / 3 min · Akses A',14,anchor='end')
+text(585,2054,'7E boards curbside · fresh fare (firsthand)',13,anchor='end')
+text(18,2350,'7E ↑ Ragunan headsign',17,COL['7E'],anchor='end',weight='600')
 # 7A / D21 is an alternative curbside arrival, not a paid-area shortcut.
 c7a='#527b9c'
 # 7A runs from Phe Tower over the same first stops as 7E, then leaves the 7E column
@@ -257,8 +258,7 @@ text(-250,2150,'7A / D21 boards at Phe Tower: same stops as 7E',14,c7a)
 text(-250,2170,'Plaza Oleos, Kebagusan Raya, Kementan, Kementan 2,',13,c7a)
 text(-250,2190,'then ends at Masjid Ar-Raudhah - the same station',13,c7a)
 text(-250,2210,'as the 7E start (blue rings; selected trip only)',13,c7a)
-line(618,my-10,314,my-10,'#888',True)
-text(430,my+12,'walk ~140 m / 3 min · Akses A',14,anchor='middle')
+# Station to Masjid walk is the vertical link at the 6 terminus; labeled there.
 # Long text belongs outside the stop columns.
 add('</g>')
 R={r['key']:r for r in json.loads((ROOT/'data/return-stops.json').read_text())['segments']}

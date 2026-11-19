@@ -12,9 +12,9 @@
         "Kebagusan Raya",
         "Kementan",
         "Kementan 2",
-        "Simpang Ragunan Ar-Raudhah",
-        "Ragunan"
-      ]
+        "Department of Agriculture Busway Shelter"
+      ],
+      "correction": "19 Nov 2026: selected leg ends at Department of Agriculture, followed by 6N; do not infer a direct Ragunan ride from the headsign. Earlier Catenary endpoint is superseded for this itinerary."
     },
     {
       "key": "6-return",
@@ -70,6 +70,18 @@
         "Pemuda Pramuka",
         "Kayu Putih Rawasari"
       ]
+    },
+    {
+      "key": "6N-ragunan",
+      "route": "6N",
+      "checked": "2026-11-19",
+      "source_type": "Routing correction, selected itinerary only; not a route-wide GTFS refresh",
+      "stops": [
+        "Department of Agriculture Busway Shelter",
+        "Kementerian Pertanian",
+        "PLN Corporate University 2"
+      ],
+      "walk_after": "About 40 m to the Ragunan destination pin; BRT terminal access and fare continuity unverified"
     }
   ]
 }

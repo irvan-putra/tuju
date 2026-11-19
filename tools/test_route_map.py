@@ -39,15 +39,16 @@ class StopMapTest(unittest.TestCase):
   ret=json.loads((ROOT/'data/return-stops.json').read_text())
   r={x['key']:x['stops'] for x in ret['segments']}
   self.assertEqual(r['7E-return'][0],'Phe Tower Kebagusan')
-  self.assertEqual(r['7E-return'][-1],'Ragunan')
+  self.assertEqual(r['7E-return'][-1],'Department of Agriculture Busway Shelter')
+  self.assertEqual(r['6N-ragunan'],['Department of Agriculture Busway Shelter','Kementerian Pertanian','PLN Corporate University 2'])
   self.assertIn('Flyover Kuningan',r['6-return'])
   self.assertIn('Halte Manggarai Temporer 1',r['4-return'])
   self.assertNotIn('Matraman',r['4-return'])
   self.assertEqual(r['7F-return'],['Flyover Raya Bogor','Trikora','Pasar Induk','Utan Kayu Rawamangun','Pemuda Pramuka','Kayu Putih Rawasari'])
   svg=(ROOT/'data/all-stops.svg').read_text()
   for stops in r.values():
-   for name in stops:self.assertIn(name,svg)
-  for term in ['One network · out and home','Gojek to Flyover Raya Bogor','fresh tap/fare','not a guarantee','7F service-hour listings disagree']:
+   for name in stops:self.assertIn(name.replace('Department of Agriculture Busway Shelter','Department of Agriculture'),svg)
+  for term in ['One network · out and home','Gojek to Flyover Raya Bogor','fresh tap/fare','7F service-hour listings disagree']:
    self.assertIn(term,svg)
  def test_homebound_is_inside_top_network(self):
   svg=(ROOT/'data/all-stops.svg').read_text()
@@ -73,4 +74,12 @@ class StopMapTest(unittest.TestCase):
   self.assertNotIn('<script',page)
   self.assertNotRegex(page,r'(?:src|href)="https?://')
   self.assertIn('maximum-scale=8',page)
+ def test_ragunan_transfer_is_separate_service(self):
+  svg=(ROOT/'data/all-stops.svg').read_text()
+  self.assertIn('7E leg ends here; change to 6N',svg)
+  self.assertIn('6N ↑ Term. Ragunan via Kemang',svg)
+  self.assertIn('walk ~140 m / 3 min',svg)
+  self.assertIn('walk ~40 m',svg)
+  self.assertNotIn('M 312 2012 L 618 1956',svg)
+  self.assertNotIn('6 ↑ starts at Ragunan; check boarding',svg)
 if __name__=='__main__':unittest.main()

@@ -34,7 +34,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
   if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,COL[route],False)
  return end
 add('<title id="all-stops-title">Outbound routes and Arkadia homebound options, with intermediate stops</title>')
-add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, with arrowheads marking travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor.</desc>')
+add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture. A separate 6N leg continues via Kementerian Pertanian to PLN Corporate University 2, followed by a walk to the Ragunan destination pin. The 7A/D21 curbside alternative has a separate 140 m walk. BRT corridor 6 is not the destination pin; terminal entry and fare continuity are unverified. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor.</desc>')
 SH=420  # whole network shifts right so the 7F homebound column can sit at the far left
 add(f'<g transform="translate({SH} 0)">')
 add('<g transform="translate(700 0)">')
@@ -194,21 +194,45 @@ tri(360,978,COL['6'])
 text(337,1035,'6 ↑ Galunggung',18,COL['6'],anchor='end',weight='600')
 text(337,1062,'Return-only Flyover Kuningan branch',14,anchor='end')
 text(655,944,'Return 6 → 4: check platform; no fare promise',14)
-# Reuse Galunggung instead of drawing a second labelled station for the 6 start.
-# A short orange connection leads into the shared 6 spine.
-# Ragunan is a separate terminal, not an alias for the outbound 7E curbside stop.
-rag=2012
-node(300,rag,'Ragunan',COL['7E'],True,anchor='end')
-line(312,rag,618,y6,'#888',True)
-tri(495,1978,COL['6'])
-text(655,2040,'6 ↑ starts at Ragunan; check boarding access / fare',14)
-# 7E has different stops on each side of the road. Keep those actual branches,
-# but share Phe Tower with the existing venue-side 7E line, not another copy.
-line(300,rag+12,300,py-12,COL['7E'])
-for yy,name in zip([2070,2126,2182,2238,2294],['Simpang Ragunan Ar-Raudhah','Kementan 2','Kementan','Kebagusan Raya','Plaza Oleos']):
+# Selected return itinerary corrected 19 Nov 2026. A Ragunan headsign is not
+# evidence of a direct ride to the Ragunan destination pin. Keep bus legs distinct.
+# Department of Agriculture is the Maps name for the Simpang Ragunan boarding area.
+line(300,2082,300,py-12,COL['7E'])
+for yy,name in zip([2126,2182,2238,2294],['Kementan 2','Kementan','Kebagusan Raya','Plaza Oleos']):
  node(300,yy,name,COL['7E'],anchor='end')
-for yy in (2042,2098,2154,2210,2266,2322):tri(300,yy,COL['7E'])
-text(18,1936,'7E ↑ Ragunan',19,COL['7E'],weight='600')
+for yy in (2098,2154,2210,2266,2322):tri(300,yy,COL['7E'])
+node(300,2070,'',COL['7E'],True)
+text(325,2062,'Department of Agriculture',16,weight='600')
+text(325,2085,'Busway Shelter · platform A-B',14)
+text(325,2110,'7E leg ends here; change to 6N',14)
+text(18,2350,'7E ↑ Ragunan headsign',17,COL['7E'],anchor='end',weight='600')
+# Draw 6N as a separate service, including its intermediate stop.
+c6n='#a447b8'
+line(300,2058,300,1740,c6n)
+node(300,1880,'Kementerian Pertanian',c6n,anchor='end')
+node(300,1740,'PLN Corporate University 2',c6n,True,anchor='end')
+for yy in (1990,1810):tri(300,yy,c6n)
+text(277,1815,'6N ↑ Term. Ragunan via Kemang',16,c6n,anchor='end',weight='600')
+line(300,1728,300,1632,'#888',True)
+node(300,1620,'Ragunan destination pin','#777',True,anchor='end')
+text(277,1685,'walk ~40 m',14,anchor='end')
+# The corridor 6 terminal is not the destination pin or the 6N alighting stop.
+line(300,1608,300,1472,'#888',True)
+text(277,1545,'BRT entry / walk / fare unverified',14,anchor='end')
+node(300,1460,'Ragunan · corridor 6',COL['6'],True,anchor='end')
+add(f'<path d="M 312 1460 L 520 1460 L 520 {y6} L 618 {y6}" fill="none" stroke="{COL["6"]}" stroke-width="6"/>')
+add(f'<path d="M 453 1460 L 429 1449 L 429 1471 Z" fill="{COL["6"]}" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
+text(495,1430,'6 → shared northbound spine',14,COL['6'],anchor='end')
+# 7A / D21 is an alternative curbside arrival, not a paid-area shortcut.
+c7a='#527b9c'
+line(-100,2290,-100,2182,c7a)
+tri(-100,2240,c7a)
+node(-100,2170,'Masjid Ar-Raudhah',c7a,True,anchor='end')
+text(-123,2202,'7A / D21 · get off curbside',14,c7a,anchor='end')
+line(-88,2170,288,2070,'#888',True)
+text(-100,2080,'walk ~140 m / 3 min',14)
+text(-100,2103,'entry: Akses A',14)
+text(325,2150,'Gate access / extra fare unverified',13)
 # Long text belongs outside the stop columns.
 add('</g>')
 R={r['key']:r for r in json.loads((ROOT/'data/return-stops.json').read_text())['segments']}
@@ -225,9 +249,9 @@ text(60-SH,80,'Shared 4 / 6 and 10 / 7F spines · down outbound, up homebound ·
 text(60-SH,110,'Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.',17)
 text(1580,fy+100,'A · from Phe Tower beside the venue',20,COL['7E'],weight='600')
 text(1580,fy+128,'7E toward Ragunan: no bridge crossing',17)
-text(1580,fy+156,'Ragunan: check 7E → 6 boarding access;',17)
-text(1580,fy+184,'allow a fresh tap/fare. Continuity unverified.',17)
-text(1580,fy+212,'A terminus is not a guarantee of a seat.',17)
+text(1580,fy+156,'7E → Department of Agriculture → 6N;',17)
+text(1580,fy+184,'PLN Corporate University 2 → walk to Ragunan.',17)
+text(1580,fy+212,'BRT 6 entry unverified; allow a fresh tap/fare.',17)
 # Far-side homebound choice: the 7F shares the top three station areas of the outbound
 # 10 column (Kayu Putih Rawasari, Pemuda Pramuka, Utan Kayu Rawamangun - same names in
 # the official 10 GTFS pattern and the 7F Juanda-direction listing: Catenary 18 Nov 2026,
@@ -257,7 +281,7 @@ add(f'<path d="M 1324 {y7-43} Q 1510 {y7-43} 1510 {y7+90} L 1510 {gy} L {fx} {gy
 tri(fx,fy+60,'#6536b0',up=True)
 text(1580,fy-210,'B · bridge to far-side pickup → Gojek to Flyover Raya Bogor',21,weight='600')
 text(1580,fy-180,'Gojek fare/time and 7F boarding access unverified.',17)
-text(1580,fy-150,'Separate option, not a detour on 7E → 6 → 4.',17)
+text(1580,fy-150,'Separate from the 7E / 6N return option.',17)
 text(900,gy-10,'Gojek hop to the 7F pickup (left)',16)
 add('</g>')
 # Source/service caveats stay within the unified map, below the network only as notes.
@@ -266,7 +290,7 @@ for i,t in enumerate([
  'Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.',
  '7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;',
  'Traveloka 05:00-22:00. Do not assume late service. No guaranteed arrival times for either return option.',
- 'Return stops: catenarymaps.org/en/agency/Transjakarta/route/7e, /6, /4, /7f; 4 cross-check: halte.id.',
+ 'Return: 19 Nov routing correction for 7E / 6N; other stops: Catenary GTFS rendering, 4 cross-check: halte.id.',
  'Ragunan access / fare continuity, Gojek fare/time and 7F access remain unverified. Patterns may change.',
  'Outbound: TransJakarta operator GTFS checked 18 Nov 2026; 4D: jaGOdetabek / halte.id, not GTFS. No live arrivals.',
 ]):text(60,end+i*31,t,18)

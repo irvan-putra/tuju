@@ -85,3 +85,21 @@ Both are drawn below the outbound schematic in the same SVG and offline asset.
 No precise Ragunan transfer access, paid-area continuity, ride time, empty bus,
 seat availability or late 7F operation is promised. Existing firsthand fare
 observations for the earlier outbound journey remain unchanged.
+
+## Ragunan connection correction, 19 November 2026
+
+The selected return itinerary is no longer drawn as a direct 7E ride to the
+Ragunan destination. Its selected 7E leg ends at Department of Agriculture
+Busway Shelter (platform A-B), followed by a distinct 6N leg, headsign Term.
+Ragunan via Kemang: Kementerian Pertanian, then PLN Corporate University 2.
+A roughly 40 m walk reaches the Ragunan destination pin. The alternative 7A/D21
+arrival gets off at Masjid Ar-Raudhah and walks about 140 m via Akses A to the
+Department shelter. These itinerary-specific corrections supersede the earlier
+7E endpoint assumption in the selected return snapshot. They are not a fresh
+route-wide GTFS import or a claim that no other 7E pattern exists.
+
+The Ragunan pin, 6N alighting stop and corridor 6 BRT terminal are drawn as
+distinct places. The walk, BRT entry and fare continuity between the pin and
+corridor 6 are unverified. All other selected routes and the firsthand paid-area
+Flyover Raya Bogor turnaround are retained. Website, enlarged map and offline
+asset are rebuilt together; this source correction does not update installed APKs.

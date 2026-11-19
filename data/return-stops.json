@@ -14,7 +14,7 @@
         "Kementan 2",
         "Department of Agriculture Busway Shelter"
       ],
-      "correction": "19 Nov 2026: selected leg ends at Department of Agriculture, followed by 6N; do not infer a direct Ragunan ride from the headsign. Earlier Catenary endpoint is superseded for this itinerary."
+      "correction": "19 Nov 2026: selected leg ends at Department of Agriculture, followed by a walk via Simpang Ragunan Ar-Raudhah to the Ragunan destination pin; do not infer a direct Ragunan ride from the headsign. The 19 Nov 6N continuation was a red herring (rider) and is removed. Earlier Catenary endpoint is superseded for this itinerary."
     },
     {
       "key": "6-return",
@@ -40,7 +40,8 @@
         "Setiabudi Integritas",
         "Flyover Kuningan",
         "Galunggung"
-      ]
+      ],
+      "boarding": "19 Nov 2026 rider: homebound boarding is Simpang Ragunan Ar-Raudhah toward Galunggung, not the Ragunan terminus; tap / fare continuity from the 7E arrival is unverified."
     },
     {
       "key": "4-return",
@@ -70,18 +71,6 @@
         "Pemuda Pramuka",
         "Kayu Putih Rawasari"
       ]
-    },
-    {
-      "key": "6N-ragunan",
-      "route": "6N",
-      "checked": "2026-11-19",
-      "source_type": "Routing correction, selected itinerary only; not a route-wide GTFS refresh",
-      "stops": [
-        "Department of Agriculture Busway Shelter",
-        "Kementerian Pertanian",
-        "PLN Corporate University 2"
-      ],
-      "walk_after": "About 40 m to the Ragunan destination pin; BRT terminal access and fare continuity unverified"
     }
   ]
 }

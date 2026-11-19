@@ -1,6 +1,6 @@
 <svg viewBox="0 0 3000 3198" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
 <title id="all-stops-title">Outbound routes and Arkadia homebound options, with intermediate stops</title>
-<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture. A separate 6N leg continues via Kementerian Pertanian to PLN Corporate University 2, followed by a walk to the Ragunan destination pin. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column to get off curbside at Masjid Ar-Raudhah, followed by a separate 140 m walk to Department of Agriculture. BRT corridor 6 is not the destination pin; terminal entry and fare continuity are unverified. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor.</desc>
+<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture. From there a walk via the Simpang Ragunan Ar-Raudhah station area reaches the Ragunan destination pin, and the ride home boards corridor 6 at Simpang Ragunan Ar-Raudhah toward Galunggung; walk distance, gate access and fare continuity are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor.</desc>
 <g transform="translate(420 0)">
 <g transform="translate(700 0)">
 <circle cx="700" cy="155" r="12" fill="Canvas" stroke="#777" stroke-width="4"/>
@@ -164,7 +164,7 @@
 <text x="653" y="1962" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Ragunan Ar-Raudhah</text>
 <path d="M 630 1968 L 630 2066" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <text x="655" y="2006" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">Exit the paid area - really short walk to the curbside 7E stop</text>
-<text x="585" y="2101" font-size="22" fill="#00838f" text-anchor="end" font-weight="600">7E</text>
+<text x="585" y="2046" font-size="22" fill="#00838f" text-anchor="end" font-weight="600">7E</text>
 <path d="M 630 2076 L 630 2376" fill="none" stroke="#00838f" stroke-width="6"/>
 <circle cx="630" cy="2076" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
 <text x="653" y="2082" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Masjid Ar-Raudhah</text>
@@ -410,56 +410,43 @@
 <path d="M 300 2253 L 289 2277 L 311 2277 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <path d="M 300 2309 L 289 2333 L 311 2333 Z" fill="#00838f" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <circle cx="300" cy="2070" r="12" fill="Canvas" stroke="#00838f" stroke-width="4"/>
-<text x="325" y="2062" font-size="16" fill="currentColor" text-anchor="start" font-weight="600">Department of Agriculture</text>
-<text x="325" y="2085" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">Busway Shelter · platform A-B</text>
-<text x="325" y="2110" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">7E leg ends here; change to 6N</text>
+<text x="277" y="2056" font-size="16" fill="currentColor" text-anchor="end" font-weight="600">Department of Agriculture</text>
+<text x="277" y="2080" font-size="14" fill="currentColor" text-anchor="end" font-weight="normal">Busway Shelter · platform A-B · 7E leg ends here</text>
 <text x="18" y="2350" font-size="17" fill="#00838f" text-anchor="end" font-weight="600">7E ↑ Ragunan headsign</text>
-<path d="M 300 2058 L 300 1740" fill="none" stroke="#a447b8" stroke-width="6"/>
-<circle cx="300" cy="1880" r="7" fill="Canvas" stroke="#a447b8" stroke-width="4"/>
-<text x="277" y="1886" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Kementerian Pertanian</text>
-<circle cx="300" cy="1740" r="12" fill="Canvas" stroke="#a447b8" stroke-width="4"/>
-<text x="277" y="1746" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">PLN Corporate University 2</text>
-<path d="M 300 1977 L 289 2001 L 311 2001 Z" fill="#a447b8" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<path d="M 300 1797 L 289 1821 L 311 1821 Z" fill="#a447b8" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<text x="277" y="1815" font-size="16" fill="#a447b8" text-anchor="end" font-weight="600">6N ↑ Term. Ragunan via Kemang</text>
-<path d="M 300 1728 L 300 1632" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<circle cx="300" cy="1620" r="12" fill="Canvas" stroke="#777" stroke-width="4"/>
-<text x="277" y="1626" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Ragunan destination pin</text>
-<text x="277" y="1685" font-size="14" fill="currentColor" text-anchor="end" font-weight="normal">walk ~40 m</text>
-<path d="M 300 1608 L 300 1472" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="277" y="1545" font-size="14" fill="currentColor" text-anchor="end" font-weight="normal">BRT entry / walk / fare unverified</text>
-<circle cx="300" cy="1460" r="12" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="277" y="1466" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Ragunan · corridor 6</text>
-<path d="M 312 1460 L 520 1460 L 520 1956 L 618 1956" fill="none" stroke="#d36300" stroke-width="6"/>
-<path d="M 453 1460 L 429 1449 L 429 1471 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<text x="495" y="1430" font-size="14" fill="#d36300" text-anchor="end" font-weight="normal">6 → shared northbound spine</text>
-<path d="M 300 2118 C 150 2118, -100 2104, -100 2052" fill="none" stroke="#527b9c" stroke-width="6"/>
-<path d="M -100 2074 L -88 2098 L -112 2098 Z" fill="#527b9c" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 300 2058 L 300 1932" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="325" y="1998" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">walk via Simpang Ragunan Ar-Raudhah</text>
+<text x="325" y="2020" font-size="13" fill="currentColor" text-anchor="start" font-weight="normal">(distance / gate access unverified)</text>
+<circle cx="300" cy="1920" r="12" fill="Canvas" stroke="#777" stroke-width="4"/>
+<text x="277" y="1926" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Ragunan destination pin</text>
+<path d="M 312 1920 L 520 1920 L 520 1956 L 618 1956" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="516" y="1908" font-size="14" fill="#d36300" text-anchor="end" font-weight="normal">walk · board 6 ↑ toward Galunggung</text>
+<text x="516" y="1938" font-size="13" fill="currentColor" text-anchor="end" font-weight="normal">separate tap / fare unverified</text>
+<path d="M 314 2126 C 400 2126, 480 2076, 600 2076" fill="none" stroke="#527b9c" stroke-width="6"/>
+<path d="M 600 2076 L 578 2068 L 578 2084 Z" fill="#527b9c" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <path d="M 311 2346 L 311 2118" fill="none" stroke="#527b9c" stroke-width="6"/>
 <circle cx='300' cy='2126' r='13' fill='none' stroke='#527b9c' stroke-width='3'/>
 <circle cx='300' cy='2182' r='13' fill='none' stroke='#527b9c' stroke-width='3'/>
 <circle cx='300' cy='2238' r='13' fill='none' stroke='#527b9c' stroke-width='3'/>
 <circle cx='300' cy='2294' r='13' fill='none' stroke='#527b9c' stroke-width='3'/>
 <circle cx='300' cy='2350' r='17' fill='none' stroke='#527b9c' stroke-width='3'/>
-<circle cx="-100" cy="2040" r="12" fill="Canvas" stroke="#527b9c" stroke-width="4"/>
-<text x="-123" y="2046" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Masjid Ar-Raudhah</text>
-<text x="-123" y="2018" font-size="14" fill="#527b9c" text-anchor="end" font-weight="normal">7A / D21 ↑ get off curbside</text>
-<text x="-250" y="2150" font-size="14" fill="#527b9c" text-anchor="start" font-weight="normal">7A boards at Phe Tower: same stops as 7E</text>
-<text x="-250" y="2170" font-size="13" fill="#527b9c" text-anchor="start" font-weight="normal">Plaza Oleos, Kebagusan Raya, Kementan, Kementan 2</text>
-<text x="-250" y="2190" font-size="13" fill="#527b9c" text-anchor="start" font-weight="normal">(blue rings mark the 7A stops; selected trip only)</text>
-<path d="M -88 2036 L 288 2062" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="-60" y="2010" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">walk ~140 m / 3 min</text>
-<text x="-60" y="2030" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">entry: Akses A</text>
-<text x="325" y="2150" font-size="13" fill="currentColor" text-anchor="start" font-weight="normal">Gate access / extra fare unverified</text>
+<circle cx='630' cy='2076' r='17' fill='none' stroke='#527b9c' stroke-width='3'/>
+<text x="655" y="2112" font-size="13" fill="#527b9c" text-anchor="start" font-weight="normal">7A / D21 get off here · same station</text>
+<text x="-250" y="2150" font-size="14" fill="#527b9c" text-anchor="start" font-weight="normal">7A / D21 boards at Phe Tower: same stops as 7E</text>
+<text x="-250" y="2170" font-size="13" fill="#527b9c" text-anchor="start" font-weight="normal">Plaza Oleos, Kebagusan Raya, Kementan, Kementan 2,</text>
+<text x="-250" y="2190" font-size="13" fill="#527b9c" text-anchor="start" font-weight="normal">then ends at Masjid Ar-Raudhah - the same station</text>
+<text x="-250" y="2210" font-size="13" fill="#527b9c" text-anchor="start" font-weight="normal">as the 7E start (blue rings; selected trip only)</text>
+<path d="M 618 2066 L 314 2066" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="400" y="2052" font-size="14" fill="currentColor" text-anchor="middle" font-weight="normal">walk ~140 m / 3 min · Akses A</text>
 </g>
 <text x="-360" y="45" font-size="30" fill="currentColor" text-anchor="start" font-weight="600">One network · out and home</text>
 <text x="-360" y="80" font-size="19" fill="currentColor" text-anchor="start" font-weight="normal">Shared 4 / 6 and 10 / 7F spines · down outbound, up homebound · only different stops branch.</text>
 <text x="-360" y="110" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.</text>
 <text x="1580" y="2756" font-size="20" fill="#00838f" text-anchor="start" font-weight="600">A · from Phe Tower beside the venue</text>
 <text x="1580" y="2784" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">7E toward Ragunan: no bridge crossing</text>
-<text x="1580" y="2812" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">7E → Department of Agriculture → 6N;</text>
-<text x="1580" y="2840" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">PLN Corporate University 2 → walk to Ragunan.</text>
-<text x="1580" y="2868" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">BRT 6 entry unverified; allow a fresh tap/fare.</text>
+<text x="1580" y="2812" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">7E → Department of Agriculture, then walk via</text>
+<text x="1580" y="2840" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Ragunan Ar-Raudhah to the Ragunan pin.</text>
+<text x="1580" y="2868" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Home: 6 from Simpang Ragunan toward Galunggung;</text>
+<text x="1580" y="2896" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">allow a fresh tap/fare - continuity unverified.</text>
 <path d="M 164 358 L -120 500" fill="none" stroke="#6536b0" stroke-width="6"/>
 <path d="M -120 500 L -120 2656" fill="none" stroke="#6536b0" stroke-width="6"/>
 <circle cx="-120" cy="1218.6666666666665" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
@@ -480,13 +467,13 @@
 <path d="M -120 2703 L -131 2727 L -109 2727 Z" fill="#6536b0" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <text x="1580" y="2446" font-size="21" fill="currentColor" text-anchor="start" font-weight="600">B · bridge to far-side pickup → Gojek to Flyover Raya Bogor</text>
 <text x="1580" y="2476" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Gojek fare/time and 7F boarding access unverified.</text>
-<text x="1580" y="2506" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Separate from the 7E / 6N return option.</text>
+<text x="1580" y="2506" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Separate from the 7E / 6 return option.</text>
 <text x="900" y="2898" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">Gojek hop to the 7F pickup (left)</text>
 </g>
 <text x="60" y="2978" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.</text>
 <text x="60" y="3009" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;</text>
 <text x="60" y="3040" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Traveloka 05:00-22:00. Do not assume late service. No guaranteed arrival times for either return option.</text>
-<text x="60" y="3071" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Return: 19 Nov routing correction for 7E / 6N; other stops: Catenary GTFS rendering, 4 cross-check: halte.id.</text>
+<text x="60" y="3071" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Return: 19 Nov rider corrections for 7E / 6 and 7A at Masjid Ar-Raudhah; other stops: Catenary GTFS rendering, 4 cross-check: halte.id.</text>
 <text x="60" y="3102" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Ragunan access / fare continuity, Gojek fare/time and 7F access remain unverified. Patterns may change.</text>
 <text x="60" y="3133" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Outbound: TransJakarta operator GTFS checked 18 Nov 2026; 4D: jaGOdetabek / halte.id, not GTFS. No live arrivals.</text>
 </svg>

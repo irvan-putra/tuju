@@ -94,7 +94,7 @@ jobs:
       candidate_apk_artifact: candidate-apk
 
   publish:
-    needs: candidate-bytes
+    needs: [candidate-bytes, release]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:

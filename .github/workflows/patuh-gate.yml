@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   source-gate:
-    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@7d8d0523f22046b71c0a2e0419d852219bed8a77
+    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@6f4b1eec2a8f73348725b7e3698d3e7bca93b890
     with:
       app: tuju
       published: false
@@ -41,7 +41,7 @@ jobs:
   candidate-bytes-gate:
     if: github.event_name == 'workflow_dispatch'
     needs: build-debug-apk
-    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@7d8d0523f22046b71c0a2e0419d852219bed8a77
+    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@6f4b1eec2a8f73348725b7e3698d3e7bca93b890
     with:
       app: tuju
       published: false
@@ -49,7 +49,7 @@ jobs:
 
   verify-live-release:
     if: github.event_name == 'workflow_dispatch'
-    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@7d8d0523f22046b71c0a2e0419d852219bed8a77
+    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@6f4b1eec2a8f73348725b7e3698d3e7bca93b890
     with:
       app: tuju
       published: true

@@ -17,7 +17,7 @@ jobs:
     # patuh pre-publish source gate: package, version format, label,
     # permission/license drift, family icon geometry, badge reads the
     # candidate version. A failure stops the release before anything builds.
-    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@6f4b1eec2a8f73348725b7e3698d3e7bca93b890
+    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@b3c5d671164812ea06fb44857b0f0a423ade0d66
     with:
       app: tuju
       published: false
@@ -87,7 +87,7 @@ jobs:
     # patuh checks the built APK's actual bytes (packaged icon badge) before
     # anything is published. This is the preventive boundary.
     needs: release
-    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@6f4b1eec2a8f73348725b7e3698d3e7bca93b890
+    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@b3c5d671164812ea06fb44857b0f0a423ade0d66
     with:
       app: tuju
       published: false
@@ -138,7 +138,7 @@ jobs:
     # post-publish: verifies the live release (tag, APK name, checksum,
     # gallery card, downloaded sha256, packaged icon). Detects, cannot undo.
     needs: publish
-    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@6f4b1eec2a8f73348725b7e3698d3e7bca93b890
+    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@b3c5d671164812ea06fb44857b0f0a423ade0d66
     with:
       app: tuju
       published: true

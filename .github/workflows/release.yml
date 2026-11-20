@@ -107,6 +107,8 @@ jobs:
       - name: Publish pre-release
         env:
           GH_TOKEN: ${{ github.token }}
+          # no checkout in this job: gh needs explicit repository context
+          GH_REPO: ${{ github.repository }}
         run: |
           VER="${{ needs.release.outputs.version }}"
           cp "dist/tuju-v${VER}.apk" "dist/tuju-v${VER}.apk.sha256" .

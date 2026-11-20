@@ -13,9 +13,21 @@ defaults:
     working-directory: android
 
 jobs:
+  consistency:
+    # patuh pre-publish source gate: package, version format, label,
+    # permission/license drift, family icon geometry, badge reads the
+    # candidate version. A failure stops the release before anything builds.
+    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@v0.2.1
+    with:
+      app: tuju
+      published: false
+
   release:
+    needs: consistency
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    outputs:
+      version: ${{ steps.v.outputs.version }}
     env:
       EXPECTED_CERT_SHA256: "0A53B9A50A4487772E138F6FE24591FACAE97A5D6DDA97D31E8370B8DD0A2CB4"
     steps:
@@ -62,11 +74,42 @@ jobs:
           if "$BT/aapt" dump permissions "$APK" | grep -q 'uses-permission'; then exit 1; fi
           cp "$APK" "tuju-v${VER}.apk"
           sha256sum "tuju-v${VER}.apk" | tee "tuju-v${VER}.apk.sha256"
+      - name: Upload candidate APK for the byte check
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidate-apk
+          path: |
+            android/tuju-v${{ steps.v.outputs.version }}.apk
+            android/tuju-v${{ steps.v.outputs.version }}.apk.sha256
+          retention-days: 1
+
+  candidate-bytes:
+    # patuh checks the built APK's actual bytes (packaged icon badge) before
+    # anything is published. This is the preventive boundary.
+    needs: release
+    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@v0.2.1
+    with:
+      app: tuju
+      published: false
+      candidate_apk_artifact: candidate-apk
+
+  publish:
+    needs: candidate-bytes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      EXPECTED_CERT_SHA256: "0A53B9A50A4487772E138F6FE24591FACAE97A5D6DDA97D31E8370B8DD0A2CB4"
+    steps:
+      - uses: actions/download-artifact@v4
+        # run steps here default to working-directory android/, so land the
+        # artifact where those steps look
+        with: { name: candidate-apk, path: android/dist }
       - name: Publish pre-release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          VER="${{ steps.v.outputs.version }}"
+          VER="${{ needs.release.outputs.version }}"
+          cp "dist/tuju-v${VER}.apk" "dist/tuju-v${VER}.apk.sha256" .
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network, no permissions. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
 
@@ -88,3 +131,12 @@ jobs:
           NOTES
           gh release create "v${VER}" "tuju-v${VER}.apk" "tuju-v${VER}.apk.sha256" \
             --title "tuju ${VER}" --notes-file notes.md --prerelease --target "${GITHUB_SHA}"
+
+  verify:
+    # post-publish: verifies the live release (tag, APK name, checksum,
+    # gallery card, downloaded sha256, packaged icon). Detects, cannot undo.
+    needs: publish
+    uses: irvan-putra/patuh/.github/workflows/release-gate.yml@v0.2.1
+    with:
+      app: tuju
+      published: true

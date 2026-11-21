@@ -180,11 +180,12 @@ text(bx+25,y4d+256,'Final walk (official): JPO',14,weight='600')
 text(bx+25,y4d+278,'toward Plaza Festival ~150 m,',14)
 text(bx+25,y4d+300,'enter Gedung PPHUI complex',14)
 text(bx+25,y4d+362,'CFD Sun 22 Nov 05:30-09:00:',14,weight='600')
-text(bx+25,y4d+384,'no car/motorbike gate drop-off;',14,weight='600')
-text(bx+25,y4d+406,'LRT + 6/6A keep running;',14,weight='600')
-text(bx+25,y4d+428,'park at Plaza Festival',14,weight='600')
-text(bx+25,y4d+458,'official: idsw.dev access guide,',13)
-text(bx+25,y4d+478,'checked 21 Nov 2026',13)
+text(bx+25,y4d+384,'no car/motorbike drop-off',14,weight='600')
+text(bx+25,y4d+406,'at the gate; LRT + 6/6A',14,weight='600')
+text(bx+25,y4d+428,'keep running; park at',14,weight='600')
+text(bx+25,y4d+450,'Plaza Festival',14,weight='600')
+text(bx+25,y4d+480,'official: idsw.dev guide,',13)
+text(bx+25,y4d+500,'checked 21 Nov 2026',13)
 # Shared outbound/return station spine. Return-only stop sequences are local branches,
 # not an independently duplicated vertical. Common names denote the station area,
 # not a claim that opposite-direction platforms or fare gates are identical.

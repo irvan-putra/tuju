@@ -362,11 +362,12 @@
 <text x="955" y="1312" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">toward Plaza Festival ~150 m,</text>
 <text x="955" y="1334" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">enter Gedung PPHUI complex</text>
 <text x="955" y="1396" font-size="14" fill="currentColor" text-anchor="start" font-weight="600">CFD Sun 22 Nov 05:30-09:00:</text>
-<text x="955" y="1418" font-size="14" fill="currentColor" text-anchor="start" font-weight="600">no car/motorbike gate drop-off;</text>
-<text x="955" y="1440" font-size="14" fill="currentColor" text-anchor="start" font-weight="600">LRT + 6/6A keep running;</text>
-<text x="955" y="1462" font-size="14" fill="currentColor" text-anchor="start" font-weight="600">park at Plaza Festival</text>
-<text x="955" y="1492" font-size="13" fill="currentColor" text-anchor="start" font-weight="normal">official: idsw.dev access guide,</text>
-<text x="955" y="1512" font-size="13" fill="currentColor" text-anchor="start" font-weight="normal">checked 21 Nov 2026</text>
+<text x="955" y="1418" font-size="14" fill="currentColor" text-anchor="start" font-weight="600">no car/motorbike drop-off</text>
+<text x="955" y="1440" font-size="14" fill="currentColor" text-anchor="start" font-weight="600">at the gate; LRT + 6/6A</text>
+<text x="955" y="1462" font-size="14" fill="currentColor" text-anchor="start" font-weight="600">keep running; park at</text>
+<text x="955" y="1484" font-size="14" fill="currentColor" text-anchor="start" font-weight="600">Plaza Festival</text>
+<text x="955" y="1514" font-size="13" fill="currentColor" text-anchor="start" font-weight="normal">official: idsw.dev guide,</text>
+<text x="955" y="1534" font-size="13" fill="currentColor" text-anchor="start" font-weight="normal">checked 21 Nov 2026</text>
 <path d="M 360 240 L 630 302" fill="none" stroke="#1769aa" stroke-width="6"/>
 <circle cx="360" cy="240" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
 <text x="337" y="246" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Simpang Pramuka 1</text>

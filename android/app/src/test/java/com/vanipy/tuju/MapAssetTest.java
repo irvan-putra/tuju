@@ -53,6 +53,16 @@ public class MapAssetTest {
     }
 
     @Test
+    public void mapAssetCarriesTheAccessGuideline() throws Exception {
+        MainActivity activity = Robolectric.buildActivity(MainActivity.class).get();
+        String html = readAsset(activity, "map.html");
+        assertTrue("asset must contain the IDSW access guideline card",
+                html.contains("id=\"access-guideline\""));
+        assertTrue("asset must carry the Car Free Day warning",
+                html.contains("Car Free Day"));
+    }
+
+    @Test
     public void mapAssetStaysOnDeviceOnly() throws Exception {
         MainActivity activity = Robolectric.buildActivity(MainActivity.class).get();
         String html = readAsset(activity, "map.html");

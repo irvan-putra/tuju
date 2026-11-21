@@ -58,4 +58,11 @@ for _ in range(4):
     time.sleep(0.6)
 shot("journey-meter")
 
+# Keep scrolling to the bottom: the IDSW access guideline card is the last
+# element on the page. Extra swipes past the end are harmless.
+for _ in range(6):
+    adb("shell", "input", "swipe", "540", "1800", "540", "500", "300")
+    time.sleep(0.6)
+shot("access-guideline")
+
 print(f"smoke ok: WebView on screen, map-fit.png {size} bytes")

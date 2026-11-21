@@ -11,6 +11,11 @@ Also extracts the journey-meter block (card, scoped style and script between
 the journey-meter markers): the ride timer, stop picker and optional GPS
 distance. The meter runs on-device only; the app keeps no network permission.
 
+Also extracts the IDSW access-guideline card (between the access-guideline
+markers): the official venue access notes, below the meter. External links
+are rewritten as plain text, because the app has no network and the asset
+test forbids external URLs.
+
 Usage:
     tools/build_map_asset.py           write app/src/main/assets/map.html
     tools/build_map_asset.py --check   fail if the committed asset is stale
@@ -35,6 +40,10 @@ PAGE = """<!DOCTYPE html>
   svg {{ width: 100%; height: auto; display: block; }}
   .note {{ font-size: .85rem; opacity: .8; padding: .4rem .75rem .2rem; margin: 0; }}
   .note:last-child {{ padding-bottom: .9rem; }}
+  .card {{ border: 1px solid #8884; border-radius: .75rem; padding: .55rem .9rem; margin: .8rem .6rem 1rem; }}
+  .card h3 {{ margin: .25rem 0 .4rem; font-size: 1rem; }}
+  .card p {{ margin: .45rem 0; font-size: .9rem; }}
+  .card .tag {{ font-size: .68rem; border: 1px solid #8886; border-radius: 999px; padding: .02rem .5rem; vertical-align: .1em; }}
 </style>
 </head>
 <body>
@@ -42,6 +51,7 @@ PAGE = """<!DOCTYPE html>
 {svg}
 {closing}
 {meter}
+{guideline}
 </body>
 </html>
 """
@@ -73,6 +83,20 @@ def extract_meter(html):
     return m.group("meter").strip()
 
 
+def extract_guideline(html):
+    m = re.search(r"<!-- access-guideline:begin[^>]*-->(?P<g>.*?)<!-- access-guideline:end[^>]*-->",
+                  html, re.S)
+    if not m:
+        sys.exit("access-guideline block not found in " + SRC)
+    g = m.group("g").strip()
+    # Offline app: keep the source reference as text instead of a dead link.
+    g = re.sub(r'<a href="https://idsw\.dev/access-guideline/">(.*?)</a>',
+               r'\1 (idsw.dev/access-guideline)', g)
+    if re.search(r'(?:src|href)\s*=\s*"https?://', g):
+        sys.exit("access-guideline block still carries an external URL")
+    return g
+
+
 def render():
     with open(os.path.normpath(SRC), encoding="utf-8") as f:
         page = f.read()
@@ -80,7 +104,8 @@ def render():
     return PAGE.format(intro='<p class="note">%s</p>' % intro,
                        svg=svg,
                        closing='<p class="note">%s</p>' % closing,
-                       meter=extract_meter(page))
+                       meter=extract_meter(page),
+                       guideline=extract_guideline(page))
 
 
 def main():

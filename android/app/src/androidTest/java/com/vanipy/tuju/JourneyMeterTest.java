@@ -69,7 +69,8 @@ public class JourneyMeterTest {
         assertFalse("timer should be running", elapsed.contains("not started"));
         String result = js(webView, "document.getElementById('jm-stop').click();document.getElementById('jm-result').textContent");
         assertTrue("result should report the stop, got: " + result, result.contains("Stopped"));
-        assertTrue("result should compare with the estimate, got: " + result, result.contains("estimate"));
+        assertTrue("result should compare with the operator data, got: " + result,
+                result.contains("scheduled") || result.contains("no operator estimate"));
 
         // GPS toggle on and off: no crash, and the status line answers.
         String on = js(webView, "var g=document.getElementById('jm-gps');g.click();document.getElementById('jm-gps-status').textContent");

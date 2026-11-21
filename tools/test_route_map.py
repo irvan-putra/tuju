@@ -51,7 +51,24 @@ class StopMapTest(unittest.TestCase):
   expected=[{'label':'%s toward %s'%(s['route'],s['direction']),'stops':[x['name'] for x in s['stops']]} for s in D['segments']]
   ret=json.loads((ROOT/'data/return-stops.json').read_text())
   expected+=[{'label':'%s return: %s - %s'%(s['route'],s['stops'][0],s['stops'][-1]),'stops':s['stops']} for s in ret['segments']]
-  self.assertEqual(segs,expected)
+  self.assertEqual([{k:s[k] for k in ('label','stops')} for s in segs],expected)
+ def test_journey_meter_estimates_are_grounded_or_absent(self):
+  import re as _re
+  t=(ROOT/'index.html').read_text()
+  segs=json.loads(_re.search(r'var TUJU_SEGMENTS = (\[.*?\]);\s*/\* journey-segments:end',t,_re.S).group(1))
+  for s in segs:
+   n=len(s['stops'])
+   if s['coords'] is not None:
+    self.assertEqual(len(s['coords']),n)
+    for lat,lon in s['coords']: self.assertTrue(-6.5<lat<-6.0 and 106.7<lon<107.0,(s['label'],lat,lon))
+   if s['sched'] is not None:
+    self.assertEqual(len(s['sched']),n); self.assertEqual(s['sched'][0],0)
+    self.assertEqual(s['sched'],sorted(s['sched']))
+  # Outbound legs with a referenced GTFS trip carry a schedule; returns and 4D do not.
+  bylabel={s['label']:s for s in segs}
+  self.assertIsNotNone(bylabel['4 toward Galunggung via Saharjo']['sched'])
+  self.assertIsNone(bylabel['4D toward Patra Kuningan (westbound pattern)']['sched'])
+  self.assertTrue(all(s['sched'] is None for s in segs if ' return: ' in s['label']))
  def test_journey_meter_reaches_android_asset(self):
   asset=(ROOT/'android/app/src/main/assets/map.html').read_text()
   self.assertIn('id="journey-meter"',asset)

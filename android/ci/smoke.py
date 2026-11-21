@@ -52,4 +52,10 @@ size = shot("map-fit")
 if size < 20000:
     sys.exit(f"screenshot suspiciously small ({size} bytes); map may not have rendered")
 
+# Scroll down to the journey meter and capture it too.
+for _ in range(4):
+    adb("shell", "input", "swipe", "540", "1800", "540", "500", "300")
+    time.sleep(0.6)
+shot("journey-meter")
+
 print(f"smoke ok: WebView on screen, map-fit.png {size} bytes")

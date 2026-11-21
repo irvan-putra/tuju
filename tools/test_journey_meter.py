@@ -42,11 +42,27 @@ ok(m.gpsStepMeters(b, coarse) === 0, "coarse fix rejected");
 ok(m.gpsStepMeters(b, { lat: -6.176, lon: 106.865, accuracyM: 12, timeMs: 100000 }) === 0,
    "non-positive time step rejected");
 
-const e3 = m.estimateForHops(3);
-ok(e3.hops === 3 && e3.minMinutes === 6 && e3.maxMinutes === 9, "3-hop minutes");
-near(e3.minKm, 1.5, 1e-9, "3-hop min km"); near(e3.maxKm, 3.0, 1e-9, "3-hop max km");
-ok(m.formatEstimate(e3).includes("3 hops"), "estimate text names the hops");
-ok(m.formatEstimate(m.estimateForHops(0)).includes("different stops"), "zero-hop guidance");
+// Synthetic two-hop leg: ~111 m + ~100 m straight-line, 6 scheduled minutes.
+const seg = { label: "synthetic", stops: ["A", "B", "C"],
+  coords: [[-6.175, 106.865], [-6.176, 106.865], [-6.1769, 106.865]],
+  sched: [0, 4, 6] };
+const e2 = m.estimateForSegment(seg, 0, 2);
+ok(e2.hops === 2, "two hops");
+near(e2.km, 0.211, 0.01, "straight-line km is the sum of stop-to-stop steps");
+ok(e2.minutes === 6, "scheduled minutes come from the feed, both directions");
+ok(m.estimateForSegment(seg, 2, 0).minutes === 6, "reverse selection same estimate");
+ok(m.formatEstimate(e2).includes("2 hops") && m.formatEstimate(e2).includes("straight-line"),
+   "estimate text names hops and grounded distance");
+const bare = { label: "bare", stops: ["A", "B"], coords: null, sched: null };
+const eb = m.estimateForSegment(bare, 0, 1);
+ok(eb.km === null && eb.minutes === null, "uncovered leg stays unmeasured");
+ok(m.formatEstimate(eb).includes("not measured"), "uncovered leg says not measured");
+ok(m.formatEstimate(m.estimateForSegment(seg, 1, 1)).includes("different stops"), "zero-hop guidance");
+// Real embedded segments: every leg reports grounded or honestly unmeasured.
+ok(m.segments.every(s => (s.coords && s.coords.length === s.stops.length) || s.coords === null),
+   "coords cover all stops or are null");
+ok(m.segments.every(s => s.sched === null || (s.sched.length === s.stops.length && s.sched[0] === 0)),
+   "schedules are cumulative from the leg start or null");
 
 ok(m.formatClock(0) === "0:00", "clock zero");
 ok(m.formatClock(65000) === "1:05", "clock minutes");

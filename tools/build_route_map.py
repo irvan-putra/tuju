@@ -35,7 +35,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
   if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,COL[route],False)
  return end
 add('<title id="all-stops-title">Outbound routes and Arkadia homebound options, with intermediate stops</title>')
-add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture, which is the same station as Simpang Ragunan Ar-Raudhah (rider, 19 Nov 2026). Corridor 6 links this station with Ragunan - the destination pin - in both directions, and the ride home boards corridor 6 / 6A there toward Galunggung - the direction, not the transfer - changing at Patra Kuningan to 4D for Simpang Pramuka 1; teal rings mark the 4D return stops. Gate access and fare continuity between 7E and corridor 6 are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor.</desc>')
+add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture, which is the same station as Simpang Ragunan Ar-Raudhah (rider, 19 Nov 2026). Corridor 6 links this station with Ragunan - the destination pin - in both directions, and the ride home boards corridor 6 / 6A there toward Galunggung - the direction, not the transfer - changing at Patra Kuningan to 4D for Simpang Pramuka 1; teal rings mark the 4D return stops. Gate access and fare continuity between 7E and corridor 6 are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor. At the 4D Rasuna Said terminus, the venue access block carries the official IDSW access guideline (idsw.dev, checked 21 Nov 2026): LRT Rasuna Said is the other official nearest stop, about 2 minutes, sharing the same pedestrian-bridge walk; the final walk runs toward Plaza Festival for about 150 m into the Gedung PPHUI complex; and the Sunday 22 November Car Free Day window 05:30-09:00 WIB bars car and motorbike gate drop-off while the LRT and corridor 6/6A keep running and drivers park at Plaza Festival.</desc>')
 SH=420  # whole network shifts right so the 7F homebound column can sit at the far left
 add(f'<g transform="translate({SH} 0)">')
 add('<g transform="translate(700 0)">')
@@ -167,6 +167,24 @@ text(bx+25,y4d+95,'Plaza Festival /',22,'#2e9e50',weight='600')
 text(bx+25,y4d+121,'Usmar Ismail Hall',22,'#2e9e50',weight='600')
 text(bx+25,y4d+145,'stop order: jaGOdetabek /',14)
 text(bx+25,y4d+163,'halte.id, not GTFS',14)
+# Official IDSW venue access (idsw.dev/access-guideline, checked 21 Nov 2026).
+# The LRT station is the other official nearest stop and shares the same JPO
+# walk; the filled square + dashed link is a walk connection, NOT a TJ transfer.
+# Car Free Day bars car/motorbike gate drop-off Sunday morning; LRT + 6/6A run.
+lrtc='#b03a2e'
+line(bx,y4d+112,bx,y4d+184,'#888',True)
+add(f'<rect x="{bx-11}" y="{y4d+186}" width="22" height="22" rx="5" fill="{lrtc}"/>')
+text(bx+25,y4d+204,'LRT Rasuna Said',16,lrtc,weight='600')
+text(bx+25,y4d+226,'~2 min · same JPO walk (official)',13,lrtc)
+text(bx+25,y4d+256,'Final walk (official): JPO',14,weight='600')
+text(bx+25,y4d+278,'toward Plaza Festival ~150 m,',14)
+text(bx+25,y4d+300,'enter Gedung PPHUI complex',14)
+text(bx+25,y4d+362,'CFD Sun 22 Nov 05:30-09:00:',14,weight='600')
+text(bx+25,y4d+384,'no car/motorbike gate drop-off;',14,weight='600')
+text(bx+25,y4d+406,'LRT + 6/6A keep running;',14,weight='600')
+text(bx+25,y4d+428,'park at Plaza Festival',14,weight='600')
+text(bx+25,y4d+458,'official: idsw.dev access guide,',13)
+text(bx+25,y4d+478,'checked 21 Nov 2026',13)
 # Shared outbound/return station spine. Return-only stop sequences are local branches,
 # not an independently duplicated vertical. Common names denote the station area,
 # not a claim that opposite-direction platforms or fare gates are identical.
@@ -323,6 +341,7 @@ for i,t in enumerate([
  'Return: 19 Nov rider corrections for 7E / 6 / 4D and 7A at Masjid Ar-Raudhah; other stops: Catenary GTFS rendering, 4 cross-check: halte.id.',
  'Ragunan access / fare continuity, Gojek fare/time and 7F access remain unverified. Patterns may change.',
  'Outbound: TransJakarta operator GTFS checked 18 Nov 2026; 4D: jaGOdetabek / halte.id, not GTFS. No live arrivals.',
+ 'IDSW venue access: official access guideline (idsw.dev) checked 21 Nov 2026 - JPO walk, LRT Rasuna Said, CFD Sun 05:30-09:00.',
 ]):text(60,end+i*31,t,18)
 add('</svg>')
 H=end+220

@@ -36,8 +36,9 @@ public class JourneyMeterTest {
 
     @Test
     public void meterTimesJourneyAndGpsToggleIsSafe() throws Exception {
-        MainActivity activity = (MainActivity) instrumentation().startActivitySync(
-                new Intent(instrumentation().getTargetContext(), MainActivity.class));
+        Intent intent = new Intent(instrumentation().getTargetContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        MainActivity activity = (MainActivity) instrumentation().startActivitySync(intent);
         // The WebView is the activity's only content view.
         android.view.ViewGroup root = (android.view.ViewGroup) activity.findViewById(android.R.id.content);
         WebView web = (WebView) root.getChildAt(0);

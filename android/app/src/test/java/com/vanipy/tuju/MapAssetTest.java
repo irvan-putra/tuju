@@ -40,8 +40,30 @@ public class MapAssetTest {
         String html = readAsset(activity, "map.html");
         assertTrue("asset must contain the combined 3000-wide map svg",
                 Pattern.compile("<svg viewBox=\"0 0 3000 \\d+\"").matcher(html).find());
-        assertFalse("asset must stay offline: no scripts, no external URLs",
-                html.contains("<script") || Pattern.compile("(?:src|href)=\"https?://").matcher(html).find());
+    }
+
+    @Test
+    public void mapAssetCarriesTheJourneyMeter() throws Exception {
+        MainActivity activity = Robolectric.buildActivity(MainActivity.class).get();
+        String html = readAsset(activity, "map.html");
+        assertTrue("asset must contain the journey meter card",
+                html.contains("id=\"journey-meter\""));
+        assertTrue("asset must contain the generated leg list",
+                html.contains("var TUJU_SEGMENTS = [") && html.contains("toward"));
+    }
+
+    @Test
+    public void mapAssetStaysOnDeviceOnly() throws Exception {
+        MainActivity activity = Robolectric.buildActivity(MainActivity.class).get();
+        String html = readAsset(activity, "map.html");
+        // The journey meter runs an inline script, but everything stays on the
+        // device: no external resources, no network calls of any kind.
+        assertFalse("no external URLs",
+                Pattern.compile("(?:src|href)\\s*=\\s*\"https?://").matcher(html).find());
+        for (String call : new String[]{"fetch(", "XMLHttpRequest", "WebSocket",
+                "sendBeacon", "import("}) {
+            assertFalse("no network call " + call, html.contains(call));
+        }
     }
 
     @Test
@@ -54,6 +76,6 @@ public class MapAssetTest {
         assertFalse(web.getSettings().getDisplayZoomControls());
         assertTrue(web.getSettings().getUseWideViewPort());
         assertTrue(web.getSettings().getLoadWithOverviewMode());
-        assertFalse(web.getSettings().getJavaScriptEnabled());
+        assertTrue("the journey meter needs script", web.getSettings().getJavaScriptEnabled());
     }
 }

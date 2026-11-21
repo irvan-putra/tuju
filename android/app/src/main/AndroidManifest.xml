@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- No permissions on purpose: the map is bundled in the app, no internet,
-         no contacts, no storage. -->
+    <!-- Location is for the journey meter's optional GPS distance only: asked
+         at runtime, only when the rider switches GPS on in the page, and used
+         only while the screen is open. Still no network permission: the map
+         and the meter work fully offline and nothing leaves the device. -->
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"

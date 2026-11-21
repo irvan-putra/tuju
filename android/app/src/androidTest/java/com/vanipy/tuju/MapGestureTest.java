@@ -44,7 +44,7 @@ public class MapGestureTest {
         java.util.concurrent.CountDownLatch done = new java.util.concurrent.CountDownLatch(1);
         final float[] top = new float[1];
         getInstrumentation().runOnMainSync(() -> {
-            web.getSettings().setJavaScriptEnabled(true); // test only, production remains disabled
+            web.getSettings().setJavaScriptEnabled(true); // already on for the journey meter; explicit for clarity
             web.evaluateJavascript("document.querySelector('svg').getBoundingClientRect().top + window.scrollY", result -> {
                 top[0] = Float.parseFloat(result);
                 done.countDown();

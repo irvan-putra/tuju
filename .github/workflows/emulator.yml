@@ -25,7 +25,7 @@ jobs:
           java-version: "17"
       - uses: gradle/actions/setup-gradle@v4
       - name: Stop coverage and generated-asset checks
-        run: python3 ../tools/test_route_map.py && python3 tools/build_map_asset.py --check
+        run: python3 ../tools/test_route_map.py && python3 ../tools/test_journey_meter.py && python3 ../tools/build_journey_data.py --check && python3 tools/build_map_asset.py --check
       - run: chmod +x ./gradlew && ./gradlew --no-daemon testDebugUnitTest assembleDebug assembleDebugAndroidTest
       - name: Enable KVM
         run: |

@@ -1,0 +1,9 @@
+{
+  "comment": "Deliberate baseline change for tuju 0.2.0 (2026-11-21): the journey meter's optional GPS distance needs runtime location access. The owner asked for the GPS mode; the permission is requested only when the rider switches GPS on, and the app still declares no network permission. The two location permissions below are the whole allowed set.",
+  "patuh_overrides": {
+    "permissions_baseline": [
+      "android.permission.ACCESS_COARSE_LOCATION",
+      "android.permission.ACCESS_FINE_LOCATION"
+    ]
+  }
+}

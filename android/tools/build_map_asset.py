@@ -7,6 +7,10 @@ notes (they carry the route-uncertainty caveats, which must stay with the
 map). The closing note is adapted for the app: the route cards live on the
 website, not "below", and the map is already enlarged here.
 
+Also extracts the journey-meter block (card, scoped style and script between
+the journey-meter markers): the ride timer, stop picker and optional GPS
+distance. The meter runs on-device only; the app keeps no network permission.
+
 Usage:
     tools/build_map_asset.py           write app/src/main/assets/map.html
     tools/build_map_asset.py --check   fail if the committed asset is stale
@@ -37,6 +41,7 @@ PAGE = """<!DOCTYPE html>
 {intro}
 {svg}
 {closing}
+{meter}
 </body>
 </html>
 """
@@ -60,12 +65,22 @@ def extract_card(html):
     return m.group("intro"), svg, closing
 
 
+def extract_meter(html):
+    m = re.search(r"<!-- journey-meter:begin[^>]*-->(?P<meter>.*?)<!-- journey-meter:end[^>]*-->",
+                  html, re.S)
+    if not m:
+        sys.exit("journey-meter block not found in " + SRC)
+    return m.group("meter").strip()
+
+
 def render():
     with open(os.path.normpath(SRC), encoding="utf-8") as f:
-        intro, svg, closing = extract_card(f.read())
+        page = f.read()
+    intro, svg, closing = extract_card(page)
     return PAGE.format(intro='<p class="note">%s</p>' % intro,
                        svg=svg,
-                       closing='<p class="note">%s</p>' % closing)
+                       closing='<p class="note">%s</p>' % closing,
+                       meter=extract_meter(page))
 
 
 def main():

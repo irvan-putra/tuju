@@ -1,8 +1,11 @@
 # tuju app
 
 The combined busway-route overview map from https://vanipy.com/tuju/ as an
-offline Android app screen: pinch to zoom, drag to pan, nothing else. No
-permissions, no network - the map SVG is bundled in the app.
+offline Android app screen: pinch to zoom, drag to pan, with the journey
+meter below the map. No network - the map and meter are bundled in the app.
+The only permission is location, requested at runtime and only if the rider
+switches the meter's GPS distance on; it tracks only while the screen is
+open and nothing leaves the device.
 
 - Package: `com.vanipy.tuju`, launcher name `tuju`
 - Version: `android/app/build.gradle.kts` (`appVersionName`, major.minor.revision)
@@ -20,7 +23,7 @@ The release workflow fails if the committed asset is stale.
 ## Icons
 
     pip install pillow==12.3.0
-    python3 tools/badge_icon.py 0.1.0
+    python3 tools/badge_icon.py 0.2.0
 
 ## Build and release
 

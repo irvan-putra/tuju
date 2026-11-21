@@ -37,8 +37,8 @@ jobs:
           distribution: temurin
           java-version: "17"
       - uses: gradle/actions/setup-gradle@v4
-      - name: Map asset is in sync with index.html
-        run: python3 ../tools/test_route_map.py && python3 tools/build_map_asset.py --check
+      - name: Map asset and journey meter are in sync with index.html
+        run: python3 ../tools/test_route_map.py && python3 ../tools/test_journey_meter.py && python3 ../tools/build_journey_data.py --check && python3 tools/build_map_asset.py --check
       - run: chmod +x ./gradlew
       - name: Read version
         id: v
@@ -71,7 +71,11 @@ jobs:
           GOT=$(grep -m1 'certificate SHA-256 digest' /tmp/cert.txt | awk '{print toupper($NF)}')
           test "$GOT" = "$EXPECTED_CERT_SHA256"
           if "$BT/apksigner" verify --print-certs "$APK" | grep -q 'DEBUG'; then exit 1; fi
-          if "$BT/aapt" dump permissions "$APK" | grep -q 'uses-permission'; then exit 1; fi
+          # Permission allowlist: only the journey meter's runtime location
+          # access is acceptable. Anything else (notably INTERNET) fails.
+          PERMS=$("$BT/aapt" dump permissions "$APK" | sed -n "s/.*name='\([^']*\)'.*/\1/p" | sort -u)
+          EXPECTED=$(printf 'android.permission.ACCESS_COARSE_LOCATION\nandroid.permission.ACCESS_FINE_LOCATION')
+          if [ "$PERMS" != "$EXPECTED" ]; then echo "unexpected permissions:"; echo "$PERMS"; exit 1; fi
           cp "$APK" "tuju-v${VER}.apk"
           sha256sum "tuju-v${VER}.apk" | tee "tuju-v${VER}.apk.sha256"
       - name: Upload candidate APK for the byte check
@@ -113,7 +117,9 @@ jobs:
           VER="${{ needs.release.outputs.version }}"
           cp "dist/tuju-v${VER}.apk" "dist/tuju-v${VER}.apk.sha256" .
           cat > notes.md <<NOTES
-          tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network, no permissions. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
+          tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
+
+          0.2.0 adds the journey meter below the map: start/stop ride timer with start and end stop selection per leg, compared with a nominal per-hop estimate (planning figures, not live). Optional GPS distance is off by default; the location permission is asked only when you switch GPS on, tracking runs only while the screen is open, and everything stays on the device. New: script enabled for the meter, ACCESS_FINE_LOCATION/ACCESS_COARSE_LOCATION declared (runtime-asked, optional features). Emulator checks: meter DOM journey run and GPS toggle, on top of the map fit/pinch/pan checks. Real GPS fixes and a physical Samsung remain untested.
 
           Shows every intermediate stop on the selected outbound routes (4 via Saharjo, 6, 7E toward Kampung Rambutan, 10, 9 toward Pluit, 4C and 5M via Cikini), sourced from the TransJakarta operator GTFS checked 18 November 2026. The earlier 0.1.4 adds the 4D branch to Rasuna Said (Plaza Festival), drawn as a branch off the shared first ten stops of corridor 4; the 4D stop list is from jaGOdetabek and halte.id, not GTFS. Route patterns and temporary stops may change; this is not live arrival information. Paid-area/fare uncertainties remain visible.
 

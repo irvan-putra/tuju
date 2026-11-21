@@ -42,6 +42,20 @@ class StopMapTest(unittest.TestCase):
  def test_no_outbound_return_stop_mix(self):
   names=[s['name'] for s in S['7E']['stops']]
   self.assertNotIn('Baung',names); self.assertNotIn('Phe Tower Kebagusan',names)
+ def test_journey_meter_segments_match_stop_data(self):
+  import re as _re
+  t=(ROOT/'index.html').read_text()
+  m=_re.search(r'var TUJU_SEGMENTS = (\[.*?\]);\s*/\* journey-segments:end',t,_re.S)
+  self.assertIsNotNone(m,'journey segment list missing from index.html')
+  segs=json.loads(m.group(1))
+  expected=[{'label':'%s toward %s'%(s['route'],s['direction']),'stops':[x['name'] for x in s['stops']]} for s in D['segments']]
+  ret=json.loads((ROOT/'data/return-stops.json').read_text())
+  expected+=[{'label':'%s return: %s - %s'%(s['route'],s['stops'][0],s['stops'][-1]),'stops':s['stops']} for s in ret['segments']]
+  self.assertEqual(segs,expected)
+ def test_journey_meter_reaches_android_asset(self):
+  asset=(ROOT/'android/app/src/main/assets/map.html').read_text()
+  self.assertIn('id="journey-meter"',asset)
+  self.assertIn('var TUJU_SEGMENTS = [',asset)
  def test_homebound_patterns_are_independent_and_complete(self):
   ret=json.loads((ROOT/'data/return-stops.json').read_text())
   r={x['key']:x['stops'] for x in ret['segments']}
@@ -76,9 +90,12 @@ class StopMapTest(unittest.TestCase):
   self.assertIn('Shared 4 / 6 and 10 / 7F spines', ' '.join(texts))
   self.assertIn('not necessarily platforms', ' '.join(texts))
  def test_offline_asset(self):
+  # The journey meter adds an inline script; the asset must still run fully
+  # on-device: no external resources and no network calls of any kind.
   page=(ROOT/'android/app/src/main/assets/map.html').read_text()
-  self.assertNotIn('<script',page)
   self.assertNotRegex(page,r'(?:src|href)="https?://')
+  for call in ('fetch(','XMLHttpRequest','WebSocket','sendBeacon','import('):
+   self.assertNotIn(call,page)
   self.assertIn('maximum-scale=8',page)
  def test_ragunan_connection_and_return(self):
   svg=(ROOT/'data/all-stops.svg').read_text()

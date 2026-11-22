@@ -66,11 +66,13 @@ def cost(blocks, links, place, width, bend_cost=40, cross_penalty=1000, overlap_
             if seg_hits_block(a, b, blocks, place, skip): total += cross_penalty
     return total
 
-def pack(blocks, links, width, place=None, iters=20000, seed=1):
+def pack(blocks, links, width, place=None, iters=20000, seed=1, axis='xy', fixed=()):
     """Simulated annealing over block (x, y) positions. Blocks: {id: {w,h,ports}};
-    links: [((block,port),(block,port))]; place: optional {id: (x,y)} start."""
+    links: [((block,port),(block,port))]; place: optional {id: (x,y)} start.
+    axis='x' keeps every block's y fixed (reading order is meaning), and
+    axis='y' keeps x fixed."""
     rng = random.Random(seed)
-    ids = list(blocks)
+    ids = [bid for bid in blocks if bid not in set(fixed)]
     if place is None:
         place = {}
         x = 0
@@ -85,8 +87,9 @@ def pack(blocks, links, width, place=None, iters=20000, seed=1):
         T = t0*(t1/t0)**(it/max(iters-1, 1))
         bid = rng.choice(ids)
         old = place[bid]
-        place[bid] = (max(0.0, min(width-blocks[bid]['w'], old[0]+rng.gauss(0, 80))),
-                      max(0.0, old[1]+rng.gauss(0, 80)))
+        nx = max(0.0, min(width-blocks[bid]['w'], old[0]+rng.gauss(0, 80))) if 'x' in axis else old[0]
+        ny = max(0.0, old[1]+rng.gauss(0, 80)) if 'y' in axis else old[1]
+        place[bid] = (nx, ny)
         new = cost(blocks, links, place, width)
         if new <= cur or rng.random() < math.exp(-(new-cur)/T):
             cur = new

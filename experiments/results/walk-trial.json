@@ -1,0 +1,242 @@
+{
+  "base_score": {
+    "crossings": 4,
+    "bends": 44,
+    "min_gap": 26.3,
+    "text_overlaps": 20
+  },
+  "links": {
+    "home-walk-850m": {
+      "hand": {
+        "length": 961,
+        "bends": 2,
+        "crossings": 0,
+        "text_hits": 0
+      },
+      "routed": {
+        "length": 1081,
+        "bends": 2,
+        "crossings": 0,
+        "text_hits": 0,
+        "search_cost": 1160
+      },
+      "variant_score": {
+        "crossings": 4,
+        "bends": 44,
+        "min_gap": 26.3,
+        "text_overlaps": 20
+      },
+      "hand_path": [
+        [
+          2672,
+          228
+        ],
+        [
+          2672,
+          130
+        ],
+        [
+          1820,
+          130
+        ],
+        [
+          1820,
+          141
+        ]
+      ],
+      "routed_path": [
+        [
+          2672,
+          228
+        ],
+        [
+          2672,
+          70
+        ],
+        [
+          1820,
+          70
+        ],
+        [
+          1820,
+          141
+        ]
+      ]
+    },
+    "gi-out-walk": {
+      "hand": {
+        "length": 1277,
+        "bends": 2,
+        "crossings": 1,
+        "text_hits": 0
+      },
+      "routed": {
+        "length": 1283,
+        "bends": 2,
+        "crossings": 1,
+        "text_hits": 0,
+        "search_cost": 1735
+      },
+      "variant_score": {
+        "crossings": 3,
+        "bends": 44,
+        "min_gap": 26.3,
+        "text_overlaps": 20
+      },
+      "hand_path": [
+        [
+          2613,
+          1290
+        ],
+        [
+          2624,
+          1290
+        ],
+        [
+          2624,
+          2289
+        ],
+        [
+          2891,
+          2289
+        ]
+      ],
+      "routed_path": [
+        [
+          2613,
+          1290
+        ],
+        [
+          2613,
+          2270
+        ],
+        [
+          2610,
+          2270
+        ],
+        [
+          2891,
+          2270
+        ],
+        [
+          2891,
+          2289
+        ]
+      ]
+    },
+    "pramuka-walk": {
+      "hand": {
+        "length": 345,
+        "bends": 0,
+        "crossings": 0,
+        "text_hits": 0
+      },
+      "routed": {
+        "length": 405,
+        "bends": 2,
+        "crossings": 1,
+        "text_hits": 0,
+        "search_cost": 605
+      },
+      "variant_score": {
+        "crossings": 5,
+        "bends": 46,
+        "min_gap": 26.3,
+        "text_overlaps": 20
+      },
+      "hand_path": [
+        [
+          1480,
+          228
+        ],
+        [
+          1820,
+          167
+        ]
+      ],
+      "routed_path": [
+        [
+          1480,
+          228
+        ],
+        [
+          1730,
+          228
+        ],
+        [
+          1730,
+          230
+        ],
+        [
+          1730,
+          167
+        ],
+        [
+          1820,
+          167
+        ]
+      ]
+    },
+    "bakoel-out-walk": {
+      "hand": {
+        "length": 1164,
+        "bends": 2,
+        "crossings": 0,
+        "text_hits": 0
+      },
+      "routed": {
+        "length": 1020,
+        "bends": 2,
+        "crossings": 0,
+        "text_hits": 0,
+        "search_cost": 1185
+      },
+      "variant_score": {
+        "crossings": 4,
+        "bends": 44,
+        "min_gap": 13.0,
+        "text_overlaps": 20
+      },
+      "hand_path": [
+        [
+          3187,
+          1372
+        ],
+        [
+          3115,
+          1372
+        ],
+        [
+          3115,
+          2139
+        ],
+        [
+          3440,
+          2139
+        ]
+      ],
+      "routed_path": [
+        [
+          3187,
+          1372
+        ],
+        [
+          3187,
+          2130
+        ],
+        [
+          3190,
+          2130
+        ],
+        [
+          3190,
+          2139
+        ],
+        [
+          3440,
+          2139
+        ]
+      ]
+    }
+  }
+}

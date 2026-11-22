@@ -226,7 +226,7 @@ node(300,bq,'Baung - get off',COL['7E'],True,anchor='end')
 text(277,bq+30,'Walk ~4 min (285 m)',13,anchor='end')
 # 4C is the straight red spine. 5M leaves it as a purple branch.
 # Local coordinates in the existing translated group; global red x = 2600 / 2672.
-red=COL['4C']; purple=COL['5M']; xo=1480; xh=1552; xp=1516; po=2080; ph=2580
+red=COL['4C']; purple=COL['5M']; xo=1480; xh=1552; xp=1516; po=2320; ph=po+72  # 5M directions paired like S11/S16 (user feedback)
 all4=S['4C']['stops']; step4=70
 mas=240+next(i for i,st in enumerate(all4) if st['id']=='B02350P')*step4
 line(xo,240,xo,240+(len(all4)-1)*step4,red)
@@ -251,9 +251,9 @@ pstart=shared_end+115
 for i,st in enumerate(tail5):
  yy=pstart+i*61
  if i:line(po,yy-61,po,yy,purple)
- node(po,yy,st['name'],purple,st['id']=='B00346P' or i==len(tail5)-1)
+ node(po,yy,st['name'],purple,st['id']=='B00346P' or i==len(tail5)-1,anchor='end')
  if i:tri(po,yy-30,purple,False)
-text(po+24,pstart-35,'5M ↓ Tanah Abang · via Cikini',18,purple,weight='600')
+text(po-24,pstart-35,'5M ↓ Tanah Abang · via Cikini',18,purple,weight='600',anchor='end')
 pbottom=pstart+(len(tail5)-1)*61
 mv_open('markas-indonesia','Markas Indonesia label')
 text(po+24,pbottom+46,'Walk ~300 m',16)
@@ -285,7 +285,7 @@ text(ph+24,yme+75,'5M ↑ Kampung Melayu; change at Megaria',16,purple)
 # Same Bakoel destination, linked to its two distinct roadside stops.
 bkout=pstart+next(i for i,st in enumerate(tail5) if st['id']=='B00346P')*61
 bkhome=yme+110+(len(return5)-2)*105
-bpx=po+262; bpy=bkout+17  # pin sits in the empty space between the two 5M columns
+bpx=ph+90; bpy=bkout+17  # pin sits right of the paired 5M columns, below the return leg's end
 mv_open('bakoel','Bakoel Koffie pin and notes')
 add(f'<rect x="{bpx}" y="{bpy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
 text(bpx,bpy+52,'Bakoel Koffie',23,'#2e9e50',weight='600')
@@ -293,7 +293,7 @@ text(bpx,bpy+80,'5M out: Farmasi RP Soeroso',14);text(bpx,bpy+98,'walk ~100 m',1
 text(bpx,bpy+121,'5M home: Kantor Pos Cikini',14);text(bpx,bpy+139,'walk ~90 m',14)
 mv_close()
 add(f'<path d="M {po+8} {bkout+8} L {po+22} {bkout+26} L {bpx} {bkout+26}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M {ph-13} {bkhome} L {bpx+9} {bkhome} L {bpx+9} {bpy}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M {ph+8} {bkhome+8} L {ph+22} {bkhome+26} L {bpx+9} {bkhome+26} L {bpx+9} {bpy}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
 # GI remains a walk from Tosari 3 out / Tosari 2 home, not a new bus stop.
 yto=240+next(i for i,st in enumerate(all4) if st['id']=='B05775P')*step4
 yth=240+home4.index('Tosari 2')*step4

@@ -1,7 +1,36 @@
 {
-  "checked": "2026-11-18",
+  "checked": "2026-11-22",
   "source_type": "Catenary rendering of TransJakarta GTFS, not a fresh official feed download",
   "segments": [
+    {
+      "key": "5M-return",
+      "route": "5M",
+      "source": "TransJakarta operator GTFS, trip 5M-R02 (Kampung Melayu via Cikini), checked 22 Nov 2026",
+      "stops": [
+        "Kantor Pos Cikini",
+        "Taman Ismail Marzuki",
+        "ABA",
+        "PTUN Jakarta",
+        "Pegangsaan Timur",
+        "Megaria"
+      ]
+    },
+    {
+      "key": "4C-return",
+      "route": "4C",
+      "source": "TransJakarta operator GTFS, trip 4C-R10 (JIEP), checked 22 Nov 2026",
+      "stops": [
+        "Megaria",
+        "RSCM 1",
+        "RSCM 2",
+        "RS Carolus",
+        "Kemensos",
+        "Pasar Genjing 1",
+        "Jln. Pramuka 5",
+        "Pramuka LIA 1",
+        "Pramuka BPKP 1"
+      ]
+    },
     {
       "key": "7E-return",
       "route": "7E",

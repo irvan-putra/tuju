@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'data/route-stops.json').read_text())
 S={s['route']:s for s in D['segments']}
+R={r['key']:r for r in json.loads((ROOT/'data/return-stops.json').read_text())['segments']}
 COL={'10':'#6536b0','9':'#27803c','4':'#1769aa','6':'#d36300','7E':'#00838f','4C':'#c52d36','5M':'#9045ac','4D':'#0f6e6e'}
 A=[]
 def add(s): A.append(s)
@@ -35,7 +36,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=()):
   if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,COL[route],False)
  return end
 add('<title id="all-stops-title">Outbound routes, Arkadia homebound options and the Cikini return, with intermediate stops</title>')
-add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture, which is the same station as Simpang Ragunan Ar-Raudhah (rider, 19 Nov 2026). Corridor 6 links this station with Ragunan - the destination pin - in both directions, and the ride home boards corridor 6 / 6A there toward Galunggung - the direction, not the transfer - changing at Patra Kuningan to 4D for Simpang Pramuka 1; teal rings mark the 4D return stops. Gate access and fare continuity between 7E and corridor 6 are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor. At the 4D Rasuna Said terminus, the venue access block carries the official IDSW access guideline (idsw.dev, checked 21 Nov 2026): LRT Rasuna Said is the other official nearest stop, about 2 minutes, sharing the same pedestrian-bridge walk; the final walk runs toward Plaza Festival for about 150 m into the Gedung PPHUI complex; and the Sunday 22 November Car Free Day window 05:30-09:00 WIB bars car and motorbike gate drop-off while the LRT and corridor 6/6A keep running and drivers park at Plaza Festival. Bakoel Koffie (Cikini) is on the 5M leg: get off at Farmasi RP Soeroso, about 100 m away. The ride home boards the 5M at Kantor Pos Cikini (about 90 m from the venue) toward Kampung Melayu and changes at Megaria to 4C for Pramuka BPKP 1; it is drawn in the Bakoel Koffie card on the page, not in this network map (official GTFS trips 5M-R02 and 4C-R10, checked 22 Nov 2026; curbside feeders, so allow a fresh tap at each boarding).</desc>')
+add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture, which is the same station as Simpang Ragunan Ar-Raudhah (rider, 19 Nov 2026). Corridor 6 links this station with Ragunan - the destination pin - in both directions, and the ride home boards corridor 6 / 6A there toward Galunggung - the direction, not the transfer - changing at Patra Kuningan to 4D for Simpang Pramuka 1; teal rings mark the 4D return stops. Gate access and fare continuity between 7E and corridor 6 are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor. At the 4D Rasuna Said terminus, the venue access block carries the official IDSW access guideline (idsw.dev, checked 21 Nov 2026): LRT Rasuna Said is the other official nearest stop, about 2 minutes, sharing the same pedestrian-bridge walk; the final walk runs toward Plaza Festival for about 150 m into the Gedung PPHUI complex; and the Sunday 22 November Car Free Day window 05:30-09:00 WIB bars car and motorbike gate drop-off while the LRT and corridor 6/6A keep running and drivers park at Plaza Festival. Bakoel Koffie (Cikini) is on the 5M leg: get off at Farmasi RP Soeroso, about 100 m away. The ride home boards the 5M at Kantor Pos Cikini (about 90 m from the venue) toward Kampung Melayu and changes at Megaria to 4C for Pramuka BPKP 1; it runs back up the right-hand column with its intermediate stops and rejoins the start area over the top (official GTFS trips 5M-R02 and 4C-R10, checked 22 Nov 2026; curbside feeders, so allow a fresh tap at each boarding).</desc>')
 SH=420  # whole network shifts right so the 7F homebound column can sit at the far left
 add(f'<g transform="translate({SH} 0)">')
 add('<g transform="translate(700 0)">')
@@ -146,16 +147,35 @@ line(1200,yend+12,1200,yend+100,'#888',True)
 text(1225,yend+83,'Walk ~300 m',17)
 text(1225,yend+116,'Markas Indonesia',24,'#2e9e50',weight='600')
 # Bakoel Koffie (Cikini): alight the outbound 5M at Farmasi RP Soeroso (ring above),
-# about 100 m from the venue. The ride home (5M from Kantor Pos Cikini, change at
-# Megaria to 4C for Pramuka BPKP 1; official GTFS trips 5M-R02 and 4C-R10, checked
-# 22 Nov 2026) is drawn in the Bakoel Koffie card on the page, not in this network map.
+# about 100 m from the venue. The ride home runs back UP the right-hand column on
+# this same map (header rule: down outbound, up homebound): 5M from Kantor Pos
+# Cikini (about 90 m) toward Kampung Melayu to Megaria, then 4C toward JIEP to
+# Pramuka BPKP 1 (official GTFS trips 5M-R02 and 4C-R10, checked 22 Nov 2026).
 bky=yc+10*61  # Farmasi RP Soeroso node
-add(f'<path d="M 1206 {bky+12} C 1260 {bky+98}, 1380 {bky+106}, 1492 {bky+106}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<rect x="1500" y="{bky+98}" width="16" height="16" rx="3" fill="#2e9e50"/>')
-text(1525,bky+96,'Bakoel Koffie',19,'#2e9e50',weight='600')
-text(1525,bky+118,'get off 5M · walk ~100 m',14)
-text(1525,bky+142,'home: 5M from Kantor Pos Cikini,',13)
-text(1525,bky+162,'change at Megaria to 4C (card below)',13)
+add(f'<path d="M 1206 {bky+6} C 1300 {bky+56}, 1450 {bky+84}, 1602 {bky+98}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<rect x="1610" y="{bky+90}" width="16" height="16" rx="3" fill="#2e9e50"/>')
+text(1635,bky+94,'Bakoel Koffie',19,'#2e9e50',weight='600')
+text(1635,bky+116,'get off 5M · walk ~100 m',14)
+# Cikini homebound column at local x=1580; dashed venue walk joins its first node.
+cxh=1580
+r5=R['5M-return']['stops']; r4=R['4C-return']['stops']
+y0=bky+306; yme=bky-119; s5=(y0-yme)/(len(r5)-1); s4=95; ytop=yme-(len(r4)-1)*s4
+line(cxh,yme,cxh,y0,COL['5M'])
+line(cxh,ytop,cxh,yme,COL['4C'])
+for i,name in enumerate(r5):
+ yy=y0-i*s5
+ node(cxh,yy,name,COL['5M'],i in (0,len(r5)-1),note='board toward Kampung Melayu' if i==0 else ('same stop - change to 4C' if i==len(r5)-1 else None))
+ if i<len(r5)-1:tri(cxh,yy-s5/2,COL['5M'])
+for i,name in enumerate(r4[1:],1):
+ yy=yme-i*s4
+ node(cxh,yy,name,COL['4C'],i==len(r4)-1,note='get off - walk ~850 m home' if i==len(r4)-1 else None)
+ if i%2==1:tri(cxh,yy+s4/2,COL['4C'])
+text(cxh+20,270,'home from Cikini ↑',15)
+add(f'<path d="M 1614 {bky+108} C 1560 {bky+156}, 1540 {bky+236}, 1573 {y0-7}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+# Walk home from Pramuka BPKP 1: over the top, into the Green Pramuka area node.
+add(f'<path d="M {cxh} {ytop-12} L {cxh} 130 L 700 130 L 700 141" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 700 147 L 693 135 L 707 135 Z" fill="currentColor" opacity=".6" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
+text(1250,118,'walk ~850 m home',15)
 # 4D shares the first ten stops with corridor 4 (same stop IDs in data/route-stops.json), so it branches off the drawn 4 column at Halimun.
 # Stop order for 4D is NOT from the GTFS snapshot (see data/route-stops.json).
 s4=[x['id'] for x in S['4']['stops']]; s4d=S['4D']['stops']
@@ -293,7 +313,6 @@ text(-250,2210,'as the 7E start (blue rings; selected trip only)',13,c7a)
 # Station to Masjid walk is the vertical link at the 6 terminus; labeled there.
 # Long text belongs outside the stop columns.
 add('</g>')
-R={r['key']:r for r in json.loads((ROOT/'data/return-stops.json').read_text())['segments']}
 def return_chain(key,x,bottom,top,color,skipfirst=False):
  ss=R[key]['stops']; step=(bottom-top)/(len(ss)-1)
  line(x,bottom,x,top,color)
@@ -354,8 +373,8 @@ for i,t in enumerate([
  'Ragunan access / fare continuity, Gojek fare/time and 7F access remain unverified. Patterns may change.',
  'Outbound: TransJakarta operator GTFS checked 18 Nov 2026; 4D: jaGOdetabek / halte.id, not GTFS. No live arrivals.',
  'IDSW venue access: official access guideline (idsw.dev) checked 21 Nov 2026 - JPO walk, LRT Rasuna Said, CFD Sun 05:30-09:00.',
- 'Bakoel Koffie (Cikini): on the 5M leg, get off at Farmasi RP Soeroso (~100 m). Return via 5M Kantor Pos Cikini to Megaria, then',
- '4C to Pramuka BPKP 1 (stops in the page card) - official GTFS trips 5M-R02 / 4C-R10, checked 22 Nov 2026. Fresh tap each boarding.',
+ 'Bakoel Koffie (Cikini): on the 5M leg, get off at Farmasi RP Soeroso (~100 m). Home via the right column: 5M Kantor Pos Cikini to Megaria,',
+ 'then 4C to Pramuka BPKP 1 - official GTFS trips 5M-R02 / 4C-R10, checked 22 Nov 2026. Fresh tap each boarding.',
 ]):text(60,end+i*31,t,18)
 add('</svg>')
 H=end+220

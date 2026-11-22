@@ -119,6 +119,8 @@ jobs:
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
 
+          0.2.14 fixes two findings on 0.2.13: the 5M branch now hops cleanly over the 4C homebound line, and the shared 4C and 5M middle line has its own stop markers and direction arrows. The 6 stop labels beside the 4D return line now sit clear of it.
+
           0.2.13 draws red 4C and purple 5M as two close parallel direction lines too: outbound on the left with labels outside left, homebound on the right with labels outside right, and the shared 4C and 5M section as a middle line. Each direction keeps its own stop order, with no stop pairing by distance. Existing walks and links are kept.
 
           0.2.12 draws S11 and S61 as two close parallel direction lines, each with its own stop markers and labels outside, after rider feedback that one shared circle implied the opposite-direction stops are the same boarding point. Each direction keeps its own stop order. The Central Park walk now splits into a walk to the outbound boarding stop and a walk home from the return stop. The map is shorter again.

@@ -91,7 +91,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=(),both=False):
  line(x,y,x,end,COL[route])
  for i,st in enumerate(ss):
   if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers,
-   label_offset=(76,-19) if route=='4' and st['name']=='Halimun' else (76,6) if route=='4' and st['name']=='Galunggung' else ((50,0) if route=='6' and st['name'] in ('Setiabudi Integritas','Kuningan Madya') else None))
+   label_offset=(76,-19) if route=='4' and st['name']=='Halimun' else (76,6) if route=='4' and st['name']=='Galunggung' else ((76,0) if route=='6' and st['name'] in ('Setiabudi Integritas','Kuningan Madya') else None))
   if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,COL[route],False)
   if both and i<len(ss)-1 and i%3==1:tri(x,y+i*step+step/2,COL[route],True)
  return end
@@ -140,7 +140,7 @@ node(1040,mat+70,'Matraman 3',COL['5M'],True,anchor='end')
 text(1040,mat+110,'Tap out; ~1 min walk',15,anchor='end')
 # Firsthand 18 Nov 2026: no additional fare for the 4 to 6 change at Galunggung.
 line(630,y4+12,630,y4+110,'#888',True)
-text(692,y4+50,'4 to 6: no additional',15);text(692,y4+72,'fare (firsthand)',15)
+text(712,y4+50,'4 to 6: no additional',15);text(712,y4+72,'fare (firsthand)',15)
 text(585,y4+145,'6',22,COL['6'],anchor='end',weight='600')
 y6=chain('6',630,y4+120,61,skipfirst=True,transfers=['G00204','G00243'])
 line(630,y6+12,630,y6+110,'#888',True)
@@ -215,12 +215,15 @@ text(xo-24,180,'4C ↓ Bundaran Senayan',20,red,weight='600',anchor='end')
 # Matraman 3 joins the shared 4C/5M section at Masjid Jami Matraman.
 shared_end=240+next(i for i,st in enumerate(all4) if st['id']=='B05391P')*step4
 line(xp,mas,xp,shared_end,purple)
+for i,st in enumerate(all4):
+ yy=240+i*step4
+ if mas<=yy<=shared_end:
+  add(f'<circle cx="{xp}" cy="{yy}" r="6" fill="Canvas" stroke="{purple}" stroke-width="3.5"/>')
+  if yy>mas:tri(xp,yy-step4/2,purple,False)
 text(xh+30,mas-30,'4C + 5M shared stops (middle line)',15,purple)
 # Purple outbound branches at SMPN 8, rather than bending the red trunk.
 out5=S['5M']['stops']; idx5=next(i for i,st in enumerate(out5) if st['id']=='B05391P');tail5=out5[idx5+1:]
 pstart=shared_end+115
-add(f'<path d="M {xp} {shared_end} L {xp} {shared_end+35} L {po} {shared_end+35} L {po} {pstart}" fill="none" stroke="Canvas" stroke-width="13"/>')
-add(f'<path d="M {xp} {shared_end} L {xp} {shared_end+35} L {po} {shared_end+35} L {po} {pstart}" fill="none" stroke="{purple}" stroke-width="6"/>')
 for i,st in enumerate(tail5):
  yy=pstart+i*61
  if i:line(po,yy-61,po,yy,purple)
@@ -236,11 +239,13 @@ line(xh,240,xh,240+(len(home4)-1)*step4,red)
 for i,name in enumerate(home4):
  yy=240+i*step4
  node(xh,yy,name,red,name in ('Pramuka BPKP 1','Megaria','Tosari 2','Bundaran Senayan 2'))
- if i:tri(xh,yy-step4/2,red)
+ if i and abs(yy-step4/2-(shared_end+35))>1:tri(xh,yy-step4/2,red)  # the 5M branch hops the homebound line in this gap
 text(xh+24,180,'4C ↑ JIEP · home',20,red,weight='600')
 add(f'<path d="M {xh} 228 L {xh} 130 L 700 130 L 700 141" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 text(1250,118,'walk ~850 m home',15)
 # Purple return joins the red homebound at Megaria; different stops stay separate.
+add(f'<path d="M {xp} {shared_end} L {xp} {shared_end+35} L {po} {shared_end+35} L {po} {pstart}" fill="none" stroke="Canvas" stroke-width="13"/>')
+add(f'<path d="M {xp} {shared_end} L {xp} {shared_end+35} L {po} {shared_end+35} L {po} {pstart}" fill="none" stroke="{purple}" stroke-width="6"/>')
 yme=240+home4.index('Megaria')*step4
 return5=list(reversed(R['5M-return']['stops']))
 add(f'<path d="M {ph} {yme+110} C {ph-150} {yme+110}, {xh+230} {yme+55}, {xh} {yme+12}" fill="none" stroke="Canvas" stroke-width="13"/>')

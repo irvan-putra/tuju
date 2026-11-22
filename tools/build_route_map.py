@@ -69,7 +69,40 @@ def dual(out_stops,ret_names,x,y0,dy,color,gap=24,out_right=True):
  col(Rv,x-s*gap,'end' if out_right else 'start',True);col(O,x+s*gap,'start' if out_right else 'end',False)
  return n
 A=[]
-def add(s): A.append(s)
+# Horizontal compression (user feedback 23 Nov 2026): empty vertical bands collapse.
+# Every emitted x coordinate remaps by its GLOBAL x (sum of enclosing translate dx),
+# so columns, links, notes and markers stay connected through each cut.
+# CUTS: (global x, units removed to its right). Free bands measured from glyph boxes:
+# 805: left content reaches 885 (10/9 notes) vs center family from 1121; 190 keeps the
+#   7E return curve clear of the Central Park note block (unmoved, reaches ~1190).
+# 2280: venue/4D notes reach ~2300 vs 4C labels from ~2395 -> 50 units.
+# 2860: 4C labels reach 2848 vs Grand Indonesia note from 2921 -> 40 units.
+CUTS=[(805,190),(2280,50),(2860,40)]
+_gstack=[];_REMAP=[True]
+def _remap_x(x):
+ g=x+sum(_gstack)
+ return g-sum(w for c,w in CUTS if g>=c)-sum(_gstack)
+def _rewrite(s):
+ def rx(m):return f'{m.group(1)}{_remap_x(float(m.group(2))):g}'
+ s=re.sub(r'(x1="|x2="|x="|cx=")(-?[\d.]+)',rx,s)
+ def rd(m):
+  toks=re.findall(r'[MLCQZ]|-?[\d.]+',m.group(1));out=[];cmd=None;i=0
+  while i<len(toks):
+   t=toks[i]
+   if t.isalpha():cmd=t;out.append(t);i+=1;continue
+   n={'M':2,'L':2,'Q':4,'C':6}.get(cmd,0)
+   if not n:out.append(t);i+=1;continue
+   pair=list(toks[i:i+n])
+   for j in range(0,n,2):pair[j]=f'{_remap_x(float(pair[j])):g}'
+   out+=pair;i+=n
+  return 'd="'+' '.join(out)+'"'
+ s=re.sub(r'd="([^"]+)"',rd,s)
+ return s
+def add(s):
+ if s.startswith('<g '):
+  m=re.search(r'translate\((-?[\d.]+)',s);_gstack.append(float(m.group(1)) if m else 0.0);A.append(s);return
+ if s=='</g>':_gstack.pop();A.append(s);return
+ A.append(_rewrite(s) if _REMAP[0] else s)
 def text(x,y,s,size=20,color='currentColor',anchor='start',weight='normal'):
  add(f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" text-anchor="{anchor}" font-weight="{weight}">{html.escape(s)}</text>')
 def mv_open(mid,label):add(f'<g class="mv" data-move="{mid}" data-label="{html.escape(label)}">')
@@ -146,8 +179,9 @@ for k,t in enumerate(['Return (left line): board 9 ↑ Pinang Ranti at Tanjung D
  'Arah Barat stop, walk from the mall not measured.',
  'Return stops are the GTFS opposite-direction stops (Arah Timur / Selatan),',
  'drawn with their own order, not paired with the outbound stops.',
- '9 (ends) and 10 (starts) use two Cawang Sentral stops; the interchange between',
- 'them is unverified. 10 ↑ Tanjung Priok ends at Kayu Putih Rawasari.',
+ '9 (ends) and 10 (starts) use two Cawang Sentral stops;',
+ 'the interchange between them is unverified.',
+ '10 ↑ Tanjung Priok ends at Kayu Putih Rawasari.',
  'GTFS trips 9-R02 and 10-R02, checked 23 Nov 2026. Fares not checked.']):
  text(95,y9+134+k*22,t,15)
 add('</g>')
@@ -419,10 +453,11 @@ node(800,2040,'Ragunan (destination pin)',COL['6'],True)
 text(660,2056,'6 ↔ both directions',13,COL['6'])
 mv_close()
 # One node, both names; boarding and walk notes sit left of the halte walk link.
-text(585,1914,'board 6 / 6A ↑ toward Galunggung',14,COL['6'],anchor='end')
-text(585,1938,'= Department of Agriculture · same station · 7E leg ends here',14,anchor='end')
-text(585,2030,'walk ~140 m / 3 min · Akses A',14,anchor='end')
-text(585,2054,'7E boards curbside · fresh fare (firsthand)',13,anchor='end')
+text(570,1914,'board 6 / 6A ↑ toward Galunggung',14,COL['6'],anchor='end')
+text(570,1938,'= Department of Agriculture,',14,anchor='end')
+text(570,1962,'same station · 7E leg ends here',14,anchor='end')
+text(570,2030,'walk ~140 m / 3 min · Akses A',14,anchor='end')
+text(570,2054,'7E boards curbside · fresh fare (firsthand)',13,anchor='end')
 text(18,2350,'7E ↑ Ragunan headsign',17,COL['7E'],anchor='end',weight='600')
 # 7A / D21 is an alternative curbside arrival, not a paid-area shortcut.
 c7a='#527b9c'
@@ -537,15 +572,16 @@ S11END=S11TY+by+460
 mv_close()
 add('</g>')
 add('<path d="M 2600 1876 L 2600 2138" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-S61DX=311  # whole block sits under the Bundaran Senayan pair (global x 2600 / 2672)
+S61DX=71  # whole block sits under the Bundaran Senayan pair (311 - 240 compression shift; pair now at global 2360 / 2432)
 S61DY=-1250  # user feedback 23 Nov: block moves up 1250 map units beside the network
 add(f'<g transform="translate({S61DX} {S61DY})">')
+_REMAP[0]=False  # block internals shift as one via S61DX, not per-coordinate
 mv_open('s61-block','Alam Sutera S61 block')
 # Alam Sutera branch below the established network, connected to the red termini.
 # Dashed links are the walks between 4C curbside and S61 BRT at Bundaran Senayan.
 c61=COL['S61']; ax=2325; sy61=3400; dy61=76  # pair widened (user feedback): columns under the red termini at global 2600 / 2672
 ss61=S['S61']['stops']; rr61=R['S61-return']['stops']
-text(2254,3170,'Alam Sutera · S61 from Bundaran Senayan',28,anchor='end',weight='600')
+text(2269,3170,'Alam Sutera · S61 from Bundaran Senayan',24,anchor='end',weight='600')
 text(2254,3206,'4C curbside ↔ S61 BRT: separate walk via',17,anchor='end')
 text(2254,3228,'pedestrian access; allow a fresh tap/fare.',17,anchor='end')
 text(2254,3262,'Not an in-platform change. Check the pedestrian overpass,',16,anchor='end')
@@ -581,6 +617,7 @@ text(2320,yb+280,'Sidewalks, crossings and gate access not checked on site. No p
 text(2320,yb+310,'GTFS 4C-R09 / R10 and S61-R02 / R01 checked 23 Nov 2026. Short turns also exist.',17,anchor='middle')
 mv_close()
 add('</g>')
+_REMAP[0]=True
 # Source/service caveats stay within the unified map, below the network only as notes.
 end=max(ry+150,S11END,5400)
 for i,t in enumerate([
@@ -596,12 +633,12 @@ for i,t in enumerate([
 ]):text(60,end+i*31,t,18)
 add('</svg>')
 H=end+340
-svg=f'<svg viewBox="0 0 4200 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
+svg=f'<svg viewBox="0 0 3860 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
 from map_bridges import add_bridges
 svg=add_bridges(svg)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.
-src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|4200 \d+|5600 \d+|5000 \d+|3000 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
+src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|4200 \d+|3860 \d+|5600 \d+|5000 \d+|3000 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
 assert n==2,n
 src=re.sub(r'<!-- map-reading-notes:begin -->.*?<!-- map-reading-notes:end -->',lambda _: (ROOT/'data/map-reading-notes.html').read_text().strip(),src,flags=re.S)
 p.write_text(src)

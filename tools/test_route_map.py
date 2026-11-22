@@ -36,8 +36,8 @@ class StopMapTest(unittest.TestCase):
   root=ET.fromstring((ROOT/'data/all-stops.svg').read_text())
   labels={''.join(e.itertext()):e for e in root.iter() if e.tag.endswith('text')}
   name=labels['Halimun'];note=labels['4D leaves here; 4 goes on to Galunggung']
-  self.assertEqual((name.get('x'),name.get('y')),('706','779'))
-  self.assertEqual((note.get('x'),note.get('y')),('704','800'))
+  self.assertEqual((name.get('x'),name.get('y')),('516','779'))
+  self.assertEqual((note.get('x'),note.get('y')),('514','800'))
   self.assertEqual(note.get('fill'),'currentColor')
  def test_no_outbound_return_stop_mix(self):
   names=[s['name'] for s in S['7E']['stops']]
@@ -92,8 +92,8 @@ class StopMapTest(unittest.TestCase):
   self.assertNotIn('Going home from Arkadia',svg)
   self.assertIn('One network · out and home',svg)
   self.assertIn('translate(700 0)',svg)
-  self.assertIn('4200',svg.split('>')[0])
-  height=int(re.search(r'viewBox="0 0 4200 (\d+)"',svg).group(1))
+  self.assertIn('3860',svg.split('>')[0])
+  height=int(re.search(r'viewBox="0 0 3860 (\d+)"',svg).group(1))
   self.assertLess(height,7900)
   self.assertEqual(svg.count('4D leaves here'),1)
  def test_shared_spine_is_not_a_duplicate_return_column(self):
@@ -150,7 +150,8 @@ class StopMapTest(unittest.TestCase):
  def test_ragunan_connection_and_return(self):
   svg=(ROOT/'data/all-stops.svg').read_text()
   self.assertIn('7E leg ends here',svg)
-  self.assertIn('= Department of Agriculture · same station · 7E leg ends here',svg)
+  self.assertIn('= Department of Agriculture,',svg)
+  self.assertIn('same station · 7E leg ends here',svg)
   self.assertIn('6 ↔ both directions',svg)
   self.assertIn('board 6 / 6A ↑ toward Galunggung',svg)
   self.assertIn('Ragunan (destination pin)',svg)

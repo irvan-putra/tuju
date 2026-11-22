@@ -536,17 +536,18 @@ mv_close()
 S11END=S11TY+by+460
 mv_close()
 add('</g>')
-add('<path d="M 2600 1876 L 2600 3348 L 2612 3348 L 2612 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-S61DX=316  # whole block sits under the Bundaran Senayan pair (global x 2600 / 2672)
-add(f'<g transform="translate({S61DX} 0)">')
+add('<path d="M 2600 1876 L 2600 2128 L 2612 2128 L 2612 2138" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+S61DX=311  # whole block sits under the Bundaran Senayan pair (global x 2600 / 2672)
+S61DY=-1250  # user feedback 23 Nov: block moves up 1250 map units beside the network
+add(f'<g transform="translate({S61DX} {S61DY})">')
 mv_open('s61-block','Alam Sutera S61 block')
 # Alam Sutera branch below the established network, connected to the red termini.
 # Dashed links are the walks between 4C curbside and S61 BRT at Bundaran Senayan.
 c61=COL['S61']; ax=2320; sy61=3400; dy61=76
 ss61=S['S61']['stops']; rr61=R['S61-return']['stops']
 text(2254,3170,'Alam Sutera · S61 from Bundaran Senayan',28,anchor='end',weight='600')
-text(2254,3208,'4C curbside ↔ S61 BRT: separate walk via pedestrian access;',17,anchor='end')
-text(2254,3232,'allow a fresh tap/fare.',17,anchor='end')
+text(2254,3206,'4C curbside ↔ S61 BRT: separate walk via',17,anchor='end')
+text(2254,3228,'pedestrian access; allow a fresh tap/fare.',17,anchor='end')
 text(2254,3262,'Not an in-platform change. Check the pedestrian overpass,',16,anchor='end')
 text(2254,3284,'gates and platform on the day.',16,anchor='end')
 rows61=[0]*max(len(ss61),len(rr61))
@@ -555,7 +556,7 @@ dual(ss61,rr61,ax,sy61,dy61,c61,out_right=False)
 text(ax-64,sy61-68,'S61 ↓ Alam Sutera (left)',20,c61,anchor='end',weight='600')
 text(ax+64,sy61-68,'S61 ↑ Blok M (right)',20,c61,weight='600')
 # Return link from the red homebound end: horizontal under the header, then straight up.
-add('<path d="M 2344 3388 L 2344 3378 L 2356 3378 L 2356 2016" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 2344 3388 L 2344 3378 L 2361 3378 L 2361 3266" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 mx,mlx=2150,2490
 fpy=by61-dy61;mly=by61
 line(ax-24,by61+14,mx+8,by61+190,'#888',True);line(ax+24,by61+14,mlx-8,by61+190,'#888',True)

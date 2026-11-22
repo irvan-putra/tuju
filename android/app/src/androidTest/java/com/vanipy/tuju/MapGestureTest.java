@@ -162,7 +162,7 @@ public class MapGestureTest {
         assertTrue("Phone notes render at least 16 CSS pixels", noteDone.await(5, java.util.concurrent.TimeUnit.SECONDS) && readable[0]);
         getInstrumentation().runOnMainSync(() -> web.scrollTo(0, (int)(noteTop[0]*web.getScale())));
         Thread.sleep(1000);
-        assertTrue("Notes scroll reached the normal-size text", web.getScrollY() > noteTop[0]*web.getScale()-80);
+        assertTrue("Notes scroll reached the normal-size text", web.getScrollY() > noteTop[0]*scale(web)-80);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "map-notes-phone.png")));
     }
 }

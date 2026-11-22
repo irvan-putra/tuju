@@ -191,9 +191,9 @@ line(po,bkout+12,2320,bky+9,'#888',True);line(2338,bky+9,ph,bkhome+12,'#888',Tru
 # GI remains a walk from Tosari 3 out / Tosari 2 home, not a new bus stop.
 giy=2280
 add(f'<rect x="1400" y="{giy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
-text(1410,giy+50,'Grand Indonesia',23,'#2e9e50',anchor='middle',weight='600')
-text(1410,giy+80,'out: Tosari 3 · ~640 m / 8 min',15,anchor='middle')
-text(1410,giy+105,'home: walk to Tosari 2 · check crossing',14,anchor='middle')
+text(1410,giy+50,'Grand Indonesia',38,'#2e9e50',anchor='middle',weight='600')
+text(1410,giy+96,'out: Tosari 3 · ~640 m / 8 min',30,anchor='middle')
+text(1410,giy+138,'home: walk to Tosari 2 · check crossing',30,anchor='middle')
 yto=240+next(i for i,st in enumerate(all4) if st['id']=='B05775P')*step4
 yth=240+home4.index('Tosari 2')*step4
 # Walk links sit on the outside of each straight spine, away from stop labels.
@@ -346,14 +346,15 @@ def return_chain(key,x,bottom,top,color,skipfirst=False):
  return top
 text(60-SH,45,'One network · out and home',30,weight='600')
 text(60-SH,80,'Shared 4 / 6 and 10 / 7F spines · down outbound, up homebound · only different stops branch.',19)
+text(60-SH,140,'Line hops / gaps: no connection. Rings: stops and actual joins.',19)
 text(60-SH,110,'Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.',17)
-text(1580,fy+100,'A · from Phe Tower beside the venue',20,COL['7E'],weight='600')
-text(1580,fy+128,'7E toward Ragunan: no bridge crossing',17)
-text(1580,fy+156,'7E → Department of Agriculture',17)
-text(1580,fy+184,'= Simpang Ragunan Ar-Raudhah; 6 ↔ Ragunan pin.',17)
-text(1580,fy+212,'Home: 6 / 6A to Patra Kuningan, then 4D to',17)
-text(1580,fy+240,'Simpang Pramuka 1. Galunggung is the 6 direction,',17)
-text(1580,fy+268,'not the transfer. Allow a fresh tap/fare.',17)
+text(1580,fy+100,'A · from Phe Tower beside the venue',36,'#24b8c5',weight='600')
+text(1580,fy+144,'7E toward Ragunan: no bridge crossing',32)
+text(1580,fy+188,'7E → Department of Agriculture',32)
+text(1580,fy+232,'= Simpang Ragunan Ar-Raudhah; 6 ↔ Ragunan pin.',32)
+text(1580,fy+276,'Home: 6 / 6A to Patra Kuningan, then 4D to',32)
+text(1580,fy+320,'Simpang Pramuka 1. Galunggung is the 6 direction,',32)
+text(1580,fy+364,'not the transfer. Allow a fresh tap/fare.',32)
 # Far-side homebound choice: the 7F shares the top three station areas of the outbound
 # 10 column (Kayu Putih Rawasari, Pemuda Pramuka, Utan Kayu Rawamangun - same names in
 # the official 10 GTFS pattern and the 7F Juanda-direction listing: Catenary 18 Nov 2026,
@@ -381,9 +382,9 @@ text(193,uky-16,'7F ↑ branches to Flyover Raya Bogor',15)
 gy=ry+80
 add(f'<path d="M 1324 {y7-43} Q 1510 {y7-43} 1510 {y7+90} L 1510 {gy} L {fx} {gy} L {fx} {fy+12}" fill="none" stroke="currentColor" opacity=".6" stroke-width="3" stroke-dasharray="5 7"/>')
 tri(fx,fy+60,'#6536b0',up=True)
-text(1580,fy-210,'B · bridge to far-side pickup → Gojek to Flyover Raya Bogor',21,weight='600')
-text(1580,fy-180,'Gojek fare/time and 7F boarding access unverified.',17)
-text(1580,fy-150,'Separate from the 7E / 6 return option.',17)
+text(1580,fy-166,'B · bridge to far-side pickup → Gojek to Flyover Raya Bogor',34,weight='600')
+text(1580,fy-116,'Gojek fare/time and 7F boarding access unverified.',32)
+text(1580,fy-72,'Separate from the 7E / 6 return option.',32)
 text(900,gy-10,'Gojek hop to the 7F pickup (left)',16)
 add('</g>')
 # Preserve the Central Park node; S11 stacks below, rather than widening the map.
@@ -393,9 +394,9 @@ add('<g transform="translate(-1600 3000)">')
 # S11 branches from the existing Central Park destination. Walk runs below the
 # original network; line crossings without a ring are not transfer points.
 s11c=COL['S11']; ox=3900; rx=4500; sy=400; dy=84
-text(3820,190,'Central Park ↔ The Breeze BSD',26,weight='600')
+text(3820,190,'Central Park ↔ The Breeze BSD',40,weight='600')
 add('<path d="M 4500 388 L 4500 330 L 3900 330" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-text(3740,270,'From Central Park: JPO walk ~450 m / 6 min',16)
+text(3740,270,'From Central Park: JPO walk ~450 m / 6 min',30)
 out=S['S11']['stops']; ret=R['S11-return']['stops']
 for i,st in enumerate(out):
  yy=sy+i*dy
@@ -425,13 +426,13 @@ line(ox,by+12,4180,by+149,'#888',True);line(4198,by+149,rx,by+12,'#888',True)
 text(4200,by+220,'S11 ends at Serpong BSD, not at the mall.',17,anchor='middle')
 text(4200,by+250,'Walk ~2.2 km / 29 min via BSD Grand Boulevard.',17,anchor='middle')
 text(4200,by+278,'Pedestrian path / crossings not checked on site.',16,anchor='middle')
-text(4500,315,'Off at Taman Anggrek; walk back to Central Park.',15,anchor='middle')
+text(4500,315,'Off at Taman Anggrek; walk back to Central Park.',26,anchor='middle')
 text(4200,by+328,'Operator feed: S11-L05 outbound, S11-R05 return.',16,anchor='middle')
 text(4200,by+356,'No live arrivals or guaranteed last bus; check TJ app.',16,anchor='middle')
 
 add('</g>')
-add('<path d="M 2320 1862 L 2275 1905 L 2275 2800 L 1100 2800 L 1100 5805 L 2200 5805 L 2200 5888" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add('<path d="M 3000 5888 L 3000 5815 L 3300 5815 L 3300 2800 L 2740 2800 L 2740 2030 L 2700 2002" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 2320 1862 L 2275 1905 L 2275 2150 L 1740 2150 L 1740 5805 L 2200 5805 L 2200 5888" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 3000 5888 L 3000 5815 L 4050 5815 L 4050 2100 L 2740 2100 L 2740 2030 L 2700 2002" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add('<g transform="translate(0 2500)">')
 # Alam Sutera branch below the established network, connected to the red termini.
 # Dashed links are the walks between 4C curbside and S61 BRT at Bundaran Senayan.
@@ -484,10 +485,13 @@ for i,t in enumerate([
 add('</svg>')
 H=end+340
 svg=f'<svg viewBox="0 0 4200 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
+from map_bridges import add_bridges
+svg=add_bridges(svg)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.
 src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|4200 \d+|5600 \d+|5000 \d+|3000 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
 assert n==2,n
+src=re.sub(r'<!-- map-reading-notes:begin -->.*?<!-- map-reading-notes:end -->',lambda _: (ROOT/'data/map-reading-notes.html').read_text().strip(),src,flags=re.S)
 p.write_text(src)
 (ROOT/'data/all-stops.svg').write_text(svg+'\n')
 print('generated map',len(svg),'bytes')

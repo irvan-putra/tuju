@@ -50,6 +50,7 @@ PAGE = """<!DOCTYPE html>
 {intro}
 {svg}
 {closing}
+{reading_notes}
 {meter}
 {guideline}
 </body>
@@ -73,6 +74,12 @@ def extract_card(html):
                               "details and fares in the route cards at vanipy.com/tuju/")
     closing = re.sub(r"\s*Small print\?.*", "", closing)
     return m.group("intro"), svg, closing
+
+
+def extract_reading_notes(html):
+    m = re.search(r"<!-- map-reading-notes:begin -->(.*?)<!-- map-reading-notes:end -->", html, re.S)
+    if not m: sys.exit("map reading notes missing")
+    return m.group(1).strip()
 
 
 def extract_meter(html):
@@ -104,6 +111,7 @@ def render():
     return PAGE.format(intro='<p class="note">%s</p>' % intro,
                        svg=svg,
                        closing='<p class="note">%s</p>' % closing,
+                       reading_notes=extract_reading_notes(page),
                        meter=extract_meter(page),
                        guideline=extract_guideline(page))
 

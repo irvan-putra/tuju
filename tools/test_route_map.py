@@ -168,4 +168,22 @@ class StopMapTest(unittest.TestCase):
   self.assertEqual(svg.count('Masjid Ar-Raudhah</text>'),1)
   self.assertNotIn('M -100 2290',svg)
   self.assertNotIn('M 312 2012 L 618 1956',svg)
+ def test_readable_notes_and_crossing_hops(self):
+  svg=(ROOT/'data/all-stops.svg').read_text()
+  root=ET.fromstring(svg)
+  hop=root.find("{http://www.w3.org/2000/svg}g[@id='nonconnecting-crossings']")
+  self.assertIsNotNone(hop)
+  self.assertGreaterEqual(len(hop),18)
+  labels={''.join(e.itertext()):e for e in root.iter() if e.tag.endswith('text')}
+  for name in ('Grand Indonesia','A · from Phe Tower beside the venue','Central Park ↔ The Breeze BSD'):
+   self.assertGreaterEqual(int(labels[name].get('font-size')),36)
+  web=(ROOT/'index.html').read_text();app=(ROOT/'android/app/src/main/assets/map.html').read_text()
+  notes=(ROOT/'data/map-reading-notes.html').read_text().strip()
+  self.assertIn(notes,web)
+  for page in (web,app):
+   self.assertIn('id="map-reading-notes"',page)
+   self.assertIn('font:16px/1.6',page)
+   self.assertIn('A line hop or gap at a crossing means the lines do not connect',page)
+   self.assertIn('Read walking and return notes without zoom',page)
+
 if __name__=='__main__':unittest.main()

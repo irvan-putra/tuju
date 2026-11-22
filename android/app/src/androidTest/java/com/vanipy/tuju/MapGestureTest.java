@@ -136,5 +136,25 @@ public class MapGestureTest {
         mapPosition(web, 800, 140);
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-a-bottom.png")));
+
+        // Phone-sized changed area: use modest map zoom, not a tight detail crop.
+        getInstrumentation().runOnMainSync(() -> web.zoomBy((before * 2.4f) / web.getScale()));
+        Thread.sleep(700);
+        mapPosition(web, 1850, 2200);
+        getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "central-notes.png")));
+        // Reset to default phone scale and prove that companion notes need no zoom.
+        getInstrumentation().runOnMainSync(() -> {
+            web.getSettings().setJavaScriptEnabled(true);
+            web.zoomBy(before / web.getScale());
+        });
+        Thread.sleep(700);
+        java.util.concurrent.CountDownLatch noteDone = new java.util.concurrent.CountDownLatch(1);
+        final boolean[] readable = new boolean[1];
+        getInstrumentation().runOnMainSync(() -> web.evaluateJavascript(
+            "document.getElementById('map-reading-notes').scrollIntoView();parseFloat(getComputedStyle(document.querySelector('.map-reading-notes p')).fontSize)>=16",
+            result -> { readable[0] = "true".equals(result); noteDone.countDown(); }));
+        assertTrue("Phone notes render at least 16 CSS pixels", noteDone.await(5, java.util.concurrent.TimeUnit.SECONDS) && readable[0]);
+        Thread.sleep(700);
+        getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "map-notes-phone.png")));
     }
 }

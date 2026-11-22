@@ -427,6 +427,46 @@
           "id": "B05775P",
           "name": "Tosari 3",
           "sequence": 30
+        },
+        {
+          "id": "B00214P",
+          "name": "Bumiputera",
+          "sequence": 31
+        },
+        {
+          "id": "B00244P",
+          "name": "Chase Plaza",
+          "sequence": 32
+        },
+        {
+          "id": "B01835P",
+          "name": "Karet Sudirman 1",
+          "sequence": 33
+        },
+        {
+          "id": "B00360P",
+          "name": "Flyover Karet 2",
+          "sequence": 34
+        },
+        {
+          "id": "B02873P",
+          "name": "Plaza Sentral",
+          "sequence": 35
+        },
+        {
+          "id": "B00611P",
+          "name": "Gelora Bung Karno 1",
+          "sequence": 36
+        },
+        {
+          "id": "B05544P",
+          "name": "Summitmas",
+          "sequence": 37
+        },
+        {
+          "id": "B00221P",
+          "name": "Bundaran Senayan 1",
+          "sequence": 38
         }
       ]
     },
@@ -741,6 +781,70 @@
           "id": "B04683P",
           "name": "Serpong BSD",
           "sequence": 51
+        }
+      ]
+    },
+    {
+      "route": "S61",
+      "trip": "S61-R02",
+      "direction": "Alam Sutera",
+      "source": "https://gtfs.transjakarta.co.id/files/file_gtfs.zip",
+      "checked": "2026-11-23",
+      "stops": [
+        {
+          "id": "G00696",
+          "name": "Bundaran Senayan",
+          "sequence": 3
+        },
+        {
+          "id": "G00015",
+          "name": "Senayan Bank Jakarta",
+          "sequence": 4
+        },
+        {
+          "id": "G00077",
+          "name": "Gerbang Pemuda Arah Barat",
+          "sequence": 5
+        },
+        {
+          "id": "G00725",
+          "name": "Petamburan",
+          "sequence": 6
+        },
+        {
+          "id": "G00433",
+          "name": "Kemanggisan Arah Utara",
+          "sequence": 7
+        },
+        {
+          "id": "G00436",
+          "name": "Kota Bambu Arah Utara",
+          "sequence": 8
+        },
+        {
+          "id": "B05770P",
+          "name": "Tol Kb. Jeruk 1",
+          "sequence": 9
+        },
+        {
+          "id": "B03095P",
+          "name": "Rest Area Km 13 Jakarta Merak",
+          "sequence": 10
+        },
+        {
+          "id": "B08110P",
+          "name": "Renata",
+          "sequence": 11
+        },
+        {
+          "id": "B08111P",
+          "name": "Escala 1",
+          "sequence": 12
+        },
+        {
+          "id": "B08112P",
+          "name": "Forest Park",
+          "sequence": 13
         }
       ]
     }

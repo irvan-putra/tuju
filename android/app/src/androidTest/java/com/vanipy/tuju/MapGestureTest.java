@@ -51,7 +51,7 @@ public class MapGestureTest {
             });
         });
         assertTrue("Read map's actual document offset",done.await(5,java.util.concurrent.TimeUnit.SECONDS));
-        final float px = web.getWidth() * scale(web) / (5000f * initialScale);
+        final float px = web.getWidth() * scale(web) / (4200f * initialScale);
         getInstrumentation().runOnMainSync(() -> {
             web.getSettings().setJavaScriptEnabled(false);
             web.scrollTo((int)(x*px),(int)(top[0]*web.getScale()+y*px));
@@ -113,13 +113,15 @@ public class MapGestureTest {
         getInstrumentation().runOnMainSync(() -> web.zoomBy((before * 6f) / web.getScale()));
         Thread.sleep(800);
         assertTrue("Return capture must remain zoomed", scale(web) > before * 1.5f);
-        final float svgPixels = web.getWidth() * scale(web) / (5000f * before);
-        mapPosition(web, 3100, 1660);
+        final float svgPixels = web.getWidth() * scale(web) / (4200f * before);
+        mapPosition(web, 2200, 1190);
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "grand-indonesia.png")));
-        mapPosition(web, 3800, 1750);
+        mapPosition(web, 2200, 4750);
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "breeze-bsd.png")));
+        mapPosition(web, 2050, 6850);
+        getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "alam-sutera.png")));
         mapPosition(web, 1000, 2140);
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-a.png")));

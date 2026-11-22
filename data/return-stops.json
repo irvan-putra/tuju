@@ -171,6 +171,46 @@
         "St. Cikini Selatan",
         "Megaria"
       ]
+    },
+    {
+      "key": "4C-Senayan-return",
+      "route": "4C",
+      "trip": "4C-R10",
+      "source": "https://gtfs.transjakarta.co.id/files/file_gtfs.zip",
+      "checked": "2026-11-23",
+      "stops": [
+        "Bundaran Senayan 2",
+        "FX Sudirman",
+        "Gelora Bung Karno 2",
+        "GBK Pintu 7",
+        "Benhil 3",
+        "Karet Sudirman 2",
+        "Karet Sudirman 3",
+        "Grand Sahid",
+        "Menara Astra",
+        "Dukuh Atas 4",
+        "St. Sudirman 2",
+        "Tosari 2"
+      ]
+    },
+    {
+      "key": "S61-return",
+      "route": "S61",
+      "trip": "S61-R01",
+      "source": "https://gtfs.transjakarta.co.id/files/file_gtfs.zip",
+      "checked": "2026-11-23",
+      "stops": [
+        "Mall",
+        "IKEA",
+        "Rest Area Km 13 Merak Jakarta",
+        "Tol Kb. Jeruk 2",
+        "Kota Bambu Arah Selatan",
+        "Kemanggisan Arah Selatan",
+        "Petamburan",
+        "Gerbang Pemuda Arah Timur",
+        "Senayan Bank Jakarta",
+        "Bundaran Senayan"
+      ]
     }
   ]
 }

@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'data/route-stops.json').read_text())
 S={s['route']:s for s in D['segments']}
 R={r['key']:r for r in json.loads((ROOT/'data/return-stops.json').read_text())['segments']}
-COL={'10':'#6536b0','9':'#27803c','4':'#1769aa','6':'#d36300','7E':'#00838f','4C':'#c52d36','5M':'#9045ac','4D':'#0f6e6e','S11':'#917000'}
+COL={'10':'#6536b0','9':'#27803c','4':'#1769aa','6':'#d36300','7E':'#00838f','4C':'#c52d36','5M':'#9045ac','4D':'#0f6e6e','S11':'#917000','S61':'#007d87'}
 A=[]
 def add(s): A.append(s)
 def text(x,y,s,size=20,color='currentColor',anchor='start',weight='normal'):
@@ -128,54 +128,77 @@ node(300,py,'Phe Tower Kebagusan',COL['7E'],True,anchor='end')
 text(277,py+26,'get off - right by the venue',13,anchor='end')
 node(300,bq,'Baung - get off',COL['7E'],True,anchor='end')
 text(277,bq+30,'Walk ~4 min (285 m)',13,anchor='end')
-text(1155,270,'4C',22,COL['4C'],anchor='end',weight='600')
-yc=chain('4C',1200,240,62,transfers=['B07260P','B05812P'])
-# Both 4C and 5M serve Masjid Jami Matraman before Tugu Proklamasi.
-mas=240+next(i for i,s in enumerate(S['4C']['stops']) if s['id']=='B02350P')*62
-line(1040,mat+70,1200,mas,COL['5M'])
-text(1110,mas-16,'5M',18,COL['5M'],anchor='end')
-line(1192,mas,1192,yc,COL['5M'])
-text(1225,yc+34,'Same curbside stop: change 4C to 5M',15)
-# 5M from the already drawn Tugu Proklamasi, avoiding duplicate shared stops.
-ss=S['5M']['stops']; idx=next(i for i,s in enumerate(ss) if s['id']=='B05812P'); tail=ss[idx:]
-yend=yc+61*(len(tail)-1)
-line(1200,yc,1200,yend,COL['5M'])
-for i,st in enumerate(tail[1:],1):node(1200,yc+i*61,st['name'],COL['5M'],i==len(tail)-1 or st['id']=='B00346P')
-text(1155,yc+90,'5M',22,COL['5M'],anchor='end',weight='600')
-text(1225,yend+43,'via Cikini pattern; other 5M patterns differ',15)
-line(1200,yend+12,1200,yend+100,'#888',True)
-text(1225,yend+83,'Walk ~300 m',17)
-text(1225,yend+116,'Markas Indonesia',24,'#2e9e50',weight='600')
-# Bakoel Koffie (Cikini): alight the outbound 5M at Farmasi RP Soeroso (ring above),
-# about 100 m from the venue. The ride home runs back UP the right-hand column on
-# this same map (header rule: down outbound, up homebound): 5M from Kantor Pos
-# Cikini (about 90 m) toward Kampung Melayu to Megaria, then 4C toward JIEP to
-# Pramuka BPKP 1 (official GTFS trips 5M-R02 and 4C-R10, checked 22 Nov 2026).
-bky=yc+10*61  # Farmasi RP Soeroso node
-add(f'<path d="M 1206 {bky+6} C 1300 {bky+56}, 1450 {bky+84}, 1602 {bky+98}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<rect x="1610" y="{bky+90}" width="16" height="16" rx="3" fill="#2e9e50"/>')
-text(1635,bky+94,'Bakoel Koffie',19,'#2e9e50',weight='600')
-text(1635,bky+116,'get off 5M · walk ~100 m',14)
-# Cikini homebound column at local x=1580; dashed venue walk joins its first node.
-cxh=1580
-r5=R['5M-return']['stops']; r4=R['4C-return']['stops']
-y0=bky+306; yme=bky-119; s5=(y0-yme)/(len(r5)-1); s4=95; ytop=yme-(len(r4)-1)*s4
-line(cxh,yme,cxh,y0,COL['5M'])
-line(cxh,ytop,cxh,yme,COL['4C'])
-for i,name in enumerate(r5):
- yy=y0-i*s5
- node(cxh,yy,name,COL['5M'],i in (0,len(r5)-1),note='board toward Kampung Melayu' if i==0 else ('same stop - change to 4C' if i==len(r5)-1 else None))
- if i<len(r5)-1:tri(cxh,yy-s5/2,COL['5M'])
-for i,name in enumerate(r4[1:],1):
- yy=yme-i*s4
- node(cxh,yy,name,COL['4C'],i==len(r4)-1,note='get off - walk ~850 m home' if i==len(r4)-1 else None)
- if i%2==1:tri(cxh,yy+s4/2,COL['4C'])
-text(cxh+20,270,'home from Cikini ↑',15)
-add(f'<path d="M 1614 {bky+108} C 1560 {bky+156}, 1540 {bky+236}, 1573 {y0-7}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-# Walk home from Pramuka BPKP 1: over the top, into the Green Pramuka area node.
-add(f'<path d="M {cxh} {ytop-12} L {cxh} 130 L 700 130 L 700 141" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M 700 147 L 693 135 L 707 135 Z" fill="currentColor" opacity=".6" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
+# 4C is the straight red spine. 5M leaves it as a purple branch.
+# Local coordinates in the existing translated group; global red x = 2320 / 2700.
+red=COL['4C']; purple=COL['5M']; xo=1200; xh=1580; po=2080; ph=2580
+all4=S['4C']['stops']; step4=70
+line(xo,240,xo,240+(len(all4)-1)*step4,red)
+for i,st in enumerate(all4):
+ yy=240+i*step4
+ node(xo,yy,st['name'],red,st['id'] in ('B07260P','B05812P','B05391P','B05775P','B00221P'))
+ if i:tri(xo,yy-step4/2,red,False)
+text(xo+24,180,'4C ↓ Bundaran Senayan',20,red,weight='600')
+# Matraman 3 joins the shared 4C/5M section at Masjid Jami Matraman.
+mas=240+next(i for i,st in enumerate(all4) if st['id']=='B02350P')*step4
+line(1040,mat+70,xo-8,mas,purple)
+shared_end=240+next(i for i,st in enumerate(all4) if st['id']=='B05391P')*step4
+line(xo-8,mas,xo-8,shared_end,purple)
+text(xo-24,mas+36,'4C + 5M shared stops',15,purple,anchor='end')
+# Purple outbound branches at SMPN 8, rather than bending the red trunk.
+out5=S['5M']['stops']; idx5=next(i for i,st in enumerate(out5) if st['id']=='B05391P');tail5=out5[idx5+1:]
+pstart=shared_end+115
+add(f'<path d="M {xo-8} {shared_end} L {xo-8} {shared_end+30} C {xo+280} {shared_end+70}, {po-180} {pstart}, {po} {pstart}" fill="none" stroke="Canvas" stroke-width="13"/>')
+add(f'<path d="M {xo-8} {shared_end} L {xo-8} {shared_end+30} C {xo+280} {shared_end+70}, {po-180} {pstart}, {po} {pstart}" fill="none" stroke="{purple}" stroke-width="6"/>')
+for i,st in enumerate(tail5):
+ yy=pstart+i*61
+ if i:line(po,yy-61,po,yy,purple)
+ node(po,yy,st['name'],purple,st['id']=='B00346P' or i==len(tail5)-1)
+ if i:tri(po,yy-30,purple,False)
+text(po+24,pstart-35,'5M ↓ Tanah Abang · via Cikini',18,purple,weight='600')
+pbottom=pstart+(len(tail5)-1)*61
+text(po+24,pbottom+46,'Walk ~300 m',16)
+text(po+24,pbottom+76,'Markas Indonesia',23,'#2e9e50',weight='600')
+# Independent red homebound is straight from Bundaran Senayan 2 to Pramuka BPKP 1.
+home4=list(reversed(R['4C-Senayan-return']['stops'][:-1]+R['4C-GI-return']['stops'][:-1]+R['4C-return']['stops']))
+line(xh,240,xh,240+(len(home4)-1)*step4,red)
+for i,name in enumerate(home4):
+ yy=240+i*step4
+ node(xh,yy,name,red,name in ('Pramuka BPKP 1','Megaria','Tosari 2','Bundaran Senayan 2'))
+ if i:tri(xh,yy-step4/2,red)
+text(xh+24,180,'4C ↑ JIEP · home',20,red,weight='600')
+add(f'<path d="M {xh} 228 L {xh} 130 L 700 130 L 700 141" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 text(1250,118,'walk ~850 m home',15)
+# Purple return joins the red homebound at Megaria; different stops stay separate.
+yme=240+home4.index('Megaria')*step4
+return5=list(reversed(R['5M-return']['stops']))
+add(f'<path d="M {ph} {yme+110} C {ph-150} {yme+110}, {xh+230} {yme+55}, {xh+12} {yme+24}" fill="none" stroke="Canvas" stroke-width="13"/>')
+add(f'<path d="M {ph} {yme+110} C {ph-150} {yme+110}, {xh+230} {yme+55}, {xh+12} {yme+24}" fill="none" stroke="{purple}" stroke-width="6"/>')
+for i,name in enumerate(return5[1:]):
+ yy=yme+110+i*105
+ if i:line(ph,yy-105,ph,yy,purple)
+ node(ph,yy,name,purple,i==len(return5)-2)
+ if i:tri(ph,yy-52,purple)
+text(ph+24,yme+75,'5M ↑ Kampung Melayu; change at Megaria',16,purple)
+# Same Bakoel destination, linked to its two distinct roadside stops.
+bkout=pstart+next(i for i,st in enumerate(tail5) if st['id']=='B00346P')*61
+bkhome=yme+110+(len(return5)-2)*105
+bky=max(pbottom,bkhome)+160
+add(f'<rect x="2320" y="{bky}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+text(2345,bky+14,'Bakoel Koffie',23,'#2e9e50',weight='600')
+text(2345,bky+42,'5M out: Farmasi RP Soeroso · walk ~100 m',14)
+text(2345,bky+65,'5M home: Kantor Pos Cikini · walk ~90 m',14)
+line(po,bkout+12,2320,bky+9,'#888',True);line(2338,bky+9,ph,bkhome+12,'#888',True)
+# GI remains a walk from Tosari 3 out / Tosari 2 home, not a new bus stop.
+giy=2280
+add(f'<rect x="1400" y="{giy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+text(1410,giy+50,'Grand Indonesia',23,'#2e9e50',anchor='middle',weight='600')
+text(1410,giy+80,'out: Tosari 3 · ~640 m / 8 min',15,anchor='middle')
+text(1410,giy+105,'home: walk to Tosari 2 · check crossing',14,anchor='middle')
+yto=240+next(i for i,st in enumerate(all4) if st['id']=='B05775P')*step4
+yth=240+home4.index('Tosari 2')*step4
+# Walk links sit on the outside of each straight spine, away from stop labels.
+add(f'<path d="M {xo-13} {yto} L {xo-42} {yto} L {xo-42} {giy+9} L 1400 {giy+9}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 1418 {giy+9} L {xh-38} {giy+9} L {xh-38} {yth} L {xh-13} {yth}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 # 4D shares the first ten stops with corridor 4 (same stop IDs in data/route-stops.json), so it branches off the drawn 4 column at Halimun.
 # Stop order for 4D is NOT from the GTFS snapshot (see data/route-stops.json).
 s4=[x['id'] for x in S['4']['stops']]; s4d=S['4D']['stops']
@@ -363,43 +386,15 @@ text(1580,fy-180,'Gojek fare/time and 7F boarding access unverified.',17)
 text(1580,fy-150,'Separate from the 7E / 6 return option.',17)
 text(900,gy-10,'Gojek hop to the 7F pickup (left)',16)
 add('</g>')
-# Requested extensions: independent directional patterns; no new transfer at crossings.
-# Grand Indonesia continues on 4C through the already drawn 5M shared stops.
-# Existing 4C/5M node for SMPN 8 is global (2320,857).
-gi_out=S['4C']['stops'][11:]  # Gedung Wanita through Tosari 3
-line(2312,674,2312,857,COL['4C'])
-tri(2312,765,COL['4C'],False)
-add('<path d="M 2312 857 C 2900 900, 3130 1350, 3130 1730" fill="none" stroke="Canvas" stroke-width="14"/>')
-add(f'<path d="M 2312 857 C 2900 900, 3130 1350, 3130 1730" fill="none" stroke="{COL["4C"]}" stroke-width="6"/>')
-for i,st in enumerate(gi_out):
- yy=1730+i*78
- if i:line(3130,yy-78,3130,yy,COL['4C'])
- node(3130,yy,st['name'],COL['4C'],i==len(gi_out)-1,anchor='end')
- if i:tri(3130,yy-39,COL['4C'],False)
-text(3107,1695,'4C ↓ Bundaran Senayan',18,COL['4C'],anchor='end',weight='600')
-giy=1730+(len(gi_out)-1)*78
-add(f'<rect x="3250" y="{giy+80}" width="18" height="18" rx="3" fill="#2e9e50"/>')
-text(3278,giy+95,'Grand Indonesia',24,'#2e9e50',weight='600')
-line(3130,giy+12,3250,giy+89,'#888',True)
-text(3040,giy+65,'walk ~640 m / 8 min',15)
-# Return is its own Tosari 2 -> Megaria sequence, then the existing 4C spine.
-gir=R['4C-GI-return']['stops']; xx=3500; bot=giy; top=1730-40
-for i,name in enumerate(gir[:-1]):
- yy=bot-i*80
- if i:line(xx,yy+80,xx,yy,COL['4C'])
- node(xx,yy,name,COL['4C'],i==0)
- if i:tri(xx,yy+40,COL['4C'])
-line(xx,bot-(len(gir)-2)*80,2700,1165,COL['4C'])
-text(3523,bot+40,'4C ↑ JIEP · home via Megaria',15,COL['4C'])
-line(3268,giy+89,xx,bot+12,'#888',True)
-text(3280,giy+140,'walk to Tosari 2 · check crossing',15)
+# Preserve the Central Park node; S11 stacks below, rather than widening the map.
+add('<rect x="582" y="1863" width="16" height="16" rx="3" fill="#2e9e50"/>')
+add('<path d="M 590 1871 L 350 1871 L 350 6000 L 1800 6000 L 1800 3300 L 2300 3300 L 2300 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<g transform="translate(-1600 3000)">')
 # S11 branches from the existing Central Park destination. Walk runs below the
 # original network; line crossings without a ring are not transfer points.
 s11c=COL['S11']; ox=3900; rx=4500; sy=400; dy=84
 text(3820,190,'Central Park ↔ The Breeze BSD',26,weight='600')
-add('<path d="M 590 1871 L 590 2935 L 4980 2935 L 4980 300 L 3900 300 L 3900 388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add('<path d="M 4500 388 L 4500 330 L 3900 330" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add('<rect x="582" y="1863" width="16" height="16" rx="3" fill="#2e9e50"/>')
 text(3740,270,'From Central Park: JPO walk ~450 m / 6 min',16)
 out=S['S11']['stops']; ret=R['S11-return']['stops']
 for i,st in enumerate(out):
@@ -434,8 +429,47 @@ text(4500,315,'Off at Taman Anggrek; walk back to Central Park.',15,anchor='midd
 text(4200,by+328,'Operator feed: S11-L05 outbound, S11-R05 return.',16,anchor='middle')
 text(4200,by+356,'No live arrivals or guaranteed last bus; check TJ app.',16,anchor='middle')
 
+add('</g>')
+add('<path d="M 2320 1862 L 2275 1905 L 2275 2800 L 1100 2800 L 1100 5805 L 2200 5805 L 2200 5888" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 3000 5888 L 3000 5815 L 3300 5815 L 3300 2800 L 2740 2800 L 2740 2030 L 2700 2002" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<g transform="translate(0 2500)">')
+# Alam Sutera branch below the established network, connected to the red termini.
+# Dashed links are the walks between 4C curbside and S61 BRT at Bundaran Senayan.
+c61=COL['S61']; ax=2200; hx=3000; sy61=3400; by61=4240
+text(1850,3220,'Alam Sutera · S61 from Bundaran Senayan',28,weight='600')
+text(1850,3260,'4C curbside ↔ S61 BRT: separate walk via pedestrian access; allow a fresh tap/fare.',17)
+text(1850,3290,'Not an in-platform change. Check the pedestrian overpass, gates and platform on the day.',16)
+# Use the open space to the right of the red spines for the two connection paths.
+ss61=S['S61']['stops']; rr61=R['S61-return']['stops']
+for i,st in enumerate(ss61):
+ yy=sy61+i*(by61-sy61)/(len(ss61)-1)
+ if i:line(ax,prev,ax,yy,c61);tri(ax,(prev+yy)/2,c61,False)
+ node(ax,yy,st['name'],c61,i in (0,len(ss61)-1),anchor='end');prev=yy
+for i,name in enumerate(rr61):
+ yy=by61-i*(by61-sy61)/(len(rr61)-1)
+ if i:line(hx,prev,hx,yy,c61);tri(hx,(prev+yy)/2,c61)
+ node(hx,yy,name,c61,i in (0,len(rr61)-1));prev=yy
+text(ax-24,sy61-45,'S61 ↓ Alam Sutera',20,c61,anchor='end',weight='600')
+text(hx+24,sy61-45,'S61 ↑ Blok M',20,c61,weight='600')
+for x,y,label in [(2300,4490,'BINUS main building'),(2900,4490,'Mall / BINUS extension')]:
+ add(f'<rect x="{x-9}" y="{y}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+ text(x,y+55,label,24,'#2e9e50',anchor='middle',weight='600')
+line(ax,by61+12,2291,4499,'#888',True);line(ax+12,by61+12,2891,4499,'#888',True)
+line(2309,4499,hx-12,by61+12,'#888',True);line(2909,4499,hx,by61+12,'#888',True)
+text(2300,4590,'Jl. Jalur Sutera Barat Kav. 21',16,anchor='middle')
+text(2300,4620,'Forest Park → main: ~580 m / 8 min',16,anchor='middle')
+text(2300,4650,'Main → Mall stop: ~620 m / 8 min',16,anchor='middle')
+text(2900,4590,'Mall also houses BINUS extension classrooms',16,anchor='middle')
+text(2900,4620,'East Side · Kav. 16 · first floor (BINUS)',16,anchor='middle')
+text(2900,4650,'Forest Park → extension: ~1 km / 13 min',16,anchor='middle')
+text(2900,4680,'Extension → Mall stop: ~790 m / 10 min',16,anchor='middle')
+text(2600,4740,'Same BINUS Alam Sutera operation, different buildings. Selected-entrance walk estimates.',17,anchor='middle')
+text(2600,4770,'Sidewalks, crossings and gate access not checked on site. No promised wait or last bus.',17,anchor='middle')
+text(2600,4800,'GTFS 4C-R09 / R10 and S61-R02 / R01 checked 23 Nov 2026. Short turns also exist.',17,anchor='middle')
+
+add('</g>')
 # Source/service caveats stay within the unified map, below the network only as notes.
-end=max(ry+150,2760)
+end=max(ry+150,7400)
 for i,t in enumerate([
  'Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.',
  '7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;',
@@ -449,10 +483,10 @@ for i,t in enumerate([
 ]):text(60,end+i*31,t,18)
 add('</svg>')
 H=end+340
-svg=f'<svg viewBox="0 0 5000 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
+svg=f'<svg viewBox="0 0 4200 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.
-src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|5000 \d+|3000 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
+src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|4200 \d+|5600 \d+|5000 \d+|3000 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
 assert n==2,n
 p.write_text(src)
 (ROOT/'data/all-stops.svg').write_text(svg+'\n')

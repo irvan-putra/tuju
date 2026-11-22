@@ -92,9 +92,9 @@ class StopMapTest(unittest.TestCase):
   self.assertNotIn('Going home from Arkadia',svg)
   self.assertIn('One network · out and home',svg)
   self.assertIn('translate(700 0)',svg)
-  self.assertIn('5000',svg.split('>')[0])
-  height=int(re.search(r'viewBox="0 0 5000 (\d+)"',svg).group(1))
-  self.assertLess(height,3400)
+  self.assertIn('4200',svg.split('>')[0])
+  height=int(re.search(r'viewBox="0 0 4200 (\d+)"',svg).group(1))
+  self.assertLess(height,7900)
   self.assertEqual(svg.count('4D leaves here'),1)
  def test_shared_spine_is_not_a_duplicate_return_column(self):
   root=ET.fromstring((ROOT/'data/all-stops.svg').read_text())
@@ -110,7 +110,7 @@ class StopMapTest(unittest.TestCase):
   self.assertEqual(S['S11']['trip'],'S11-L05')
   self.assertEqual(S['S11']['stops'][0]['id'],'B07533P')
   self.assertEqual(S['S11']['stops'][-1]['id'],'B04683P')
-  self.assertEqual(S['4C']['stops'][-1]['name'],'Tosari 3')
+  self.assertEqual(S['4C']['stops'][-1]['name'],'Bundaran Senayan 1')
   ret=json.loads((ROOT/'data/return-stops.json').read_text())
   r={x['key']:x for x in ret['segments']}
   self.assertEqual(r['S11-return']['trip'],'S11-R05')
@@ -122,6 +122,20 @@ class StopMapTest(unittest.TestCase):
    self.assertIn(name,svg)
   self.assertEqual(svg.count('Serpong BSD</text>'),1)
   self.assertEqual(svg.count('SMPN 8</text>'),1)
+ def test_portrait_red_spines_and_alam_sutera(self):
+  root=ET.fromstring((ROOT/'data/all-stops.svg').read_text())
+  width,height=map(int,root.attrib['viewBox'].split()[2:])
+  self.assertLess(width,5000); self.assertGreater(height,width*1.7)
+  self.assertEqual(S['S61']['stops'][0]['id'],'G00696')
+  self.assertEqual(S['S61']['stops'][-1]['name'],'Forest Park')
+  self.assertEqual(S['S61']['trip'],'S61-R02')
+  for e in root.iter():
+   if e.tag.endswith('path') and e.get('stroke')=='#c52d36':
+    nums=list(map(float,re.findall(r'-?\d+(?:\.\d+)?',e.attrib['d'])))
+    self.assertTrue(all(x==nums[0] for x in nums[::2]),e.attrib['d'])
+  text=' '.join(''.join(e.itertext()) for e in root.iter() if e.tag.endswith('text'))
+  for t in ('BINUS main building','Mall / BINUS extension','1 km / 13 min','790 m / 10 min'):
+   self.assertIn(t,text)
  def test_offline_asset(self):
   # The journey meter adds an inline script; the asset must still run fully
   # on-device: no external resources and no network calls of any kind.
@@ -129,7 +143,7 @@ class StopMapTest(unittest.TestCase):
   self.assertNotRegex(page,r'(?:src|href)="https?://')
   for call in ('fetch(','XMLHttpRequest','WebSocket','sendBeacon','import('):
    self.assertNotIn(call,page)
-  self.assertIn('maximum-scale=8',page)
+  self.assertIn('maximum-scale=12',page)
  def test_ragunan_connection_and_return(self):
   svg=(ROOT/'data/all-stops.svg').read_text()
   self.assertIn('7E leg ends here',svg)

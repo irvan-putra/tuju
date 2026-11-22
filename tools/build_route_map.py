@@ -181,9 +181,9 @@ py=y7-26
 bq=y7+52
 add(f'<rect x="306" y="{y7-52}" width="318" height="116" fill="currentColor" opacity="0.12"/>')
 add(f'<line x1="465" y1="{y7-52}" x2="465" y2="{y7+64}" stroke="currentColor" opacity="0.35" stroke-width="3" stroke-dasharray="8 8"/>')
-add(f'<text x="300" y="{y7-42}" font-size="13" fill="currentColor" text-anchor="end">Via footbridge</text>')
-add(f'<text x="618" y="{y7-52}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="end">far side</text>')
-add(f'<text x="332" y="{y7-52}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="start">venue side</text>')
+add(f'<text x="292" y="{y7-58}" font-size="13" fill="currentColor" text-anchor="end">Via footbridge</text>')
+add(f'<text x="618" y="{y7-62}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="end">far side</text>')
+add(f'<text x="356" y="{y7-62}" font-size="13" font-style="italic" opacity=".65" fill="currentColor" text-anchor="start">venue side</text>')
 # Pedestrian bridge across the road, between the Mujair and Phe Tower stops.
 add(f'<line x1="306" y1="{y7-48}" x2="624" y2="{y7-48}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
 add(f'<line x1="306" y1="{y7-38}" x2="624" y2="{y7-38}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
@@ -490,7 +490,7 @@ text(147,224,'on this service / loop headsign.',15,anchor='end')
 text(193,uky-16,'7F ↑ branches to Flyover Raya Bogor',15)
 # Deliberately NOT a guaranteed paid-area connection from 7E to 7F: a separate Gojek hop.
 gy=ry+80
-add(f'<path d="M 1324 {y7-43} Q 1510 {y7-43} 1510 {y7+90} L 1510 {gy} L {fx} {gy} L {fx} {fy+12}" fill="none" stroke="currentColor" opacity=".6" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 1324 {y7-43} Q 1720 {y7-43} 1720 {y7+90} L 1720 {gy} L {fx} {gy} L {fx} {fy+12}" fill="none" stroke="currentColor" opacity=".6" stroke-width="3" stroke-dasharray="5 7"/>')
 tri(fx,fy+60,'#6536b0',up=True)
 text(280,gy+70,'B · bridge to far-side pickup → Gojek to Flyover Raya Bogor',34,weight='600')
 text(280,gy+120,'Gojek fare/time and 7F boarding access unverified.',32)

@@ -122,6 +122,55 @@
         "Simpang Pramuka 1"
       ],
       "transfer": "Boarded by changing from corridor 6 / 6A at Patra Kuningan (Platform C-D in Maps); about a 9 min walk after Simpang Pramuka 1."
+    },
+    {
+      "key": "S11-return",
+      "route": "S11",
+      "trip": "S11-R05",
+      "source": "https://gtfs.transjakarta.co.id/files/file_gtfs.zip",
+      "checked": "2026-11-22",
+      "stops": [
+        "Serpong BSD",
+        "BSD City 1",
+        "Wisma BCA",
+        "Samsat BSD",
+        "ITC Serpong 1",
+        "Ruko BSD Sektor 7",
+        "BSD Plaza 1",
+        "Melati Mas Residence 1",
+        "WTC Matahari 1",
+        "Les Belles Maisons 1",
+        "RS Asshobirin 1",
+        "SDN Pondok Jagung 1",
+        "Batalyon Kavaleri 1",
+        "Lotte Mart Serpong 1",
+        "Bundaran Alam Sutera 1",
+        "Masjid At Taqwa",
+        "Bhayangkara 1",
+        "Pratama Abadi",
+        "Gading Serpong 1",
+        "Warung Mangga 1",
+        "Kb. Nanas",
+        "Rest Area Km 13 Merak Jakarta",
+        "Tol Kb. Jeruk 2",
+        "Taman Anggrek"
+      ]
+    },
+    {
+      "key": "4C-GI-return",
+      "route": "4C",
+      "trip": "4C-R10",
+      "source": "https://gtfs.transjakarta.co.id/files/file_gtfs.zip",
+      "checked": "2026-11-22",
+      "stops": [
+        "Tosari 2",
+        "Imam Bonjol",
+        "Kartini",
+        "Taman Suropati",
+        "Surabaya",
+        "St. Cikini Selatan",
+        "Megaria"
+      ]
     }
   ]
 }

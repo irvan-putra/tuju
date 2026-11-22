@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'data/route-stops.json').read_text())
 S={s['route']:s for s in D['segments']}
 R={r['key']:r for r in json.loads((ROOT/'data/return-stops.json').read_text())['segments']}
-COL={'10':'#6536b0','9':'#27803c','4':'#1769aa','6':'#d36300','7E':'#00838f','4C':'#c52d36','5M':'#9045ac','4D':'#0f6e6e'}
+COL={'10':'#6536b0','9':'#27803c','4':'#1769aa','6':'#d36300','7E':'#00838f','4C':'#c52d36','5M':'#9045ac','4D':'#0f6e6e','S11':'#917000'}
 A=[]
 def add(s): A.append(s)
 def text(x,y,s,size=20,color='currentColor',anchor='start',weight='normal'):
@@ -28,7 +28,7 @@ def node(x,y,name,color,transfer=False,note=None,anchor='start',label_offset=Non
   text(x+(label_offset[0] if label_offset else dx),y+(label_offset[1] if label_offset else 6)+i*24,part,20,anchor=anchor,weight='600' if transfer else 'normal')
  if note:text(x+dx,y+32,note,15,anchor=anchor)
 def chain(route,x,y,step=58,skipfirst=False,transfers=()):
- ss=S[route]['stops']; end=y+step*(len(ss)-1)
+ ss=S[route]['stops']; ss=ss[:8] if route=='4C' else ss; end=y+step*(len(ss)-1)
  line(x,y,x,end,COL[route])
  for i,st in enumerate(ss):
   if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers,
@@ -363,6 +363,77 @@ text(1580,fy-180,'Gojek fare/time and 7F boarding access unverified.',17)
 text(1580,fy-150,'Separate from the 7E / 6 return option.',17)
 text(900,gy-10,'Gojek hop to the 7F pickup (left)',16)
 add('</g>')
+# Requested extensions: independent directional patterns; no new transfer at crossings.
+# Grand Indonesia continues on 4C through the already drawn 5M shared stops.
+# Existing 4C/5M node for SMPN 8 is global (2320,857).
+gi_out=S['4C']['stops'][11:]  # Gedung Wanita through Tosari 3
+line(2312,674,2312,857,COL['4C'])
+tri(2312,765,COL['4C'],False)
+add('<path d="M 2312 857 C 2900 900, 3130 1350, 3130 1730" fill="none" stroke="Canvas" stroke-width="14"/>')
+add(f'<path d="M 2312 857 C 2900 900, 3130 1350, 3130 1730" fill="none" stroke="{COL["4C"]}" stroke-width="6"/>')
+for i,st in enumerate(gi_out):
+ yy=1730+i*78
+ if i:line(3130,yy-78,3130,yy,COL['4C'])
+ node(3130,yy,st['name'],COL['4C'],i==len(gi_out)-1,anchor='end')
+ if i:tri(3130,yy-39,COL['4C'],False)
+text(3107,1695,'4C ↓ Bundaran Senayan',18,COL['4C'],anchor='end',weight='600')
+giy=1730+(len(gi_out)-1)*78
+add(f'<rect x="3250" y="{giy+80}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+text(3278,giy+95,'Grand Indonesia',24,'#2e9e50',weight='600')
+line(3130,giy+12,3250,giy+89,'#888',True)
+text(3040,giy+65,'walk ~640 m / 8 min',15)
+# Return is its own Tosari 2 -> Megaria sequence, then the existing 4C spine.
+gir=R['4C-GI-return']['stops']; xx=3500; bot=giy; top=1730-40
+for i,name in enumerate(gir[:-1]):
+ yy=bot-i*80
+ if i:line(xx,yy+80,xx,yy,COL['4C'])
+ node(xx,yy,name,COL['4C'],i==0)
+ if i:tri(xx,yy+40,COL['4C'])
+line(xx,bot-(len(gir)-2)*80,2700,1165,COL['4C'])
+text(3523,bot+40,'4C ↑ JIEP · home via Megaria',15,COL['4C'])
+line(3268,giy+89,xx,bot+12,'#888',True)
+text(3280,giy+140,'walk to Tosari 2 · check crossing',15)
+# S11 branches from the existing Central Park destination. Walk runs below the
+# original network; line crossings without a ring are not transfer points.
+s11c=COL['S11']; ox=3900; rx=4500; sy=400; dy=84
+text(3820,190,'Central Park ↔ The Breeze BSD',26,weight='600')
+add('<path d="M 590 1871 L 590 2935 L 4980 2935 L 4980 300 L 3900 300 L 3900 388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 4500 388 L 4500 330 L 3900 330" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<rect x="582" y="1863" width="16" height="16" rx="3" fill="#2e9e50"/>')
+text(3740,270,'From Central Park: JPO walk ~450 m / 6 min',16)
+out=S['S11']['stops']; ret=R['S11-return']['stops']
+for i,st in enumerate(out):
+ yy=sy+i*dy
+ if i:line(ox,yy-dy,ox,yy,s11c)
+
+ if i<len(out)-1:node(ox,yy,st['name'],s11c,i==0,anchor='end')
+ if i:tri(ox,yy-dy/2,s11c,False)
+node(4200,sy+(len(out)-1)*dy,'Serpong BSD',s11c,True,anchor='middle',label_offset=(0,42))
+line(ox,sy+(len(out)-1)*dy,4200,sy+(len(out)-1)*dy,s11c)
+line(4200,sy+(len(out)-1)*dy,rx,sy+(len(out)-1)*dy,s11c)
+text(ox-24,sy-35,'S11 ↓ BSD',21,s11c,anchor='end',weight='600')
+by=sy+(len(out)-1)*dy
+# Different roadside stops in the two directions stay distinct.
+step=(by-sy)/(len(ret)-1)
+for i,name in enumerate(ret):
+ yy=by-i*step
+ if i:line(rx,yy+step,rx,yy,s11c)
+
+ if i:node(rx,yy,name,s11c,i==len(ret)-1)
+ if i:tri(rx,yy+step/2,s11c)
+text(rx+24,sy-35,'S11 ↑ Jelambar',21,s11c,weight='600')
+# Same Serpong BSD terminus, drawn once with links from both directional legs.
+# The return first label duplicates the terminus only as boarding direction context.
+add(f'<rect x="4180" y="{by+140}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+text(4200,by+183,'The Breeze BSD',24,'#2e9e50',anchor='middle',weight='600')
+line(ox,by+12,4180,by+149,'#888',True);line(4198,by+149,rx,by+12,'#888',True)
+text(4200,by+220,'S11 ends at Serpong BSD, not at the mall.',17,anchor='middle')
+text(4200,by+250,'Walk ~2.2 km / 29 min via BSD Grand Boulevard.',17,anchor='middle')
+text(4200,by+278,'Pedestrian path / crossings not checked on site.',16,anchor='middle')
+text(4500,315,'Off at Taman Anggrek; walk back to Central Park.',15,anchor='middle')
+text(4200,by+328,'Operator feed: S11-L05 outbound, S11-R05 return.',16,anchor='middle')
+text(4200,by+356,'No live arrivals or guaranteed last bus; check TJ app.',16,anchor='middle')
+
 # Source/service caveats stay within the unified map, below the network only as notes.
 end=max(ry+150,2760)
 for i,t in enumerate([
@@ -377,11 +448,11 @@ for i,t in enumerate([
  'then 4C to Pramuka BPKP 1 - official GTFS trips 5M-R02 / 4C-R10, checked 22 Nov 2026. Fresh tap each boarding.',
 ]):text(60,end+i*31,t,18)
 add('</svg>')
-H=end+220
-svg=f'<svg viewBox="0 0 3000 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
+H=end+340
+svg=f'<svg viewBox="0 0 5000 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.
-src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|3000 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
+src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|5000 \d+|3000 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
 assert n==2,n
 p.write_text(src)
 (ROOT/'data/all-stops.svg').write_text(svg+'\n')

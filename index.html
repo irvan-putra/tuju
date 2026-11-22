@@ -23,20 +23,20 @@
   a { color: #4a7ddb; }
   .mapzoom summary { cursor: pointer; color: #4a7ddb; font-size: .9rem; margin: .2rem 0 .4rem; }
   .mapzoom .zoomscroll { overflow: auto; max-height: 75vh; border: 1px solid #8884; border-radius: .5rem; }
-  .mapzoom .zoomscroll svg { width: 3000px; max-width: none; margin: 0; }
+  .mapzoom .zoomscroll svg { width: 5000px; max-width: none; margin: 0; }
 
 </style>
 <style>.android-release{display:block;position:relative;z-index:7;margin:12px 0;padding:10px 12px;border:1px solid #8886;border-radius:8px;font:14px/1.45 system-ui,sans-serif;background:Canvas;color:CanvasText;overflow-wrap:anywhere}.android-release a{color:LinkText}.android-release small{display:block;margin-top:4px;font-size:12px}</style>
 </head>
 <body>
 <h1>tuju</h1>
-<p class="sub">Busway-only routes from the Green Pramuka area to <strong>De Entrance, Arkadia Green Park</strong> (TB Simatupang), <strong>Markas Indonesia</strong> (Tanah Abang), and <strong>Central Park Mall</strong> (Tanjung Duren), <strong>Plaza Festival</strong> (Kuningan, next to Usmar Ismail Hall), and <strong>Bakoel Koffie</strong> (Cikini, Menteng).</p>
+<p class="sub">Busway-only routes from the Green Pramuka area to <strong>De Entrance, Arkadia Green Park</strong> (TB Simatupang), <strong>Markas Indonesia</strong> (Tanah Abang), and <strong>Central Park Mall</strong> (Tanjung Duren), <strong>Plaza Festival</strong> (Kuningan, next to Usmar Ismail Hall), and <strong>Bakoel Koffie</strong> (Cikini, Menteng), <strong>The Breeze BSD</strong> (S11 from Central Park), and <strong>Grand Indonesia</strong>.</p>
 
 <aside class="android-release" aria-label="Android version"><a href="https://github.com/irvan-putra/tuju/releases/download/v0.2.4/tuju-v0.2.4.apk">Download tuju for Android v0.2.4</a> · <a href="https://github.com/irvan-putra/tuju/releases/tag/v0.2.4">Release notes</a><small>Test release. Route and fare uncertainties still apply; not verified on a physical Samsung phone.</small></aside>
 <div class="card">
 <h3>All routes at a glance</h3>
-<p class="note">Outbound and both Arkadia return options on one network. Follow the direction arrows and transfer links. Intermediate stops on the selected legs are shown in directional order; the Ragunan continuation is on foot via Simpang Ragunan Ar-Raudhah, with corridor 6 toward Galunggung for the ride home. Pinch to zoom and drag to pan. Schematic, not to scale.</p>
-<svg viewBox="0 0 3000 3198" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
+<p class="note">Outbound and return routes on one connected network, including S11 to BSD and direct 4C to Grand Indonesia. Follow the direction arrows and transfer links. Intermediate stops on the selected legs are shown in directional order; the Ragunan continuation is on foot via Simpang Ragunan Ar-Raudhah, with corridor 6 toward Galunggung for the ride home. Pinch to zoom and drag to pan. Schematic, not to scale.</p>
+<svg viewBox="0 0 5000 3318" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
 <title id="all-stops-title">Outbound routes, Arkadia homebound options and the Cikini return, with intermediate stops</title>
 <desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture, which is the same station as Simpang Ragunan Ar-Raudhah (rider, 19 Nov 2026). Corridor 6 links this station with Ragunan - the destination pin - in both directions, and the ride home boards corridor 6 / 6A there toward Galunggung - the direction, not the transfer - changing at Patra Kuningan to 4D for Simpang Pramuka 1; teal rings mark the 4D return stops. Gate access and fare continuity between 7E and corridor 6 are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor. At the 4D Rasuna Said terminus, the venue access block carries the official IDSW access guideline (idsw.dev, checked 21 Nov 2026): LRT Rasuna Said is the other official nearest stop, about 2 minutes, sharing the same pedestrian-bridge walk; the final walk runs toward Plaza Festival for about 150 m into the Gedung PPHUI complex; and the Sunday 22 November Car Free Day window 05:30-09:00 WIB bars car and motorbike gate drop-off while the LRT and corridor 6/6A keep running and drivers park at Plaza Festival. Bakoel Koffie (Cikini) is on the 5M leg: get off at Farmasi RP Soeroso, about 100 m away. The ride home boards the 5M at Kantor Pos Cikini (about 90 m from the venue) toward Kampung Melayu and changes at Megaria to 4C for Pramuka BPKP 1; it runs back up the right-hand column with its intermediate stops and rejoins the start area over the top (official GTFS trips 5M-R02 and 4C-R10, checked 22 Nov 2026; curbside feeders, so allow a fresh tap at each boarding).</desc>
 <g transform="translate(420 0)">
@@ -590,6 +590,256 @@
 <text x="1580" y="2506" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Separate from the 7E / 6 return option.</text>
 <text x="900" y="2898" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">Gojek hop to the 7F pickup (left)</text>
 </g>
+<path d="M 2312 674 L 2312 857" fill="none" stroke="#c52d36" stroke-width="6"/>
+<path d="M 2312 778 L 2301 754 L 2323 754 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 2312 857 C 2900 900, 3130 1350, 3130 1730" fill="none" stroke="Canvas" stroke-width="14"/>
+<path d="M 2312 857 C 2900 900, 3130 1350, 3130 1730" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3130" cy="1730" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3107" y="1736" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Gedung Wanita</text>
+<path d="M 3130 1730 L 3130 1808" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3130" cy="1808" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3107" y="1814" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Museum Proklamasi</text>
+<path d="M 3130 1782 L 3119 1758 L 3141 1758 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3130 1808 L 3130 1886" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3130" cy="1886" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3107" y="1892" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">KPU</text>
+<path d="M 3130 1860 L 3119 1836 L 3141 1836 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3130 1886 L 3130 1964" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3130" cy="1964" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3107" y="1970" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Graha Mandiri</text>
+<path d="M 3130 1938 L 3119 1914 L 3141 1914 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3130 1964 L 3130 2042" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3130" cy="2042" r="12" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3107" y="2048" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Tosari 3</text>
+<path d="M 3130 2016 L 3119 1992 L 3141 1992 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<text x="3107" y="1695" font-size="18" fill="#c52d36" text-anchor="end" font-weight="600">4C ↓ Bundaran Senayan</text>
+<rect x="3250" y="2122" width="18" height="18" rx="3" fill="#2e9e50"/>
+<text x="3278" y="2137" font-size="24" fill="#2e9e50" text-anchor="start" font-weight="600">Grand Indonesia</text>
+<path d="M 3130 2054 L 3250 2131" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="3040" y="2107" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">walk ~640 m / 8 min</text>
+<circle cx="3500" cy="2042" r="12" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="2048" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Tosari 2</text>
+<path d="M 3500 2042 L 3500 1962" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3500" cy="1962" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="1968" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Imam Bonjol</text>
+<path d="M 3500 1989 L 3489 2013 L 3511 2013 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3500 1962 L 3500 1882" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3500" cy="1882" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="1888" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kartini</text>
+<path d="M 3500 1909 L 3489 1933 L 3511 1933 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3500 1882 L 3500 1802" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3500" cy="1802" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="1808" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Taman Suropati</text>
+<path d="M 3500 1829 L 3489 1853 L 3511 1853 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3500 1802 L 3500 1722" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3500" cy="1722" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="1728" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Surabaya</text>
+<path d="M 3500 1749 L 3489 1773 L 3511 1773 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3500 1722 L 3500 1642" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3500" cy="1642" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="1648" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">St. Cikini Selatan</text>
+<path d="M 3500 1669 L 3489 1693 L 3511 1693 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3500 1642 L 2700 1165" fill="none" stroke="#c52d36" stroke-width="6"/>
+<text x="3523" y="2082" font-size="15" fill="#c52d36" text-anchor="start" font-weight="normal">4C ↑ JIEP · home via Megaria</text>
+<path d="M 3268 2131 L 3500 2054" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="3280" y="2182" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">walk to Tosari 2 · check crossing</text>
+<text x="3820" y="190" font-size="26" fill="currentColor" text-anchor="start" font-weight="600">Central Park ↔ The Breeze BSD</text>
+<path d="M 590 1871 L 590 2935 L 4980 2935 L 4980 300 L 3900 300 L 3900 388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 4500 388 L 4500 330 L 3900 330" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<rect x="582" y="1863" width="16" height="16" rx="3" fill="#2e9e50"/>
+<text x="3740" y="270" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">From Central Park: JPO walk ~450 m / 6 min</text>
+<circle cx="3900" cy="400" r="12" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="406" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Jln. Gelong Baru Utara</text>
+<path d="M 3900 400 L 3900 484" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="484" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="490" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Tol Kb. Jeruk 1</text>
+<path d="M 3900 455.0 L 3889 431.0 L 3911 431.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 484 L 3900 568" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="568" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="574" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Rest Area Km 13 Jakarta Merak</text>
+<path d="M 3900 539.0 L 3889 515.0 L 3911 515.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 568 L 3900 652" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="652" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="658" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Warung Mangga 2</text>
+<path d="M 3900 623.0 L 3889 599.0 L 3911 599.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 652 L 3900 736" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="736" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="742" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Gading Serpong 2</text>
+<path d="M 3900 707.0 L 3889 683.0 L 3911 683.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 736 L 3900 820" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="820" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="826" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Pakualam</text>
+<path d="M 3900 791.0 L 3889 767.0 L 3911 767.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 820 L 3900 904" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="904" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="910" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Bhayangkara 2</text>
+<path d="M 3900 875.0 L 3889 851.0 L 3911 851.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 904 L 3900 988" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="988" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="994" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Sutera Niaga 2</text>
+<path d="M 3900 959.0 L 3889 935.0 L 3911 935.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 988 L 3900 1072" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1072" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1078" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Bundaran Alam Sutera 2</text>
+<path d="M 3900 1043.0 L 3889 1019.0 L 3911 1019.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1072 L 3900 1156" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1156" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1162" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Lotte Mart Serpong 2</text>
+<path d="M 3900 1127.0 L 3889 1103.0 L 3911 1103.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1156 L 3900 1240" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1240" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1246" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Batalyon Kavaleri 2</text>
+<path d="M 3900 1211.0 L 3889 1187.0 L 3911 1187.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1240 L 3900 1324" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1324" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1330" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">SDN Pondok Jagung 2</text>
+<path d="M 3900 1295.0 L 3889 1271.0 L 3911 1271.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1324 L 3900 1408" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1408" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1414" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">RS Asshobirin 2</text>
+<path d="M 3900 1379.0 L 3889 1355.0 L 3911 1355.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1408 L 3900 1492" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1492" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1498" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Les Belles Maisons 2</text>
+<path d="M 3900 1463.0 L 3889 1439.0 L 3911 1439.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1492 L 3900 1576" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1576" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1582" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">WTC Matahari 2</text>
+<path d="M 3900 1547.0 L 3889 1523.0 L 3911 1523.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1576 L 3900 1660" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1660" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1666" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Melati Mas Residence 2</text>
+<path d="M 3900 1631.0 L 3889 1607.0 L 3911 1607.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1660 L 3900 1744" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1744" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1750" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Sinarmas Land</text>
+<path d="M 3900 1715.0 L 3889 1691.0 L 3911 1691.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1744 L 3900 1828" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1828" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1834" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">BSD Plaza 2</text>
+<path d="M 3900 1799.0 L 3889 1775.0 L 3911 1775.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1828 L 3900 1912" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1912" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1918" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">ITC Serpong 2</text>
+<path d="M 3900 1883.0 L 3889 1859.0 L 3911 1859.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1912 L 3900 1996" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1996" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="2002" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Astek</text>
+<path d="M 3900 1967.0 L 3889 1943.0 L 3911 1943.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1996 L 3900 2080" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="2080" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="2086" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Teraskota</text>
+<path d="M 3900 2051.0 L 3889 2027.0 L 3911 2027.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 2080 L 3900 2164" fill="none" stroke="#917000" stroke-width="6"/>
+<path d="M 3900 2135.0 L 3889 2111.0 L 3911 2111.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="4200" cy="2164" r="12" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4200" y="2206" font-size="20" fill="currentColor" text-anchor="middle" font-weight="600">Serpong BSD</text>
+<path d="M 3900 2164 L 4200 2164" fill="none" stroke="#917000" stroke-width="6"/>
+<path d="M 4200 2164 L 4500 2164" fill="none" stroke="#917000" stroke-width="6"/>
+<text x="3876" y="365" font-size="21" fill="#917000" text-anchor="end" font-weight="600">S11 ↓ BSD</text>
+<path d="M 4500 2164.0 L 4500 2087.304347826087" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="2087.304347826087" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="2093.304347826087" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">BSD City 1</text>
+<path d="M 4500 2112.6521739130435 L 4489 2136.6521739130435 L 4511 2136.6521739130435 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 2087.304347826087 L 4500 2010.608695652174" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="2010.608695652174" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="2016.608695652174" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Wisma BCA</text>
+<path d="M 4500 2035.9565217391305 L 4489 2059.9565217391305 L 4511 2059.9565217391305 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 2010.608695652174 L 4500 1933.913043478261" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1933.913043478261" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1939.913043478261" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Samsat BSD</text>
+<path d="M 4500 1959.2608695652175 L 4489 1983.2608695652175 L 4511 1983.2608695652175 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1933.9130434782608 L 4500 1857.2173913043478" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1857.2173913043478" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1863.2173913043478" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">ITC Serpong 1</text>
+<path d="M 4500 1882.5652173913043 L 4489 1906.5652173913043 L 4511 1906.5652173913043 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1857.2173913043478 L 4500 1780.5217391304348" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1780.5217391304348" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1786.5217391304348" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Ruko BSD Sektor 7</text>
+<path d="M 4500 1805.8695652173913 L 4489 1829.8695652173913 L 4511 1829.8695652173913 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1780.5217391304348 L 4500 1703.8260869565217" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1703.8260869565217" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1709.8260869565217" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">BSD Plaza 1</text>
+<path d="M 4500 1729.1739130434783 L 4489 1753.1739130434783 L 4511 1753.1739130434783 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1703.8260869565215 L 4500 1627.1304347826085" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1627.1304347826085" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1633.1304347826085" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Melati Mas Residence 1</text>
+<path d="M 4500 1652.478260869565 L 4489 1676.478260869565 L 4511 1676.478260869565 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1627.1304347826085 L 4500 1550.4347826086955" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1550.4347826086955" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1556.4347826086955" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">WTC Matahari 1</text>
+<path d="M 4500 1575.782608695652 L 4489 1599.782608695652 L 4511 1599.782608695652 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1550.4347826086955 L 4500 1473.7391304347825" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1473.7391304347825" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1479.7391304347825" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Les Belles Maisons 1</text>
+<path d="M 4500 1499.086956521739 L 4489 1523.086956521739 L 4511 1523.086956521739 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1473.7391304347825 L 4500 1397.0434782608695" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1397.0434782608695" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1403.0434782608695" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">RS Asshobirin 1</text>
+<path d="M 4500 1422.391304347826 L 4489 1446.391304347826 L 4511 1446.391304347826 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1397.0434782608695 L 4500 1320.3478260869565" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1320.3478260869565" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1326.3478260869565" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">SDN Pondok Jagung 1</text>
+<path d="M 4500 1345.695652173913 L 4489 1369.695652173913 L 4511 1369.695652173913 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1320.3478260869565 L 4500 1243.6521739130435" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1243.6521739130435" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1249.6521739130435" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Batalyon Kavaleri 1</text>
+<path d="M 4500 1269.0 L 4489 1293.0 L 4511 1293.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1243.6521739130435 L 4500 1166.9565217391305" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1166.9565217391305" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1172.9565217391305" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Lotte Mart Serpong 1</text>
+<path d="M 4500 1192.304347826087 L 4489 1216.304347826087 L 4511 1216.304347826087 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1166.9565217391303 L 4500 1090.2608695652173" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1090.2608695652173" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1096.2608695652173" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Bundaran Alam Sutera 1</text>
+<path d="M 4500 1115.6086956521738 L 4489 1139.6086956521738 L 4511 1139.6086956521738 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1090.2608695652173 L 4500 1013.5652173913043" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1013.5652173913043" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1019.5652173913043" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Masjid At Taqwa</text>
+<path d="M 4500 1038.9130434782608 L 4489 1062.9130434782608 L 4511 1062.9130434782608 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1013.5652173913043 L 4500 936.8695652173913" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="936.8695652173913" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="942.8695652173913" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Bhayangkara 1</text>
+<path d="M 4500 962.2173913043478 L 4489 986.2173913043478 L 4511 986.2173913043478 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 936.8695652173913 L 4500 860.1739130434783" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="860.1739130434783" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="866.1739130434783" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pratama Abadi</text>
+<path d="M 4500 885.5217391304348 L 4489 909.5217391304348 L 4511 909.5217391304348 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 860.1739130434783 L 4500 783.4782608695652" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="783.4782608695652" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="789.4782608695652" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Gading Serpong 1</text>
+<path d="M 4500 808.8260869565217 L 4489 832.8260869565217 L 4511 832.8260869565217 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 783.478260869565 L 4500 706.782608695652" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="706.782608695652" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="712.782608695652" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Warung Mangga 1</text>
+<path d="M 4500 732.1304347826085 L 4489 756.1304347826085 L 4511 756.1304347826085 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 706.782608695652 L 4500 630.086956521739" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="630.086956521739" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="636.086956521739" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kb. Nanas</text>
+<path d="M 4500 655.4347826086955 L 4489 679.4347826086955 L 4511 679.4347826086955 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 630.086956521739 L 4500 553.391304347826" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="553.391304347826" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="559.391304347826" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rest Area Km 13 Merak Jakarta</text>
+<path d="M 4500 578.7391304347825 L 4489 602.7391304347825 L 4511 602.7391304347825 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 553.391304347826 L 4500 476.695652173913" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="476.695652173913" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="482.695652173913" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Tol Kb. Jeruk 2</text>
+<path d="M 4500 502.0434782608695 L 4489 526.0434782608695 L 4511 526.0434782608695 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 476.69565217391306 L 4500 400.0" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="400.0" r="12" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="406.0" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Taman Anggrek</text>
+<path d="M 4500 425.3478260869565 L 4489 449.3478260869565 L 4511 449.3478260869565 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<text x="4524" y="365" font-size="21" fill="#917000" text-anchor="start" font-weight="600">S11 ↑ Jelambar</text>
+<rect x="4180" y="2304" width="18" height="18" rx="3" fill="#2e9e50"/>
+<text x="4200" y="2347" font-size="24" fill="#2e9e50" text-anchor="middle" font-weight="600">The Breeze BSD</text>
+<path d="M 3900 2176 L 4180 2313" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 4198 2313 L 4500 2176" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="4200" y="2384" font-size="17" fill="currentColor" text-anchor="middle" font-weight="normal">S11 ends at Serpong BSD, not at the mall.</text>
+<text x="4200" y="2414" font-size="17" fill="currentColor" text-anchor="middle" font-weight="normal">Walk ~2.2 km / 29 min via BSD Grand Boulevard.</text>
+<text x="4200" y="2442" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">Pedestrian path / crossings not checked on site.</text>
+<text x="4500" y="315" font-size="15" fill="currentColor" text-anchor="middle" font-weight="normal">Off at Taman Anggrek; walk back to Central Park.</text>
+<text x="4200" y="2492" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">Operator feed: S11-L05 outbound, S11-R05 return.</text>
+<text x="4200" y="2520" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">No live arrivals or guaranteed last bus; check TJ app.</text>
 <text x="60" y="2978" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.</text>
 <text x="60" y="3009" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;</text>
 <text x="60" y="3040" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Traveloka 05:00-22:00. Do not assume late service. No guaranteed arrival times for either return option.</text>
@@ -601,7 +851,7 @@
 <text x="60" y="3226" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">then 4C to Pramuka BPKP 1 - official GTFS trips 5M-R02 / 4C-R10, checked 22 Nov 2026. Fresh tap each boarding.</text>
 </svg>
 <details class="mapzoom"><summary>Enlarge map</summary>
-<div class="zoomscroll"><svg viewBox="0 0 3000 3198" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
+<div class="zoomscroll"><svg viewBox="0 0 5000 3318" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
 <title id="all-stops-title">Outbound routes, Arkadia homebound options and the Cikini return, with intermediate stops</title>
 <desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture, which is the same station as Simpang Ragunan Ar-Raudhah (rider, 19 Nov 2026). Corridor 6 links this station with Ragunan - the destination pin - in both directions, and the ride home boards corridor 6 / 6A there toward Galunggung - the direction, not the transfer - changing at Patra Kuningan to 4D for Simpang Pramuka 1; teal rings mark the 4D return stops. Gate access and fare continuity between 7E and corridor 6 are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor. At the 4D Rasuna Said terminus, the venue access block carries the official IDSW access guideline (idsw.dev, checked 21 Nov 2026): LRT Rasuna Said is the other official nearest stop, about 2 minutes, sharing the same pedestrian-bridge walk; the final walk runs toward Plaza Festival for about 150 m into the Gedung PPHUI complex; and the Sunday 22 November Car Free Day window 05:30-09:00 WIB bars car and motorbike gate drop-off while the LRT and corridor 6/6A keep running and drivers park at Plaza Festival. Bakoel Koffie (Cikini) is on the 5M leg: get off at Farmasi RP Soeroso, about 100 m away. The ride home boards the 5M at Kantor Pos Cikini (about 90 m from the venue) toward Kampung Melayu and changes at Megaria to 4C for Pramuka BPKP 1; it runs back up the right-hand column with its intermediate stops and rejoins the start area over the top (official GTFS trips 5M-R02 and 4C-R10, checked 22 Nov 2026; curbside feeders, so allow a fresh tap at each boarding).</desc>
 <g transform="translate(420 0)">
@@ -1155,6 +1405,256 @@
 <text x="1580" y="2506" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Separate from the 7E / 6 return option.</text>
 <text x="900" y="2898" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">Gojek hop to the 7F pickup (left)</text>
 </g>
+<path d="M 2312 674 L 2312 857" fill="none" stroke="#c52d36" stroke-width="6"/>
+<path d="M 2312 778 L 2301 754 L 2323 754 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 2312 857 C 2900 900, 3130 1350, 3130 1730" fill="none" stroke="Canvas" stroke-width="14"/>
+<path d="M 2312 857 C 2900 900, 3130 1350, 3130 1730" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3130" cy="1730" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3107" y="1736" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Gedung Wanita</text>
+<path d="M 3130 1730 L 3130 1808" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3130" cy="1808" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3107" y="1814" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Museum Proklamasi</text>
+<path d="M 3130 1782 L 3119 1758 L 3141 1758 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3130 1808 L 3130 1886" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3130" cy="1886" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3107" y="1892" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">KPU</text>
+<path d="M 3130 1860 L 3119 1836 L 3141 1836 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3130 1886 L 3130 1964" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3130" cy="1964" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3107" y="1970" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Graha Mandiri</text>
+<path d="M 3130 1938 L 3119 1914 L 3141 1914 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3130 1964 L 3130 2042" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3130" cy="2042" r="12" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3107" y="2048" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Tosari 3</text>
+<path d="M 3130 2016 L 3119 1992 L 3141 1992 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<text x="3107" y="1695" font-size="18" fill="#c52d36" text-anchor="end" font-weight="600">4C ↓ Bundaran Senayan</text>
+<rect x="3250" y="2122" width="18" height="18" rx="3" fill="#2e9e50"/>
+<text x="3278" y="2137" font-size="24" fill="#2e9e50" text-anchor="start" font-weight="600">Grand Indonesia</text>
+<path d="M 3130 2054 L 3250 2131" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="3040" y="2107" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">walk ~640 m / 8 min</text>
+<circle cx="3500" cy="2042" r="12" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="2048" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Tosari 2</text>
+<path d="M 3500 2042 L 3500 1962" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3500" cy="1962" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="1968" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Imam Bonjol</text>
+<path d="M 3500 1989 L 3489 2013 L 3511 2013 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3500 1962 L 3500 1882" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3500" cy="1882" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="1888" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kartini</text>
+<path d="M 3500 1909 L 3489 1933 L 3511 1933 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3500 1882 L 3500 1802" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3500" cy="1802" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="1808" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Taman Suropati</text>
+<path d="M 3500 1829 L 3489 1853 L 3511 1853 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3500 1802 L 3500 1722" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3500" cy="1722" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="1728" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Surabaya</text>
+<path d="M 3500 1749 L 3489 1773 L 3511 1773 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3500 1722 L 3500 1642" fill="none" stroke="#c52d36" stroke-width="6"/>
+<circle cx="3500" cy="1642" r="7" fill="Canvas" stroke="#c52d36" stroke-width="4"/>
+<text x="3523" y="1648" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">St. Cikini Selatan</text>
+<path d="M 3500 1669 L 3489 1693 L 3511 1693 Z" fill="#c52d36" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3500 1642 L 2700 1165" fill="none" stroke="#c52d36" stroke-width="6"/>
+<text x="3523" y="2082" font-size="15" fill="#c52d36" text-anchor="start" font-weight="normal">4C ↑ JIEP · home via Megaria</text>
+<path d="M 3268 2131 L 3500 2054" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="3280" y="2182" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">walk to Tosari 2 · check crossing</text>
+<text x="3820" y="190" font-size="26" fill="currentColor" text-anchor="start" font-weight="600">Central Park ↔ The Breeze BSD</text>
+<path d="M 590 1871 L 590 2935 L 4980 2935 L 4980 300 L 3900 300 L 3900 388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 4500 388 L 4500 330 L 3900 330" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<rect x="582" y="1863" width="16" height="16" rx="3" fill="#2e9e50"/>
+<text x="3740" y="270" font-size="16" fill="currentColor" text-anchor="start" font-weight="normal">From Central Park: JPO walk ~450 m / 6 min</text>
+<circle cx="3900" cy="400" r="12" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="406" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Jln. Gelong Baru Utara</text>
+<path d="M 3900 400 L 3900 484" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="484" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="490" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Tol Kb. Jeruk 1</text>
+<path d="M 3900 455.0 L 3889 431.0 L 3911 431.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 484 L 3900 568" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="568" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="574" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Rest Area Km 13 Jakarta Merak</text>
+<path d="M 3900 539.0 L 3889 515.0 L 3911 515.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 568 L 3900 652" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="652" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="658" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Warung Mangga 2</text>
+<path d="M 3900 623.0 L 3889 599.0 L 3911 599.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 652 L 3900 736" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="736" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="742" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Gading Serpong 2</text>
+<path d="M 3900 707.0 L 3889 683.0 L 3911 683.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 736 L 3900 820" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="820" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="826" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Pakualam</text>
+<path d="M 3900 791.0 L 3889 767.0 L 3911 767.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 820 L 3900 904" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="904" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="910" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Bhayangkara 2</text>
+<path d="M 3900 875.0 L 3889 851.0 L 3911 851.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 904 L 3900 988" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="988" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="994" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Sutera Niaga 2</text>
+<path d="M 3900 959.0 L 3889 935.0 L 3911 935.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 988 L 3900 1072" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1072" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1078" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Bundaran Alam Sutera 2</text>
+<path d="M 3900 1043.0 L 3889 1019.0 L 3911 1019.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1072 L 3900 1156" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1156" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1162" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Lotte Mart Serpong 2</text>
+<path d="M 3900 1127.0 L 3889 1103.0 L 3911 1103.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1156 L 3900 1240" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1240" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1246" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Batalyon Kavaleri 2</text>
+<path d="M 3900 1211.0 L 3889 1187.0 L 3911 1187.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1240 L 3900 1324" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1324" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1330" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">SDN Pondok Jagung 2</text>
+<path d="M 3900 1295.0 L 3889 1271.0 L 3911 1271.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1324 L 3900 1408" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1408" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1414" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">RS Asshobirin 2</text>
+<path d="M 3900 1379.0 L 3889 1355.0 L 3911 1355.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1408 L 3900 1492" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1492" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1498" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Les Belles Maisons 2</text>
+<path d="M 3900 1463.0 L 3889 1439.0 L 3911 1439.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1492 L 3900 1576" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1576" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1582" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">WTC Matahari 2</text>
+<path d="M 3900 1547.0 L 3889 1523.0 L 3911 1523.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1576 L 3900 1660" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1660" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1666" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Melati Mas Residence 2</text>
+<path d="M 3900 1631.0 L 3889 1607.0 L 3911 1607.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1660 L 3900 1744" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1744" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1750" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Sinarmas Land</text>
+<path d="M 3900 1715.0 L 3889 1691.0 L 3911 1691.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1744 L 3900 1828" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1828" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1834" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">BSD Plaza 2</text>
+<path d="M 3900 1799.0 L 3889 1775.0 L 3911 1775.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1828 L 3900 1912" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1912" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="1918" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">ITC Serpong 2</text>
+<path d="M 3900 1883.0 L 3889 1859.0 L 3911 1859.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1912 L 3900 1996" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="1996" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="2002" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Astek</text>
+<path d="M 3900 1967.0 L 3889 1943.0 L 3911 1943.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 1996 L 3900 2080" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="3900" cy="2080" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="3877" y="2086" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Teraskota</text>
+<path d="M 3900 2051.0 L 3889 2027.0 L 3911 2027.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 3900 2080 L 3900 2164" fill="none" stroke="#917000" stroke-width="6"/>
+<path d="M 3900 2135.0 L 3889 2111.0 L 3911 2111.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="4200" cy="2164" r="12" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4200" y="2206" font-size="20" fill="currentColor" text-anchor="middle" font-weight="600">Serpong BSD</text>
+<path d="M 3900 2164 L 4200 2164" fill="none" stroke="#917000" stroke-width="6"/>
+<path d="M 4200 2164 L 4500 2164" fill="none" stroke="#917000" stroke-width="6"/>
+<text x="3876" y="365" font-size="21" fill="#917000" text-anchor="end" font-weight="600">S11 ↓ BSD</text>
+<path d="M 4500 2164.0 L 4500 2087.304347826087" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="2087.304347826087" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="2093.304347826087" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">BSD City 1</text>
+<path d="M 4500 2112.6521739130435 L 4489 2136.6521739130435 L 4511 2136.6521739130435 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 2087.304347826087 L 4500 2010.608695652174" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="2010.608695652174" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="2016.608695652174" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Wisma BCA</text>
+<path d="M 4500 2035.9565217391305 L 4489 2059.9565217391305 L 4511 2059.9565217391305 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 2010.608695652174 L 4500 1933.913043478261" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1933.913043478261" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1939.913043478261" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Samsat BSD</text>
+<path d="M 4500 1959.2608695652175 L 4489 1983.2608695652175 L 4511 1983.2608695652175 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1933.9130434782608 L 4500 1857.2173913043478" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1857.2173913043478" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1863.2173913043478" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">ITC Serpong 1</text>
+<path d="M 4500 1882.5652173913043 L 4489 1906.5652173913043 L 4511 1906.5652173913043 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1857.2173913043478 L 4500 1780.5217391304348" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1780.5217391304348" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1786.5217391304348" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Ruko BSD Sektor 7</text>
+<path d="M 4500 1805.8695652173913 L 4489 1829.8695652173913 L 4511 1829.8695652173913 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1780.5217391304348 L 4500 1703.8260869565217" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1703.8260869565217" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1709.8260869565217" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">BSD Plaza 1</text>
+<path d="M 4500 1729.1739130434783 L 4489 1753.1739130434783 L 4511 1753.1739130434783 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1703.8260869565215 L 4500 1627.1304347826085" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1627.1304347826085" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1633.1304347826085" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Melati Mas Residence 1</text>
+<path d="M 4500 1652.478260869565 L 4489 1676.478260869565 L 4511 1676.478260869565 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1627.1304347826085 L 4500 1550.4347826086955" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1550.4347826086955" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1556.4347826086955" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">WTC Matahari 1</text>
+<path d="M 4500 1575.782608695652 L 4489 1599.782608695652 L 4511 1599.782608695652 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1550.4347826086955 L 4500 1473.7391304347825" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1473.7391304347825" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1479.7391304347825" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Les Belles Maisons 1</text>
+<path d="M 4500 1499.086956521739 L 4489 1523.086956521739 L 4511 1523.086956521739 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1473.7391304347825 L 4500 1397.0434782608695" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1397.0434782608695" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1403.0434782608695" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">RS Asshobirin 1</text>
+<path d="M 4500 1422.391304347826 L 4489 1446.391304347826 L 4511 1446.391304347826 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1397.0434782608695 L 4500 1320.3478260869565" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1320.3478260869565" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1326.3478260869565" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">SDN Pondok Jagung 1</text>
+<path d="M 4500 1345.695652173913 L 4489 1369.695652173913 L 4511 1369.695652173913 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1320.3478260869565 L 4500 1243.6521739130435" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1243.6521739130435" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1249.6521739130435" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Batalyon Kavaleri 1</text>
+<path d="M 4500 1269.0 L 4489 1293.0 L 4511 1293.0 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1243.6521739130435 L 4500 1166.9565217391305" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1166.9565217391305" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1172.9565217391305" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Lotte Mart Serpong 1</text>
+<path d="M 4500 1192.304347826087 L 4489 1216.304347826087 L 4511 1216.304347826087 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1166.9565217391303 L 4500 1090.2608695652173" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1090.2608695652173" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1096.2608695652173" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Bundaran Alam Sutera 1</text>
+<path d="M 4500 1115.6086956521738 L 4489 1139.6086956521738 L 4511 1139.6086956521738 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1090.2608695652173 L 4500 1013.5652173913043" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="1013.5652173913043" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="1019.5652173913043" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Masjid At Taqwa</text>
+<path d="M 4500 1038.9130434782608 L 4489 1062.9130434782608 L 4511 1062.9130434782608 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 1013.5652173913043 L 4500 936.8695652173913" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="936.8695652173913" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="942.8695652173913" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Bhayangkara 1</text>
+<path d="M 4500 962.2173913043478 L 4489 986.2173913043478 L 4511 986.2173913043478 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 936.8695652173913 L 4500 860.1739130434783" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="860.1739130434783" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="866.1739130434783" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pratama Abadi</text>
+<path d="M 4500 885.5217391304348 L 4489 909.5217391304348 L 4511 909.5217391304348 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 860.1739130434783 L 4500 783.4782608695652" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="783.4782608695652" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="789.4782608695652" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Gading Serpong 1</text>
+<path d="M 4500 808.8260869565217 L 4489 832.8260869565217 L 4511 832.8260869565217 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 783.478260869565 L 4500 706.782608695652" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="706.782608695652" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="712.782608695652" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Warung Mangga 1</text>
+<path d="M 4500 732.1304347826085 L 4489 756.1304347826085 L 4511 756.1304347826085 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 706.782608695652 L 4500 630.086956521739" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="630.086956521739" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="636.086956521739" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kb. Nanas</text>
+<path d="M 4500 655.4347826086955 L 4489 679.4347826086955 L 4511 679.4347826086955 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 630.086956521739 L 4500 553.391304347826" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="553.391304347826" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="559.391304347826" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rest Area Km 13 Merak Jakarta</text>
+<path d="M 4500 578.7391304347825 L 4489 602.7391304347825 L 4511 602.7391304347825 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 553.391304347826 L 4500 476.695652173913" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="476.695652173913" r="7" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="482.695652173913" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Tol Kb. Jeruk 2</text>
+<path d="M 4500 502.0434782608695 L 4489 526.0434782608695 L 4511 526.0434782608695 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<path d="M 4500 476.69565217391306 L 4500 400.0" fill="none" stroke="#917000" stroke-width="6"/>
+<circle cx="4500" cy="400.0" r="12" fill="Canvas" stroke="#917000" stroke-width="4"/>
+<text x="4523" y="406.0" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Taman Anggrek</text>
+<path d="M 4500 425.3478260869565 L 4489 449.3478260869565 L 4511 449.3478260869565 Z" fill="#917000" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<text x="4524" y="365" font-size="21" fill="#917000" text-anchor="start" font-weight="600">S11 ↑ Jelambar</text>
+<rect x="4180" y="2304" width="18" height="18" rx="3" fill="#2e9e50"/>
+<text x="4200" y="2347" font-size="24" fill="#2e9e50" text-anchor="middle" font-weight="600">The Breeze BSD</text>
+<path d="M 3900 2176 L 4180 2313" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 4198 2313 L 4500 2176" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="4200" y="2384" font-size="17" fill="currentColor" text-anchor="middle" font-weight="normal">S11 ends at Serpong BSD, not at the mall.</text>
+<text x="4200" y="2414" font-size="17" fill="currentColor" text-anchor="middle" font-weight="normal">Walk ~2.2 km / 29 min via BSD Grand Boulevard.</text>
+<text x="4200" y="2442" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">Pedestrian path / crossings not checked on site.</text>
+<text x="4500" y="315" font-size="15" fill="currentColor" text-anchor="middle" font-weight="normal">Off at Taman Anggrek; walk back to Central Park.</text>
+<text x="4200" y="2492" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">Operator feed: S11-L05 outbound, S11-R05 return.</text>
+<text x="4200" y="2520" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">No live arrivals or guaranteed last bus; check TJ app.</text>
 <text x="60" y="2978" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.</text>
 <text x="60" y="3009" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;</text>
 <text x="60" y="3040" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Traveloka 05:00-22:00. Do not assume late service. No guaranteed arrival times for either return option.</text>
@@ -1205,16 +1705,19 @@ var TUJU_SEGMENTS = [
   {"label": "7E toward Kampung Rambutan", "stops": ["Masjid Ar-Raudhah", "Ampera 1", "Jatipadang Raya", "Jln. Jatipadang Poncol", "Jln. Mujair Raya", "Jln. Gabus Raya"], "coords": [[-6.293846, 106.821474], [-6.292069, 106.81774], [-6.293986, 106.82335], [-6.297767, 106.83089], [-6.299485, 106.83347], [-6.301222, 106.83623]], "sched": [0, 3, 6, 11, 12, 14]},
   {"label": "10 toward PGC", "stops": ["Kayu Putih Rawasari", "Pemuda Pramuka", "Utan Kayu Rawamangun", "Pisangan", "Flyover Jatinegara", "Pedati Prumpung", "Kebon Nanas", "Halim", "Simpang Cawang", "Cawang Sentral"], "coords": [[-6.187473, 106.875451], [-6.192822, 106.875006], [-6.197554, 106.874051], [-6.205521, 106.873814], [-6.215541, 106.87436], [-6.220159, 106.874432], [-6.231662, 106.87639], [-6.239069, 106.878031], [-6.244803, 106.876004], [-6.250384, 106.873616]], "sched": [0, 3, 5, 10, 15, 17, 24, 28, 31, 34]},
   {"label": "9 toward Pluit", "stops": ["Cawang Sentral", "Cawang", "Ciliwung Arah Barat", "Cikoko Arah Barat", "Tebet Eco Park Arah Barat", "Pancoran Tugu Arah Barat", "Pancoran Arah Barat", "Tegal Parang Arah Barat", "Simpang Kuningan", "Denpasar Arah Barat", "Widya Chandra Telkomsel Arah Barat", "Semanggi", "Gerbang Pemuda Arah Barat", "Petamburan", "Kemanggisan Arah Utara", "Kota Bambu Arah Utara", "Tanjung Duren Arah Barat"], "coords": [[-6.250352, 106.873536], [-6.245901, 106.871194], [-6.243292, 106.86356], [-6.243376, 106.858187], [-6.243338, 106.85212], [-6.2433, 106.84388], [-6.241691, 106.83737592], [-6.238863, 106.83022], [-6.237267, 106.827929], [-6.233406, 106.821958], [-6.227374, 106.817584], [-6.220511, 106.812943], [-6.213962, 106.808428], [-6.201963, 106.799812], [-6.18991, 106.796939], [-6.184506, 106.796739], [-6.175635, 106.792248]], "sched": [0, 4, 8, 11, 14, 18, 22, 26, 28, 32, 36, 40, 44, 52, 59, 62, 67]},
-  {"label": "4C toward Bundaran Senayan", "stops": ["Pramuka BPKP 2", "Pramuka LIA 2", "Utan Kayu 2", "Jln. Pramuka 4", "Jln. Pramuka 2", "Simpang Matraman 2", "Masjid Jami Matraman", "Tugu Proklamasi"], "coords": [[-6.192333, 106.873631], [-6.19246, 106.868312], [-6.192932, 106.864505], [-6.193536, 106.862829], [-6.19765, 106.856419], [-6.201601, 106.85144], [-6.201844, 106.85085], [-6.202606, 106.847711]], "sched": [0, 3, 5, 6, 10, 14, 14, 16]},
+  {"label": "4C toward Bundaran Senayan", "stops": ["Pramuka BPKP 2", "Pramuka LIA 2", "Utan Kayu 2", "Jln. Pramuka 4", "Jln. Pramuka 2", "Simpang Matraman 2", "Masjid Jami Matraman", "Tugu Proklamasi", "Tugu Proklamasi 2", "Jln. Penataran", "SMPN 8", "Gedung Wanita", "Museum Proklamasi", "KPU", "Graha Mandiri", "Tosari 3"], "coords": [[-6.192333, 106.873631], [-6.19246, 106.868312], [-6.192932, 106.864505], [-6.193536, 106.862829], [-6.19765, 106.856419], [-6.201601, 106.85144], [-6.201844, 106.85085], [-6.202606, 106.847711], [-6.203214, 106.845575], [-6.20228, 106.84418], [-6.201167, 106.84291], [-6.200921, 106.83624], [-6.200007, 106.83113], [-6.199411, 106.82749], [-6.197443, 106.82533], [-6.200069, 106.82335]], "sched": [0, 3, 5, 6, 10, 14, 14, 16, 18, 19, 20, 24, 27, 29, 30, 34]},
   {"label": "5M toward Tanah Abang via Cikini", "stops": ["Matraman 3", "Masjid Jami Matraman", "Tugu Proklamasi", "Tugu Proklamasi 2", "Jln. Penataran", "SMPN 8", "Teuku Cik Ditiro", "RS Mata Menteng", "RSIA Bunda 2", "Konsil Kedokteran Indonesia", "Simpang RP Soeroso", "Farmasi RP Soeroso", "Kanisius", "Telkom Grapari", "Balai Kota 1", "Perpustakaan Nasional", "Dana Reksa", "Wisma Mandiri 2", "Kementerian Agama", "Sbr. Jembatan Serong", "Jln. Taman Kb. Sirih", "JPO Blok E"], "coords": [[-6.200407, 106.85452], [-6.201844, 106.85085], [-6.202606, 106.847711], [-6.203214, 106.845575], [-6.20228, 106.84418], [-6.201167, 106.84291], [-6.200319, 106.83741], [-6.198015, 106.837005], [-6.196015, 106.83672], [-6.194458, 106.83649], [-6.191609, 106.836117], [-6.187939, 106.83608], [-6.185327, 106.83551], [-6.18222, 106.83297], [-6.180598, 106.82847], [-6.180673, 106.82643], [-6.181365, 106.82451], [-6.18333, 106.82382], [-6.183405, 106.82236], [-6.182357, 106.81818], [-6.182679, 106.816386], [-6.184738, 106.81492]], "sched": [0, 2, 4, 6, 7, 8, 11, 13, 14, 15, 16, 19, 20, 22, 26, 27, 28, 30, 31, 33, 34, 36]},
   {"label": "4D toward Patra Kuningan (westbound pattern)", "stops": ["Simpang Pramuka 2", "Pramuka Sari", "Utan Kayu", "Pasar Genjing", "Matraman", "Tegalan", "Kesatrian", "Halte Manggarai Temporer 2", "Pasar Rumput", "Halimun", "Setiabudi Integritas", "Kuningan Madya", "Karet Kuningan", "Rasuna Said"], "coords": [[-6.192457, 106.874554], [-6.192299, 106.868595], [-6.192785, 106.864588], [-6.194491, 106.860956], [-6.199931, 106.854476], [-6.203072, 106.857212], [-6.208506, 106.859373], [-6.209383, 106.847603], [-6.207149, 106.8411], [-6.20516789, 106.83337212], [-6.209157, 106.830202], [-6.213407, 106.830459], [-6.216644, 106.830727], [-6.221593, 106.832224]], "sched": null},
+  {"label": "S11 toward BSD", "stops": ["Jln. Gelong Baru Utara", "Tol Kb. Jeruk 1", "Rest Area Km 13 Jakarta Merak", "Warung Mangga 2", "Gading Serpong 2", "Pakualam", "Bhayangkara 2", "Sutera Niaga 2", "Bundaran Alam Sutera 2", "Lotte Mart Serpong 2", "Batalyon Kavaleri 2", "SDN Pondok Jagung 2", "RS Asshobirin 2", "Les Belles Maisons 2", "WTC Matahari 2", "Melati Mas Residence 2", "Sinarmas Land", "BSD Plaza 2", "ITC Serpong 2", "Astek", "Teraskota", "Serpong BSD"], "coords": [[-6.175678, 106.79315], [-6.190197, 106.767587], [-6.214583, 106.68105], [-6.225732, 106.63785], [-6.230464, 106.64147], [-6.232864, 106.64262], [-6.236714, 106.64559], [-6.240488, 106.6474], [-6.243905, 106.64901], [-6.248116, 106.64991], [-6.252704, 106.65081], [-6.256133, 106.65144], [-6.258481, 106.65199], [-6.262386, 106.65391], [-6.266719, 106.65469], [-6.271291, 106.65563], [-6.277996, 106.6612], [-6.280847, 106.66305], [-6.286624, 106.66563], [-6.291175, 106.66598], [-6.295262, 106.66658], [-6.299109, 106.665659]], "sched": [0, 19, 68, 94, 97, 99, 101, 104, 106, 108, 111, 113, 114, 117, 119, 122, 126, 128, 132, 135, 137, 141]},
   {"label": "5M return: Kantor Pos Cikini - Megaria", "stops": ["Kantor Pos Cikini", "Taman Ismail Marzuki", "ABA", "PTUN Jakarta", "Pegangsaan Timur", "Megaria"], "coords": [[-6.187198, 106.836462], [-6.19163, 106.83847], [-6.194149, 106.83939], [-6.196388, 106.84025], [-6.199263, 106.84205], [-6.200045, 106.84456]], "sched": null},
   {"label": "4C return: Megaria - Pramuka BPKP 1", "stops": ["Megaria", "RSCM 1", "RSCM 2", "RS Carolus", "Kemensos", "Pasar Genjing 1", "Jln. Pramuka 5", "Pramuka LIA 1", "Pramuka BPKP 1"], "coords": [[-6.200045, 106.84456], [-6.198831, 106.84636], [-6.197078, 106.84803], [-6.196081, 106.85054], [-6.198662, 106.85328], [-6.19448, 106.860512], [-6.192861, 106.863425], [-6.192054, 106.868453], [-6.191932, 106.873939]], "sched": null},
   {"label": "7E return: Phe Tower Kebagusan - Department of Agriculture Busway Shelter", "stops": ["Phe Tower Kebagusan", "Plaza Oleos", "Kebagusan Raya", "Kementan", "Kementan 2", "Department of Agriculture Busway Shelter"], "coords": [[-6.299876, 106.83323], [-6.29771, 106.82965], [-6.296314, 106.82703], [-6.294976, 106.82448], [-6.29463, 106.82363], [-6.294628, 106.822135]], "sched": null},
   {"label": "6 return: Ragunan - Galunggung", "stops": ["Ragunan", "Simpang Ragunan Ar-Raudhah", "Jati Barat", "Jati Padang", "Pejaten", "Buncit Indah", "Warung Jati", "Warung Buncit", "Duren Tiga", "Mampang Prapatan", "Underpass Kuningan", "Patra Kuningan", "Kuningan", "Rasuna Said", "Karet Kuningan", "Kuningan Madya", "Setiabudi Integritas", "Flyover Kuningan", "Galunggung"], "coords": [[-6.305729, 106.818997], [-6.294628, 106.822135], [-6.290966, 106.823653], [-6.285374, 106.826292], [-6.278404, 106.829723], [-6.274341, 106.830297], [-6.262366, 106.829772], [-6.256971, 106.828084], [-6.252363, 106.82697], [-6.242702, 106.825716], [-6.234739, 106.829031], [-6.232665, 106.83208], [-6.228789, 106.8332], [-6.221617, 106.832252], [-6.216677, 106.830746], [-6.213433, 106.830477], [-6.209183, 106.830235], [-6.20277, 106.827682], [-6.2044, 106.823381]], "sched": null},
   {"label": "4 return: Galunggung - Simpang Pramuka 1", "stops": ["Galunggung", "Halimun", "Pasar Rumput", "Halte Manggarai Temporer 1", "Flyover Pramuka", "Pasar Genjing", "Utan Kayu", "Pramuka Sari", "Simpang Pramuka 1"], "coords": [[-6.2044, 106.823381], [-6.205133, 106.833382], [-6.207114, 106.841116], [-6.209127, 106.847159], [-6.198911, 106.854502], [-6.194442, 106.860917], [-6.192721, 106.864571], [-6.192231, 106.868586], [-6.191823, 106.873279]], "sched": null},
   {"label": "7F return: Flyover Raya Bogor - Kayu Putih Rawasari", "stops": ["Flyover Raya Bogor", "Trikora", "Pasar Induk", "Utan Kayu Rawamangun", "Pemuda Pramuka", "Kayu Putih Rawasari"], "coords": [[-6.306539, 106.865683], [-6.301959, 106.868031], [-6.294219, 106.872049], [-6.197538, 106.874033], [-6.192813, 106.874972], [-6.187467, 106.875418]], "sched": null},
-  {"label": "4D return: Patra Kuningan - Simpang Pramuka 1", "stops": ["Patra Kuningan", "Kuningan", "Rasuna Said", "Karet Kuningan", "Kuningan Madya", "Halimun", "Pasar Rumput", "Halte Manggarai Temporer 1", "Flyover Pramuka", "Pasar Genjing", "Utan Kayu", "Pramuka Sari", "Simpang Pramuka 1"], "coords": [[-6.232665, 106.83208], [-6.228789, 106.8332], [-6.221617, 106.832252], [-6.216677, 106.830746], [-6.213433, 106.830477], [-6.205133, 106.833382], [-6.207114, 106.841116], [-6.209127, 106.847159], [-6.198911, 106.854502], [-6.194442, 106.860917], [-6.192721, 106.864571], [-6.192231, 106.868586], [-6.191823, 106.873279]], "sched": null}
+  {"label": "4D return: Patra Kuningan - Simpang Pramuka 1", "stops": ["Patra Kuningan", "Kuningan", "Rasuna Said", "Karet Kuningan", "Kuningan Madya", "Halimun", "Pasar Rumput", "Halte Manggarai Temporer 1", "Flyover Pramuka", "Pasar Genjing", "Utan Kayu", "Pramuka Sari", "Simpang Pramuka 1"], "coords": [[-6.232665, 106.83208], [-6.228789, 106.8332], [-6.221617, 106.832252], [-6.216677, 106.830746], [-6.213433, 106.830477], [-6.205133, 106.833382], [-6.207114, 106.841116], [-6.209127, 106.847159], [-6.198911, 106.854502], [-6.194442, 106.860917], [-6.192721, 106.864571], [-6.192231, 106.868586], [-6.191823, 106.873279]], "sched": null},
+  {"label": "S11 return: Serpong BSD - Taman Anggrek", "stops": ["Serpong BSD", "BSD City 1", "Wisma BCA", "Samsat BSD", "ITC Serpong 1", "Ruko BSD Sektor 7", "BSD Plaza 1", "Melati Mas Residence 1", "WTC Matahari 1", "Les Belles Maisons 1", "RS Asshobirin 1", "SDN Pondok Jagung 1", "Batalyon Kavaleri 1", "Lotte Mart Serpong 1", "Bundaran Alam Sutera 1", "Masjid At Taqwa", "Bhayangkara 1", "Pratama Abadi", "Gading Serpong 1", "Warung Mangga 1", "Kb. Nanas", "Rest Area Km 13 Merak Jakarta", "Tol Kb. Jeruk 2", "Taman Anggrek"], "coords": [[-6.299109, 106.665659], [-6.299429, 106.666678], [-6.295293, 106.66633], [-6.291005, 106.6658], [-6.286016, 106.66493], [-6.281034, 106.66287], [-6.278263, 106.66103], [-6.271343, 106.65549], [-6.266812, 106.65449], [-6.262578, 106.65378], [-6.258627, 106.65185], [-6.256261, 106.65132], [-6.252806, 106.65064], [-6.248159, 106.64973], [-6.244107, 106.64889], [-6.24055, 106.6472], [-6.236949, 106.64549], [-6.233124, 106.64256], [-6.230729, 106.64138], [-6.225899, 106.63778], [-6.221291, 106.63364], [-6.214273, 106.67784], [-6.189835, 106.76681], [-6.17624, 106.79281]], "sched": null},
+  {"label": "4C return: Tosari 2 - Megaria", "stops": ["Tosari 2", "Imam Bonjol", "Kartini", "Taman Suropati", "Surabaya", "St. Cikini Selatan", "Megaria"], "coords": [[-6.198915, 106.82295], [-6.196105, 106.824377], [-6.199557, 106.82891], [-6.200037, 106.83234], [-6.201305, 106.84116], [-6.200967, 106.84287], [-6.200045, 106.84456]], "sched": null}
 ];
 /* journey-segments:end */
 
@@ -1828,6 +2331,14 @@ fillStops();
 </ol>
 <p class="note fare">Both legs from the TransJakarta operator GTFS feed (trips 5M-R02 and 4C-R10), checked 22 Nov 2026 - the feed lists 5M and 4C sharing the Megaria stop, and the same 4C also serves RSCM 1, RSCM 2, RS Carolus and Kemensos on the way, so any of those works for the change. Zero-transfer option: walk about 20 min (1.6 km) to <strong>Megaria</strong> and ride the same 4C straight home. Curbside feeders: fresh tap on each boarding. Never reverse the outbound list - the homebound 4C is its own pattern. Check the destination sign on the day.</p>
 </div>
+
+<h2 id="the-breeze">The Breeze BSD City</h2>
+<p class="sub">BSD Green Office Park, Sampora, Cisauk. S11 from Central Park, then a substantial final walk.</p>
+<div class="card"><h3>Getting there: S11 toward BSD</h3><svg viewBox="0 0 500 260" role="img" aria-label="Selected route overview"><circle cx="35" cy="30" r="7" fill="Canvas" stroke="#917000" stroke-width="3"/><text x="55" y="35" fill="currentColor" font-size="14">Central Park: cross by pedestrian overpass</text><path d="M 35 38 V 82" stroke="#917000" stroke-width="4"/><circle cx="35" cy="90" r="7" fill="Canvas" stroke="#917000" stroke-width="3"/><text x="55" y="95" fill="currentColor" font-size="14">Jln. Gelong Baru Utara: board S11 toward BSD</text><path d="M 35 98 V 142" stroke="#917000" stroke-width="4"/><circle cx="35" cy="150" r="7" fill="Canvas" stroke="#917000" stroke-width="3"/><text x="55" y="155" fill="currentColor" font-size="14">Serpong BSD terminus: get off</text><path d="M 35 158 V 202" stroke="#917000" stroke-width="4"/><circle cx="35" cy="210" r="7" fill="Canvas" stroke="#917000" stroke-width="3"/><text x="55" y="215" fill="currentColor" font-size="14">Walk to The Breeze BSD</text></svg><ol class="legs"><li>From Central Park, walk about 450 m / 6 min via the pedestrian overpass to <strong>Jln. Gelong Baru Utara</strong>. This is a curbside stop, not the paid Tanjung Duren BRT halte. Gerbang Tol Tj. Duren, the preceding S11 stop, is another boarding option.</li><li>Ride <strong>S11 toward BSD</strong> to the <strong>Serpong BSD</strong> terminus. All selected intermediate stops are drawn in the combined map.</li><li>Walk about <strong>2.2 km / 29 min</strong> via Jl. BSD Grand Boulevard and BSD Green Office Park. S11 does not stop at The Breeze itself. Sidewalk continuity and crossings have not been checked on site.</li></ol><p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Jln.+Gelong+Baru+Utara%2C+Tomang%2C+Kec.+Grogol+petamburan%2C+Kota+Jakarta+Barat%2C+Daerah+Khusus+Ibukota+Jakarta%2C+Indonesia&amp;destination_place_id=ChIJZ8zUxV_2aS4R72dloOGpHoA&amp;origin=Jl.+Letjen+S.+Parman+No.Kav.28%2C+RT.12%2FRW.6%2C+Tj.+Duren+Sel.%2C+Kec.+Grogol+petamburan%2C+Kota+Jakarta+Barat%2C+Daerah+Khusus+Ibukota+Jakarta+11470%2C+Indonesia&amp;origin_place_id=ChIJHTgvgPX2aS4ReiDDN1DWFug&amp;travelmode=walking">Central Park to the S11 boarding stop</a> · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Jl.+BSD+Green+Office+Park+Jl.+BSD+Grand+Boulevard%2C+Sampora%2C+Kec.+Cisauk%2C+Kabupaten+Tangerang%2C+Banten+15345%2C+Indonesia&amp;destination_place_id=ChIJmWxX_QP7aS4R-lLtbHP15_U&amp;origin=Serpong+BSD%2C+Lengkong+Gudang%2C+Kec.+Serpong%2C+Kota+Tangerang+Selatan%2C+Banten%2C+Indonesia&amp;origin_place_id=ChIJ184iCi77aS4RsS-YuydZiC0&amp;travelmode=walking">Serpong BSD to The Breeze walking directions</a></p><p class="note">Bus stop order: official operator GTFS, S11-L05 (BSD-bound portion), checked 22 Nov 2026. Fare file lists S11 at Rp3,500. Walking route: Google Maps, same check date. These are planning estimates, not live arrivals or a promise of a safe continuous footpath.</p></div>
+<div class="card"><h3>Coming back: S11 toward Jelambar</h3><svg viewBox="0 0 500 260" role="img" aria-label="Selected route overview"><circle cx="35" cy="30" r="7" fill="Canvas" stroke="#917000" stroke-width="3"/><text x="55" y="35" fill="currentColor" font-size="14">The Breeze: walk back to Serpong BSD</text><path d="M 35 38 V 82" stroke="#917000" stroke-width="4"/><circle cx="35" cy="90" r="7" fill="Canvas" stroke="#917000" stroke-width="3"/><text x="55" y="95" fill="currentColor" font-size="14">Serpong BSD: board S11 toward Jelambar</text><path d="M 35 98 V 142" stroke="#917000" stroke-width="4"/><circle cx="35" cy="150" r="7" fill="Canvas" stroke="#917000" stroke-width="3"/><text x="55" y="155" fill="currentColor" font-size="14">Taman Anggrek: get off</text><path d="M 35 158 V 202" stroke="#917000" stroke-width="4"/><circle cx="35" cy="210" r="7" fill="Canvas" stroke="#917000" stroke-width="3"/><text x="55" y="215" fill="currentColor" font-size="14">Walk back to Central Park</text></svg><ol class="legs"><li>Return to <strong>Serpong BSD</strong> and board <strong>S11 toward Jelambar</strong>.</li><li>Get off at <strong>Taman Anggrek</strong>, near Central Park. This is a different stop from the BSD-bound boarding stop. Follow the mall pedestrian access; the exact return walking route has not been checked on site.</li></ol><p class="note">Return sequence is independently listed in official trip S11-R05, not a reversed outbound list. The feed also has a loop pattern. Check the headsign, next departure and last bus in TJ: Transjakarta before leaving. No guaranteed service time is implied by this static map.</p></div>
+<h2 id="grand-indonesia">Grand Indonesia</h2><p class="sub">Jl. MH Thamrin No.1, Central Jakarta. Direct 4C from the Green Pramuka area, with no bus change.</p>
+<div class="card"><h3>Getting there: 4C toward Bundaran Senayan</h3><svg viewBox="0 0 500 260" role="img" aria-label="Selected route overview"><circle cx="35" cy="30" r="7" fill="Canvas" stroke="#c52d36" stroke-width="3"/><text x="55" y="35" fill="currentColor" font-size="14">Green Pramuka area: walk to Pramuka BPKP 2</text><path d="M 35 38 V 82" stroke="#c52d36" stroke-width="4"/><circle cx="35" cy="90" r="7" fill="Canvas" stroke="#c52d36" stroke-width="3"/><text x="55" y="95" fill="currentColor" font-size="14">Board 4C toward Bundaran Senayan</text><path d="M 35 98 V 142" stroke="#c52d36" stroke-width="4"/><circle cx="35" cy="150" r="7" fill="Canvas" stroke="#c52d36" stroke-width="3"/><text x="55" y="155" fill="currentColor" font-size="14">Get off at Tosari 3</text><path d="M 35 158 V 202" stroke="#c52d36" stroke-width="4"/><circle cx="35" cy="210" r="7" fill="Canvas" stroke="#c52d36" stroke-width="3"/><text x="55" y="215" fill="currentColor" font-size="14">Walk to Grand Indonesia</text></svg><ol class="legs"><li>Walk to <strong>Pramuka BPKP 2</strong>, as for the existing Cikini route (about 850 m from the area).</li><li>Stay on <strong>4C toward Bundaran Senayan</strong> past Tugu Proklamasi to <strong>Tosari 3</strong>. No change to 5M is needed. Intermediate stops appear on the shared map spine and its 4C branch.</li><li>Walk approximately <strong>640 m / 8 min</strong> to Grand Indonesia. Use the mapped pedestrian crossing, not a direct road crossing.</li></ol><p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Jl.+MH+Thamrin+No.1%2C+Menteng%2C+Kec.+Menteng%2C+Kota+Jakarta+Pusat%2C+Daerah+Khusus+Ibukota+Jakarta+10310%2C+Indonesia&amp;destination_place_id=ChIJY9TrwiH0aS4RrvGqlZvI_Mw&amp;origin=Tosari+3%2C+Dukuh+Atas%2C+Menteng%2C+Kec.+Menteng%2C+Kota+Jakarta+Pusat%2C+Daerah+Khusus+Ibukota+Jakarta%2C+Indonesia&amp;origin_place_id=ChIJbdJx0R70aS4RWJ-tIBRtYms&amp;travelmode=walking">Tosari 3 to Grand Indonesia walking directions</a></p><p class="note">Official GTFS trip 4C-R09, checked 22 Nov 2026. Walking estimate from Google Maps. Street crossings and the chosen mall entrance remain unverified on site.</p></div>
+<div class="card"><h3>Coming back: 4C toward JIEP</h3><svg viewBox="0 0 500 260" role="img" aria-label="Selected route overview"><circle cx="35" cy="30" r="7" fill="Canvas" stroke="#c52d36" stroke-width="3"/><text x="55" y="35" fill="currentColor" font-size="14">Grand Indonesia: walk to Tosari 2</text><path d="M 35 38 V 82" stroke="#c52d36" stroke-width="4"/><circle cx="35" cy="90" r="7" fill="Canvas" stroke="#c52d36" stroke-width="3"/><text x="55" y="95" fill="currentColor" font-size="14">Board 4C toward JIEP</text><path d="M 35 98 V 142" stroke="#c52d36" stroke-width="4"/><circle cx="35" cy="150" r="7" fill="Canvas" stroke="#c52d36" stroke-width="3"/><text x="55" y="155" fill="currentColor" font-size="14">Stay aboard through Megaria</text><path d="M 35 158 V 202" stroke="#c52d36" stroke-width="4"/><circle cx="35" cy="210" r="7" fill="Canvas" stroke="#c52d36" stroke-width="3"/><text x="55" y="215" fill="currentColor" font-size="14">Pramuka BPKP 1: get off, then walk home</text></svg><ol class="legs"><li>Walk to <strong>Tosari 2</strong>, the JIEP-bound curbside stop. Do not board the Bundaran Senayan-bound 4C. Confirm the stop and crossing in Maps.</li><li>Ride <strong>4C toward JIEP</strong> through Imam Bonjol, Kartini, Taman Suropati, Surabaya, St. Cikini Selatan and <strong>Megaria</strong>, then remain aboard on the existing homebound spine to <strong>Pramuka BPKP 1</strong>.</li><li>Walk back to the Green Pramuka area, about 850 m.</li></ol><p class="note">Official GTFS trip 4C-R10, checked 22 Nov 2026, independently listed rather than reversed. Both directions are curbside boardings. Regular fare in the operator feed is Rp3,500; check the current fare and headsign on the day. No total trip time is promised.</p></div>
 
 <div class="card">
 <h3>In a hurry</h3>

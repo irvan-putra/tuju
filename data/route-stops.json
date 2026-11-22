@@ -387,6 +387,46 @@
           "id": "B05812P",
           "name": "Tugu Proklamasi",
           "sequence": 22
+        },
+        {
+          "id": "B05813P",
+          "name": "Tugu Proklamasi 2",
+          "sequence": 23
+        },
+        {
+          "id": "B01468P",
+          "name": "Jln. Penataran",
+          "sequence": 24
+        },
+        {
+          "id": "B05391P",
+          "name": "SMPN 8",
+          "sequence": 25
+        },
+        {
+          "id": "B00604P",
+          "name": "Gedung Wanita",
+          "sequence": 26
+        },
+        {
+          "id": "B02503P",
+          "name": "Museum Proklamasi",
+          "sequence": 27
+        },
+        {
+          "id": "B02095P",
+          "name": "KPU",
+          "sequence": 28
+        },
+        {
+          "id": "B00675P",
+          "name": "Graha Mandiri",
+          "sequence": 29
+        },
+        {
+          "id": "B05775P",
+          "name": "Tosari 3",
+          "sequence": 30
         }
       ]
     },
@@ -584,6 +624,126 @@
           "sequence": 13
         }
       ]
+    },
+    {
+      "route": "S11",
+      "trip": "S11-L05",
+      "direction": "BSD",
+      "source": "https://gtfs.transjakarta.co.id/files/file_gtfs.zip",
+      "checked": "2026-11-22",
+      "stops": [
+        {
+          "id": "B07533P",
+          "name": "Jln. Gelong Baru Utara",
+          "sequence": 30
+        },
+        {
+          "id": "B05770P",
+          "name": "Tol Kb. Jeruk 1",
+          "sequence": 31
+        },
+        {
+          "id": "B03095P",
+          "name": "Rest Area Km 13 Jakarta Merak",
+          "sequence": 32
+        },
+        {
+          "id": "B05877P",
+          "name": "Warung Mangga 2",
+          "sequence": 33
+        },
+        {
+          "id": "B00384P",
+          "name": "Gading Serpong 2",
+          "sequence": 34
+        },
+        {
+          "id": "B02551P",
+          "name": "Pakualam",
+          "sequence": 35
+        },
+        {
+          "id": "B00134P",
+          "name": "Bhayangkara 2",
+          "sequence": 36
+        },
+        {
+          "id": "B05565P",
+          "name": "Sutera Niaga 2",
+          "sequence": 37
+        },
+        {
+          "id": "B00217P",
+          "name": "Bundaran Alam Sutera 2",
+          "sequence": 38
+        },
+        {
+          "id": "B02158P",
+          "name": "Lotte Mart Serpong 2",
+          "sequence": 39
+        },
+        {
+          "id": "B00118P",
+          "name": "Batalyon Kavaleri 2",
+          "sequence": 40
+        },
+        {
+          "id": "B03414P",
+          "name": "SDN Pondok Jagung 2",
+          "sequence": 41
+        },
+        {
+          "id": "B03123P",
+          "name": "RS Asshobirin 2",
+          "sequence": 42
+        },
+        {
+          "id": "B02136P",
+          "name": "Les Belles Maisons 2",
+          "sequence": 43
+        },
+        {
+          "id": "B05903P",
+          "name": "WTC Matahari 2",
+          "sequence": 44
+        },
+        {
+          "id": "B02405P",
+          "name": "Melati Mas Residence 2",
+          "sequence": 45
+        },
+        {
+          "id": "B05226P",
+          "name": "Sinarmas Land",
+          "sequence": 46
+        },
+        {
+          "id": "B00189P",
+          "name": "BSD Plaza 2",
+          "sequence": 47
+        },
+        {
+          "id": "B00818P",
+          "name": "ITC Serpong 2",
+          "sequence": 48
+        },
+        {
+          "id": "B00078P",
+          "name": "Astek",
+          "sequence": 49
+        },
+        {
+          "id": "B05699P",
+          "name": "Teraskota",
+          "sequence": 50
+        },
+        {
+          "id": "B04683P",
+          "name": "Serpong BSD",
+          "sequence": 51
+        }
+      ]
     }
-  ]
+  ],
+  "extension_feed_sha256": "6f0c4f9161f3e930efe72d0cefc205dcbcb5fd74d9b8f013a3343d23131fc297"
 }

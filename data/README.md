@@ -110,3 +110,19 @@ between 7E and corridor 6 is claimed. All other selected routes and the
 firsthand paid-area Flyover Raya Bogor turnaround are retained. Website,
 enlarged map and offline asset are rebuilt together; this source correction
 does not update installed APKs.
+
+## BSD and Grand Indonesia extension, 22 November 2026
+
+New segments use the operator feed downloaded today, SHA-256
+6f0c4f9161f3e930efe72d0cefc205dcbcb5fd74d9b8f013a3343d23131fc297.
+S11-L05 sequence 30 through 51 runs from Jln. Gelong Baru Utara to Serpong BSD.
+S11-R05 independently supplies the return to Taman Anggrek. S11 does not reach
+The Breeze itself. Google Maps walking directions measured about 450 m / 6 min
+from Central Park by JPO and about 2.2 km / 29 min from Serpong BSD to The Breeze.
+These pedestrian routes have not been checked on site.
+
+4C-R09 is extended to Tosari 3 for Grand Indonesia. 4C-R10 supplies the return
+from Tosari 2 to Megaria, where it rejoins the existing Cikini homebound spine.
+The common 4C/5M stretch through SMPN 8 is drawn once with both service colors.
+The feed hash on the original snapshot is retained for older segments;
+extension_feed_sha256 records this download. No network or permission change.

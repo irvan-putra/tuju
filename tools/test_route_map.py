@@ -60,7 +60,7 @@ class StopMapTest(unittest.TestCase):
    n=len(s['stops'])
    if s['coords'] is not None:
     self.assertEqual(len(s['coords']),n)
-    for lat,lon in s['coords']: self.assertTrue(-6.5<lat<-6.0 and 106.7<lon<107.0,(s['label'],lat,lon))
+    for lat,lon in s['coords']: self.assertTrue(-6.5<lat<-6.0 and 106.6<lon<107.0,(s['label'],lat,lon))
    if s['sched'] is not None:
     self.assertEqual(len(s['sched']),n); self.assertEqual(s['sched'][0],0)
     self.assertEqual(s['sched'],sorted(s['sched']))
@@ -92,8 +92,8 @@ class StopMapTest(unittest.TestCase):
   self.assertNotIn('Going home from Arkadia',svg)
   self.assertIn('One network · out and home',svg)
   self.assertIn('translate(700 0)',svg)
-  self.assertIn('3000',svg.split('>')[0])
-  height=int(re.search(r'viewBox="0 0 3000 (\d+)"',svg).group(1))
+  self.assertIn('5000',svg.split('>')[0])
+  height=int(re.search(r'viewBox="0 0 5000 (\d+)"',svg).group(1))
   self.assertLess(height,3400)
   self.assertEqual(svg.count('4D leaves here'),1)
  def test_shared_spine_is_not_a_duplicate_return_column(self):
@@ -106,6 +106,22 @@ class StopMapTest(unittest.TestCase):
   self.assertEqual(texts.count('Phe Tower Kebagusan'),1)
   self.assertIn('Shared 4 / 6 and 10 / 7F spines', ' '.join(texts))
   self.assertIn('not necessarily platforms', ' '.join(texts))
+ def test_bsd_and_grand_indonesia_extensions(self):
+  self.assertEqual(S['S11']['trip'],'S11-L05')
+  self.assertEqual(S['S11']['stops'][0]['id'],'B07533P')
+  self.assertEqual(S['S11']['stops'][-1]['id'],'B04683P')
+  self.assertEqual(S['4C']['stops'][-1]['name'],'Tosari 3')
+  ret=json.loads((ROOT/'data/return-stops.json').read_text())
+  r={x['key']:x for x in ret['segments']}
+  self.assertEqual(r['S11-return']['trip'],'S11-R05')
+  self.assertEqual(r['S11-return']['stops'][-1],'Taman Anggrek')
+  self.assertEqual(r['4C-GI-return']['stops'][0],'Tosari 2')
+  self.assertEqual(r['4C-GI-return']['stops'][-1],'Megaria')
+  svg=(ROOT/'data/all-stops.svg').read_text()
+  for name in ('The Breeze BSD','Grand Indonesia','2.2 km / 29 min'):
+   self.assertIn(name,svg)
+  self.assertEqual(svg.count('Serpong BSD</text>'),1)
+  self.assertEqual(svg.count('SMPN 8</text>'),1)
  def test_offline_asset(self):
   # The journey meter adds an inline script; the asset must still run fully
   # on-device: no external resources and no network calls of any kind.

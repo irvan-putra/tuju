@@ -38,8 +38,8 @@ public class MapAssetTest {
     public void mapAssetIsTheCombinedOverviewMap() throws Exception {
         MainActivity activity = Robolectric.buildActivity(MainActivity.class).get();
         String html = readAsset(activity, "map.html");
-        assertTrue("asset must contain the combined 3000-wide map svg",
-                Pattern.compile("<svg viewBox=\"0 0 3000 \\d+\"").matcher(html).find());
+        assertTrue("asset must contain the combined 5000-wide map svg",
+                Pattern.compile("<svg viewBox=\"0 0 5000 \\d+\"").matcher(html).find());
     }
 
     @Test

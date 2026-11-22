@@ -119,6 +119,8 @@ jobs:
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
 
+          0.2.11 draws S11 and S61 stops on one row only when they are the same named station on opposite sides (for example Warung Mangga 1 and 2). Differently named stops now keep their own rows, because distance alone does not show they share a boarding point. The map is about 500 units taller.
+
           0.2.10 moves the 4D return line and the Halimun and 4-to-6 notes so no route line crosses a station label around Galunggung, Setiabudi Integritas and Kuningan Madya.
 
           0.2.9 tightens the map layout: S11 and S61 move into the empty left and lower areas (map is about 22% shorter), crossing hops drop from 9 to 3, walking links and notes keep clear of text, S11 and S61 out and return stops share one spine matched by GTFS coordinates, and corridor 9 / 10 gains a return leg from GTFS trips 9-R02 and 10-R02. Option A and B notes sit beside the stations they describe.

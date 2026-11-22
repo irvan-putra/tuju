@@ -149,12 +149,20 @@ public class MapGestureTest {
         });
         Thread.sleep(700);
         java.util.concurrent.CountDownLatch noteDone = new java.util.concurrent.CountDownLatch(1);
+        final float[] noteTop = new float[1];
         final boolean[] readable = new boolean[1];
         getInstrumentation().runOnMainSync(() -> web.evaluateJavascript(
-            "document.getElementById('map-reading-notes').scrollIntoView();parseFloat(getComputedStyle(document.querySelector('.map-reading-notes p')).fontSize)>=16",
-            result -> { readable[0] = "true".equals(result); noteDone.countDown(); }));
+            "(function(){var n=document.getElementById('map-reading-notes');return (n.getBoundingClientRect().top+window.scrollY)+':'+getComputedStyle(n.querySelector('p')).fontSize})()",
+            result -> {
+                String[] values=result.replace("\"", "").split(":");
+                noteTop[0]=Float.parseFloat(values[0]);
+                readable[0]=Float.parseFloat(values[1].replace("px", ""))>=16;
+                noteDone.countDown();
+            }));
         assertTrue("Phone notes render at least 16 CSS pixels", noteDone.await(5, java.util.concurrent.TimeUnit.SECONDS) && readable[0]);
-        Thread.sleep(700);
+        getInstrumentation().runOnMainSync(() -> web.scrollTo(0, (int)(noteTop[0]*web.getScale())));
+        Thread.sleep(1000);
+        assertTrue("Notes scroll reached the normal-size text", web.getScrollY() > noteTop[0]*web.getScale()-80);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "map-notes-phone.png")));
     }
 }

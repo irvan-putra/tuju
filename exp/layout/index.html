@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tuju - map layout experiments</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, sans-serif; margin: 0 auto; max-width: 46rem; padding: 1.5rem 1rem 4rem; line-height: 1.55; }
+  h1 { font-size: 1.6rem; margin-bottom: .2rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; border-bottom: 1px solid #8884; padding-bottom: .25rem; }
+  .sub { opacity: .75; margin-top: 0; }
+  .card { border: 1px solid #8884; border-radius: .75rem; padding: 1rem 1.1rem; margin: 1rem 0; }
+  .note { font-size: .85rem; opacity: .8; }
+  a { color: #4a7ddb; }
+  table { border-collapse: collapse; width: 100%; font-size: .88rem; margin: .6rem 0; }
+  th, td { border: 1px solid #8884; padding: .35rem .5rem; text-align: left; vertical-align: top; }
+  th { font-size: .8rem; opacity: .8; }
+  td.num { font-variant-numeric: tabular-nums; }
+  figure { margin: 1rem 0; }
+  figcaption { font-size: .85rem; opacity: .8; margin-top: .3rem; }
+  .shot { background: #fff; color-scheme: light; border: 1px solid #8884; border-radius: .5rem; overflow: hidden; }
+  .shot img { width: 100%; height: auto; display: block; }
+  code { font-size: .85em; background: #8882; border-radius: .25rem; padding: .05rem .3rem; }
+  footer { margin-top: 3rem; font-size: .8rem; opacity: .7; }
+</style>
+</head>
+<body>
+<h1>tuju layout experiments</h1>
+<p class="sub">Can automatic tools place the <a href="../../">tuju route map</a> better than hand placement? Ran 23 Nov 2026 against the 0.2.14 map geometry. Short answer: not yet. Neither candidate was adopted; the hand-placed layout stays.</p>
+
+<h2>What was tried</h2>
+<p>Three small dependency-free tools, documented in <a href="https://github.com/irvan-putra/tuju/blob/main/tools/LAYOUT_PROPOSALS.md">tools/LAYOUT_PROPOSALS.md</a>. They measure and search; they never change the map on their own.</p>
+<ul>
+  <li><code>tools/score_route_map.py</code> scores a built map: line crossings, bends, closest approach of different lines, and text boxes a line touches. Every build prints the score, so any layout change has a number to beat.</li>
+  <li><code>tools/route_walk_links.py</code> routes one walking link by A* search on a grid: label boxes are blocked, crossings and turns cost.</li>
+  <li><code>tools/pack_columns.py</code> packs the map's movable blocks by simulated annealing, minimising link length and bends.</li>
+</ul>
+<p class="note">All score numbers are estimates (estimated label widths, discretized curves). They compare variants; they are not verified layout quality.</p>
+
+<h2>Experiment 1: route the walking links by search</h2>
+<p>Four real walking links were re-routed and each variant re-scored. Base map estimate: crossings 4, bends 44, min gap 26.3, text overlaps 20.</p>
+<table>
+  <tr><th>Walking link</th><th>Hand-drawn<br>len / bends / crossings</th><th>Routed<br>len / bends / crossings</th><th>Map score with routed link (estimate)</th><th>Result</th></tr>
+  <tr><td>Home walk, ~850 m</td><td class="num">961 / 2 / 0</td><td class="num">1081 / 2 / 0</td><td class="num">unchanged</td><td>No gain; 120 units longer.</td></tr>
+  <tr><td>Grand Indonesia out</td><td class="num">1277 / 2 / 1</td><td class="num">1283 / 2 / 1</td><td class="num">crossings 3, rest unchanged</td><td>Near tie: one fewer estimated crossing, 6 units longer.</td></tr>
+  <tr><td>Pramuka walk</td><td class="num">345 / 0 / 0</td><td class="num">405 / 2 / 1</td><td class="num">crossings 5, bends 46</td><td>Worse. The orthogonal-only search loses to a clean diagonal.</td></tr>
+  <tr><td>Bakoel Koffie out</td><td class="num">1164 / 2 / 0</td><td class="num">1020 / 2 / 0</td><td class="num">min gap 26.3 &rarr; 13.0</td><td>Shorter, but the router charges no spacing, so the link crowds the line it follows.</td></tr>
+</table>
+<p>The router ties or loses on 3 of 4 walks, and the one shorter link crowds. Not adopted. Rendered variants: <a href="variant-home-walk-850m.svg">home walk</a> · <a href="variant-gi-out-walk.svg">Grand Indonesia</a> · <a href="variant-pramuka-walk.svg">Pramuka</a> · <a href="variant-bakoel-out-walk.svg">Bakoel Koffie</a>. Raw numbers: <a href="https://github.com/irvan-putra/tuju/blob/main/experiments/results/walk-trial.json">walk-trial.json</a>.</p>
+
+<h2>Experiment 2: pack the corridor blocks</h2>
+<p>With the main network pinned and blocks allowed to slide, the packer lowers its proxy link cost from 5155 to 4587 (&minus;11%, stable across seeds): move the S61 block about 320 units right; S11 is already optimally placed. But the gain does not survive the real geometry:</p>
+<ul>
+  <li>A naive translation of the S61 block sends a connector through the Grand Indonesia note: estimated text overlaps 20 &rarr; 29.</li>
+  <li>Redrawing the links as straight drops collides with the moved block's own header labels: 20 &rarr; 24, crossings unchanged.</li>
+</ul>
+<figure>
+  <div class="shot"><a href="collision-gi-note.png"><img src="collision-gi-note.png" alt="Packed variant: dashed connectors from the moved S61 block run through the Grand Indonesia note area"></a></div>
+  <figcaption>Packed variant, naive translation: dashed connectors pass through the Grand Indonesia note.</figcaption>
+</figure>
+<figure>
+  <div class="shot"><a href="collision-s61-header.png"><img src="collision-s61-header.png" alt="Packed variant: straight-drop links strike through the S61 block header notes"></a></div>
+  <figcaption>Packed variant, straight-drop links: the dashed drops strike through the moved block's own header notes.</figcaption>
+</figure>
+<p>A smaller shift with re-anchored labels is untested. Not adopted. Full packed variant: <a href="variant-packed.svg">variant-packed.svg</a>. Raw numbers: <a href="https://github.com/irvan-putra/tuju/blob/main/experiments/results/pack-trial.json">pack-trial.json</a>.</p>
+
+<h2>Conclusion</h2>
+<p>Neither candidate beat the hand-placed layout once text clearance was checked, so nothing was adopted from these trials. The tools stay in the repo (<code>tools/</code> and <code>experiments/</code>) and the build keeps printing the score, so future layout ideas get measured the same way. Layout improvements since have been placed by hand and checked with the same scorer.</p>
+
+<footer>tuju &middot; <a href="../../">route map</a> &middot; <a href="https://github.com/irvan-putra/tuju">source</a></footer>
+</body>
+</html>

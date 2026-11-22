@@ -546,11 +546,11 @@ mv_open('s61-block','Alam Sutera S61 block')
 c61=COL['S61']; ax=2325; sy61=3400; dy61=76  # pair widened (user feedback): columns under the red termini at global 2600 / 2672
 ss61=S['S61']['stops']; rr61=R['S61-return']['stops']
 text(2254,3170,'Alam Sutera · S61 from Bundaran Senayan',28,anchor='end',weight='600')
-text(2254,3206,'4C curbside ↔ S61 BRT:',17,anchor='end')
-text(2254,3234,'separate walk via pedestrian access;',17,anchor='end')
-text(2254,3262,'allow a fresh tap/fare.',17,anchor='end')
-text(2254,3300,'Not an in-platform change. Check the pedestrian overpass,',16,anchor='end')
-text(2254,3322,'gates and platform on the day.',16,anchor='end')
+text(2254,3200,'Not an in-platform change. Check the pedestrian overpass,',16,anchor='end')
+text(2254,3222,'gates and platform on the day.',16,anchor='end')
+text(2254,3250,'4C curbside ↔ S61 BRT:',17,anchor='end')
+text(2254,3278,'separate walk via pedestrian access;',17,anchor='end')
+text(2254,3306,'allow a fresh tap/fare.',17,anchor='end')
 rows61=[0]*max(len(ss61),len(rr61))
 by61=sy61+(len(rows61)-1)*dy61
 dual(ss61,rr61,ax,sy61,dy61,c61,gap=36,out_right=False)

@@ -485,8 +485,8 @@ for yy in (by0+st7/2,by0+1.5*st7,by0+2.5*st7):tri(fx,yy,COL['10'])
 text(fx-23,by0-24,'7F ↑ Juanda segment',19,COL['10'],anchor='end',weight='600')
 text(fx-23,fy+44,'Get on 7F here; check access.',16,anchor='end')
 # The 7F end IS the first outbound 10 stop: shared station area, not a platform claim.
-text(147,200,'Confirm Kayu Putih Rawasari',15,anchor='end')
-text(147,224,'on this service / loop headsign.',15,anchor='end')
+text(80,196,'Confirm Kayu Putih Rawasari',15,anchor='end')
+text(80,218,'on this service / loop headsign.',15,anchor='end')
 text(193,uky-16,'7F ↑ branches to Flyover Raya Bogor',15)
 # Deliberately NOT a guaranteed paid-area connection from 7E to 7F: a separate Gojek hop.
 gy=ry+80
@@ -546,15 +546,16 @@ mv_open('s61-block','Alam Sutera S61 block')
 c61=COL['S61']; ax=2325; sy61=3400; dy61=76  # pair widened (user feedback): columns under the red termini at global 2600 / 2672
 ss61=S['S61']['stops']; rr61=R['S61-return']['stops']
 text(2254,3170,'Alam Sutera · S61 from Bundaran Senayan',28,anchor='end',weight='600')
-text(2254,3206,'4C curbside ↔ S61 BRT: separate walk via',17,anchor='end')
-text(2254,3228,'pedestrian access; allow a fresh tap/fare.',17,anchor='end')
-text(2254,3262,'Not an in-platform change. Check the pedestrian overpass,',16,anchor='end')
-text(2254,3284,'gates and platform on the day.',16,anchor='end')
+text(2254,3206,'4C curbside ↔ S61 BRT:',17,anchor='end')
+text(2254,3234,'separate walk via pedestrian access;',17,anchor='end')
+text(2254,3262,'allow a fresh tap/fare.',17,anchor='end')
+text(2254,3300,'Not an in-platform change. Check the pedestrian overpass,',16,anchor='end')
+text(2254,3322,'gates and platform on the day.',16,anchor='end')
 rows61=[0]*max(len(ss61),len(rr61))
 by61=sy61+(len(rows61)-1)*dy61
 dual(ss61,rr61,ax,sy61,dy61,c61,gap=36,out_right=False)
-text(ax-64,sy61-68,'S61 ↓ Alam Sutera (left)',20,c61,anchor='end',weight='600')
-text(ax+64,sy61-68,'S61 ↑ Blok M (right)',20,c61,weight='600')
+text(ax-64,sy61-50,'S61 ↓ Alam Sutera (left)',20,c61,anchor='end',weight='600')
+text(ax+64,sy61-50,'S61 ↑ Blok M (right)',20,c61,weight='600')
 # Return link from the red homebound end: horizontal under the header, then straight up.
 add('<path d="M 2361 3388 L 2361 3266" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 mx,mlx=2150,2490

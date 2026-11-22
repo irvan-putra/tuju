@@ -793,8 +793,8 @@
 <path d="M -120 2283.6666666666665 L -131 2307.6666666666665 L -109 2307.6666666666665 Z" fill="#6536b0" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <text x="-143" y="476" font-size="19" fill="#6536b0" text-anchor="end" font-weight="600">7F ↑ Juanda segment</text>
 <text x="-143" y="2700" font-size="16" fill="currentColor" text-anchor="end" font-weight="normal">Get on 7F here; check access.</text>
-<text x="147" y="200" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">Confirm Kayu Putih Rawasari</text>
-<text x="147" y="224" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">on this service / loop headsign.</text>
+<text x="80" y="196" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">Confirm Kayu Putih Rawasari</text>
+<text x="80" y="218" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">on this service / loop headsign.</text>
 <text x="193" y="334" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">7F ↑ branches to Flyover Raya Bogor</text>
 <path d="M 1324 2333 Q 1720 2333 1720 2466 L 1720 2908 L -120 2908 L -120 2668" fill="none" stroke="currentColor" opacity=".6" stroke-width="3" stroke-dasharray="5 7"/>
 <path d="M -120 2703 L -131 2727 L -109 2727 Z" fill="#6536b0" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
@@ -939,10 +939,11 @@
 <g transform="translate(311 -1250)">
 <g class="mv" data-move="s61-block" data-label="Alam Sutera S61 block">
 <text x="2254" y="3170" font-size="28" fill="currentColor" text-anchor="end" font-weight="600">Alam Sutera · S61 from Bundaran Senayan</text>
-<text x="2254" y="3206" font-size="17" fill="currentColor" text-anchor="end" font-weight="normal">4C curbside ↔ S61 BRT: separate walk via</text>
-<text x="2254" y="3228" font-size="17" fill="currentColor" text-anchor="end" font-weight="normal">pedestrian access; allow a fresh tap/fare.</text>
-<text x="2254" y="3262" font-size="16" fill="currentColor" text-anchor="end" font-weight="normal">Not an in-platform change. Check the pedestrian overpass,</text>
-<text x="2254" y="3284" font-size="16" fill="currentColor" text-anchor="end" font-weight="normal">gates and platform on the day.</text>
+<text x="2254" y="3206" font-size="17" fill="currentColor" text-anchor="end" font-weight="normal">4C curbside ↔ S61 BRT:</text>
+<text x="2254" y="3234" font-size="17" fill="currentColor" text-anchor="end" font-weight="normal">separate walk via pedestrian access;</text>
+<text x="2254" y="3262" font-size="17" fill="currentColor" text-anchor="end" font-weight="normal">allow a fresh tap/fare.</text>
+<text x="2254" y="3300" font-size="16" fill="currentColor" text-anchor="end" font-weight="normal">Not an in-platform change. Check the pedestrian overpass,</text>
+<text x="2254" y="3322" font-size="16" fill="currentColor" text-anchor="end" font-weight="normal">gates and platform on the day.</text>
 <path d="M 2361 3400 L 2361 4160" fill="none" stroke="#007d87" stroke-width="6"/>
 <circle cx="2361" cy="3400" r="11" fill="Canvas" stroke="#007d87" stroke-width="4"/>
 <text x="2381" y="3406" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Bundaran Senayan</text>
@@ -993,8 +994,8 @@
 <text x="2269" y="4090" font-size="20" fill="currentColor" text-anchor="end" font-weight="normal">Escala 1</text>
 <circle cx="2289" cy="4160" r="11" fill="Canvas" stroke="#007d87" stroke-width="4"/>
 <text x="2269" y="4166" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Forest Park</text>
-<text x="2261" y="3332" font-size="20" fill="#007d87" text-anchor="end" font-weight="600">S61 ↓ Alam Sutera (left)</text>
-<text x="2389" y="3332" font-size="20" fill="#007d87" text-anchor="start" font-weight="600">S61 ↑ Blok M (right)</text>
+<text x="2261" y="3350" font-size="20" fill="#007d87" text-anchor="end" font-weight="600">S61 ↓ Alam Sutera (left)</text>
+<text x="2389" y="3350" font-size="20" fill="#007d87" text-anchor="start" font-weight="600">S61 ↑ Blok M (right)</text>
 <path d="M 2361 3388 L 2361 3266" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <path d="M 2301 4174 L 2158 4350" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <path d="M 2349 4174 L 2482 4350" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>

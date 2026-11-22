@@ -104,28 +104,45 @@ node(700,155,'Green Pramuka area','#777',True)
 for x in [-530,630,1200]:line(700,170,x,230,'#888',True)
 text(-505,204,'walk ~230 m',16);text(655,204,'walk to boarding point',16);text(1230,204,'walk ~850 m',16)
 add('<g transform="translate(-600 0)">')
-text(40,258,'10 ↓ PGC',19,COL['10'],anchor='end',weight='600')
-text(40,284,'7F ↑ Juanda',19,COL['10'],anchor='end',weight='600')
-text(40,310,'10 ↑ Tanjung Priok',19,COL['10'],anchor='end',weight='600')
-y10=chain('10',70,240,55,transfers=['G00473','G00718'],both=True)
+text(95,176,'10 ↓ PGC',19,COL['10'],weight='600');text(225,176,'9 ↓ Pluit',19,COL['9'],weight='600')
+text(40,176,'10 ↑ Tanjung Priok',19,COL['10'],anchor='end',weight='600')
+text(-170,176,'9 ↑ Pinang Ranti',19,COL['9'],anchor='end',weight='600')
+y10=chain('10',70,240,55,transfers=['G00473','G00718'],both=False)
 # 7F homebound shares the top three station areas of this column (same stop names in
 # the official 10 GTFS pattern and the 7F Juanda-direction listing). Its own stops
 # branch off at Utan Kayu Rawamangun toward Flyover Raya Bogor; drawn in the outer section.
-tri(55,267,COL['10']);tri(55,322,COL['10'])
 text(95,y10+33,'Change platform inside the same paid halte',15)
-text(40,y10+90,'9 ↓ Pluit',19,COL['9'],anchor='end',weight='600')
-text(40,y10+116,'9 ↑ Pinang Ranti',19,COL['9'],anchor='end',weight='600')
-y9=chain('9',70,y10,65,True,['G00403'],both=True)
+y9=chain('9',70,y10,65,True,['G00403'],both=False)
+# Return legs: own stops and order from GTFS trips 9-R02 / 10-R02, drawn as a second line 36 units left.
+RCP={r['key']:r for r in json.loads((ROOT/'data/return-central-park.json').read_text())['segments']}
+xr=34
+def rnode(y,name,col,big=False):
+ add(f'<circle cx="{xr}" cy="{y}" r="{12 if big else 7}" fill="Canvas" stroke="{col}" stroke-width="4"/>')
+ for k,part in enumerate(textwrap.wrap(name,40 if 'Cawang Sentral ·' in name else 20)):text(xr-23,y+6+k*22,part,19,anchor='end',weight='600' if big else 'normal')
+r9=RCP['9-return']['stops'];r10=RCP['10-return']['stops']
+ycs9=y10+16;ycs10=y10-16
+line(xr,ycs9,xr,y9,COL['9']);line(xr,240,xr,ycs10,COL['10'])
+add(f'<path d="M {xr} {ycs10} L {xr} {ycs9}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+for j,st in enumerate(r9):
+ yy=y9-65*j if j<len(r9)-1 else ycs9
+ rnode(yy,st['name'] if j<len(r9)-1 else 'Cawang Sentral · 9',COL['9'],j==len(r9)-1 or j==0)
+ if j%3==2 and j<len(r9)-1:tri(xr,yy-32,COL['9'])
+for m,st in enumerate(r10):
+ yy=y10-55*m if m else ycs10
+ rnode(yy,st['name'] if m else 'Cawang Sentral · 10',COL['10'],m==0 or m==len(r10)-1)
+ if m%3==2:tri(xr,yy+27,COL['10'])
+text(xr-23,y10+40,'interchange unverified',14,anchor='end')
 line(70,y9+12,70,y9+75,'#888',True)
 text(95,y9+63,'Walk ~350 m',16);text(95,y9+96,'Central Park Mall',24,'#2e9e50',weight='600')
 # Return from Central Park (rider asked 23 Nov 2026): the same station areas, drawn once with
 # arrows both ways. GTFS 9-R02 and 10-R02 use the opposite-direction stop names (data/return-central-park.json).
-for k,t in enumerate(['Return: walk back to Tanjung Duren Arah Timur, across the road',
- '(~100 m from the Arah Barat stop; walk from the mall not measured).',
- '9 ↑ Pinang Ranti rides the same station areas up this column;',
- 'its stops are named Arah Timur / Arah Selatan on the way back.',
- 'At Cawang Sentral change platform to 10 ↑ Tanjung Priok,',
- 'get off at Kayu Putih Rawasari and walk to the start area.',
+for k,t in enumerate(['Return (left line): board 9 ↑ Pinang Ranti at Tanjung Duren Arah Timur.',
+ 'The road crossing from the mall to that stop is unverified; ~100 m from the',
+ 'Arah Barat stop, walk from the mall not measured.',
+ 'Return stops are the GTFS opposite-direction stops (Arah Timur / Selatan),',
+ 'drawn with their own order, not paired with the outbound stops.',
+ '9 (ends) and 10 (starts) use two Cawang Sentral stops; the interchange between',
+ 'them is unverified. 10 ↑ Tanjung Priok ends at Kayu Putih Rawasari.',
  'GTFS trips 9-R02 and 10-R02, checked 23 Nov 2026. Fares not checked.']):
  text(95,y9+134+k*22,t,15)
 add('</g>')
@@ -440,7 +457,7 @@ assert R['7F-return']['stops']==['Flyover Raya Bogor','Trikora','Pasar Induk','U
 uky=240+2*55  # Utan Kayu Rawamangun, the branch point on the shared 10 column
 by0=500
 st7=(fy-by0)/3
-add(f'<path d="M 164 {uky+8} L {fx} {by0}" fill="none" stroke="{COL["10"]}" stroke-width="6"/>')
+add(f'<path d="M 164 {uky+8} L 164 {uky+27.5} L {fx} {uky+27.5} L {fx} {by0}" fill="none" stroke="{COL["10"]}" stroke-width="6"/>')
 line(fx,by0,fx,fy,COL['10'])
 node(fx,by0+st7,'Pasar Induk',COL['10'],anchor='end')
 node(fx,by0+2*st7,'Trikora',COL['10'],anchor='end')

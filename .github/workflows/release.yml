@@ -119,6 +119,8 @@ jobs:
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
 
+          0.2.15 draws the Central Park 9 and 10 columns as two close parallel direction lines too: outbound on the right, the return on the left from GTFS trips 9-R02 and 10-R02 with their own stop names and order and no pairing. The two Cawang Sentral stops on the return are shown separately, with the interchange between them marked unverified. The 7F branch now leaves in a gap between labels, and the S61 outbound link clears its label.
+
           0.2.14 fixes two findings on 0.2.13: the 5M branch now hops cleanly over the 4C homebound line, and the shared 4C and 5M middle line has its own stop markers and direction arrows. The 6 stop labels beside the 4D return line now sit clear of it.
 
           0.2.13 draws red 4C and purple 5M as two close parallel direction lines too: outbound on the left with labels outside left, homebound on the right with labels outside right, and the shared 4C and 5M section as a middle line. Each direction keeps its own stop order, with no stop pairing by distance. Existing walks and links are kept.

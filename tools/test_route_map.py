@@ -99,8 +99,11 @@ class StopMapTest(unittest.TestCase):
  def test_shared_spine_is_not_a_duplicate_return_column(self):
   root=ET.fromstring((ROOT/'data/all-stops.svg').read_text())
   texts=[''.join(x.itertext()) for x in root.iter() if x.tag.endswith('text')]
-  for name in ['Pramuka Sari','Utan Kayu','Pasar Genjing','Pasar Rumput','Halimun','Galunggung','Kuningan','Patra Kuningan','Underpass Kuningan','Mampang Prapatan','Duren Tiga','Warung Buncit','Warung Jati','Buncit Indah','Pejaten','Jati Padang','Jati Barat','Kayu Putih Rawasari','Pemuda Pramuka','Utan Kayu Rawamangun','Pasar Induk','Trikora']:
+  for name in ['Pramuka Sari','Utan Kayu','Pasar Genjing','Pasar Rumput','Halimun','Galunggung','Kuningan','Patra Kuningan','Underpass Kuningan','Mampang Prapatan','Duren Tiga','Warung Buncit','Warung Jati','Buncit Indah','Pejaten','Jati Padang','Jati Barat','Pasar Induk','Trikora']:
    self.assertEqual(texts.count(name),1,name)
+  # 9/10 Central Park is a twin pair: one outbound and one GTFS return label per shared top station.
+  for name in ['Kayu Putih Rawasari','Pemuda Pramuka','Utan Kayu Rawamangun']:
+   self.assertEqual(texts.count(name),2,name)
   self.assertEqual(texts.count('Flyover Kuningan'),1)
   self.assertEqual(texts.count('Halte Manggarai Temporer 1'),1)
   self.assertEqual(texts.count('Phe Tower Kebagusan'),1)

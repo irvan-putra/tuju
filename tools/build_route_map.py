@@ -20,7 +20,11 @@ def merged_rows(out_stops,ret_names,limit=130):
  O=[[ (GX['stops'][o['id']]['lat'],GX['stops'][o['id']]['lon']) ] for o in out_stops]
  Rv=list(reversed(ret_names))
  Rp=[[(q['lat'],q['lon']) for q in GX['name_points'][_norm(n)]] for n in Rv]
+ def stem(n):
+  import re as _r
+  return _r.sub(r'\s+(arah\s+\w+|\d+)$','',_norm(n) if False else n.lower().strip())
  def cost(i,j):
+  if stem(out_stops[i]['name'])!=stem(Rv[j]):return None
   d=min(_mdist(a,b) for a in O[i] for b in Rp[j]);return d if d<=limit else None
  n,m=len(O),len(Rv);INF=1e9
  dp=[[INF]*(m+1) for _ in range(n+1)];bk=[[None]*(m+1) for _ in range(n+1)];dp[0][0]=0

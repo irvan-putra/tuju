@@ -38,7 +38,7 @@ def add_bridges(svg):
     walk(root)
     hops=[]
     for j,(el,bp) in enumerate(paths):
-        for _,ap in paths[:j]:
+        for _el,ap in paths[:j]:
             for a,b in zip(ap,ap[1:]):
                 for c,d in zip(bp,bp[1:]):
                     r=b-a;s=d-c;den=cross(r,s)
@@ -50,9 +50,9 @@ def add_bridges(svg):
                     if any(abs(q-v)<28 for v in nodes):continue
                     if abs(den)/(abs(r)*abs(s))<.22:continue
                     if any(abs(q-v[0])<35 for v in hops):continue
-                    tangent=s/abs(s);hops.append((q,tangent,el))
+                    tangent=s/abs(s);hops.append((q,tangent,el,_el))
     overlay=['<g id="nonconnecting-crossings" aria-label="Line hops: crossing only, no transfer">']
-    for q,t,el in hops:
+    for q,t,el,_e2 in hops:
         a=q-t*23;b=q+t*23;n=t*1j*12
         # A curved hop and opaque halo leave a visible break in the lower line.
         path=f'M {a.real:.2f} {a.imag:.2f} Q {(q+n*2).real:.2f} {(q+n*2).imag:.2f} {b.real:.2f} {b.imag:.2f}'
@@ -63,5 +63,8 @@ def add_bridges(svg):
         attrs=' '.join(f'{k}="{el.get(k)}"' for k in ('stroke','stroke-width','opacity','stroke-dasharray') if el.get(k))
         overlay.append(f'<path d="{path}" fill="none" {attrs}/>')
     overlay.append('</g>')
+    import os
+    if os.environ.get('HOPS'):
+        for q,t,el,e2 in hops:print('hop at %d,%d'%(q.real,q.imag),'OVER',el.get('d','')[:50],'| UNDER',e2.get('d','')[:50])
     print('nonconnecting crossing hops:',len(hops))
     return svg.replace('</svg>','\n'.join(overlay)+'\n</svg>')

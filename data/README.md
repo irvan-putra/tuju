@@ -126,3 +126,7 @@ from Tosari 2 to Megaria, where it rejoins the existing Cikini homebound spine.
 The common 4C/5M stretch through SMPN 8 is drawn once with both service colors.
 The feed hash on the original snapshot is retained for older segments;
 extension_feed_sha256 records this download. No network or permission change.
+
+## Return legs for corridor 9 / 10 and shared S11 / S61 spines
+
+`return-central-park.json` lists the return stops for 9 (GTFS trip 9-R02, Tanjung Duren Arah Timur to Cawang Sentral) and 10 (10-R02, Cawang Sentral to Kayu Putih Rawasari), read from the operator GTFS feed dated 2026-11-20. They are direction-specific trips, not the outbound list reversed. The map draws S11 and S61 outbound and return stops on one spine when their GTFS coordinates are within about 130 m (outbound labels right, return labels left). Stops farther apart keep separate rows. Co-located rows are not claimed to be one boarding point. The red 4C and 5M out/return columns are not yet merged this way.

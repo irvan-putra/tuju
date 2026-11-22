@@ -1,0 +1,158 @@
+{
+  "checked": "2026-11-23",
+  "source": "TransJakarta operator GTFS https://gtfs.transjakarta.co.id/files/file_gtfs.zip (file dated 2026-11-20), checked 23 Nov 2026",
+  "note": "Return legs for the Central Park trip. Names are the feed names for the opposite direction; never a reversed outbound list.",
+  "segments": [
+    {
+      "key": "9-return",
+      "route": "9",
+      "trip": "9-R02",
+      "direction": "Pinang Ranti",
+      "stops": [
+        {
+          "id": "G00405",
+          "name": "Tanjung Duren Arah Timur",
+          "sequence": 7
+        },
+        {
+          "id": "G00437",
+          "name": "Kota Bambu Arah Selatan",
+          "sequence": 8
+        },
+        {
+          "id": "G00434",
+          "name": "Kemanggisan Arah Selatan",
+          "sequence": 9
+        },
+        {
+          "id": "G00724",
+          "name": "Petamburan",
+          "sequence": 10
+        },
+        {
+          "id": "G00080",
+          "name": "Gerbang Pemuda Arah Timur",
+          "sequence": 11
+        },
+        {
+          "id": "G00432",
+          "name": "Semanggi",
+          "sequence": 12
+        },
+        {
+          "id": "G00667",
+          "name": "Widya Chandra Telkomsel Arah Timur",
+          "sequence": 13
+        },
+        {
+          "id": "G00427",
+          "name": "Denpasar Arah Timur",
+          "sequence": 14
+        },
+        {
+          "id": "G00423",
+          "name": "Simpang Kuningan",
+          "sequence": 15
+        },
+        {
+          "id": "G00420",
+          "name": "Tegal Parang Arah Timur",
+          "sequence": 16
+        },
+        {
+          "id": "G00736",
+          "name": "Pancoran Arah Timur",
+          "sequence": 17
+        },
+        {
+          "id": "G00418",
+          "name": "Pancoran Tugu Arah Timur",
+          "sequence": 18
+        },
+        {
+          "id": "G00416",
+          "name": "Tebet Eco Park Arah Timur",
+          "sequence": 19
+        },
+        {
+          "id": "G00414",
+          "name": "Cikoko Arah Timur",
+          "sequence": 20
+        },
+        {
+          "id": "G00410",
+          "name": "Ciliwung Arah Timur",
+          "sequence": 21
+        },
+        {
+          "id": "G00347",
+          "name": "Cawang",
+          "sequence": 22
+        },
+        {
+          "id": "G00717",
+          "name": "Cawang Sentral",
+          "sequence": 23
+        }
+      ]
+    },
+    {
+      "key": "10-return",
+      "route": "10",
+      "trip": "10-R02",
+      "direction": "Tanjung Priok",
+      "stops": [
+        {
+          "id": "G00722",
+          "name": "Cawang Sentral",
+          "sequence": 2
+        },
+        {
+          "id": "G00448",
+          "name": "Simpang Cawang",
+          "sequence": 3
+        },
+        {
+          "id": "G00452",
+          "name": "Halim",
+          "sequence": 4
+        },
+        {
+          "id": "G00454",
+          "name": "Kebon Nanas",
+          "sequence": 5
+        },
+        {
+          "id": "G00457",
+          "name": "Pedati Prumpung",
+          "sequence": 6
+        },
+        {
+          "id": "G00458",
+          "name": "Flyover Jatinegara",
+          "sequence": 7
+        },
+        {
+          "id": "G00461",
+          "name": "Pisangan",
+          "sequence": 8
+        },
+        {
+          "id": "G00463",
+          "name": "Utan Kayu Rawamangun",
+          "sequence": 9
+        },
+        {
+          "id": "G00467",
+          "name": "Pemuda Pramuka",
+          "sequence": 10
+        },
+        {
+          "id": "G00471",
+          "name": "Kayu Putih Rawasari",
+          "sequence": 11
+        }
+      ]
+    }
+  ]
+}

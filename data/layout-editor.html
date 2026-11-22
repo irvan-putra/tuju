@@ -1,0 +1,73 @@
+<style>
+#tuju-editor{position:fixed;left:0;right:0;bottom:0;z-index:40;font:14px/1.4 system-ui,sans-serif;pointer-events:none}
+#tuju-editor .bar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;padding:8px;background:Canvas;border-top:1px solid #8885;pointer-events:auto}
+#tuju-editor .bar[hidden]{display:none}
+#tuju-editor button{font:inherit;padding:6px 12px;border:1px solid #8886;border-radius:999px;background:Canvas;color:CanvasText}
+#tuju-editor button.on{background:#4a7ddb;color:#fff;border-color:#4a7ddb}
+#tuju-editor .panel{display:none;max-width:44rem;margin:8px auto 0;padding:10px;background:Canvas;border:1px solid #8885;border-radius:8px;pointer-events:auto}
+#tuju-editor .panel.open{display:block}
+#tuju-editor pre{white-space:pre-wrap;max-height:9rem;overflow:auto;margin:6px 0}
+.mv-hit{fill:transparent;stroke:#4a7ddb;stroke-width:4;stroke-dasharray:10 8;opacity:.55}
+.mv-hit.dragging{opacity:1;fill:rgba(74,125,219,.1)}
+</style>
+<div id="tuju-editor" data-version="0.3.0">
+ <div class="panel" id="tuju-ed-panel">
+  <div>Copy this and send it with your feedback:</div>
+  <pre id="tuju-ed-text"></pre>
+  <button type="button" data-act="copy">Copy feedback</button>
+  <button type="button" data-act="close-panel">Close</button>
+ </div>
+ <div class="bar" id="tuju-ed-bar" hidden>
+  <button type="button" data-act="nudge" data-dx="-10" aria-label="nudge left">&larr;</button>
+  <button type="button" data-act="nudge" data-dy="-10" aria-label="nudge up">&uarr;</button>
+  <button type="button" data-act="nudge" data-dy="10" aria-label="nudge down">&darr;</button>
+  <button type="button" data-act="nudge" data-dx="10" aria-label="nudge right">&rarr;</button>
+  <button type="button" data-act="undo">Undo</button>
+  <button type="button" data-act="reset">Reset</button>
+  <button type="button" data-act="panel">Feedback</button>
+  <button type="button" data-act="off">Done</button>
+  <span id="tuju-ed-sel"></span>
+ </div>
+ <div class="bar" id="tuju-ed-pill">
+  <button type="button" data-act="on">Move map items</button>
+ </div>
+</div>
+<script>
+(function(){
+"use strict";
+var NS="http:"+"//www.w3.org/2000/svg";
+var ed=document.getElementById('tuju-editor');
+if(!ed)return;
+var moves={},stack=[],sel=null,editing=false,drag=null;
+var rects=new Map();
+function allItems(){return [].slice.call(document.querySelectorAll('svg g.mv[data-move]'))}
+function ofId(id){return allItems().filter(function(g){return g.getAttribute('data-move')===id})}
+function apply(id){var m=moves[id]||{dx:0,dy:0};ofId(id).forEach(function(g){g.setAttribute('transform','translate('+m.dx+' '+m.dy+')')})}
+function addHits(){allItems().forEach(function(g){if(rects.has(g))return;try{var b=g.getBBox();var pad=Math.max(40,Math.min(b.width,b.height)*0.12);var r=document.createElementNS(NS,'rect');r.setAttribute('x',b.x-pad);r.setAttribute('y',b.y-pad);r.setAttribute('width',b.width+2*pad);r.setAttribute('height',b.height+2*pad);r.setAttribute('class','mv-hit');g.insertBefore(r,g.firstChild);rects.set(g,r)}catch(e){}})}
+function removeHits(){rects.forEach(function(r){if(r.parentNode)r.parentNode.removeChild(r)});rects.clear()}
+function clientPoint(el,x,y){var ctm=el.getScreenCTM();if(!ctm)return null;var svg=el.ownerSVGElement||el.closest('svg');var p=svg.createSVGPoint();p.x=x;p.y=y;return p.matrixTransform(ctm.inverse())}
+function showSel(){var g=ofId(sel)[0];document.getElementById('tuju-ed-sel').textContent=g?('Selected: '+g.getAttribute('data-label')):''}
+function update(){if(document.getElementById('tuju-ed-panel').classList.contains('open'))document.getElementById('tuju-ed-text').textContent=lines();showSel()}
+function setEditing(v){editing=v;document.getElementById('tuju-ed-bar').hidden=!v;document.getElementById('tuju-ed-pill').hidden=v;if(v)addHits();else removeHits();if(!v)document.getElementById('tuju-ed-panel').classList.remove('open')}
+function mapVersion(){var a=document.querySelector('a[href*="/releases/tag/"]');var m=a&&a.textContent.match(/v(\d+\.\d+\.\d+)/);return m?m[1]:ed.getAttribute('data-version')}
+function lines(){var L=['Tuju layout feedback (map '+mapVersion()+')','These are layout-only moves; no route, stop or access changes.'];Object.keys(moves).forEach(function(id){var m=moves[id];if(!m||(!m.dx&&!m.dy))return;var g=ofId(id)[0];var label=g?g.getAttribute('data-label'):id;var d=[];if(m.dx)d.push((m.dx>0?'right ':'left ')+Math.abs(m.dx));if(m.dy)d.push((m.dy>0?'down ':'up ')+Math.abs(m.dy));L.push('- '+label+' ['+id+']: move '+d.join(', ')+' map units')});if(L.length===2)L.push('(no moves yet)');return L.join('\n')}
+function flash(t){var s=document.getElementById('tuju-ed-sel');s.textContent=t;setTimeout(showSel,1500)}
+function copyText(){var t=lines();function fail(){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');flash('Copied')}catch(e){flash('Select and copy the text above')}document.body.removeChild(ta)}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){flash('Copied')},fail)}else fail()}
+document.addEventListener('pointerdown',function(e){if(!editing)return;var g=e.target&&e.target.closest?e.target.closest('g.mv[data-move]'):null;if(!g)return;var id=g.getAttribute('data-move');var base=moves[id]||{dx:0,dy:0};var pt=clientPoint(g.parentNode,e.clientX,e.clientY);if(!pt)return;drag={id:id,el:g,sx:pt.x,sy:pt.y,bdx:base.dx,bdy:base.dy,moved:false};sel=id;rects.forEach(function(r){r.classList.remove('dragging')});var r=rects.get(g);if(r)r.classList.add('dragging');if(e.target.setPointerCapture&&e.pointerId!=null){try{e.target.setPointerCapture(e.pointerId)}catch(_){}}showSel();e.preventDefault()});
+document.addEventListener('pointermove',function(e){if(!drag)return;var pt=clientPoint(drag.el.parentNode,e.clientX,e.clientY);if(!pt)return;var dx=Math.round(drag.bdx+pt.x-drag.sx),dy=Math.round(drag.bdy+pt.y-drag.sy);if(dx!==drag.bdx||dy!==drag.bdy)drag.moved=true;moves[drag.id]={dx:dx,dy:dy};apply(drag.id);e.preventDefault()});
+document.addEventListener('pointerup',function(){if(!drag)return;var r=rects.get(drag.el);if(r)r.classList.remove('dragging');if(drag.moved)stack.push({id:drag.id,dx:drag.bdx,dy:drag.bdy});drag=null;update()});
+function touchBlock(e){if(!editing)return;if(e.target&&e.target.closest&&e.target.closest('g.mv[data-move]'))e.preventDefault()}
+document.addEventListener('touchstart',touchBlock,{passive:false});
+document.addEventListener('touchmove',touchBlock,{passive:false});
+ed.addEventListener('click',function(e){var b=e.target&&e.target.closest?e.target.closest('button'):null;if(!b)return;var act=b.getAttribute('data-act');
+ if(act==='on'){setEditing(true)}
+ else if(act==='off'){setEditing(false)}
+ else if(act==='undo'){var u=stack.pop();if(u){moves[u.id]={dx:u.dx,dy:u.dy};apply(u.id);update()}}
+ else if(act==='reset'){Object.keys(moves).forEach(function(id){stack.push({id:id,dx:moves[id].dx,dy:moves[id].dy});moves[id]={dx:0,dy:0};apply(id)});update()}
+ else if(act==='nudge'){if(!sel){flash('Tap an item first');return}var m=moves[sel]||{dx:0,dy:0};stack.push({id:sel,dx:m.dx,dy:m.dy});moves[sel]={dx:m.dx+(+b.getAttribute('data-dx')||0),dy:m.dy+(+b.getAttribute('data-dy')||0)};apply(sel);update()}
+ else if(act==='panel'){document.getElementById('tuju-ed-text').textContent=lines();document.getElementById('tuju-ed-panel').classList.toggle('open')}
+ else if(act==='close-panel'){document.getElementById('tuju-ed-panel').classList.remove('open')}
+ else if(act==='copy'){copyText()}});
+})();
+</script>

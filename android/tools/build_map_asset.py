@@ -52,6 +52,7 @@ PAGE = """<!DOCTYPE html>
 {closing}
 {reading_notes}
 {meter}
+{editor}
 {guideline}
 </body>
 </html>
@@ -90,6 +91,14 @@ def extract_meter(html):
     return m.group("meter").strip()
 
 
+def extract_editor(html):
+    m = re.search(r"<!-- layout-editor:begin[^>]*-->(?P<editor>.*?)<!-- layout-editor:end[^>]*-->",
+                  html, re.S)
+    if not m:
+        sys.exit("layout-editor block not found in " + SRC)
+    return m.group("editor").strip()
+
+
 def extract_guideline(html):
     m = re.search(r"<!-- access-guideline:begin[^>]*-->(?P<g>.*?)<!-- access-guideline:end[^>]*-->",
                   html, re.S)
@@ -113,7 +122,8 @@ def render():
                        closing='<p class="note">%s</p>' % closing,
                        reading_notes=extract_reading_notes(page),
                        meter=extract_meter(page),
-                       guideline=extract_guideline(page))
+                       guideline=extract_guideline(page),
+                       editor=extract_editor(page))
 
 
 def main():

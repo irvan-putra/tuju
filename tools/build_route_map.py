@@ -72,6 +72,8 @@ A=[]
 def add(s): A.append(s)
 def text(x,y,s,size=20,color='currentColor',anchor='start',weight='normal'):
  add(f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" text-anchor="{anchor}" font-weight="{weight}">{html.escape(s)}</text>')
+def mv_open(mid,label):add(f'<g class="mv" data-move="{mid}" data-label="{html.escape(label)}">')
+def mv_close():add('</g>')
 def line(x,y,xx,yy,color,dashed=False):
  if dashed and color=='#888':
   add(f'<path d="M {x} {y} L {xx} {yy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>');return
@@ -133,8 +135,10 @@ for m,st in enumerate(r10):
  rnode(yy,st['name'] if m else 'Cawang Sentral · 10',COL['10'],m==0 or m==len(r10)-1)
  if m%3==2:tri(xr,yy+27,COL['10'])
 text(xr-23,y10+40,'interchange unverified',14,anchor='end')
+mv_open('central-park','Central Park Mall pin')
 line(70,y9+12,70,y9+75,'#888',True)
 text(95,y9+63,'Walk ~350 m',16);text(95,y9+96,'Central Park Mall',24,'#2e9e50',weight='600')
+mv_close()
 # Return from Central Park (rider asked 23 Nov 2026): the same station areas, drawn once with
 # arrows both ways. GTFS 9-R02 and 10-R02 use the opposite-direction stop names (data/return-central-park.json).
 for k,t in enumerate(['Return (left line): board 9 ↑ Pinang Ranti at Tanjung Duren Arah Timur.',
@@ -185,10 +189,12 @@ add(f'<line x1="306" y1="{y7-48}" x2="624" y2="{y7-48}" stroke="currentColor" op
 add(f'<line x1="306" y1="{y7-38}" x2="624" y2="{y7-38}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
 for bx in range(318,624,18): add(f'<line x1="{bx}" y1="{y7-48}" x2="{bx}" y2="{y7-38}" stroke="currentColor" opacity=".55" stroke-width="2"/>')
 # One shared venue marker beside the Phe Tower stop; all walks arrive at the same place.
+mv_open('arkadia','De Entrance - Arkadia Green Park marker')
 add(f'<rect x="457" y="{y7-34}" width="16" height="16" rx="3" fill="#2e9e50"/>')
 text(465,y7+32,'De Entrance -',19,'#2e9e50',weight='600',anchor='middle')
 text(465,y7+56,'Arkadia Green Park',19,'#2e9e50',weight='600',anchor='middle')
 text(465,y7+78,'same side as Phe Tower + Baung',13,anchor='middle')
+mv_close()
 add(f'<path d="M 306 {y7-38} C 340 {y7-32}, 410 {y7-28}, 449 {y7-26}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<path d="M 312 {py+2} C 360 {py-2}, 410 {py-2}, 449 {py+2}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<path d="M 312 {bq+2} C 350 {bq-20}, 410 {y7-8}, 449 {y7-18}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
@@ -249,8 +255,10 @@ for i,st in enumerate(tail5):
  if i:tri(po,yy-30,purple,False)
 text(po+24,pstart-35,'5M ↓ Tanah Abang · via Cikini',18,purple,weight='600')
 pbottom=pstart+(len(tail5)-1)*61
+mv_open('markas-indonesia','Markas Indonesia label')
 text(po+24,pbottom+46,'Walk ~300 m',16)
 text(po+24,pbottom+76,'Markas Indonesia',23,'#2e9e50',weight='600')
+mv_close()
 # Independent red homebound is straight from Bundaran Senayan 2 to Pramuka BPKP 1.
 home4=list(reversed(R['4C-Senayan-return']['stops'][:-1]+R['4C-GI-return']['stops'][:-1]+R['4C-return']['stops']))
 line(xh,240,xh,240+(len(home4)-1)*step4,red)
@@ -278,10 +286,12 @@ text(ph+24,yme+75,'5M ↑ Kampung Melayu; change at Megaria',16,purple)
 bkout=pstart+next(i for i,st in enumerate(tail5) if st['id']=='B00346P')*61
 bkhome=yme+110+(len(return5)-2)*105
 bpx=po+262; bpy=bkout+17  # pin sits in the empty space between the two 5M columns
+mv_open('bakoel','Bakoel Koffie pin and notes')
 add(f'<rect x="{bpx}" y="{bpy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
 text(bpx,bpy+52,'Bakoel Koffie',23,'#2e9e50',weight='600')
 text(bpx,bpy+80,'5M out: Farmasi RP Soeroso',14);text(bpx,bpy+98,'walk ~100 m',14)
 text(bpx,bpy+121,'5M home: Kantor Pos Cikini',14);text(bpx,bpy+139,'walk ~90 m',14)
+mv_close()
 add(f'<path d="M {po+8} {bkout+8} L {po+22} {bkout+26} L {bpx} {bkout+26}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<path d="M {ph-13} {bkhome} L {bpx+9} {bkhome} L {bpx+9} {bpy}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
 # GI remains a walk from Tosari 3 out / Tosari 2 home, not a new bus stop.
@@ -289,10 +299,12 @@ yto=240+next(i for i,st in enumerate(all4) if st['id']=='B05775P')*step4
 yth=240+home4.index('Tosari 2')*step4
 # GI note sits in the empty space right of the Tosari labels, beside the 5M outbound column.
 gcx=1906; giy=yth+15
+mv_open('grand-indonesia','Grand Indonesia pin and notes')
 add(f'<rect x="{gcx-9}" y="{giy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
 add(f'<text aria-label="Grand Indonesia" x="{gcx}" y="{giy+46}" font-size="36" fill="#2e9e50" text-anchor="middle" font-weight="600"><tspan x="{gcx}">Grand </tspan><tspan x="{gcx}" dy="40">Indonesia</tspan></text>')
 text(gcx,giy+122,'out: Tosari 3',20,anchor='middle');text(gcx,giy+148,'~640 m / 8 min',20,anchor='middle')
 text(gcx,giy+182,'home: walk to Tosari 2',20,anchor='middle');text(gcx,giy+208,'check crossing',20,anchor='middle')
+mv_close()
 # Out: from Tosari 3, up between the two 4C lines, across the return line above Tosari 2, then down into the pin.
 add(f'<path d="M {xo+13} {yto} L {xo+30} {yto} L {xo+30} {yth-35} L {gcx} {yth-35} L {gcx} {giy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 # Home: from Tosari 2 out through the label gap below it.
@@ -313,6 +325,7 @@ y4d=by+58*(len(tail)-1)
 line(bx,by,bx,y4d,COL['4D'])
 for i,st in enumerate(tail):node(bx,by+i*58,st['name'],COL['4D'],i==len(tail)-1)
 text(bx-25,by+30,'4D',22,COL['4D'],anchor='end',weight='600')
+mv_open('plaza-festival','Plaza Festival / Usmar Ismail Hall notes')
 line(bx,y4d+12,bx,y4d+100,'#888',True)
 text(bx+25,y4d+62,'Exit Akses E, walk ~2 min',17)
 text(bx+25,y4d+95,'Plaza Festival /',22,'#2e9e50',weight='600')
@@ -334,6 +347,7 @@ for k,t in enumerate(['CFD Sun 22 Nov','05:30-09:00: no car /','motorbike drop-o
  text(bx+25,y4d+362+k*22,t,14,weight='600')
 text(bx+25,y4d+518,'official: idsw.dev guide,',13)
 text(bx+25,y4d+538,'checked 21 Nov 2026',13)
+mv_close()
 # Shared outbound/return station spine. Return-only stop sequences are local branches,
 # not an independently duplicated vertical. Common names denote the station area,
 # not a claim that opposite-direction platforms or fare gates are identical.
@@ -400,8 +414,10 @@ add(f'<path d="M 606 1962 L 584 1954 L 584 1970 Z" fill="{COL["7E"]}" stroke="Ca
 add(f'<path d="M 642 1968 L 788 2032" fill="none" stroke="{COL["6"]}" stroke-width="6"/>')
 add(f'<path d="M 728 2006 L 705 2003 L 713 1985 Z" fill="{COL["6"]}" stroke="Canvas" stroke-width="2" stroke-linejoin="round"/>')
 add(f'<path d="M 668 1982 L 670 1999 L 678 1981 Z" fill="{COL["6"]}" stroke="Canvas" stroke-width="2" stroke-linejoin="round"/>')
+mv_open('ragunan','Ragunan destination pin')
 node(800,2040,'Ragunan (destination pin)',COL['6'],True)
 text(660,2056,'6 ↔ both directions',13,COL['6'])
+mv_close()
 # One node, both names; boarding and walk notes sit left of the halte walk link.
 text(585,1914,'board 6 / 6A ↑ toward Galunggung',14,COL['6'],anchor='end')
 text(585,1938,'= Department of Agriculture · same station · 7E leg ends here',14,anchor='end')
@@ -490,6 +506,7 @@ S11TX,S11TY=-3310,3050
 _t=S11TY+400-60;_s=S11TY+400-10
 add(f'<path d="M 590 1881 L 590 {_t} M 590 {_t} L 614 {_t} L 614 {_s} M 590 {_t} L 566 {_t} L 566 {_s}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<g transform="translate({S11TX} {S11TY})">')
+mv_open('s11-block','S11 Central Park to The Breeze BSD block')
 # S11 branches from the existing Central Park destination. Walk runs below the
 # original network; line crossings without a ring are not transfer points.
 s11c=COL['S11']; ox=3900; sy=400; dy=74
@@ -505,6 +522,7 @@ text(ox+40,sy-30,'S11 ↓ BSD (right)',21,s11c,weight='600')
 text(ox-40,sy-30,'S11 ↑ Jelambar (left)',21,s11c,anchor='end',weight='600')
 text(ox+40,sy-72,'Walk to boarding: Jln. Gelong Baru Utara (right line).',18)
 text(ox+40,sy-96,'Home: off at Taman Anggrek (left line); walk back.',18)
+mv_open('breeze-bsd','The Breeze BSD pin and notes')
 add(f'<rect x="{ox-9}" y="{by+140}" width="18" height="18" rx="3" fill="#2e9e50"/>')
 text(ox,by+196,'The Breeze BSD',24,'#2e9e50',anchor='middle',weight='600')
 line(ox,by+14,ox,by+131,'#888',True)
@@ -514,11 +532,14 @@ text(ox,by+290,'Pedestrian path / crossings not checked on site.',16,anchor='mid
 text(ox,by+340,'Operator feed: S11-L05 outbound, S11-R05 return.',16,anchor='middle')
 text(ox,by+368,'No live arrivals or guaranteed last bus; check TJ app.',16,anchor='middle')
 text(ox,by+398,'Two lines = two directions. Stops are not claimed to be the same boarding point.',16,anchor='middle')
+mv_close()
 S11END=S11TY+by+460
+mv_close()
 add('</g>')
 add('<path d="M 2600 1876 L 2600 3348 L 2612 3348 L 2612 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 S61DX=316  # whole block sits under the Bundaran Senayan pair (global x 2600 / 2672)
 add(f'<g transform="translate({S61DX} 0)">')
+mv_open('s61-block','Alam Sutera S61 block')
 # Alam Sutera branch below the established network, connected to the red termini.
 # Dashed links are the walks between 4C curbside and S61 BRT at Bundaran Senayan.
 c61=COL['S61']; ax=2320; sy61=3400; dy61=76
@@ -536,22 +557,28 @@ text(ax+64,sy61-68,'S61 ↑ Blok M (right)',20,c61,weight='600')
 # Return link from the red homebound end: horizontal under the header, then straight up.
 add('<path d="M 2344 3388 L 2344 3378 L 2356 3378 L 2356 2016" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 mx,mlx=2150,2490
-for x,y,label in [(mx,by61+190,'BINUS main building'),(mlx,by61+190,'Mall / BINUS extension')]:
- add(f'<rect x="{x-9}" y="{y}" width="18" height="18" rx="3" fill="#2e9e50"/>')
- text(x,y+55,label,24,'#2e9e50',anchor='middle',weight='600')
 fpy=by61-dy61;mly=by61
 line(ax-24,by61+14,mx+8,by61+190,'#888',True);line(ax+24,by61+14,mlx-8,by61+190,'#888',True)
 yb=by61+190
+mv_open('binus-main','BINUS main building pin and notes')
+add(f'<rect x="{mx-9}" y="{yb}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+text(mx,yb+55,'BINUS main building',24,'#2e9e50',anchor='middle',weight='600')
 text(mx,yb+100,'Jl. Jalur Sutera Barat Kav. 21',16,anchor='middle')
 text(mx,yb+130,'Forest Park → main: ~580 m / 8 min',16,anchor='middle')
 text(mx,yb+160,'Main → Mall stop: ~620 m / 8 min',16,anchor='middle')
+mv_close()
+mv_open('binus-mall','Mall / BINUS extension pin and notes')
+add(f'<rect x="{mlx-9}" y="{yb}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+text(mlx,yb+55,'Mall / BINUS extension',24,'#2e9e50',anchor='middle',weight='600')
 text(mlx,yb+100,'Mall also houses BINUS extension classrooms',16,anchor='middle')
 text(mlx,yb+130,'East Side · Kav. 16 · first floor (BINUS)',16,anchor='middle')
 text(mlx,yb+160,'Forest Park → extension: ~1 km / 13 min',16,anchor='middle')
 text(mlx,yb+190,'Extension → Mall stop: ~790 m / 10 min',16,anchor='middle')
+mv_close()
 text(2320,yb+250,'Same BINUS Alam Sutera operation, different buildings. Selected-entrance walk estimates.',17,anchor='middle')
 text(2320,yb+280,'Sidewalks, crossings and gate access not checked on site. No promised wait or last bus.',17,anchor='middle')
 text(2320,yb+310,'GTFS 4C-R09 / R10 and S61-R02 / R01 checked 23 Nov 2026. Short turns also exist.',17,anchor='middle')
+mv_close()
 add('</g>')
 # Source/service caveats stay within the unified map, below the network only as notes.
 end=max(ry+150,S11END,5400)

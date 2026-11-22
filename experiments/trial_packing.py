@@ -28,7 +28,12 @@ BLOCKS = {
     's11':  {'w': 1097, 'h': 2310, 'ports': {'top': (357, 200)}},
     's61':  {'w': 1103, 'h': 1516, 'ports': {'p1': (643, 240), 'p2': (691, 240)}},
 }
-PLACE = {'main': (6.0, 21.0), 's11': (233.0, 3240.0), 's61': (1653.0, 3148.0)}
+PLACE = {'main': (6.0, 21.0), 's11': (233.0, 3240.0), 's61': (1653.0, 3148.0),
+         'gi_note': (2720.0, 2297.0)}
+# Static labels/notes the walking links must not cross: the Grand Indonesia
+# note (5 text lines, measured bbox) sits between the Senayan lines and the
+# S61 corridor, so it constrains how far right the S61 links may swing.
+BLOCKS['gi_note'] = {'w': 360, 'h': 192, 'ports': {}, 'obstacle': True}
 LINKS = [(('main', 'cp'), ('s11', 'top')),
          (('main', 'redout'), ('s61', 'p1')),
          (('main', 'redhome'), ('s61', 'p2'))]
@@ -38,7 +43,7 @@ cur = P.cost(BLOCKS, LINKS, PLACE, WIDTH)
 runs = []
 for seed in (1, 7, 13, 42):
     bp, bc = P.pack(BLOCKS, LINKS, WIDTH, dict(PLACE), iters=40000, seed=seed,
-                    axis='x', fixed=('main',))
+                    axis='x', fixed=('main', 'gi_note'))
     runs.append({'seed': seed, 'cost': round(bc, 1),
                  'place': {k: [round(v[0], 1), round(v[1], 1)] for k, v in bp.items()}})
 
@@ -56,6 +61,12 @@ if abs(dx61) >= 1 or abs(dx11) >= 1:
                       f'<g transform="translate({dx61:g} 0)">', 1)
         v = v.replace(f'L 2296 3330 L 2296 3388',
                       f'L {2296+dx61:g} 3330 L {2296+dx61:g} 3388', 1)
+        # The home link lives inside the moving group but its long leg belongs
+        # to the static main network: redraw it to the packer's L-route
+        # (vertical drop at the main-side x, short horizontal into the moved
+        # block) instead of translating it through the Grand Indonesia note.
+        v = v.replace('M 2344 3388 L 2344 3366 L 2672 3366 L 2672 2016',
+                      f'M 2344 3388 L 2344 3366 L {2672-dx61:g} 3366 L {2672-dx61:g} 2016', 1)
     if abs(dx11) >= 1:
         v = v.replace('<g transform="translate(-3310 3050)">',
                       f'<g transform="translate({-3310+dx11:g} 3050)">', 1)

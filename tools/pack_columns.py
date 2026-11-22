@@ -52,8 +52,10 @@ def cost(blocks, links, place, width, bend_cost=40, cross_penalty=1000, overlap_
     for i, a in enumerate(ids):
         xa, ya = place[a]; ba = blocks[a]
         if xa < 0 or xa+ba['w'] > width or ya < 0: total += overlap_penalty
+        if ba.get('obstacle'): continue
         for b in ids[i+1:]:
             xb, yb = place[b]; bb = blocks[b]
+            if bb.get('obstacle'): continue
             if xa < xb+bb['w'] and xb < xa+ba['w'] and ya < yb+bb['h'] and yb < ya+ba['h']:
                 total += overlap_penalty
     for la, lb in links:

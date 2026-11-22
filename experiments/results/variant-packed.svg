@@ -912,7 +912,7 @@
 <text x="2276" y="4166" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Forest Park</text>
 <text x="2280" y="3332" font-size="20" fill="#007d87" text-anchor="end" font-weight="600">S61 ↓ Alam Sutera (left)</text>
 <text x="2360" y="3332" font-size="20" fill="#007d87" text-anchor="start" font-weight="600">S61 ↑ Blok M (right)</text>
-<path d="M 2344 3388 L 2344 3366 L 2672 3366 L 2672 2016" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 2344 3388 L 2344 3366 L 2350.4 3366 L 2350.4 2016" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <rect x="2141" y="4350" width="18" height="18" rx="3" fill="#2e9e50"/>
 <text x="2150" y="4405" font-size="24" fill="#2e9e50" text-anchor="middle" font-weight="600">BINUS main building</text>
 <rect x="2481" y="4350" width="18" height="18" rx="3" fill="#2e9e50"/>

@@ -127,10 +127,10 @@
 <circle cx="630" cy="736" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
 <text x="653" y="742" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pasar Rumput</text>
 <circle cx="630" cy="798" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="680" y="779" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Halimun</text>
+<text x="706" y="779" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Halimun</text>
 <path d="M 630 842.0 L 619 818.0 L 641 818.0 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <circle cx="630" cy="860" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="653" y="866" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Galunggung</text>
+<text x="706" y="866" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Galunggung</text>
 <text x="655" y="273" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">temporary stop · 4 toward Galunggung via Saharjo</text>
 <text x="655" y="288" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">4D toward Patra Kuningan</text>
 <path d="M 630 500 L 630 518 L 1000 518 L 1040 558" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
@@ -138,14 +138,15 @@
 <text x="1017" y="564" font-size="20" fill="currentColor" text-anchor="end" font-weight="600">Matraman 3</text>
 <text x="1040" y="598" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">Tap out; ~1 min walk</text>
 <path d="M 630 872 L 630 970" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="655" y="915" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">4 to 6: no additional fare (firsthand)</text>
+<text x="692" y="910" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">4 to 6: no additional</text>
+<text x="692" y="932" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">fare (firsthand)</text>
 <text x="585" y="1005" font-size="22" fill="#d36300" text-anchor="end" font-weight="600">6</text>
 <path d="M 630 980 L 630 1956" fill="none" stroke="#d36300" stroke-width="6"/>
 <path d="M 630 1023.5 L 619 999.5 L 641 999.5 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <circle cx="630" cy="1041" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="653" y="1047" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Setiabudi Integritas</text>
+<text x="680" y="1041" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Setiabudi Integritas</text>
 <circle cx="630" cy="1102" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
-<text x="653" y="1108" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kuningan Madya</text>
+<text x="680" y="1102" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kuningan Madya</text>
 <circle cx="630" cy="1163" r="7" fill="Canvas" stroke="#d36300" stroke-width="4"/>
 <text x="653" y="1169" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Karet Kuningan</text>
 <path d="M 630 1206.5 L 619 1182.5 L 641 1182.5 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
@@ -544,7 +545,7 @@
 <path d="M 1187 1290 L 1166 1290 L 1166 2289 L 1400 2289" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <path d="M 1418 2289 L 1500 2289 L 1500 1220 L 1567 1220" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <path d="M 630 812 L 930 860" fill="none" stroke="#0f6e6e" stroke-width="6"/>
-<text x="680" y="800" font-size="15" fill="currentColor" text-anchor="start" font-weight="600">4D leaves here; 4 goes on to Galunggung</text>
+<text x="704" y="800" font-size="15" fill="currentColor" text-anchor="start" font-weight="600">4D leaves here; 4 goes on to Galunggung</text>
 <path d="M 930 860 L 930 1034" fill="none" stroke="#0f6e6e" stroke-width="6"/>
 <circle cx="930" cy="860" r="7" fill="Canvas" stroke="#0f6e6e" stroke-width="4"/>
 <text x="953" y="866" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Setiabudi Integritas</text>
@@ -616,7 +617,8 @@
 <path d="M 360 965 L 349 989 L 371 989 Z" fill="#d36300" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <text x="337" y="1035" font-size="18" fill="#d36300" text-anchor="end" font-weight="600">6 ↑ Galunggung</text>
 <text x="337" y="1062" font-size="14" fill="currentColor" text-anchor="end" font-weight="normal">Return-only Flyover Kuningan branch</text>
-<text x="585" y="972" font-size="13" fill="currentColor" text-anchor="end" font-weight="normal">6 → 4 at Galunggung: alternative; check platform, no fare promise</text>
+<text x="342" y="966" font-size="13" fill="currentColor" text-anchor="end" font-weight="normal">6 → 4 at Galunggung: alternative;</text>
+<text x="342" y="984" font-size="13" fill="currentColor" text-anchor="end" font-weight="normal">check platform, no fare promise</text>
 <circle cx='630' cy='1346' r='13' fill='none' stroke='#0f6e6e' stroke-width='3'/>
 <circle cx='630' cy='1285' r='13' fill='none' stroke='#0f6e6e' stroke-width='3'/>
 <circle cx='630' cy='1224' r='13' fill='none' stroke='#0f6e6e' stroke-width='3'/>

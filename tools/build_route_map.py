@@ -71,7 +71,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=(),both=False):
  line(x,y,x,end,COL[route])
  for i,st in enumerate(ss):
   if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers,
-   label_offset=(50,-19) if route=='4' and st['name']=='Halimun' else None)
+   label_offset=(76,-19) if route=='4' and st['name']=='Halimun' else (76,6) if route=='4' and st['name']=='Galunggung' else ((50,0) if route=='6' and st['name'] in ('Setiabudi Integritas','Kuningan Madya') else None))
   if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,COL[route],False)
   if both and i<len(ss)-1 and i%3==1:tri(x,y+i*step+step/2,COL[route],True)
  return end
@@ -120,7 +120,7 @@ node(1040,mat+70,'Matraman 3',COL['5M'],True,anchor='end')
 text(1040,mat+110,'Tap out; ~1 min walk',15,anchor='end')
 # Firsthand 18 Nov 2026: no additional fare for the 4 to 6 change at Galunggung.
 line(630,y4+12,630,y4+110,'#888',True)
-text(655,y4+55,'4 to 6: no additional fare (firsthand)',15)
+text(692,y4+50,'4 to 6: no additional',15);text(692,y4+72,'fare (firsthand)',15)
 text(585,y4+145,'6',22,COL['6'],anchor='end',weight='600')
 y6=chain('6',630,y4+120,61,skipfirst=True,transfers=['G00204','G00243'])
 line(630,y6+12,630,y6+110,'#888',True)
@@ -262,7 +262,7 @@ hy=240+(nshared-1)*62
 bx=930; by=hy+62
 add(f'<path d="M 630 {hy+14} L {bx} {by}" fill="none" stroke="{COL["4D"]}" stroke-width="6"/>')
 # Keep Halimun and its note to the right of the return arrow, above the branch.
-text(680,hy+2,'4D leaves here; 4 goes on to Galunggung',15,weight='600')
+text(704,hy+2,'4D leaves here; 4 goes on to Galunggung',15,weight='600')
 tail=s4d[nshared:]
 y4d=by+58*(len(tail)-1)
 line(bx,by,bx,y4d,COL['4D'])
@@ -318,7 +318,7 @@ node(360,948,'Flyover Kuningan',COL['6'],anchor='end')
 tri(360,978,COL['6'])
 text(337,1035,'6 ↑ Galunggung',18,COL['6'],anchor='end',weight='600')
 text(337,1062,'Return-only Flyover Kuningan branch',14,anchor='end')
-text(585,972,'6 → 4 at Galunggung: alternative; check platform, no fare promise',13,anchor='end')
+text(342,966,'6 → 4 at Galunggung: alternative;',13,anchor='end');text(342,984,'check platform, no fare promise',13,anchor='end')
 # Chosen return transfer (rider's Maps listing, 19 Nov 2026): leave corridor 6 at
 # Patra Kuningan and continue on 4D to Simpang Pramuka 1. Galunggung is only the
 # 6 direction, not the transfer point. The 4D return rides the drawn corridor 6

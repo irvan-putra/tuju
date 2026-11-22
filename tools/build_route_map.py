@@ -257,7 +257,7 @@ line(xh,240,xh,240+(len(home4)-1)*step4,red)
 for i,name in enumerate(home4):
  yy=240+i*step4
  node(xh,yy,name,red,name in ('Pramuka BPKP 1','Megaria','Tosari 2','Bundaran Senayan 2'))
- if i and abs(yy-step4/2-(shared_end+35))>1:tri(xh,yy-step4/2,red)  # the 5M branch hops the homebound line in this gap
+ if i and abs(yy-step4/2-(shared_end+35))>1 and yy not in (240+home4.index('Tosari 2')*step4,240+home4.index('Tosari 2')*step4+step4):tri(xh,yy-step4/2,red)  # GI walk links leave through the gaps above and below Tosari 2  # the 5M branch hops the homebound line in this gap
 text(xh+24,180,'4C ↑ JIEP · home',20,red,weight='600')
 add(f'<path d="M {xh} 228 L {xh} 130 L 700 130 L 700 141" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 text(1250,118,'walk ~850 m home',15)
@@ -277,24 +277,26 @@ text(ph+24,yme+75,'5M ↑ Kampung Melayu; change at Megaria',16,purple)
 # Same Bakoel destination, linked to its two distinct roadside stops.
 bkout=pstart+next(i for i,st in enumerate(tail5) if st['id']=='B00346P')*61
 bkhome=yme+110+(len(return5)-2)*105
-bky=max(pbottom,bkhome)+160
-add(f'<rect x="2320" y="{bky}" width="18" height="18" rx="3" fill="#2e9e50"/>')
-text(2320,bky+52,'Bakoel Koffie',23,'#2e9e50',weight='600')
-text(2320,bky+80,'5M out: Farmasi RP Soeroso · walk ~100 m',14)
-text(2320,bky+103,'5M home: Kantor Pos Cikini · walk ~90 m',14)
-add(f'<path d="M {po-13} {bkout+12} L {po-85} {bkout+12} L {po-85} {bky+9} L 2320 {bky+9}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M 2338 {bky+9} L {ph} {bky+9} L {ph} {bkhome+14}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+bpx=po+262; bpy=bkout+17  # pin sits in the empty space between the two 5M columns
+add(f'<rect x="{bpx}" y="{bpy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+text(bpx,bpy+52,'Bakoel Koffie',23,'#2e9e50',weight='600')
+text(bpx,bpy+80,'5M out: Farmasi RP Soeroso',14);text(bpx,bpy+98,'walk ~100 m',14)
+text(bpx,bpy+121,'5M home: Kantor Pos Cikini',14);text(bpx,bpy+139,'walk ~90 m',14)
+add(f'<path d="M {po+8} {bkout+8} L {po+22} {bkout+26} L {bpx} {bkout+26}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M {ph-13} {bkhome} L {bpx+9} {bkhome} L {bpx+9} {bpy}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
 # GI remains a walk from Tosari 3 out / Tosari 2 home, not a new bus stop.
-giy=2280
-add(f'<rect x="1771" y="{giy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
-text(1780,giy+46,'Grand Indonesia',36,'#2e9e50',anchor='middle',weight='600')
-text(1780,giy+88,'out: Tosari 3',28,anchor='middle');text(1780,giy+122,'~640 m / 8 min',28,anchor='middle')
-text(1780,giy+168,'home: walk to Tosari 2',28,anchor='middle');text(1780,giy+202,'check crossing',28,anchor='middle')
 yto=240+next(i for i,st in enumerate(all4) if st['id']=='B05775P')*step4
 yth=240+home4.index('Tosari 2')*step4
-# Walk links sit on the outside of each straight spine, away from stop labels.
-add(f'<path d="M {xo+13} {yto} L {xo+24} {yto} L {xo+24} {giy+9} L 1771 {giy+9}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M {xh-13} {yth} L {xo+48} {yth} L {xo+48} {giy-40} L 1780 {giy-40} L 1780 {giy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+# GI note sits in the empty space right of the Tosari labels, beside the 5M outbound column.
+gcx=1906; giy=yth+15
+add(f'<rect x="{gcx-9}" y="{giy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+add(f'<text aria-label="Grand Indonesia" x="{gcx}" y="{giy+46}" font-size="36" fill="#2e9e50" text-anchor="middle" font-weight="600"><tspan x="{gcx}">Grand </tspan><tspan x="{gcx}" dy="40">Indonesia</tspan></text>')
+text(gcx,giy+122,'out: Tosari 3',20,anchor='middle');text(gcx,giy+148,'~640 m / 8 min',20,anchor='middle')
+text(gcx,giy+182,'home: walk to Tosari 2',20,anchor='middle');text(gcx,giy+208,'check crossing',20,anchor='middle')
+# Out: from Tosari 3, up between the two 4C lines, across the return line above Tosari 2, then down into the pin.
+add(f'<path d="M {xo+13} {yto} L {xo+30} {yto} L {xo+30} {yth-35} L {gcx} {yth-35} L {gcx} {giy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+# Home: from Tosari 2 out through the label gap below it.
+add(f'<path d="M {xh+8} {yth+8} L {xh+22} {yth+24} L {gcx-9} {yth+24}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 # 4D shares the first ten stops with corridor 4 (same stop IDs in data/route-stops.json), so it branches off the drawn 4 column at Halimun.
 # Stop order for 4D is NOT from the GTFS snapshot (see data/route-stops.json).
 s4=[x['id'] for x in S['4']['stops']]; s4d=S['4D']['stops']
@@ -514,24 +516,25 @@ text(ox,by+368,'No live arrivals or guaranteed last bus; check TJ app.',16,ancho
 text(ox,by+398,'Two lines = two directions. Stops are not claimed to be the same boarding point.',16,anchor='middle')
 S11END=S11TY+by+460
 add('</g>')
-add('<path d="M 2600 1876 L 2600 3348 L 2296 3348 L 2296 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add('<g transform="translate(0 0)">')
+add('<path d="M 2600 1876 L 2600 3348 L 2612 3348 L 2612 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+S61DX=316  # whole block sits under the Bundaran Senayan pair (global x 2600 / 2672)
+add(f'<g transform="translate({S61DX} 0)">')
 # Alam Sutera branch below the established network, connected to the red termini.
 # Dashed links are the walks between 4C curbside and S61 BRT at Bundaran Senayan.
 c61=COL['S61']; ax=2320; sy61=3400; dy61=76
 ss61=S['S61']['stops']; rr61=R['S61-return']['stops']
-text(2290,3170,'Alam Sutera · S61 from Bundaran Senayan',28,anchor='end',weight='600')
-text(2290,3208,'4C curbside ↔ S61 BRT: separate walk via pedestrian access;',17,anchor='end')
-text(2290,3232,'allow a fresh tap/fare.',17,anchor='end')
-text(2290,3262,'Not an in-platform change. Check the pedestrian overpass,',16,anchor='end')
-text(2290,3284,'gates and platform on the day.',16,anchor='end')
+text(2254,3170,'Alam Sutera · S61 from Bundaran Senayan',28,anchor='end',weight='600')
+text(2254,3208,'4C curbside ↔ S61 BRT: separate walk via pedestrian access;',17,anchor='end')
+text(2254,3232,'allow a fresh tap/fare.',17,anchor='end')
+text(2254,3262,'Not an in-platform change. Check the pedestrian overpass,',16,anchor='end')
+text(2254,3284,'gates and platform on the day.',16,anchor='end')
 rows61=[0]*max(len(ss61),len(rr61))
 by61=sy61+(len(rows61)-1)*dy61
 dual(ss61,rr61,ax,sy61,dy61,c61,out_right=False)
-text(ax-40,sy61-68,'S61 ↓ Alam Sutera (left)',20,c61,anchor='end',weight='600')
-text(ax+40,sy61-68,'S61 ↑ Blok M (right)',20,c61,weight='600')
+text(ax-64,sy61-68,'S61 ↓ Alam Sutera (left)',20,c61,anchor='end',weight='600')
+text(ax+64,sy61-68,'S61 ↑ Blok M (right)',20,c61,weight='600')
 # Return link from the red homebound end: horizontal under the header, then straight up.
-add('<path d="M 2344 3388 L 2344 3378 L 2672 3378 L 2672 2016" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 2344 3388 L 2344 3378 L 2356 3378 L 2356 2016" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 mx,mlx=2150,2490
 for x,y,label in [(mx,by61+190,'BINUS main building'),(mlx,by61+190,'Mall / BINUS extension')]:
  add(f'<rect x="{x-9}" y="{y}" width="18" height="18" rx="3" fill="#2e9e50"/>')

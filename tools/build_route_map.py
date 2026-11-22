@@ -52,6 +52,22 @@ def spine(rows,x,y0,dy,color,ends=()):
   if i<n-1:
    if i%3==0:tri(x,yy+dy/2,color,False)
    elif i%3==1:tri(x,yy+dy/2,color,True)
+def dual(out_stops,ret_names,x,y0,dy,color,gap=24,out_right=True):
+ """Two close parallel direction lines in one narrow column (the user's preferred reference).
+ Outbound line on the right, down arrows, labels right; return line on the left, up arrows, labels left.
+ Each direction keeps its own stop order and markers; no stop is claimed to be the same boarding point as another."""
+ O=[o['name'] if isinstance(o,dict) else o for o in out_stops];Rv=list(reversed(ret_names))
+ n=max(len(O),len(Rv));H=dy*(n-1)
+ def col(names,cx,anchor,up):
+  m=len(names);line(cx,y0,cx,y0+H,color);st=H/max(m-1,1)
+  for i,nm in enumerate(names):
+   yy=y0+i*st;big=i in (0,m-1)
+   add(f'<circle cx="{cx}" cy="{yy:.0f}" r="{11 if big else 6}" fill="Canvas" stroke="{color}" stroke-width="4"/>')
+   text(cx+(20 if anchor=='start' else -20),round(yy+6),nm,20,anchor=anchor,weight='600' if big else 'normal')
+   if i<m-1 and i%3==1:tri(cx,yy+st/2,color,up)
+ s=1 if out_right else -1
+ col(Rv,x-s*gap,'end' if out_right else 'start',True);col(O,x+s*gap,'start' if out_right else 'end',False)
+ return n
 A=[]
 def add(s): A.append(s)
 def text(x,y,s,size=20,color='currentColor',anchor='start',weight='normal'):
@@ -446,7 +462,8 @@ add('<rect x="582" y="1863" width="16" height="16" rx="3" fill="#2e9e50"/>')
 # Central Park node, and the S61 block sits under the Arkadia notes where S11 used to be,
 # so nothing hangs far below the network. Only positions change, not routes or stops.
 S11TX,S11TY=-3310,3050
-add(f'<path d="M 590 1881 L 590 {S11TY+340}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+_t=S11TY+400-60;_s=S11TY+400-10
+add(f'<path d="M 590 1881 L 590 {_t} M 590 {_t} L 614 {_t} L 614 {_s} M 590 {_t} L 566 {_t} L 566 {_s}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<g transform="translate({S11TX} {S11TY})">')
 # S11 branches from the existing Central Park destination. Walk runs below the
 # original network; line crossings without a ring are not transfer points.
@@ -454,15 +471,15 @@ s11c=COL['S11']; ox=3900; sy=400; dy=74
 text(3960,190,'Central Park ↔ The Breeze BSD',40,weight='600')
 text(3960,270,'From Central Park: JPO walk ~450 m / 6 min',30)
 out=S['S11']['stops']; ret=R['S11-return']['stops']
-rows11=merged_rows(out,ret)
+rows11=[0]*max(len(out),len(ret))
 by=sy+(len(rows11)-1)*dy
 # Real-world check (GTFS coordinates): 19 of 22 outbound stops sit 16-102 m from a return stop and share one row;
 # the rest keep their own row. Return labels on the left, outbound labels on the right.
-add(f'<path d="M 3900 {sy-60} L 3900 {sy-14}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-spine(rows11,ox,sy,dy,s11c,ends=(0,len(rows11)-1))
-text(ox+24,sy-30,'S11 ↓ BSD (right)',21,s11c,weight='600')
-text(ox-24,sy-30,'S11 ↑ Jelambar (left)',21,s11c,anchor='end',weight='600')
-text(ox+24,sy-70,'Off at Taman Anggrek; walk back to Central Park.',20)
+dual(out,ret,ox,sy,dy,s11c)
+text(ox+40,sy-30,'S11 ↓ BSD (right)',21,s11c,weight='600')
+text(ox-40,sy-30,'S11 ↑ Jelambar (left)',21,s11c,anchor='end',weight='600')
+text(ox+40,sy-72,'Walk to boarding: Jln. Gelong Baru Utara (right line).',18)
+text(ox+40,sy-96,'Home: off at Taman Anggrek (left line); walk back.',18)
 add(f'<rect x="{ox-9}" y="{by+140}" width="18" height="18" rx="3" fill="#2e9e50"/>')
 text(ox,by+196,'The Breeze BSD',24,'#2e9e50',anchor='middle',weight='600')
 line(ox,by+14,ox,by+131,'#888',True)
@@ -471,10 +488,10 @@ text(ox,by+262,'Walk ~2.2 km / 29 min via BSD Grand Boulevard.',17,anchor='middl
 text(ox,by+290,'Pedestrian path / crossings not checked on site.',16,anchor='middle')
 text(ox,by+340,'Operator feed: S11-L05 outbound, S11-R05 return.',16,anchor='middle')
 text(ox,by+368,'No live arrivals or guaranteed last bus; check TJ app.',16,anchor='middle')
-text(ox,by+398,'Paired stops are opposite platforms within ~100 m (GTFS coordinates).',16,anchor='middle')
+text(ox,by+398,'Two lines = two directions. Stops are not claimed to be the same boarding point.',16,anchor='middle')
 S11END=S11TY+by+460
 add('</g>')
-add('<path d="M 2320 1876 L 2320 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 2320 1876 L 2320 3330 L 2296 3330 L 2296 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add('<g transform="translate(0 0)">')
 # Alam Sutera branch below the established network, connected to the red termini.
 # Dashed links are the walks between 4C curbside and S61 BRT at Bundaran Senayan.
@@ -485,20 +502,19 @@ text(2290,3208,'4C curbside ↔ S61 BRT: separate walk via pedestrian access;',1
 text(2290,3232,'allow a fresh tap/fare.',17,anchor='end')
 text(2290,3262,'Not an in-platform change. Check the pedestrian overpass,',16,anchor='end')
 text(2290,3284,'gates and platform on the day.',16,anchor='end')
-rows61=merged_rows(ss61,rr61)
+rows61=[0]*max(len(ss61),len(rr61))
 by61=sy61+(len(rows61)-1)*dy61
-spine(rows61,ax,sy61,dy61,c61,ends=(0,len(rows61)-1,len(rows61)-2))
-text(ax+24,sy61-68,'S61 ↓ Alam Sutera (right)',20,c61,weight='600')
-text(ax-24,sy61-68,'S61 ↑ Blok M (left)',20,c61,anchor='end',weight='600')
+dual(ss61,rr61,ax,sy61,dy61,c61,out_right=False)
+text(ax-40,sy61-68,'S61 ↓ Alam Sutera (left)',20,c61,anchor='end',weight='600')
+text(ax+40,sy61-68,'S61 ↑ Blok M (right)',20,c61,weight='600')
 # Return link from the red homebound end: horizontal under the header, then straight up.
-add('<path d="M 2320 3366 L 2700 3366 L 2700 2016" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 2344 3388 L 2344 3366 L 2700 3366 L 2700 2016" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 mx,mlx=2150,2490
 for x,y,label in [(mx,by61+190,'BINUS main building'),(mlx,by61+190,'Mall / BINUS extension')]:
  add(f'<rect x="{x-9}" y="{y}" width="18" height="18" rx="3" fill="#2e9e50"/>')
  text(x,y+55,label,24,'#2e9e50',anchor='middle',weight='600')
 fpy=by61-dy61;mly=by61
-line(ax-10,fpy+8,mx+8,by61+190,'#888',True);line(ax+10,fpy+8,mlx-8,by61+190,'#888',True)
-line(ax-10,mly+8,mx+8,by61+190,'#888',True);line(ax+10,mly+8,mlx-8,by61+190,'#888',True)
+line(ax-24,by61+14,mx+8,by61+190,'#888',True);line(ax+24,by61+14,mlx-8,by61+190,'#888',True)
 yb=by61+190
 text(mx,yb+100,'Jl. Jalur Sutera Barat Kav. 21',16,anchor='middle')
 text(mx,yb+130,'Forest Park → main: ~580 m / 8 min',16,anchor='middle')

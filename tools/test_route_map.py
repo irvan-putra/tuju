@@ -120,7 +120,7 @@ class StopMapTest(unittest.TestCase):
   svg=(ROOT/'data/all-stops.svg').read_text()
   for name in ('The Breeze BSD','Grand Indonesia','2.2 km / 29 min'):
    self.assertIn(name,svg)
-  self.assertEqual(svg.count('Serpong BSD</text>'),1)
+  self.assertEqual(svg.count('Serpong BSD</text>'),2)
   self.assertEqual(svg.count('SMPN 8</text>'),1)
  def test_portrait_red_spines_and_alam_sutera(self):
   root=ET.fromstring((ROOT/'data/all-stops.svg').read_text())

@@ -553,3 +553,10 @@ src=re.sub(r'<!-- map-reading-notes:begin -->.*?<!-- map-reading-notes:end -->',
 p.write_text(src)
 (ROOT/'data/all-stops.svg').write_text(svg+'\n')
 print('generated map',len(svg),'bytes')
+# Map-layout proposal 1: every build prints the layout score, so a nudge is
+# measured, not eyeballed. Scoring reads the SVG only; files never change.
+try:
+ from score_route_map import score as _lscore
+ print('layout score:',' '.join('%s=%s'%(k,v) for k,v in _lscore(svg).items()))
+except Exception as _e:
+ print('layout score unavailable:',_e)

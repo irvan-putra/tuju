@@ -12,6 +12,6 @@ grep -q 'OK (2 tests)' ci/shots/gesture-result.txt
 adb pull /sdcard/Android/data/com.vanipy.tuju/files/map-zoom.png ci/shots/map-zoom.png
 adb pull /sdcard/Android/data/com.vanipy.tuju/files/map-pan.png ci/shots/map-pan.png
 
-for name in return-a return-b return-a-middle return-a-bottom; do
+for name in return-a return-b return-a-middle return-a-bottom grand-indonesia breeze-bsd; do
   adb pull /sdcard/Android/data/com.vanipy.tuju/files/$name.png ci/shots/$name.png
 done

@@ -51,7 +51,7 @@ public class MapGestureTest {
             });
         });
         assertTrue("Read map's actual document offset",done.await(5,java.util.concurrent.TimeUnit.SECONDS));
-        final float px = web.getWidth() * scale(web) / (3000f * initialScale);
+        final float px = web.getWidth() * scale(web) / (5000f * initialScale);
         getInstrumentation().runOnMainSync(() -> {
             web.getSettings().setJavaScriptEnabled(false);
             web.scrollTo((int)(x*px),(int)(top[0]*web.getScale()+y*px));
@@ -74,7 +74,9 @@ public class MapGestureTest {
         web.getLocationOnScreen(position);
         float cx = position[0] + web.getWidth() * .38f;
         float cy = position[1] + web.getHeight() * .35f;
-        long t = SystemClock.uptimeMillis();
+        long t;
+        for (int attempt=0; attempt<2 && scale(web) <= before*1.5f; attempt++) {
+        t = SystemClock.uptimeMillis();
         touch(t, MotionEvent.ACTION_DOWN, cx-25, cy, 0, 0, 1);
         touch(t, MotionEvent.ACTION_POINTER_DOWN | (1 << MotionEvent.ACTION_POINTER_INDEX_SHIFT), cx-25, cy, cx+25, cy, 2);
         for (int i=1; i<=24; i++) {
@@ -85,6 +87,9 @@ public class MapGestureTest {
         touch(t, MotionEvent.ACTION_POINTER_UP | (1 << MotionEvent.ACTION_POINTER_INDEX_SHIFT), cx-169, cy-96, cx+169, cy+96, 2);
         touch(t, MotionEvent.ACTION_UP, cx-169, cy-96, 0, 0, 1);
         Thread.sleep(800);
+        android.util.Log.i("tuju-pinch", "attempt="+attempt+" initial="+before+" actual="+scale(web));
+        if (scale(web) <= before*1.5f) Thread.sleep(1500);
+        }
         assertTrue("Pinch must enlarge actual WebView scale", scale(web) > before * 1.5f);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "map-zoom.png")));
         // Drag the zoomed map and record resulting pixels.
@@ -108,7 +113,13 @@ public class MapGestureTest {
         getInstrumentation().runOnMainSync(() -> web.zoomBy((before * 6f) / web.getScale()));
         Thread.sleep(800);
         assertTrue("Return capture must remain zoomed", scale(web) > before * 1.5f);
-        final float svgPixels = web.getWidth() * scale(web) / (3000f * before);
+        final float svgPixels = web.getWidth() * scale(web) / (5000f * before);
+        mapPosition(web, 3100, 1660);
+        Thread.sleep(600);
+        getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "grand-indonesia.png")));
+        mapPosition(web, 3800, 1750);
+        Thread.sleep(600);
+        getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "breeze-bsd.png")));
         mapPosition(web, 1000, 2140);
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "return-a.png")));

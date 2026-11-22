@@ -496,7 +496,7 @@ text(ox,by+368,'No live arrivals or guaranteed last bus; check TJ app.',16,ancho
 text(ox,by+398,'Two lines = two directions. Stops are not claimed to be the same boarding point.',16,anchor='middle')
 S11END=S11TY+by+460
 add('</g>')
-add('<path d="M 2600 1876 L 2600 3330 L 2296 3330 L 2296 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 2600 1876 L 2600 3348 L 2296 3348 L 2296 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add('<g transform="translate(0 0)">')
 # Alam Sutera branch below the established network, connected to the red termini.
 # Dashed links are the walks between 4C curbside and S61 BRT at Bundaran Senayan.
@@ -513,7 +513,7 @@ dual(ss61,rr61,ax,sy61,dy61,c61,out_right=False)
 text(ax-40,sy61-68,'S61 ↓ Alam Sutera (left)',20,c61,anchor='end',weight='600')
 text(ax+40,sy61-68,'S61 ↑ Blok M (right)',20,c61,weight='600')
 # Return link from the red homebound end: horizontal under the header, then straight up.
-add('<path d="M 2344 3388 L 2344 3366 L 2672 3366 L 2672 2016" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 2344 3388 L 2344 3378 L 2672 3378 L 2672 2016" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 mx,mlx=2150,2490
 for x,y,label in [(mx,by61+190,'BINUS main building'),(mlx,by61+190,'Mall / BINUS extension')]:
  add(f'<rect x="{x-9}" y="{y}" width="18" height="18" rx="3" fill="#2e9e50"/>')

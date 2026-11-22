@@ -116,5 +116,18 @@ class PackerTest(unittest.TestCase):
         place = {'a': (0, 0), 'wall': (150, 0), 'b': (300, 0)}
         self.assertGreaterEqual(P.cost(blocks, [(('a', 'p'), ('b', 'q'))], place, 900), 1000)
 
+
+    def test_pack_fixed_blocks_do_not_move(self):
+        # a block listed in fixed must keep its placement even when moving it
+        # would shorten the link
+        blocks = {'m': {'w': 100, 'h': 100, 'ports': {'a': (50, 100)}},
+                  's': {'w': 100, 'h': 100, 'ports': {'b': (50, 0)}}}
+        links = [(('m', 'a'), ('s', 'b'))]
+        place = {'m': (0.0, 0.0), 's': (400.0, 300.0)}
+        bp, _ = P.pack(blocks, links, 1000, place, iters=2000, seed=3, fixed=("m",))
+        self.assertEqual(bp['m'], (0.0, 0.0))
+        # the free block still moved toward the fixed one
+        self.assertLess(abs(bp['s'][0] - 0) + abs(bp['s'][1] - 200), 400)
+
 if __name__ == '__main__':
     unittest.main()

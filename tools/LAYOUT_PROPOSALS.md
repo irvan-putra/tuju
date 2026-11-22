@@ -1,6 +1,6 @@
 # Map-layout proposals (from the kaji map-layout research note)
 
-Approved 2026-11-23, implemented as three dependency-free tools. They measure
+Implemented 2026-11-23 as three dependency-free tools. They measure
 and search; they do not change the hand-placed layout on their own. The map
 SVG a build writes is byte-identical with or without them.
 
@@ -47,3 +47,26 @@ module docstring). Final routing of an adopted layout would use proposal 2
 against the real label boxes; the L-route cost here is the search objective.
 
 Tests for all three: `python3 tools/test_layout_proposals.py`.
+
+## Trials on the 0.2.14 geometry (2026-11-23, branch `layout-trials`)
+
+`experiments/trial_walk_links.py` re-routes the four real walking links and
+scores each variant; `experiments/trial_packing.py` packs the map's three
+layout blocks with the main network pinned and x-only moves. Neither result
+was adopted:
+
+- Routing ties or loses to the hand-drawn links on 3 of 4 walks. The
+  orthogonal-only constraint loses to a clean diagonal (Pramuka: 345 ->
+  405 units, +2 bends, +1 crossing), and the one shorter routed link
+  (Bakoel) drops min_gap 26.3 -> 13 because the router charges no spacing.
+- Packing suggests moving the S61 corridor ~320 units right (-11% proxy
+  link length, stable across seeds; S11 is already optimally placed), but
+  the gain does not survive text-clearance checks on the real geometry: a
+  naive translation sends a connector through the Grand Indonesia note
+  (text_overlaps 20 -> 29), and redrawing the links as straight drops
+  collides with the moved block's own header labels (20 -> 24, crossings
+  unchanged). A smaller shift with re-anchored labels is untested.
+
+Score numbers are estimates (estimated label widths, discretized curves)
+for comparing variants, not verified layout quality. Scripts, JSON results
+and rendered variant SVGs: `experiments/`.

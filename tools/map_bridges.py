@@ -47,7 +47,7 @@ def add_bridges(svg):
                     if not (-1e-8<=t<=1+1e-8 and -1e-8<=u<=1+1e-8):continue
                     q=a+t*r
                     if min(abs(q-v) for v in (ap[0],ap[-1],bp[0],bp[-1]))<25:continue
-                    if any(abs(q-v)<28 for v in nodes):continue
+                    if any(abs(q-v)<27 for v in nodes):continue
                     if abs(den)/(abs(r)*abs(s))<.22:continue
                     if any(abs(q-v[0])<35 for v in hops):continue
                     tangent=s/abs(s);hops.append((q,tangent,el,_el))

@@ -111,7 +111,8 @@ y10=chain('10',70,240,55,transfers=['G00473','G00718'],both=False)
 # 7F homebound shares the top three station areas of this column (same stop names in
 # the official 10 GTFS pattern and the 7F Juanda-direction listing). Its own stops
 # branch off at Utan Kayu Rawamangun toward Flyover Raya Bogor; drawn in the outer section.
-text(95,y10+33,'Change platform inside the same paid halte',15)
+text(95,y10+36,'10 and 9 use different GTFS platform IDs here;',14)
+text(95,y10+52,'paid-area interchange not verified',14)
 y9=chain('9',70,y10,65,True,['G00403'],both=False)
 # Return legs: own stops and order from GTFS trips 9-R02 / 10-R02, drawn as a second line 36 units left.
 RCP={r['key']:r for r in json.loads((ROOT/'data/return-central-park.json').read_text())['segments']}
@@ -222,12 +223,12 @@ text(277,bq+30,'Walk ~4 min (285 m)',13,anchor='end')
 red=COL['4C']; purple=COL['5M']; xo=1480; xh=1552; xp=1516; po=2080; ph=2580
 all4=S['4C']['stops']; step4=70
 mas=240+next(i for i,st in enumerate(all4) if st['id']=='B02350P')*step4
-add(f'<path d="M 1040 {mat+70} L 1040 {mas-35} L {xo-10} {mas-35} L {xp} {mas}" fill="none" stroke="{purple}" stroke-width="6"/>')
 line(xo,240,xo,240+(len(all4)-1)*step4,red)
 for i,st in enumerate(all4):
  yy=240+i*step4
  node(xo,yy,st['name'],red,st['id'] in ('B07260P','B05812P','B05391P','B05775P','B00221P'),anchor='end')
- if i:tri(xo,yy-step4/2,red,False)
+ if i and abs(yy-step4/2-(mas-35))>1:tri(xo,yy-step4/2,red,False)  # the Matraman 3 link hops the outbound line in this gap
+add(f'<path d="M 1040 {mat+70} L 1040 {mas-35} L {xo+22} {mas-35} L {xp} {mas}" fill="none" stroke="{purple}" stroke-width="6"/>')
 text(xo-24,180,'4C ↓ Bundaran Senayan',20,red,weight='600',anchor='end')
 # Matraman 3 joins the shared 4C/5M section at Masjid Jami Matraman.
 shared_end=240+next(i for i,st in enumerate(all4) if st['id']=='B05391P')*step4

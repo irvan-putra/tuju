@@ -113,7 +113,7 @@ text(607,fy-68,'paid area, no exit or new fare.',13,anchor='end')
 for ay in (y7-150,y7+28,y7+122,y7+210,y7+254):tri(630,ay,COL['7E'],up=False)
 # Direction switch: firsthand 18 Nov 2026 the link stays inside the paid area.
 ry=y7+452
-add(f'<path d="M 618 {fy+6} C 470 {fy+120}, 400 {ry-30}, 346 {ry+2}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 606 {fy+10} C 455 {fy+125}, 395 {ry-30}, 346 {ry+2}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<path d="M 312 {ry+2} L 344 {ry-11} L 344 {ry+15} Z" fill="currentColor" opacity=".6" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
 add(f"<circle cx='300' cy='{ry}' r='12' fill='Canvas' stroke='{COL['7E']}' stroke-width='4'/>")
 text(277,ry+6,'Flyover Raya Bogor',20,weight='600',anchor='end')
@@ -140,15 +140,15 @@ for i,st in enumerate(all4):
 text(xo+24,180,'4C ↓ Bundaran Senayan',20,red,weight='600')
 # Matraman 3 joins the shared 4C/5M section at Masjid Jami Matraman.
 mas=240+next(i for i,st in enumerate(all4) if st['id']=='B02350P')*step4
-line(1040,mat+70,xo-8,mas,purple)
+line(1040,mat+70,xo-30,mas,purple)
 shared_end=240+next(i for i,st in enumerate(all4) if st['id']=='B05391P')*step4
-line(xo-8,mas,xo-8,shared_end,purple)
-text(xo-24,mas+36,'4C + 5M shared stops',15,purple,anchor='end')
+line(xo-30,mas,xo-30,shared_end,purple)
+text(xo-46,mas+36,'4C + 5M shared stops',15,purple,anchor='end')
 # Purple outbound branches at SMPN 8, rather than bending the red trunk.
 out5=S['5M']['stops']; idx5=next(i for i,st in enumerate(out5) if st['id']=='B05391P');tail5=out5[idx5+1:]
 pstart=shared_end+115
-add(f'<path d="M {xo-8} {shared_end} L {xo-8} {shared_end+30} C {xo+280} {shared_end+70}, {po-180} {pstart}, {po} {pstart}" fill="none" stroke="Canvas" stroke-width="13"/>')
-add(f'<path d="M {xo-8} {shared_end} L {xo-8} {shared_end+30} C {xo+280} {shared_end+70}, {po-180} {pstart}, {po} {pstart}" fill="none" stroke="{purple}" stroke-width="6"/>')
+add(f'<path d="M {xo-30} {shared_end} L {xo-30} {shared_end+30} C {xo+280} {shared_end+70}, {po-180} {pstart}, {po} {pstart}" fill="none" stroke="Canvas" stroke-width="13"/>')
+add(f'<path d="M {xo-30} {shared_end} L {xo-30} {shared_end+30} C {xo+280} {shared_end+70}, {po-180} {pstart}, {po} {pstart}" fill="none" stroke="{purple}" stroke-width="6"/>')
 for i,st in enumerate(tail5):
  yy=pstart+i*61
  if i:line(po,yy-61,po,yy,purple)
@@ -197,8 +197,8 @@ text(1410,giy+138,'home: walk to Tosari 2 · check crossing',30,anchor='middle')
 yto=240+next(i for i,st in enumerate(all4) if st['id']=='B05775P')*step4
 yth=240+home4.index('Tosari 2')*step4
 # Walk links sit on the outside of each straight spine, away from stop labels.
-add(f'<path d="M {xo-13} {yto} L {xo-42} {yto} L {xo-42} {giy+9} L 1400 {giy+9}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M 1418 {giy+9} L {xh-38} {giy+9} L {xh-38} {yth} L {xh-13} {yth}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M {xo-13} {yto} L {xo-60} {yto} L {xo-60} {giy+9} L 1400 {giy+9}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M 1418 {giy+9} L {xh-80} {giy+9} L {xh-80} {yth} L {xh-13} {yth}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 # 4D shares the first ten stops with corridor 4 (same stop IDs in data/route-stops.json), so it branches off the drawn 4 column at Halimun.
 # Stop order for 4D is NOT from the GTFS snapshot (see data/route-stops.json).
 s4=[x['id'] for x in S['4']['stops']]; s4d=S['4D']['stops']
@@ -281,8 +281,8 @@ for yy in (1346,1285,1224,1163,1102,798,736,426,364,302):
  add(f"<circle cx='630' cy='{yy}' r='13' fill='none' stroke='{COL['4D']}' stroke-width='3'/>")
 for yy in (650,520,240):
  add(f"<circle cx='360' cy='{yy}' r='13' fill='none' stroke='{COL['4D']}' stroke-width='3'/>")
-line(648,1098,648,806,COL['4D'])
-tri(648,788,COL['4D'])
+line(666,1098,666,806,COL['4D'])
+tri(666,788,COL['4D'])
 text(585,1090,'4D ↑ return to Halimun · no stops between',14,COL['4D'],anchor='end')
 text(655,1378,'chosen return: change 6 → 4D here (19 Nov)',14,COL['4D'])
 text(337,560,'teal rings: 4D return stops (Maps, 19 Nov)',13,COL['4D'],anchor='end')
@@ -322,9 +322,9 @@ c7a='#527b9c'
 # drawn Masjid Ar-Raudhah node instead of a duplicate. D21 appears in the label
 # only because the same Maps result named it; not verified identical.
 my=y6+120  # Masjid Ar-Raudhah, first stop of the drawn 7E column
-add(f'<path d="M 314 2126 C 400 2126, 480 {my}, 600 {my}" fill="none" stroke="{c7a}" stroke-width="6"/>')
+add(f'<path d="M 346 2126 C 420 2126, 490 {my}, 600 {my}" fill="none" stroke="{c7a}" stroke-width="6"/>')
 add(f'<path d="M 600 {my} L 578 {my-8} L 578 {my+8} Z" fill="{c7a}" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>')
-line(311,py-4,311,2118,c7a)
+line(346,py-4,346,2118,c7a)
 for yy in (2126,2182,2238,2294):add(f"<circle cx='300' cy='{yy}' r='13' fill='none' stroke='{c7a}' stroke-width='3'/>")
 add(f"<circle cx='300' cy='{py}' r='17' fill='none' stroke='{c7a}' stroke-width='3'/>")
 add(f"<circle cx='630' cy='{my}' r='17' fill='none' stroke='{c7a}' stroke-width='3'/>")
@@ -389,7 +389,7 @@ text(900,gy-10,'Gojek hop to the 7F pickup (left)',16)
 add('</g>')
 # Preserve the Central Park node; S11 stacks below, rather than widening the map.
 add('<rect x="582" y="1863" width="16" height="16" rx="3" fill="#2e9e50"/>')
-add('<path d="M 590 1871 L 350 1871 L 350 6000 L 1800 6000 L 1800 3300 L 2300 3300 L 2300 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 590 1871 L 400 1871 L 400 6000 L 1800 6000 L 1800 3300 L 2300 3300 L 2300 3388" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add('<g transform="translate(-1600 3000)">')
 # S11 branches from the existing Central Park destination. Walk runs below the
 # original network; line crossings without a ring are not transfer points.
@@ -431,7 +431,7 @@ text(4200,by+328,'Operator feed: S11-L05 outbound, S11-R05 return.',16,anchor='m
 text(4200,by+356,'No live arrivals or guaranteed last bus; check TJ app.',16,anchor='middle')
 
 add('</g>')
-add('<path d="M 2320 1862 L 2275 1905 L 2275 2150 L 1740 2150 L 1740 5805 L 2200 5805 L 2200 5888" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add('<path d="M 2320 1862 L 1865 1895 L 1865 5805 L 2200 5805 L 2200 5888" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add('<path d="M 3000 5888 L 3000 5815 L 4050 5815 L 4050 2100 L 2740 2100 L 2740 2030 L 2700 2002" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add('<g transform="translate(0 2500)">')
 # Alam Sutera branch below the established network, connected to the red termini.

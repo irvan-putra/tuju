@@ -171,8 +171,8 @@ text(1250,118,'walk ~850 m home',15)
 # Purple return joins the red homebound at Megaria; different stops stay separate.
 yme=240+home4.index('Megaria')*step4
 return5=list(reversed(R['5M-return']['stops']))
-add(f'<path d="M {ph} {yme+110} C {ph-150} {yme+110}, {xh+230} {yme+55}, {xh+12} {yme+24}" fill="none" stroke="Canvas" stroke-width="13"/>')
-add(f'<path d="M {ph} {yme+110} C {ph-150} {yme+110}, {xh+230} {yme+55}, {xh+12} {yme+24}" fill="none" stroke="{purple}" stroke-width="6"/>')
+add(f'<path d="M {ph} {yme+110} C {ph-150} {yme+110}, {xh+230} {yme+55}, {xh} {yme+12}" fill="none" stroke="Canvas" stroke-width="13"/>')
+add(f'<path d="M {ph} {yme+110} C {ph-150} {yme+110}, {xh+230} {yme+55}, {xh} {yme+12}" fill="none" stroke="{purple}" stroke-width="6"/>')
 for i,name in enumerate(return5[1:]):
  yy=yme+110+i*105
  if i:line(ph,yy-105,ph,yy,purple)

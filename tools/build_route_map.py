@@ -274,8 +274,12 @@ add(f'<path d="M {xp} {shared_end} L {xp} {shared_end+35} L {po} {shared_end+35}
 add(f'<path d="M {xp} {shared_end} L {xp} {shared_end+35} L {po} {shared_end+35} L {po} {pstart}" fill="none" stroke="{purple}" stroke-width="6"/>')
 yme=240+home4.index('Megaria')*step4
 return5=list(reversed(R['5M-return']['stops']))
-add(f'<path d="M {ph} {yme+110} C {ph-150} {yme+110}, {xh+230} {yme+55}, {xh} {yme+12}" fill="none" stroke="Canvas" stroke-width="13"/>')
-add(f'<path d="M {ph} {yme+110} C {ph-150} {yme+110}, {xh+230} {yme+55}, {xh} {yme+12}" fill="none" stroke="{purple}" stroke-width="6"/>')
+# Straight Pegangsaan Timur to Megaria join; clears the Megaria and St. Cikini Selatan
+# labels (user feedback 23 Nov: the old sweep struck the St. Cikini Selatan label and
+# read as if 5M served it). Ring marks the change to 4C.
+add(f'<path d="M {ph} {yme+110} L {xh} {yme+14}" fill="none" stroke="Canvas" stroke-width="13"/>')
+add(f'<path d="M {ph} {yme+110} L {xh} {yme+14}" fill="none" stroke="{purple}" stroke-width="6"/>')
+add(f"<circle cx='{xh}' cy='{yme}' r='17' fill='none' stroke='{purple}' stroke-width='3.5'/>")
 for i,name in enumerate(return5[1:]):
  yy=yme+110+i*105
  if i:line(ph,yy-105,ph,yy,purple)

@@ -2,8 +2,8 @@ plugins {
     id("com.android.application")
 }
 
-val appVersionName = "0.2.21"
-val appVersionCode = 32
+val appVersionName = "0.2.22"
+val appVersionCode = 33
 
 base {
     archivesName.set("tuju-v$appVersionName")

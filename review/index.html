@@ -41,25 +41,25 @@
   #review-panel pre { white-space: pre-wrap; max-height: 12rem; overflow: auto; margin: 6px 0; font-size: .85rem; }
 </style>
 </head>
-<body data-version="0.2.21">
+<body data-version="0.2.22">
 <h1>tuju walk review</h1>
 <p class="sub"><a href="../index.html" id="back-link">&larr; tuju map</a> · Things the map marks unverified, as an on-the-ground checklist. Grouped by route, nearest from home first; use the chips to show one route. Tap a status per item, add a note if useful, then copy the result text and send it back.</p>
 
 <details id="loop">
-<summary>One-go review loop (estimate): 9 stops, ~106 km, ~3 h driving + ~2.5 h on the ground</summary>
+<summary>One-go review loop (transit estimate): 9 stops, ~116 km, ~9 h in transit + ~2.5 h on the ground</summary>
 <ol>
-<li>Flyover Raya Bogor (7F) <span class="leg">21 min, 17.1 km from home</span></li>
-<li>Ragunan (7E + 6) <span class="leg">11 min, 5.2 km</span></li>
-<li>The Breeze BSD (S11) <span class="leg">36 min, 27.9 km</span></li>
-<li>BINUS Alam Sutera (S61) <span class="leg">26 min, 11.4 km</span></li>
-<li>Forest Park stop (S61) <span class="leg">6 min, 2.3 km</span></li>
-<li>Mall @ Alam Sutera (S61) <span class="leg">3 min, 0.9 km</span></li>
-<li>Central Park (9) <span class="leg">29 min, 18.8 km</span></li>
-<li>Bundaran Senayan (S61) <span class="leg">21 min, 10.5 km</span></li>
-<li>Tosari (1) <span class="leg">10 min, 5.2 km</span></li>
-<li>Home again <span class="leg">17 min, 6.9 km</span></li>
+<li>Tosari (1) <span class="leg">52 min, 6.8 km from home - 4C direct from Pramuka LIA 2 (14 stops)</span></li>
+<li>Bundaran Senayan (S61) <span class="leg">19 min, 4.6 km - corridor 1 direct, Dukuh Atas BNI &rarr; Senayan</span></li>
+<li>Ragunan (7E + 6) <span class="leg">1 h 9, 12.2 km - 6V direct, 14 stops</span></li>
+<li>Flyover Raya Bogor (7F) <span class="leg">39 min, 8.1 km - S15A direct</span></li>
+<li>The Breeze BSD (S11) <span class="leg">1 h 12, 32.6 km - 1 transfer at Versailles</span></li>
+<li>BINUS Alam Sutera (S61) <span class="leg">1 h 17, 14.1 km - B07 feeder direct</span></li>
+<li>Mall @ Alam Sutera (S61) <span class="leg">21 min, 1.6 km walk</span></li>
+<li>Forest Park stop (S61) <span class="leg">12 min, 0.9 km walk</span></li>
+<li>Central Park (9) <span class="leg">1 h 39, 18.5 km - S61, then 2 transfers</span></li>
+<li>Home again <span class="leg">1 h 25, 12.5 km - 8 &rarr; 5C &rarr; JP04</span></li>
 </ol>
-<p class="note">Estimate, computed 23 Nov: round trip from the map's Pramuka start on Google road distances (free flow, toll roads on the BSD / Alam Sutera legs); every stop order was checked and this is the shortest loop. The 12 items are 9 stops - Alam Sutera's seven are three close clusters. Real traffic will be slower; by busway the same order holds, and Senayan to Alam Sutera is the S61 ride itself.</p>
+<p class="note">Transit estimate, computed 23 Nov: round trip from the map's Pramuka start on Google Maps transit directions (fewer-transfers preference); every stop order was checked on transit time and this order is the fewest-transfer pick - 5 transfers, ~9 h 5 min. The pure-time order is ~13 min faster with 6 transfers. The 12 items are 9 stops - Alam Sutera's seven are three close clusters, walked between. The direct 4C &rarr; S61 ride (Pramuka &rarr; Bundaran Senayan &rarr; Mall @ Alam Sutera) stays a good standalone option for the Senayan + S61 items only. ~9 h transit + ~2.5 h on site is ~11-12 h door to door, so splitting into two half-days is realistic. Times are estimates; real headways and traffic will differ.</p>
 </details>
 
 <div id="filters" role="group" aria-label="Filter by route"></div>
@@ -117,7 +117,7 @@ try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){state={}}
 var filter='all';
 try{filter=JSON.parse(localStorage.getItem(KEY+'-filter')||'"all"')}catch(e){filter='all'}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));localStorage.setItem(KEY+'-filter',JSON.stringify(filter))}catch(e){}}
-function version(){return document.body.getAttribute('data-version')||'0.2.19'}
+function version(){return document.body.getAttribute('data-version')||'0.2.22'}
 function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
 function km(lat,lon){
  var R=6371,p=Math.PI/180;

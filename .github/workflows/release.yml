@@ -119,6 +119,8 @@ jobs:
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
 
+          0.2.22 recomputes the one-go review loop for public transit instead of driving: Google Maps transit directions with a fewer-transfers preference, every stop order checked on transit time, and the fewest-transfer order published (5 transfers, about 9 hours in transit) with per-leg routes and transfer counts.
+
           0.2.21 adds the one-go review loop to the walk-review screen: the nine physical stops (the twelve items collapse in Alam Sutera) in the shortest round-trip order from the Pramuka start, with per-leg and total road distance/time labeled as estimates.
 
           0.2.20 groups the walk-review checklist by route with filter chips and sorts it nearest-first from the Pramuka home start, with a straight-line distance on each item. Answers and the copy-back format are unchanged, and the screen stays fully offline in the app.

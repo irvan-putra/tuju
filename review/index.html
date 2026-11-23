@@ -13,6 +13,12 @@
   h2 .dist { font-size: .8rem; font-weight: normal; opacity: .7; }
   .sub { opacity: .75; margin-top: 0; }
   a { color: #4a7ddb; }
+  #loop { border: 1px solid #8884; border-radius: .75rem; padding: .7rem 1rem; margin: 1rem 0 .4rem; }
+  #loop summary { cursor: pointer; font-size: .95rem; }
+  #loop ol { margin: .6rem 0 .3rem; padding-left: 1.4rem; font-size: .92rem; }
+  #loop li { margin: .15rem 0; }
+  #loop .leg { font-size: .8rem; opacity: .7; }
+  #loop .note { font-size: .82rem; opacity: .8; }
   #filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 1rem 0 .4rem; position: sticky; top: 0; background: Canvas; padding: .4rem 0; z-index: 30; }
   #filters button { font: inherit; font-size: .85rem; padding: 5px 12px; border: 1px solid #8886; border-radius: 999px; background: Canvas; color: CanvasText; }
   #filters button.on { background: #4a7ddb; border-color: #4a7ddb; color: #fff; }
@@ -35,9 +41,26 @@
   #review-panel pre { white-space: pre-wrap; max-height: 12rem; overflow: auto; margin: 6px 0; font-size: .85rem; }
 </style>
 </head>
-<body data-version="0.2.20">
+<body data-version="0.2.21">
 <h1>tuju walk review</h1>
 <p class="sub"><a href="../index.html" id="back-link">&larr; tuju map</a> · Things the map marks unverified, as an on-the-ground checklist. Grouped by route, nearest from home first; use the chips to show one route. Tap a status per item, add a note if useful, then copy the result text and send it back.</p>
+
+<details id="loop">
+<summary>One-go review loop (estimate): 9 stops, ~106 km, ~3 h driving + ~2.5 h on the ground</summary>
+<ol>
+<li>Flyover Raya Bogor (7F) <span class="leg">21 min, 17.1 km from home</span></li>
+<li>Ragunan (7E + 6) <span class="leg">11 min, 5.2 km</span></li>
+<li>The Breeze BSD (S11) <span class="leg">36 min, 27.9 km</span></li>
+<li>BINUS Alam Sutera (S61) <span class="leg">26 min, 11.4 km</span></li>
+<li>Forest Park stop (S61) <span class="leg">6 min, 2.3 km</span></li>
+<li>Mall @ Alam Sutera (S61) <span class="leg">3 min, 0.9 km</span></li>
+<li>Central Park (9) <span class="leg">29 min, 18.8 km</span></li>
+<li>Bundaran Senayan (S61) <span class="leg">21 min, 10.5 km</span></li>
+<li>Tosari (1) <span class="leg">10 min, 5.2 km</span></li>
+<li>Home again <span class="leg">17 min, 6.9 km</span></li>
+</ol>
+<p class="note">Estimate, computed 23 Nov: round trip from the map's Pramuka start on Google road distances (free flow, toll roads on the BSD / Alam Sutera legs); every stop order was checked and this is the shortest loop. The 12 items are 9 stops - Alam Sutera's seven are three close clusters. Real traffic will be slower; by busway the same order holds, and Senayan to Alam Sutera is the S61 ride itself.</p>
+</details>
 
 <div id="filters" role="group" aria-label="Filter by route"></div>
 <div id="groups"></div>

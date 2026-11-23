@@ -41,7 +41,7 @@
   #review-panel pre { white-space: pre-wrap; max-height: 12rem; overflow: auto; margin: 6px 0; font-size: .85rem; }
 </style>
 </head>
-<body data-version="0.2.22">
+<body data-version="0.2.23">
 <h1>tuju walk review</h1>
 <p class="sub"><a href="../index.html" id="back-link">&larr; tuju map</a> · Things the map marks unverified, as an on-the-ground checklist. Grouped by route, nearest from home first; use the chips to show one route. Tap a status per item, add a note if useful, then copy the result text and send it back.</p>
 
@@ -117,7 +117,7 @@ try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){state={}}
 var filter='all';
 try{filter=JSON.parse(localStorage.getItem(KEY+'-filter')||'"all"')}catch(e){filter='all'}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));localStorage.setItem(KEY+'-filter',JSON.stringify(filter))}catch(e){}}
-function version(){return document.body.getAttribute('data-version')||'0.2.22'}
+function version(){return document.body.getAttribute('data-version')||'0.2.23'}
 function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
 function km(lat,lon){
  var R=6371,p=Math.PI/180;

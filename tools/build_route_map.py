@@ -318,6 +318,21 @@ mv_close()
 add(f'<path d="M {xo+13} {yto} L {xo+30} {yto} L {xo+30} {yth-35} L {gcx} {yth-35} L {gcx} {giy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 # Home: from Tosari 2 out through the label gap below it.
 add(f'<path d="M {xh+8} {yth+8} L {xh+22} {yth+24} L {gcx-9} {yth+24}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+# J.CO Reserve (AI Hotel Thamrin) sits by Tosari, stacked under the GI block (user request 23 Nov).
+jcx=1906; jy=1500
+mv_open('jco-reserve','J.CO Reserve pin and notes')
+add(f'<rect x="{jcx-9}" y="{jy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+text(jcx,jy+70,'J.CO Reserve',23,'#2e9e50',weight='600',anchor='middle')
+text(jcx,jy+92,'AI Hotel Thamrin',14,anchor='middle')
+text(jcx,jy+122,'out: Tosari 3 · ~700 m',16,anchor='middle')
+text(jcx,jy+144,'home: walk to Tosari 2 · ~200 m',16,anchor='middle')
+mv_close()
+# Out: from Tosari 3 (fork beside the GI stub), up between the 4C pair to the shared
+# walk trunk row. Both links end at the same pin, so the shared trunk is unambiguous.
+add(f'<path d="M {xo+13} {yto} L {xo+44} {yto} L {xo+44} {yth+50} L {xh+13} {yth+50}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+# Home: from the Tosari 2 ring bottom, right across the gap below Tosari 2 (clear of the
+# St. Sudirman 2 label box and ring), down at x=1730 (clear of the GI title box), pin top.
+add(f'<path d="M {xh} {yth+12} L {xh+13} {yth+50} L 1742 {yth+50} L 1742 {jy-30} L {jcx} {jy-30} L {jcx} {jy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 # 4D shares the first ten stops with corridor 4 (same stop IDs in data/route-stops.json), so it branches off the drawn 4 column at Halimun.
 # Stop order for 4D is NOT from the GTFS snapshot (see data/route-stops.json).
 s4=[x['id'] for x in S['4']['stops']]; s4d=S['4D']['stops']

@@ -398,7 +398,9 @@ for yy in (1346,1285,1224,1163,1102,798,736,426,364,302):
  add(f"<circle cx='630' cy='{yy}' r='13' fill='none' stroke='{COL['4D']}' stroke-width='3'/>")
 for yy in (650,520,240):
  add(f"<circle cx='360' cy='{yy}' r='13' fill='none' stroke='{COL['4D']}' stroke-width='3'/>")
-line(666,1098,666,818,COL['4D'])
+# Connect at the Kuningan Madya ring (user feedback 23 Nov: the bare vertical stopped
+# 36 units right of the ring and read as unconnected).
+add(f'<path d="M 630 1102 L 666 1102 L 666 818" fill="none" stroke="{COL["4D"]}" stroke-width="6"/>')
 tri(666,850,COL['4D'])
 text(585,1090,'4D ↑ return to Halimun · no stops between',14,COL['4D'],anchor='end')
 text(655,1378,'chosen return: change 6 → 4D here (19 Nov)',14,COL['4D'])

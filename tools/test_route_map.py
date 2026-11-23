@@ -139,6 +139,22 @@ class StopMapTest(unittest.TestCase):
   text=' '.join(''.join(e.itertext()) for e in root.iter() if e.tag.endswith('text'))
   for t in ('BINUS main building','Mall / BINUS extension','0.8 km / 11 min','0.5 km / 6 min','1.6 km / 21 min'):
    self.assertIn(t,text)
+ def test_walk_review_page(self):
+  page=(ROOT/'review/index.html').read_text()
+  # The same file ships as the app's second screen: fully offline, and the
+  # copy-back text carries stable item ids like the layout editor's feedback.
+  self.assertNotRegex(page,r'(?:src|href)="https?://')
+  for call in ('fetch(','XMLHttpRequest','WebSocket','sendBeacon','import('):
+   self.assertNotIn(call,page)
+  for vid in ('binus-crossing','binus-sidewalks','binus-gates','suteraloop-stop','s61-mall-stop','s61-forest-park','senayan-access','central-park-crossing','gi-tosari-crossing','ragunan-access','7f-access','s11-breeze-path'):
+   self.assertIn(vid,page)
+  self.assertIn('Tuju walk review (map ',page)
+  web=(ROOT/'index.html').read_text()
+  self.assertIn('href="review/"',web)
+  asset=(ROOT/'android/app/src/main/assets/review/index.html').read_text()
+  self.assertEqual(asset,page)
+  app=(ROOT/'android/app/src/main/assets/map.html').read_text()
+  self.assertIn('href="review/index.html"',app)
  def test_offline_asset(self):
   # The journey meter adds an inline script; the asset must still run fully
   # on-device: no external resources and no network calls of any kind.

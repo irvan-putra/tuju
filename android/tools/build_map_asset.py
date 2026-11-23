@@ -16,9 +16,13 @@ markers): the official venue access notes, below the meter. External links
 are rewritten as plain text, because the app has no network and the asset
 test forbids external URLs.
 
+Also bundles the walk-review checklist (../../review/index.html) as
+assets/review/index.html, the app's second screen: the map's review link is
+rewritten to the bundled file. The review page must stay fully offline.
+
 Usage:
-    tools/build_map_asset.py           write app/src/main/assets/map.html
-    tools/build_map_asset.py --check   fail if the committed asset is stale
+    tools/build_map_asset.py           write app/src/main/assets/map.html and assets/review/index.html
+    tools/build_map_asset.py --check   fail if either committed asset is stale
 """
 import os
 import re
@@ -27,6 +31,8 @@ import sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 SRC = os.path.join(ROOT, "..", "index.html")
 OUT = os.path.join(ROOT, "app", "src", "main", "assets", "map.html")
+REVIEW_SRC = os.path.join(ROOT, "..", "review", "index.html")
+REVIEW_OUT = os.path.join(ROOT, "app", "src", "main", "assets", "review", "index.html")
 
 PAGE = """<!DOCTYPE html>
 <html lang="en">
@@ -113,10 +119,20 @@ def extract_guideline(html):
     return g
 
 
+def render_review():
+    with open(os.path.normpath(REVIEW_SRC), encoding="utf-8") as f:
+        page = f.read()
+    if re.search(r'(?:src|href)\s*=\s*"https?://', page):
+        sys.exit("review page carries an external URL; the app asset must stay offline")
+    return page
+
+
 def render():
     with open(os.path.normpath(SRC), encoding="utf-8") as f:
         page = f.read()
     intro, svg, closing = extract_card(page)
+    # In the app the review page is a bundled asset file, not a directory.
+    intro = intro.replace('href="review/"', 'href="review/index.html"')
     return PAGE.format(intro='<p class="note">%s</p>' % intro,
                        svg=svg,
                        closing='<p class="note">%s</p>' % closing,
@@ -128,6 +144,7 @@ def render():
 
 def main():
     page = render()
+    review = render_review()
     if "--check" in sys.argv:
         try:
             with open(OUT, encoding="utf-8") as f:
@@ -136,12 +153,23 @@ def main():
             current = None
         if current != page:
             sys.exit("map.html is stale; run tools/build_map_asset.py")
-        print("map.html is up to date")
+        try:
+            with open(REVIEW_OUT, encoding="utf-8") as f:
+                current_review = f.read()
+        except OSError:
+            current_review = None
+        if current_review != review:
+            sys.exit("review/index.html asset is stale; run tools/build_map_asset.py")
+        print("map.html and review asset are up to date")
         return
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(page)
     print("wrote", os.path.relpath(OUT, ROOT), "(%d bytes)" % len(page))
+    os.makedirs(os.path.dirname(REVIEW_OUT), exist_ok=True)
+    with open(REVIEW_OUT, "w", encoding="utf-8") as f:
+        f.write(review)
+    print("wrote", os.path.relpath(REVIEW_OUT, ROOT), "(%d bytes)" % len(review))
 
 
 if __name__ == "__main__":

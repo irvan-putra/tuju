@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
         web = new WebView(this);
         WebSettings s = web.getSettings();
         s.setJavaScriptEnabled(true); // the journey meter is script-driven
+        s.setDomStorageEnabled(true); // the walk-review screen keeps its answers on-device
         s.setSupportZoom(true);
         s.setBuiltInZoomControls(true);
         s.setDisplayZoomControls(false); // pinch only, no on-screen buttons

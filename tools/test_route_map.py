@@ -137,7 +137,7 @@ class StopMapTest(unittest.TestCase):
     nums=list(map(float,re.findall(r'-?\d+(?:\.\d+)?',e.attrib['d'])))
     self.assertTrue(all(x==nums[0] for x in nums[::2]),e.attrib['d'])
   text=' '.join(''.join(e.itertext()) for e in root.iter() if e.tag.endswith('text'))
-  for t in ('BINUS main building','Mall / BINUS extension','1 km / 13 min','790 m / 10 min'):
+  for t in ('BINUS main building','Mall / BINUS extension','0.8 km / 11 min','0.5 km / 6 min','1.6 km / 21 min'):
    self.assertIn(t,text)
  def test_offline_asset(self):
   # The journey meter adds an inline script; the asset must still run fully

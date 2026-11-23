@@ -9,14 +9,16 @@
   * { box-sizing: border-box; }
   body { font-family: system-ui, -apple-system, sans-serif; margin: 0 auto; max-width: 44rem; padding: 1.5rem 1rem 6rem; line-height: 1.55; }
   h1 { font-size: 1.6rem; margin-bottom: .2rem; }
-  h2 { font-size: 1.15rem; margin-top: 2rem; border-bottom: 1px solid #8884; padding-bottom: .25rem; }
+  h2 { font-size: 1.15rem; margin-top: 1.6rem; border-bottom: 1px solid #8884; padding-bottom: .25rem; }
+  h2 .dist { font-size: .8rem; font-weight: normal; opacity: .7; }
   .sub { opacity: .75; margin-top: 0; }
-  .card { border: 1px solid #8884; border-radius: .75rem; padding: 1rem 1.1rem; margin: 1rem 0; }
-  .card h3 { margin: 0 0 .4rem; font-size: 1.02rem; }
-  .note { font-size: .85rem; opacity: .8; }
   a { color: #4a7ddb; }
+  #filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 1rem 0 .4rem; position: sticky; top: 0; background: Canvas; padding: .4rem 0; z-index: 30; }
+  #filters button { font: inherit; font-size: .85rem; padding: 5px 12px; border: 1px solid #8886; border-radius: 999px; background: Canvas; color: CanvasText; }
+  #filters button.on { background: #4a7ddb; border-color: #4a7ddb; color: #fff; }
   .item { border: 1px solid #8884; border-radius: .75rem; padding: .8rem 1rem; margin: .8rem 0; }
   .item h3 { margin: 0 0 .25rem; font-size: .98rem; }
+  .item .km { font-size: .78rem; opacity: .7; font-weight: normal; }
   .item p { margin: .3rem 0 .5rem; font-size: .9rem; opacity: .85; }
   .item .states { display: flex; flex-wrap: wrap; gap: 6px; }
   .item button { font: inherit; font-size: .85rem; padding: 5px 12px; border: 1px solid #8886; border-radius: 999px; background: Canvas; color: CanvasText; }
@@ -33,10 +35,11 @@
   #review-panel pre { white-space: pre-wrap; max-height: 12rem; overflow: auto; margin: 6px 0; font-size: .85rem; }
 </style>
 </head>
-<body data-version="0.2.19">
+<body data-version="0.2.20">
 <h1>tuju walk review</h1>
-<p class="sub"><a href="../index.html" id="back-link">&larr; tuju map</a> · Things the map marks unverified, as an on-the-ground checklist. Tap a status per item, add a note if useful, then copy the result text and send it back.</p>
+<p class="sub"><a href="../index.html" id="back-link">&larr; tuju map</a> · Things the map marks unverified, as an on-the-ground checklist. Grouped by route, nearest from home first; use the chips to show one route. Tap a status per item, add a note if useful, then copy the result text and send it back.</p>
 
+<div id="filters" role="group" aria-label="Filter by route"></div>
 <div id="groups"></div>
 
 <div id="review-bar">
@@ -56,40 +59,63 @@
 <script>
 (function(){
 "use strict";
+// Home anchor: the map's public Pramuka start area (his exact address stays off
+// the page). Distances are straight-line estimates for ordering only.
+var HOME=[-6.19,106.87];
 var GROUPS=[
- {title:'BINUS / Mall Alam Sutera walk',items:[
-  {id:'binus-crossing',q:'Crossing between the BINUS main building (Kav. 21) and Mall Alam Sutera over Jl. Jalur Sutera Barat',d:'Satellite shows no formal crossing at the closest point; BINUS claims a 5-10 min walk across. Is there a zebra/pelican crossing or a usable informal crossing near the T-junction?'},
-  {id:'binus-sidewalks',q:'Sidewalks: Forest Park stop to BINUS main, and Forest Park to the mall East Side',d:'Map says ~0.8 km / 11 min and ~0.4 km / 5 min (Google walking). Are the sidewalks continuous and actually walkable?'},
-  {id:'binus-gates',q:'BINUS campus pedestrian gate from the Forest Park / mall side',d:'Which gate is open to pedestrians, and does entering need anything (card, security desk)?'},
-  {id:'suteraloop-stop',q:'SuteraLoop free shuttle: campus stop and mall stop',d:'Moovit lists a 24-stop loop from Mall @ Alam Sutera; campus coverage unverified. Does it stop at/near the campus? Where exactly is the mall stop?'},
-  {id:'s61-mall-stop',q:'S61 "Mall" stop (toward Blok M): exact position',d:'Estimated ~0.5 km / 6 min from the mall East Side, position unverified. Which street and side, and is it a shelter or a curbside pole?'},
-  {id:'s61-forest-park',q:'S61 Forest Park stop (terminus): BRT shelter or curbside?',d:'Gate and tap-in reality for boarding toward Blok M.'}
+ {route:'S61',title:'S61 · Alam Sutera',items:[
+  {id:'senayan-access',lat:-6.227766,lon:106.800954,q:'4C curbside to S61 BRT at Bundaran Senayan: pedestrian access',d:'Map says not an in-platform change. Check the overpass/access, gates and platform, and whether a fresh tap/fare applies.'},
+  {id:'suteraloop-stop',lat:-6.221679,lon:106.654131,q:'SuteraLoop free shuttle: campus stop and mall stop',d:'Moovit lists a 24-stop loop from Mall @ Alam Sutera; campus coverage unverified. Does it stop at/near the campus? Where exactly is the mall stop?'},
+  {id:'s61-mall-stop',lat:-6.221679,lon:106.654131,q:'S61 "Mall" stop (toward Blok M): exact position',d:'Estimated ~0.5 km / 6 min from the mall East Side, position unverified. Which street and side, and is it a shelter or a curbside pole?'},
+  {id:'binus-crossing',lat:-6.223203,lon:106.649035,q:'Crossing between the BINUS main building (Kav. 21) and Mall Alam Sutera over Jl. Jalur Sutera Barat',d:'Satellite shows no formal crossing at the closest point; BINUS claims a 5-10 min walk across. Is there a zebra/pelican crossing or a usable informal crossing near the T-junction?'},
+  {id:'binus-gates',lat:-6.223203,lon:106.649035,q:'BINUS campus pedestrian gate from the Forest Park / mall side',d:'Which gate is open to pedestrians, and does entering need anything (card, security desk)?'},
+  {id:'s61-forest-park',lat:-6.223474,lon:106.654616,q:'S61 Forest Park stop (terminus): BRT shelter or curbside?',d:'Gate and tap-in reality for boarding toward Blok M.'},
+  {id:'binus-sidewalks',lat:-6.223474,lon:106.654616,q:'Sidewalks: Forest Park stop to BINUS main, and Forest Park to the mall East Side',d:'Map says ~0.8 km / 11 min and ~0.4 km / 5 min (Google walking). Are the sidewalks continuous and actually walkable?'}
  ]},
- {title:'Bundaran Senayan (S61 start)',items:[
-  {id:'senayan-access',q:'4C curbside to S61 BRT at Bundaran Senayan: pedestrian access',d:'Map says not an in-platform change. Check the overpass/access, gates and platform, and whether a fresh tap/fare applies.'}
+ {route:'9',title:'9 · Tanjung Duren',items:[
+  {id:'central-park-crossing',lat:-6.176165,lon:106.791929,q:'Central Park mall to the 9 up stop (Tanjung Duren Arah Timur): road crossing',d:'Map says ~100 m from the Arah Barat stop; the crossing from the mall is unverified.'}
  ]},
- {title:'Elsewhere, when nearby',items:[
-  {id:'central-park-crossing',q:'Central Park mall to the 9 up stop (Tanjung Duren Arah Timur): road crossing',d:'Map says ~100 m from the Arah Barat stop; the crossing from the mall is unverified.'},
-  {id:'gi-tosari-crossing',q:'Grand Indonesia home walk to Tosari 2: crossing',d:'Map note says "check crossing" for the home direction.'},
-  {id:'ragunan-access',q:'7E to corridor 6 at Department of Agriculture / Simpang Ragunan Ar-Raudhah: gate and fare',d:'Gate access and fare continuity between 7E and corridor 6 are unverified.'},
-  {id:'7f-access',q:'7F pickup at Flyover Raya Bogor: boarding access and service hours',d:'Service-hour listings disagree (jaGOdetabek, Moovit, Traveloka). What do the posted signs say, and is boarding access straightforward?'},
-  {id:'s11-breeze-path',q:'S11 Serpong BSD terminus to The Breeze BSD: the 2.2 km path',d:'Map says ~29 min via BSD Grand Boulevard, pedestrian path not checked. Sidewalks and crossings OK the whole way?'}
+ {route:'1',title:'1 · Tosari',items:[
+  {id:'gi-tosari-crossing',lat:-6.200069,lon:106.82335,q:'Grand Indonesia home walk to Tosari 2: crossing',d:'Map note says "check crossing" for the home direction.'}
+ ]},
+ {route:'7E+6',title:'7E + 6 · Ragunan',items:[
+  {id:'ragunan-access',lat:-6.294671,lon:106.822135,q:'7E to corridor 6 at Department of Agriculture / Simpang Ragunan Ar-Raudhah: gate and fare',d:'Gate access and fare continuity between 7E and corridor 6 are unverified.'}
+ ]},
+ {route:'7F',title:'7F · Flyover Raya Bogor',items:[
+  {id:'7f-access',lat:-6.306569,lon:106.865712,q:'7F pickup at Flyover Raya Bogor: boarding access and service hours',d:'Service-hour listings disagree (jaGOdetabek, Moovit, Traveloka). What do the posted signs say, and is boarding access straightforward?'}
+ ]},
+ {route:'S11',title:'S11 · The Breeze BSD',items:[
+  {id:'s11-breeze-path',lat:-6.301835,lon:106.653742,q:'S11 Serpong BSD terminus to The Breeze BSD: the 2.2 km path',d:'Map says ~29 min via BSD Grand Boulevard, pedestrian path not checked. Sidewalks and crossings OK the whole way?'}
  ]}
 ];
 var KEY='tuju-walk-review-v1';
 var state={};
 try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){state={}}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
-function version(){return document.body.getAttribute('data-version')||'0.2.18'}
+var filter='all';
+try{filter=JSON.parse(localStorage.getItem(KEY+'-filter')||'"all"')}catch(e){filter='all'}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));localStorage.setItem(KEY+'-filter',JSON.stringify(filter))}catch(e){}}
+function version(){return document.body.getAttribute('data-version')||'0.2.19'}
 function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function km(lat,lon){
+ var R=6371,p=Math.PI/180;
+ var a=Math.sin((lat-HOME[0])*p/2)*Math.sin((lat-HOME[0])*p/2)+Math.cos(HOME[0]*p)*Math.cos(lat*p)*Math.sin((lon-HOME[1])*p/2)*Math.sin((lon-HOME[1])*p/2);
+ return 2*R*Math.asin(Math.sqrt(a));
+}
+function fmt(k){return k<10?(Math.round(k*10)/10)+' km':Math.round(k)+' km'}
+GROUPS.forEach(function(g){g.items.forEach(function(it){it.km=km(it.lat,it.lon)});g.items.sort(function(a,b){return a.km-b.km});g.km=g.items[0].km});
+GROUPS.sort(function(a,b){return a.km-b.km});
 function render(){
+ var f=document.getElementById('filters');f.innerHTML='';
+ var all=document.createElement('button');all.type='button';all.textContent='All routes';all.dataset.f='all';f.appendChild(all);
+ GROUPS.forEach(function(g){var b=document.createElement('button');b.type='button';b.textContent=g.route;b.dataset.f=g.route;b.title=g.title;f.appendChild(b)});
  var host=document.getElementById('groups');host.innerHTML='';
  GROUPS.forEach(function(g){
-  var h=document.createElement('h2');h.textContent=g.title;host.appendChild(h);
+  if(filter!=='all'&&filter!==g.route)return;
+  var h=document.createElement('h2');h.innerHTML=esc(g.title)+' <span class="dist">'+fmt(g.km)+' from home</span>';host.appendChild(h);
   g.items.forEach(function(it){
    var st=state[it.id]||{};
    var d=document.createElement('div');d.className='item';d.dataset.id=it.id;
-   d.innerHTML='<h3>'+esc(it.q)+'</h3><p>'+esc(it.d)+'</p>'+
+   d.innerHTML='<h3>'+esc(it.q)+' <span class="km">'+fmt(it.km)+'</span></h3><p>'+esc(it.d)+'</p>'+
     '<div class="states">'+
     '<button type="button" data-s="confirmed">Confirmed</button>'+
     '<button type="button" data-s="not-there">Not there</button>'+
@@ -102,6 +128,7 @@ function render(){
  refresh();
 }
 function refresh(){
+ document.querySelectorAll('#filters button').forEach(function(b){b.classList.toggle('on',b.dataset.f===filter)});
  document.querySelectorAll('.item').forEach(function(d){
   var st=state[d.dataset.id]||{};
   d.querySelectorAll('button').forEach(function(b){
@@ -127,10 +154,14 @@ function lines(){
  if(L.length===2)L.push('(nothing checked yet)');
  return L.join('\n');
 }
-function flash(t){var s=document.getElementById('review-count');var old=s.textContent;s.textContent=t;setTimeout(refresh,1500)}
+function flash(t){var s=document.getElementById('review-count');s.textContent=t;setTimeout(refresh,1500)}
 function copyText(){var t=lines();
  function fail(){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');flash('Copied')}catch(e){flash('Select and copy the text above')}document.body.removeChild(ta)}
  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){flash('Copied')},fail)}else fail()}
+document.getElementById('filters').addEventListener('click',function(e){
+ var b=e.target&&e.target.closest?e.target.closest('button[data-f]'):null;if(!b)return;
+ filter=b.dataset.f;save();render();
+});
 document.getElementById('groups').addEventListener('click',function(e){
  var b=e.target&&e.target.closest?e.target.closest('button[data-s]'):null;if(!b)return;
  var id=b.closest('.item').dataset.id;var st=state[id]||{};

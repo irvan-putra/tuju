@@ -280,6 +280,11 @@ return5=list(reversed(R['5M-return']['stops']))
 add(f'<path d="M {ph} {yme+110} L {xh} {yme+14}" fill="none" stroke="Canvas" stroke-width="13"/>')
 add(f'<path d="M {ph} {yme+110} L {xh} {yme+14}" fill="none" stroke="{purple}" stroke-width="6"/>')
 add(f"<circle cx='{xh}' cy='{yme}' r='17' fill='none' stroke='{purple}' stroke-width='3.5'/>")
+# Explanation at the spot he circled (23 Nov): the join line passing near St. Cikini
+# Selatan read as a 5M stop. Same register as the S61 curbside note.
+text(1780,yme-24,'Get off the 5M at Megaria: transfer to the red 4C for home.',16)
+text(1780,yme-1,'St. Cikini Selatan is 4C only; the purple line passes, no stop.',16)
+text(1780,yme+22,'Curbside transfer; allow a fresh tap/fare.',16)
 for i,name in enumerate(return5[1:]):
  yy=yme+110+i*105
  if i:line(ph,yy-105,ph,yy,purple)

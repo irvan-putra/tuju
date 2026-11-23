@@ -37,7 +37,7 @@ class StopMapTest(unittest.TestCase):
   labels={''.join(e.itertext()):e for e in root.iter() if e.tag.endswith('text')}
   name=labels['Halimun'];note=labels['4D leaves here; 4 goes on to Galunggung']
   self.assertEqual((name.get('x'),name.get('y')),('706','779'))
-  self.assertEqual((note.get('x'),note.get('y')),('704','800'))
+  self.assertEqual((note.get('x'),note.get('y')),('704','812'))
   self.assertEqual(note.get('fill'),'currentColor')
  def test_no_outbound_return_stop_mix(self):
   names=[s['name'] for s in S['7E']['stops']]

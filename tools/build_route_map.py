@@ -94,7 +94,7 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=(),both=False):
  for i,st in enumerate(ss):
   if not(skipfirst and i==0):node(x,y+i*step,st['name'],COL[route],st['id'] in transfers,
    label_offset=(76,-19) if route=='4' and st['name']=='Halimun' else (76,6) if route=='4' and st['name']=='Galunggung' else ((76,0) if route=='6' and st['name'] in ('Setiabudi Integritas','Kuningan Madya') else None))
-  if i<len(ss)-1 and i%3==0:tri(x,y+i*step+step/2,COL[route],False)
+  if i<len(ss)-1 and i%3==0 and not (route=='4' and i==9):tri(x,y+i*step+step/2,COL[route],False)
   if both and i<len(ss)-1 and i%3==1:tri(x,y+i*step+step/2,COL[route],True)
  return end
 add('<title id="all-stops-title">Outbound routes, Arkadia homebound options and the Cikini return, with intermediate stops</title>')
@@ -242,7 +242,7 @@ line(xp,mas,xp,shared_end,purple)
 for i,st in enumerate(all4):
  yy=240+i*step4
  if mas<=yy<=shared_end:
-  add(f'<circle cx="{xp}" cy="{yy}" r="6" fill="Canvas" stroke="{purple}" stroke-width="3.5"/>')
+  add(f"<circle cx='{xo}' cy='{yy}' r='{17 if st['id'] in ('B05812P','B05391P') else 13}' fill='none' stroke='{purple}' stroke-width='3.5'/>")
   if yy>mas:tri(xp,yy-step4/2,purple,False)
 text(xh+30,mas-30,'4C + 5M shared stops (middle line)',15,purple)
 # Purple outbound branches at SMPN 8, rather than bending the red trunk.
@@ -319,7 +319,7 @@ hy=240+(nshared-1)*62
 bx=930; by=hy+62
 add(f'<path d="M 630 {hy+14} L {bx} {by}" fill="none" stroke="{COL["4D"]}" stroke-width="6"/>')
 # Keep Halimun and its note to the right of the return arrow, above the branch.
-text(704,hy+2,'4D leaves here; 4 goes on to Galunggung',15,weight='600')
+text(704,hy+14,'4D leaves here; 4 goes on to Galunggung',15,weight='600')
 tail=s4d[nshared:]
 y4d=by+58*(len(tail)-1)
 line(bx,by,bx,y4d,COL['4D'])
@@ -366,7 +366,7 @@ add(f'<path d="M 630 736 L 360 674 L 360 488 L 630 426" fill="none" stroke="{COL
 node(360,520,'Flyover Pramuka',COL['4'],anchor='end')
 node(360,650,'Halte Manggarai Temporer 1',COL['4'],anchor='end')
 tri(360,580,COL['4'])
-for yy in (767,829):tri(615,yy,COL['4'])
+for yy in (767,):tri(615,yy,COL['4'])
 text(337,710,'4 ↑ return-only approach',15,COL['4'],anchor='end')
 # 6 shares every drawn station area with its return except Flyover Kuningan.
 # Galunggung is a single station node for the 4 and 6 transfer.
@@ -389,8 +389,8 @@ for yy in (1346,1285,1224,1163,1102,798,736,426,364,302):
  add(f"<circle cx='630' cy='{yy}' r='13' fill='none' stroke='{COL['4D']}' stroke-width='3'/>")
 for yy in (650,520,240):
  add(f"<circle cx='360' cy='{yy}' r='13' fill='none' stroke='{COL['4D']}' stroke-width='3'/>")
-line(666,1098,666,806,COL['4D'])
-tri(666,788,COL['4D'])
+line(666,1098,666,818,COL['4D'])
+tri(666,850,COL['4D'])
 text(585,1090,'4D ↑ return to Halimun · no stops between',14,COL['4D'],anchor='end')
 text(655,1378,'chosen return: change 6 → 4D here (19 Nov)',14,COL['4D'])
 text(337,560,'teal rings: 4D return stops (Maps, 19 Nov)',13,COL['4D'],anchor='end')

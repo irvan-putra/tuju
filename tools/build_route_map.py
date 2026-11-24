@@ -102,7 +102,7 @@ add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each 
 SH=420  # whole network shifts right so the 7F homebound column can sit at the far left
 add(f'<g transform="translate({SH} 0)">')
 add('<g transform="translate(700 0)">')
-node(700,155,'Green Pramuka area','#777',True)
+node(700,155,'Start area','#777',True)
 for x in [-530,630,1200]:line(700,170,x,230,'#888',True)
 text(-505,204,'walk ~230 m',16);text(655,204,'walk to boarding point',16);text(1230,204,'walk ~850 m',16)
 add('<g transform="translate(-600 0)">')
@@ -381,7 +381,7 @@ node(360,240,'Simpang Pramuka 1',COL['4'],True,anchor='end')
 tri(490,270,COL['4'])
 text(337,270,'4 ↑ Pulo Gadung · return-side exit',15,anchor='end')
 line(360,228,700,167,'#888',True)
-text(337,300,'Exact walk to Green Pramuka unchecked',14,anchor='end')
+text(337,300,'Exact walk to the start unchecked',14,anchor='end')
 # Shared 4 station areas: Pramuka Sari, Utan Kayu, Pasar Genjing.
 for yy in (333,395):tri(615,yy,COL['4'])
 # Outbound 4/4D uses Matraman, Tegalan, Kesatrian and Temporer 2;

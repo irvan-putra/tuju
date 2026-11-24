@@ -22,3 +22,7 @@ Releases are GitHub pre-releases carrying `tuju-vX.Y.Z.apk` and its
 https://vanipy.com/kaji/apk/.
 
 License: AGPL-3.0 (see LICENSE).
+
+---
+
+Built with AI assistance (Instinct and others). Not everything has been reviewed by Irvan.

@@ -6,6 +6,14 @@ import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'data/route-stops.json').read_text()); S={s['route']:s for s in D['segments']}
 class StopMapTest(unittest.TestCase):
+ def test_tower_destinations_share_existing_directional_stops(self):
+  svg=(ROOT/'data/all-stops.svg').read_text()
+  for marker in ('autograph-tower','centennial-tower'):
+   self.assertIn('data-move="'+marker+'"',svg)
+  notes=(ROOT/'android/app/src/main/assets/map.html').read_text()
+  for phrase in ('Autograph Tower','Centennial Tower','Pramuka BPKP 2','Tosari 3','Tosari 2','Denpasar Arah Barat','Denpasar Arah Timur','restricted usage roads','overpass has stairs'):
+   self.assertIn(phrase,notes)
+
  def test_directional_sequences(self):
   for seg in S.values():
    seq=[s['sequence'] for s in seg['stops']]

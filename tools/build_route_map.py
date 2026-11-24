@@ -135,6 +135,21 @@ for m,st in enumerate(r10):
  rnode(yy,st['name'] if m else 'Cawang Sentral · 10',COL['10'],m==0 or m==len(r10)-1)
  if m%3==2:tri(xr,yy+27,COL['10'])
 text(xr-23,y10+40,'interchange unverified',14,anchor='end')
+# Centennial is a walk off existing corridor 9, not a new transit stop.
+cy=1450; cx=580
+mv_open('centennial-tower','Centennial Tower pin and notes')
+add(f'<rect x="{cx-9}" y="{cy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+text(cx,cy+52,'Centennial Tower',24,'#2e9e50',weight='600',anchor='middle')
+text(cx,cy+82,'out: Denpasar Arah Barat',16,anchor='middle')
+text(cx,cy+108,'walk ~420 m / 6 min',16,anchor='middle')
+text(cx,cy+142,'home: Denpasar Arah Timur',16,anchor='middle')
+text(cx,cy+168,'walk ~340 m / 5 min',16,anchor='middle')
+text(cx,cy+200,'crossings / gates unverified',15,anchor='middle')
+mv_close()
+dout=y10+65*next(i for i,st in enumerate(S['9']['stops']) if st['name']=='Denpasar Arah Barat')
+dhome=y9-65*next(i for i,st in enumerate(r9) if st['name']=='Denpasar Arah Timur')
+add(f'<path d="M 82 {dout+22} L 400 {dout+22} L 400 {cy-30} L {cx} {cy-30} L {cx} {cy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M {xr-10} {dhome+12} L {xr-10} {dhome+31} L 415 {dhome+31} L 415 {cy-16} L {cx-9} {cy-16} L {cx-9} {cy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 mv_open('central-park','Central Park Mall pin')
 line(70,y9+12,70,y9+75,'#888',True)
 text(95,y9+63,'Walk ~350 m',16);text(95,y9+96,'Central Park Mall',24,'#2e9e50',weight='600')
@@ -333,6 +348,17 @@ add(f'<path d="M {xo+13} {yto} L {xo+44} {yto} L {xo+44} {yth+50} L {xh+13} {yth
 # Home: from the Tosari 2 ring bottom, right across the gap below Tosari 2 (clear of the
 # St. Sudirman 2 label box and ring), down at x=1730 (clear of the GI title box), pin top.
 add(f'<path d="M {xh} {yth+12} L {xh+13} {yth+50} L 1742 {yth+50} L 1742 {jy-30} L {jcx} {jy-30} L {jcx} {jy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+# Autograph shares the Tosari walk trunk, with its own venue pin.
+ax=1940; ay=1750
+mv_open('autograph-tower','Autograph Tower pin and notes')
+add(f'<rect x="{ax-9}" y="{ay}" width="18" height="18" rx="3" fill="#2e9e50"/>')
+text(ax,ay+56,'Autograph Tower',22,'#2e9e50',weight='600',anchor='middle')
+text(ax,ay+84,'Thamrin Nine · Academy @ UC',14,anchor='middle')
+text(ax,ay+114,'out: Tosari 3 · ~870 m / 11 min',14,anchor='middle')
+text(ax,ay+142,'home: Tosari 2 · ~300 m / 4 min',14,anchor='middle')
+text(ax,ay+174,'entrance / crossings unverified',14,anchor='middle')
+mv_close()
+add(f'<path d="M 1742 {jy-30} L 1742 {ay-30} L {ax} {ay-30} L {ax} {ay}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 # 4D shares the first ten stops with corridor 4 (same stop IDs in data/route-stops.json), so it branches off the drawn 4 column at Halimun.
 # Stop order for 4D is NOT from the GTFS snapshot (see data/route-stops.json).
 s4=[x['id'] for x in S['4']['stops']]; s4d=S['4D']['stops']

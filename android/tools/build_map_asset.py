@@ -86,7 +86,8 @@ def extract_card(html):
 def extract_reading_notes(html):
     m = re.search(r"<!-- map-reading-notes:begin -->(.*?)<!-- map-reading-notes:end -->", html, re.S)
     if not m: sys.exit("map reading notes missing")
-    return m.group(1).strip()
+    # Keep navigation labels readable without dead online links in the offline APK.
+    return re.sub(r'<a href="https?://[^"]*">(.*?)</a>', r'\1 (directions on vanipy.com/tuju/)', m.group(1).strip(), flags=re.S)
 
 
 def extract_meter(html):

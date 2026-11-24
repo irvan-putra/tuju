@@ -1,7 +1,7 @@
 # tuju
 
-Offline TransJakarta busway-route overview map, made for trips from the
-Green Pramuka area. One screen: pinch to zoom, drag to pan, plus a journey
+Offline TransJakarta busway-route overview map for one fixed set of routes.
+One screen: pinch to zoom, drag to pan, plus a journey
 meter (ride timer with stop-to-stop estimate, optional GPS distance).
 
 - **Web:** `index.html`, published at https://vanipy.com/tuju/

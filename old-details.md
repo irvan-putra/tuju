@@ -47,3 +47,9 @@ The README was already convention-compliant (English, leads with the project,
 honest limits, live link, AGPL, no personal data), so the refresh made no
 README changes. The .sha256 sidecar wording stays because the latest release
 still publishes it.
+
+## Second pass (2026-11-24, later)
+
+At the owner's request the start area was taken off the public repo details:
+the About description and the README intro no longer name it. The map's
+coverage is unchanged; the site copy is separate site content.

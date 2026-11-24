@@ -1,7 +1,7 @@
 # Map-layout proposals (from the kaji map-layout research note)
 
 Implemented 2026-11-23 as three dependency-free tools. They measure
-and search; they do not change the hand-placed layout on their own. The map
+and search; they do not change the fixed-coordinate layout on their own. The map
 SVG a build writes is byte-identical with or without them.
 
 ## 1. Measure first: `score_route_map.py`
@@ -28,12 +28,12 @@ better; any future layout engine has this number to beat.
 
 A* on a coarse grid: label boxes are blocked cells (inflated by a margin),
 drawn lines cost a crossing charge to pass, every turn costs a bend charge.
-Returns an orthogonal polyline, the same style the hand-drawn walks use.
+Returns an orthogonal polyline, the same style the existing walks use.
 
     python3 tools/route_walk_links.py X1 Y1 X2 Y2 [--cell N]
 
 prints the SVG `d` for the link. Not wired into the generator yet: adopting it
-for a specific walk means swapping that walk's hand-drawn path for the routed
+for a specific walk means swapping that walk's existing path for the routed
 one and checking the score goes down. Opt in per link so ongoing manual fixes
 are not clobbered.
 
@@ -55,7 +55,7 @@ scores each variant; `experiments/trial_packing.py` packs the map's three
 layout blocks with the main network pinned and x-only moves. Neither result
 was adopted:
 
-- Routing ties or loses to the hand-drawn links on 3 of 4 walks. The
+- Routing ties or loses to the existing links on 3 of 4 walks. The
   orthogonal-only constraint loses to a clean diagonal (Pramuka: 345 ->
   405 units, +2 bends, +1 crossing), and the one shorter routed link
   (Bakoel) drops min_gap 26.3 -> 13 because the router charges no spacing.

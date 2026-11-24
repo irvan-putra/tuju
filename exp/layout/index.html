@@ -28,7 +28,7 @@
 </head>
 <body>
 <h1>tuju layout experiments</h1>
-<p class="sub">Can automatic tools place the <a href="../../">tuju route map</a> better than hand placement? Ran 23 Nov 2026 against the 0.2.14 map geometry. Short answer: not yet. Neither candidate was adopted; the hand-placed layout stays.</p>
+<p class="sub">Can automatic tools place the <a href="../../">tuju route map</a> better than fixed placement? Ran 23 Nov 2026 against the 0.2.14 map geometry. Short answer: not yet. Neither candidate was adopted; the fixed-coordinate layout stays.</p>
 
 <h2>What was tried</h2>
 <p>Three small dependency-free tools, documented in <a href="https://github.com/irvan-putra/tuju/blob/main/tools/LAYOUT_PROPOSALS.md">tools/LAYOUT_PROPOSALS.md</a>. They measure and search; they never change the map on their own.</p>
@@ -67,7 +67,7 @@
 <p>A smaller shift with re-anchored labels is untested. Not adopted. Full packed variant: <a href="variant-packed.svg">variant-packed.svg</a>. Raw numbers: <a href="https://github.com/irvan-putra/tuju/blob/main/experiments/results/pack-trial.json">pack-trial.json</a>.</p>
 
 <h2>Conclusion</h2>
-<p>Neither candidate beat the hand-placed layout once text clearance was checked, so nothing was adopted from these trials. The tools stay in the repo (<code>tools/</code> and <code>experiments/</code>) and the build keeps printing the score, so future layout ideas get measured the same way. Layout improvements since have been placed by hand and checked with the same scorer.</p>
+<p>Neither candidate beat the fixed-coordinate layout once text clearance was checked, so nothing was adopted from these trials. The tools stay in the repo (<code>tools/</code> and <code>experiments/</code>) and the build keeps printing the score, so future layout ideas get measured the same way. Layout improvements since have been placed by hand and checked with the same scorer.</p>
 
 <footer>tuju &middot; <a href="../../">route map</a> &middot; <a href="https://github.com/irvan-putra/tuju">source</a></footer>
 </body>

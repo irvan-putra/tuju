@@ -1,6 +1,6 @@
 """Non-destructive trial of proposal 2 (A* walking-link routing) on the real map.
 
-Picks actual hand-drawn walking links from data/all-stops.svg, re-routes each
+Picks actual existing walking links from data/all-stops.svg, re-routes each
 one with route_walk_links against the rest of the current geometry, and
 compares length, bends, crossings and text clearance. Nothing here writes into
 the generator or index.html; variant SVGs land in experiments/results/ for

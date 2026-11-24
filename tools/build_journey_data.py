@@ -15,7 +15,7 @@ not measured.
     tools/build_journey_data.py --check   fail if the committed block is stale
 
 Only the var TUJU_SEGMENTS assignment between the journey-segments markers is
-rewritten; everything around it is hand-written.
+rewritten; everything around it is written directly in source.
 """
 import json
 import os

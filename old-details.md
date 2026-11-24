@@ -53,12 +53,3 @@ still publishes it.
 At the owner's request the start area was taken off the public repo details:
 the About description and the README intro no longer name it. The map's
 coverage is unchanged; the site copy is separate site content.
-
-## Third pass (2026-11-24, later)
-
-At the owner's request the start area was also taken off the live site: page
-title, subtitle, map start label, route schematics and notes now say "the
-start area" / "Start area", and four source links whose URLs or text named it
-were dropped. Destinations and official stop names (Simpang Pramuka, Pramuka
-BPKP, Pramuka Sari) are unchanged. The generator, the bundled Android map
-asset and the experiment SVGs were updated together so they stay in sync.

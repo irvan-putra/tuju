@@ -4,7 +4,7 @@
 <g transform="translate(420 0)">
 <g transform="translate(700 0)">
 <circle cx="700" cy="155" r="12" fill="Canvas" stroke="#777" stroke-width="4"/>
-<text x="723" y="161" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Start area</text>
+<text x="723" y="161" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Green Pramuka area</text>
 <path d="M 700 170 L -530 230" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <path d="M 700 170 L 630 230" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <path d="M 700 170 L 1200 230" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
@@ -680,7 +680,7 @@
 <path d="M 490 257 L 479 281 L 501 281 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <text x="337" y="270" font-size="15" fill="currentColor" text-anchor="end" font-weight="normal">4 ↑ Pulo Gadung · return-side exit</text>
 <path d="M 360 228 L 700 167" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="337" y="300" font-size="14" fill="currentColor" text-anchor="end" font-weight="normal">Exact walk to the start unchecked</text>
+<text x="337" y="300" font-size="14" fill="currentColor" text-anchor="end" font-weight="normal">Exact walk to Green Pramuka unchecked</text>
 <path d="M 615 320 L 604 344 L 626 344 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <path d="M 615 382 L 604 406 L 626 406 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
 <path d="M 630 736 L 360 674 L 360 488 L 630 426" fill="none" stroke="#1769aa" stroke-width="6"/>

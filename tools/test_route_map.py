@@ -14,6 +14,17 @@ class StopMapTest(unittest.TestCase):
   for phrase in ('Autograph Tower','Centennial Tower','Pramuka BPKP 2','Tosari 3','Tosari 2','Denpasar Arah Barat','Denpasar Arah Timur','restricted usage roads','overpass has stairs'):
    self.assertIn(phrase,notes)
 
+ def test_mall_kelapa_gading_home_routes(self):
+  svg=(ROOT/'data/all-stops.svg').read_text()
+  self.assertIn('data-move="mkg-home"',svg)
+  for key,last in (('JAK61','Pulo Gadung 5'),('JAK59','Simpang Arion'),('4PG','Simpang Pramuka 2'),('4RW','Simpang Pramuka 2')):
+   self.assertEqual(S[key]['stops'][-1]['name'],last)
+  self.assertEqual(S['JAK61']['stops'][0]['name'],'Mall Kelapa Gading')
+  self.assertEqual(S['JAK59']['stops'][0]['name'],'Mall Kelapa Gading')
+  notes=(ROOT/'android/app/src/main/assets/map.html').read_text()
+  for phrase in ('JAK.61','JAK.59','Simpang Pramuka 2','Pramuka BPKP 2'):
+   self.assertIn(phrase,notes)
+
  def test_directional_sequences(self):
   for seg in S.values():
    seq=[s['sequence'] for s in seg['stops']]

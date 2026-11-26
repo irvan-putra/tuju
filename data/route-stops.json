@@ -847,7 +847,289 @@
           "sequence": 13
         }
       ]
+    },
+    {
+      "route": "JAK61",
+      "trip": "JAK.61-L03",
+      "direction": "Pulo Gadung 5 (loop leg)",
+      "checked": "2026-11-26",
+      "source": "TransJakarta operator GTFS (https://gtfs.transjakarta.co.id/files/file_gtfs.zip), downloaded 26 Nov 2026, trip JAK.61-L03; scheduled pattern, not live service",
+      "stops": [
+        {
+          "id": "B02191P",
+          "name": "Mall Kelapa Gading",
+          "sequence": 80
+        },
+        {
+          "id": "B05469P",
+          "name": "St. LRT Boulevard Utara 1",
+          "sequence": 81
+        },
+        {
+          "id": "B05601P",
+          "name": "Taman Jogging Kelapa Gading 2",
+          "sequence": 82
+        },
+        {
+          "id": "B01245P",
+          "name": "Jln. Kelapa Cengkir Barat VIII",
+          "sequence": 83
+        },
+        {
+          "id": "B00171P",
+          "name": "Boulevard Kelapa Cengkir Raya",
+          "sequence": 84
+        },
+        {
+          "id": "B04916P",
+          "name": "Simpang Kelapa Cengkir Raya",
+          "sequence": 85
+        },
+        {
+          "id": "B04915P",
+          "name": "Simpang Kelapa Cengkir Flamboyan",
+          "sequence": 86
+        },
+        {
+          "id": "B04878P",
+          "name": "Simpang Jln. Tarian Raya Barat",
+          "sequence": 87
+        },
+        {
+          "id": "B08384P",
+          "name": "Jln. Arteri Klp. Gading 1",
+          "sequence": 88
+        },
+        {
+          "id": "B08403P",
+          "name": "Jln. Arteri Klp. Gading 3",
+          "sequence": 89
+        },
+        {
+          "id": "B05356P",
+          "name": "SMPN 170",
+          "sequence": 90
+        },
+        {
+          "id": "B04259P",
+          "name": "Sbr. Puskesmas Pegangsaan Dua",
+          "sequence": 91
+        },
+        {
+          "id": "B01278P",
+          "name": "Jln. Kesadaran Pool Bus 2",
+          "sequence": 92
+        },
+        {
+          "id": "B06721P",
+          "name": "PTC Pulo Gadung 1",
+          "sequence": 93
+        },
+        {
+          "id": "B03000P",
+          "name": "Pulo Gadung 5",
+          "sequence": 94
+        }
+      ]
+    },
+    {
+      "route": "4PG",
+      "trip": "4-R26",
+      "direction": "Galunggung via Saharjo, Pulo Gadung to Simpang Pramuka 2",
+      "checked": "2026-11-26",
+      "source": "TransJakarta operator GTFS (https://gtfs.transjakarta.co.id/files/file_gtfs.zip), downloaded 26 Nov 2026, trip 4-R26; scheduled pattern, not live service",
+      "stops": [
+        {
+          "id": "G00170",
+          "name": "Pulo Gadung",
+          "sequence": 0
+        },
+        {
+          "id": "G00171",
+          "name": "Pasar Pulo Gadung",
+          "sequence": 1
+        },
+        {
+          "id": "G00174",
+          "name": "Pemuda Merdeka",
+          "sequence": 2
+        },
+        {
+          "id": "G00176",
+          "name": "Layur",
+          "sequence": 3
+        },
+        {
+          "id": "G00178",
+          "name": "Pemuda Rawamangun",
+          "sequence": 4
+        },
+        {
+          "id": "G00183",
+          "name": "Velodrome",
+          "sequence": 5
+        },
+        {
+          "id": "G00184",
+          "name": "Kayu Jati",
+          "sequence": 6
+        },
+        {
+          "id": "G00187",
+          "name": "Rawamangun",
+          "sequence": 7
+        },
+        {
+          "id": "B08048P",
+          "name": "Simpang Pramuka 2",
+          "sequence": 8
+        }
+      ]
+    },
+    {
+      "route": "JAK59",
+      "trip": "JAK.59-R03",
+      "direction": "Rawamangun (to Simpang Arion)",
+      "checked": "2026-11-26",
+      "source": "TransJakarta operator GTFS (https://gtfs.transjakarta.co.id/files/file_gtfs.zip), downloaded 26 Nov 2026, trip JAK.59-R03; scheduled pattern, not live service",
+      "stops": [
+        {
+          "id": "B02191P",
+          "name": "Mall Kelapa Gading",
+          "sequence": 11
+        },
+        {
+          "id": "B05469P",
+          "name": "St. LRT Boulevard Utara 1",
+          "sequence": 12
+        },
+        {
+          "id": "B00174P",
+          "name": "Boulevard Pelepah Raya",
+          "sequence": 13
+        },
+        {
+          "id": "B00006P",
+          "name": "ACE Hardware Kelapa Gading",
+          "sequence": 14
+        },
+        {
+          "id": "B06461P",
+          "name": "Perumahan Bukit Gading Mediterania",
+          "sequence": 15
+        },
+        {
+          "id": "B06462P",
+          "name": "Jln. Casablanca IX",
+          "sequence": 16
+        },
+        {
+          "id": "B06463P",
+          "name": "Jln. Boulevard Bukit Gading Raya",
+          "sequence": 17
+        },
+        {
+          "id": "B06464P",
+          "name": "Mahatma Gading School",
+          "sequence": 18
+        },
+        {
+          "id": "B06465P",
+          "name": "Disperindagkop",
+          "sequence": 19
+        },
+        {
+          "id": "B00069P",
+          "name": "ASMI 1",
+          "sequence": 20
+        },
+        {
+          "id": "B05065P",
+          "name": "Simpang Perintis Pulo Mas Timur",
+          "sequence": 21
+        },
+        {
+          "id": "B03005P",
+          "name": "Pulo Mas Residence",
+          "sequence": 22
+        },
+        {
+          "id": "B02543P",
+          "name": "Pacuan Kuda Pulo Mas 1",
+          "sequence": 23
+        },
+        {
+          "id": "B02544P",
+          "name": "Pacuan Kuda Pulo Mas 2",
+          "sequence": 24
+        },
+        {
+          "id": "B00649P",
+          "name": "Global SeVilla Pulo Mas",
+          "sequence": 25
+        },
+        {
+          "id": "B04422P",
+          "name": "Sbr. SMAN 21",
+          "sequence": 26
+        },
+        {
+          "id": "B03922P",
+          "name": "Sbr. Kel. Kayu Putih",
+          "sequence": 27
+        },
+        {
+          "id": "B04125P",
+          "name": "Sbr. Panti Asuhan Putera Mulia",
+          "sequence": 28
+        },
+        {
+          "id": "B05477P",
+          "name": "St. LRT Velodrome 1",
+          "sequence": 29
+        },
+        {
+          "id": "B04706P",
+          "name": "Simpang Arion",
+          "sequence": 30
+        }
+      ]
+    },
+    {
+      "route": "4RW",
+      "trip": "4-R26",
+      "direction": "Galunggung via Saharjo, Pemuda Rawamangun to Simpang Pramuka 2",
+      "checked": "2026-11-26",
+      "source": "TransJakarta operator GTFS (https://gtfs.transjakarta.co.id/files/file_gtfs.zip), downloaded 26 Nov 2026, trip 4-R26; scheduled pattern, not live service",
+      "stops": [
+        {
+          "id": "G00178",
+          "name": "Pemuda Rawamangun",
+          "sequence": 4
+        },
+        {
+          "id": "G00183",
+          "name": "Velodrome",
+          "sequence": 5
+        },
+        {
+          "id": "G00184",
+          "name": "Kayu Jati",
+          "sequence": 6
+        },
+        {
+          "id": "G00187",
+          "name": "Rawamangun",
+          "sequence": 7
+        },
+        {
+          "id": "B08048P",
+          "name": "Simpang Pramuka 2",
+          "sequence": 8
+        }
+      ]
     }
   ],
-  "extension_feed_sha256": "6f0c4f9161f3e930efe72d0cefc205dcbcb5fd74d9b8f013a3343d23131fc297"
+  "extension_feed_sha256": "6f0c4f9161f3e930efe72d0cefc205dcbcb5fd74d9b8f013a3343d23131fc297",
+  "extension2_feed_sha256": "6f0c4f9161f3e930efe72d0cefc205dcbcb5fd74d9b8f013a3343d23131fc297"
 }

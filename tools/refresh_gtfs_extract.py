@@ -94,7 +94,7 @@ def main():
 
     extract = {
         "source": FEED_URL,
-        "checked": "2026-11-22",
+        "checked": "2026-11-26",
         "feed_sha256": sha,
         "stops": stops,
         "name_points": {k: v for k, v in sorted(by_name.items())},

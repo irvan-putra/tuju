@@ -26,7 +26,7 @@ class StopMapTest(unittest.TestCase):
   self.assertEqual(S['JAK61']['stops'][0]['name'],'Mall Kelapa Gading')
   self.assertEqual(S['JAK59']['stops'][0]['name'],'Mall Kelapa Gading')
   notes=(ROOT/'android/app/src/main/assets/map.html').read_text()
-  for phrase in ('12P','JAK.61','JAK.59','Pemuda Pramuka','Simpang Pramuka 2','Pramuka BPKP 2'):
+  for phrase in ('12P','JAK.61','JAK.59','Kayu Putih Rawasari','Simpang Pramuka 2','Pramuka BPKP 2'):
    self.assertIn(phrase,notes)
 
  def test_directional_sequences(self):

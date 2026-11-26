@@ -841,7 +841,7 @@
 <text x="900" y="-1455" font-size="30" fill="#2e9e50" text-anchor="start" font-weight="600">Mall Kelapa Gading → home</text>
 <text x="900" y="-1424" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Mall Kelapa Gading is a TransJakarta stop (12P and JAK feeders), not a BRT corridor stop. Each option has one change.</text>
 <text x="900" y="-1400" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">The three options join corridor 10 and corridor 4 below, the same lines and stops as the rest of this map.</text>
-<text x="900" y="-1376" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Green rings: where each option gets off, about 160 m (Pemuda Pramuka) or 100 m (Simpang Pramuka 2) from Pramuka BPKP 2, then the home walk.</text>
+<text x="900" y="-1376" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Green rings: where each option gets off. Kayu Putih Rawasari has the ~230 m home walk; Simpang Pramuka 2 is ~100 m from Pramuka BPKP 2, then the home walk.</text>
 <text x="900" y="-1352" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">GTFS 26 Nov 2026, scheduled times only. Fare, gate, crossing and walks unverified. Also ~400 m away: LRT Boulevard Utara.</text>
 <circle cx="1330" cy="-1166" r="13" fill="Canvas" stroke="#2e9e50" stroke-width="5"/>
 <text x="1330" y="-1194" font-size="20" fill="#2e9e50" text-anchor="middle" font-weight="600">Mall Kelapa Gading stop (start of every option)</text>
@@ -868,8 +868,8 @@
 <circle cx="170" cy="-175" r="12" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
 <text x="193" y="-169" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Sunter Kelapa Gading Arah Utara</text>
 <text x="193" y="-1132" font-size="22" fill="#5a8f5a" text-anchor="start" font-weight="600">Main: 12P → Sunter Kelapa Gading</text>
-<text x="193" y="-1110" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">then 10 toward PGC to Pemuda Pramuka (green ring)</text>
-<text x="193" y="-1090" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">12P: 9 stops, ~21 min sched.; then 10: ~28 min</text>
+<text x="193" y="-1110" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">then 10 toward PGC to Kayu Putih Rawasari (green ring)</text>
+<text x="193" y="-1090" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">12P: 9 stops, ~21 min sched.; then 10: ~26 min</text>
 <path d="M 1330 -1166 L 1330 -396" fill="none" stroke="#c2185b" stroke-width="6"/>
 <circle cx="1330" cy="-1056" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
 <text x="1353" y="-1050" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">St. LRT Boulevard Utara 1</text>
@@ -956,8 +956,8 @@
 <text x="2023" y="-1090" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">JAK.59: 19 stops, ~46 min sched.; then 4: ~11 min</text>
 <path d="M 170 -161 L 170 -49" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <text x="193" y="-146" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">walk ~25 m between the two Sunter Kelapa Gading</text>
-<text x="193" y="-129" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">platforms (Utara to Selatan). Crossing, gate</text>
-<text x="193" y="-112" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">and second fare unverified.</text>
+<text x="193" y="-129" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">platforms (Utara to Selatan). Transfer is inside the</text>
+<text x="193" y="-112" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">paid area (Irvan, 26 Nov 2026). Second fare unverified.</text>
 <path d="M 1330 -382 L 1330 -298" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
 <text x="1353" y="-356" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">walk ~95 m inside the Pulo Gadung</text>
 <text x="1353" y="-339" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">terminal area; Pulo Gadung 5 is a JAK</text>
@@ -968,11 +968,10 @@
 <text x="1370" y="3" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">(corridor 4). Crossing and gate</text>
 <text x="1370" y="20" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">access unverified.</text>
 </g>
-<text x="530" y="-62" font-size="15" fill="#6536b0" text-anchor="start" font-weight="600">12P then 10: ride 6 stops from Sunter Kelapa Gading</text>
-<circle cx="170" cy="295" r="17" fill="none" stroke="#2e9e50" stroke-width="3"/>
-<text x="420" y="288" font-size="16" fill="#2e9e50" text-anchor="start" font-weight="600">◀ Main option gets off here</text>
-<text x="420" y="305" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">~160 m to Pramuka BPKP 2, then</text>
-<text x="420" y="321" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">the ~850 m walk home (unverified)</text>
+<text x="530" y="-62" font-size="15" fill="#6536b0" text-anchor="start" font-weight="600">12P then 10: ride 5 stops from Sunter Kelapa Gading</text>
+<circle cx="170" cy="240" r="17" fill="none" stroke="#2e9e50" stroke-width="3"/>
+<text x="450" y="244" font-size="16" fill="#2e9e50" text-anchor="start" font-weight="600">◀ Main option gets off here</text>
+<text x="450" y="261" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">then the ~230 m walk home (unverified)</text>
 <circle cx="1330" cy="240" r="17" fill="none" stroke="#2e9e50" stroke-width="3"/>
 <text x="1280" y="1560" font-size="26" fill="currentColor" text-anchor="end" font-weight="600">A · from Phe Tower</text>
 <text x="1280" y="1590" font-size="26" fill="currentColor" text-anchor="end" font-weight="600">beside the venue</text>

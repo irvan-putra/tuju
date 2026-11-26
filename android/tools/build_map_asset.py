@@ -69,7 +69,6 @@ PAGE = """<!DOCTYPE html>
 
 def extract_card(html):
     m = re.search(
-        r'<p class="note">(?P<intro>.*?)</p>\s*'
         r'<svg viewBox="0 0 (?:1700|3000|5000|4200|4600) \d+".*?</svg>\s*'
         r'(?:<details class="mapzoom">.*?</details>\s*)?'
         r'(?:<p class="note">(?P<closing>.*?)</p>)?',
@@ -83,7 +82,7 @@ def extract_card(html):
                               "details and fares in the route cards at vanipy.com/tuju/")
     closing = re.sub(r"\s*Small print\?.*", "", closing)
     svg = re.sub(r'<a href="https?://[^"]*">(.*?)</a>', r'\1', svg, flags=re.S)
-    return m.group("intro"), svg, closing
+    return "", svg, closing
 
 
 def extract_reading_notes(html):
@@ -159,7 +158,7 @@ def render():
     # In the app the review page is a bundled asset file, not a directory.
     intro = intro.replace('href="review/"', 'href="review/index.html"')
     return app_tabs(PAGE.format(tabs=re.search(r'<!-- tuju-tabs:begin -->.*?<!-- tuju-tabs:end -->', page, re.S).group(0),
-                       intro='<p class="note">%s</p>' % intro,
+                       intro='',
                        svg=svg,
                        closing='<p class="note">%s</p>' % closing,
                        reading_notes='',

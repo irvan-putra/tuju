@@ -119,6 +119,8 @@ jobs:
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app with three tabs (Home map, Meter, Review) - pinch to zoom, drag to pan. Map bundled in the app; no network. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
 
+          0.2.35 cleans up the web Home page as asked by Irvan on 26 Nov 2026: the visible title and the "Schematic, not to scale" text with its checklist link are gone (the Review tab replaces that link) and the Android download and release-notes links moved to the bottom of the page. The app map page loses the same text. Map, meter and checklist are unchanged. Physical-phone installation remains unverified.
+
           0.2.34 puts the journey meter on its own page and adds three tabs, Home, Meter and Review, at the top of every page (web and app), as asked by Irvan on 26 Nov 2026. The map, the meter and the walk-review checklist are unchanged. Physical-phone installation remains unverified.
 
           0.2.33 removes every destination section from the web page (Arkadia, Markas Indonesia, Central Park, Plaza Festival with the IDSW access guideline, Bakoel Koffie, The Breeze BSD, Grand Indonesia, BINUS and Mall Alam Sutera) and the sources footer, as asked by Irvan on 26 Nov 2026. The route planner, the combined map and the journey meter stay. The removed text is archived in data/removed-destination-sections-2026-11-26.html and in the 0.2.32 source.

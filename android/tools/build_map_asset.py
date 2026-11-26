@@ -111,7 +111,7 @@ def extract_guideline(html):
     m = re.search(r"<!-- access-guideline:begin[^>]*-->(?P<g>.*?)<!-- access-guideline:end[^>]*-->",
                   html, re.S)
     if not m:
-        sys.exit("access-guideline block not found in " + SRC)
+        return ""  # IDSW access guideline removed from the page in 0.2.33
     g = m.group("g").strip()
     # Offline app: keep the source reference as text instead of a dead link.
     g = re.sub(r'<a href="https://idsw\.dev/access-guideline/">(.*?)</a>',

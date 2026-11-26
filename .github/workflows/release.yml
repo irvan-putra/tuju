@@ -119,6 +119,8 @@ jobs:
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
 
+          0.2.33 removes every destination section from the web page (Arkadia, Markas Indonesia, Central Park, Plaza Festival with the IDSW access guideline, Bakoel Koffie, The Breeze BSD, Grand Indonesia, BINUS and Mall Alam Sutera) and the sources footer, as asked by Irvan on 26 Nov 2026. The route planner, the combined map and the journey meter stay. The removed text is archived in data/removed-destination-sections-2026-11-26.html and in the 0.2.32 source.
+
           0.2.32 removes the "Notes on the map" block from the bottom of the map, as asked by Irvan on 26 Nov 2026. The map and every on-map label stay, including the 12P to corridor 10 "no second fare" label. The removed text is kept in data/map-reading-notes.html and in the 0.2.31 source.
 
           0.2.31 removes the Enlarge map control and the Map notes card and the 7E paragraph from the web page. Their content (walk and return notes for each destination, the Mall Kelapa Gading home section, the 12P to 10 no-second-fare note and the 7E / S Parman fact) now sits on the map itself as a notes block below the network, in the web page and in the app.

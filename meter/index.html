@@ -24,7 +24,7 @@
 </style>
 <nav class="tuju-tabs" aria-label="Tuju pages"><a href="../">Home</a><a href="./" aria-current="page">Meter</a><a href="../review/">Review</a></nav>
 <!-- tuju-tabs:end -->
-<h1>tuju journey meter</h1>
+<h1 style="position:absolute;left:-9999px">tuju journey meter</h1>
 
 <!-- journey-meter:begin - android/tools/build_map_asset.py copies this whole
      block (card, scoped style and script) into the app's bundled map.html. -->
@@ -38,7 +38,6 @@
 #journey-meter .jm-live{font-variant-numeric:tabular-nums;font-weight:600}
 #journey-meter .jm-status{font-size:.85rem;opacity:.8;display:block;margin-top:.15rem}
 </style>
-<h3>Journey meter</h3>
 <p class="note">Time a ride and, if you want, measure its distance with GPS, then compare with what the operator's data says for the stops you picked: scheduled minutes and straight-line stop-to-stop distance where the official GTFS feed covers the leg, an honest not measured where it does not - no invented figures. Everything runs on this device: this screen makes no network calls, sends nothing and stores nothing. The timer works without GPS. GPS stays off unless you switch it on - the location permission is asked only then - and it tracks only while this screen is open; leaving or closing the screen stops it.</p>
 <p class="jm-line"><label>Leg <select id="jm-leg"></select></label>
 <label>From <select id="jm-from"></select></label>

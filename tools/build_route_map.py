@@ -99,16 +99,18 @@ def chain(route,x,y,step=58,skipfirst=False,transfers=(),both=False):
  return end
 add('<title id="all-stops-title">Outbound routes, Arkadia homebound options and the Cikini return, with intermediate stops</title>')
 add('<desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture, which is the same station as Simpang Ragunan Ar-Raudhah (rider, 19 Nov 2026). Corridor 6 links this station with Ragunan - the destination pin - in both directions, and the ride home boards corridor 6 / 6A there toward Galunggung - the direction, not the transfer - changing at Patra Kuningan to 4D for Simpang Pramuka 1; teal rings mark the 4D return stops. Gate access and fare continuity between 7E and corridor 6 are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor. At the 4D Rasuna Said terminus, the venue access block carries the official IDSW access guideline (idsw.dev, checked 21 Nov 2026): LRT Rasuna Said is the other official nearest stop, about 2 minutes, sharing the same pedestrian-bridge walk; the final walk runs toward Plaza Festival for about 150 m into the Gedung PPHUI complex; and the Sunday 22 November Car Free Day window 05:30-09:00 WIB bars car and motorbike gate drop-off while the LRT and corridor 6/6A keep running and drivers park at Plaza Festival. Bakoel Koffie (Cikini) is on the 5M leg: get off at Farmasi RP Soeroso, about 100 m away. The ride home boards the 5M at Kantor Pos Cikini (about 90 m from the venue) toward Kampung Melayu and changes at Megaria to 4C for Pramuka BPKP 1; it runs back up the right-hand column with its intermediate stops and rejoins the start area over the top (official GTFS trips 5M-R02 and 4C-R10, checked 22 Nov 2026; curbside feeders, so allow a fresh tap at each boarding).</desc>')
+DY=1500  # band above the network for the Mall Kelapa Gading feeders (26 Nov, merged into the main map)
+add(f'<g transform="translate(0 {DY})">')
 SH=420  # whole network shifts right so the 7F homebound column can sit at the far left
 add(f'<g transform="translate({SH} 0)">')
 add('<g transform="translate(700 0)">')
 node(700,155,'Green Pramuka area','#777',True)
 for x in [-530,630,1200]:line(700,170,x,230,'#888',True)
-text(-505,204,'walk ~230 m',16);text(655,204,'walk to boarding point',16);text(1230,204,'walk ~850 m',16)
+text(-280,208,'walk ~230 m',16);text(655,204,'walk to boarding point',16);text(1230,204,'walk ~850 m',16)
 add('<g transform="translate(-600 0)">')
-text(95,176,'10 ↓ PGC',19,COL['10'],weight='600');text(225,176,'9 ↓ Pluit',19,COL['9'],weight='600')
-text(40,176,'10 ↑ Tanjung Priok',19,COL['10'],anchor='end',weight='600')
-text(-170,176,'9 ↑ Pinang Ranti',19,COL['9'],anchor='end',weight='600')
+text(95,-62,'10 ↓ PGC',19,COL['10'],weight='600');text(225,-62,'9 ↓ Pluit',19,COL['9'],weight='600')
+text(40,-62,'10 ↑ Tanjung Priok',19,COL['10'],anchor='end',weight='600')
+text(-170,-62,'9 ↑ Pinang Ranti',19,COL['9'],anchor='end',weight='600')
 y10=chain('10',70,240,55,transfers=['G00473','G00718'],both=False)
 # 7F homebound shares the top three station areas of this column (same stop names in
 # the official 10 GTFS pattern and the 7F Juanda-direction listing). Its own stops
@@ -506,10 +508,70 @@ def return_chain(key,x,bottom,top,color,skipfirst=False):
   if not(skipfirst and i==0):node(x,yy,name,color,i in (0,len(ss)-1))
   if i<len(ss)-1:tri(x,yy-step/2,color)
  return top
-text(60-SH,45,'One network · out and home',30,weight='600')
-text(60-SH,80,'Shared 4 / 6, 9 / 10 and 10 / 7F spines · down outbound, up homebound · only different stops branch.',19)
-text(60-SH,140,'Line hops / gaps: no connection. Rings: stops and actual joins.',19)
-text(60-SH,110,'Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.',17)
+text(60-SH,45-DY,'One network · out and home',30,weight='600')
+text(60-SH,80-DY,'Shared 4 / 6, 9 / 10 and 10 / 7F spines · down outbound, up homebound · only different stops branch.',19)
+text(60-SH,140-DY,'Line hops / gaps: no connection. Rings: stops and actual joins.',19)
+text(60-SH,110-DY,'Station areas are shared, not necessarily platforms. 7E keeps its different roadside stops.',17)
+# ---- Mall Kelapa Gading -> home, merged into the main map (Irvan, 26 Nov: "merge the maps") ----
+# The feeders sit in the band above the network and join the existing corridor 10 and corridor 4
+# columns at their real stops, so those stops are drawn once. Stop lists: data/route-stops.json (GTFS 26 Nov 2026).
+X10,X4,X59,YT=170,1330,2000,-1166
+c12,cB,cA='#5a8f5a','#c2185b','#7a5230'; c10=COL['10']; c4c=COL['4']
+def _ring(x,y,c,big):add(f'<circle cx="{x}" cy="{y:.0f}" r="{12 if big else 7}" fill="Canvas" stroke="{c}" stroke-width="4"/>')
+def _col(x,ys,names,c,anchor='start',bigs=(),arrows=True,wrapn=33):
+ for k,(y,nm) in enumerate(zip(ys,names)):
+  _ring(x,y,c,k in bigs)
+  for m,part in enumerate(textwrap.wrap(nm,wrapn)):text(x+(23 if anchor=='start' else -23),round(y+6+m*22),part,20,anchor=anchor,weight='600' if k in bigs else 'normal')
+  if arrows and k<len(ys)-1 and k%3==1:tri(x,(y+ys[k+1])/2,c,False)
+# 1. Corridor 10 toward PGC, extended upward from Kayu Putih Rawasari (the 5 stops before it, GTFS 10 pattern)
+ext10=[s['name'] for s in S['10SK']['stops'][:5]]
+ys10=[240-55*(5-i) for i in range(5)]
+line(X10,ys10[0],X10,240,c10)
+_col(X10,ys10,ext10,c10,bigs=(0,))
+for k in range(4):
+ if k%3==0:tri(X10,(ys10[k]+ys10[k+1])/2+0,c10,False)
+# 2. Corridor 4 toward Galunggung, extended upward from Simpang Pramuka 2 (labels on the left, clear of the home walks)
+ext4=[s['name'] for s in S['4PG']['stops'][:8]]
+ys4=[150-62*(7-k) for k in range(8)]
+line(X4,ys4[0],X4,240,c4c)
+_col(X4,ys4,ext4,c4c,anchor='end',bigs=(0,4))
+for k in range(8):
+ if k%3==1:tri(X4,(ys4[k]+(ys4[k+1] if k<7 else 240))/2,c4c,False)
+# 3. The three feeders from the Mall Kelapa Gading stop
+mv_open('mkg-home','Mall Kelapa Gading to home feeders')
+text(900,45-DY,'Mall Kelapa Gading → home',30,'#2e9e50',weight='600')
+text(900,76-DY,'Mall Kelapa Gading is a TransJakarta stop (12P and JAK feeders), not a BRT corridor stop. Each option has one change.',17)
+text(900,100-DY,'The three options join corridor 10 and corridor 4 below, the same lines and stops as the rest of this map.',17)
+text(900,124-DY,'Green rings: where each option gets off, about 160 m (Pemuda Pramuka) or 100 m (Simpang Pramuka 2) from Pramuka BPKP 2, then the home walk.',17)
+text(900,148-DY,'GTFS 26 Nov 2026, scheduled times only. Fare, gate, crossing and walks unverified. Also ~400 m away: LRT Boulevard Utara.',17)
+add(f'<circle cx="{X4}" cy="{YT}" r="13" fill="Canvas" stroke="#2e9e50" stroke-width="5"/>')
+text(X4,YT-28,'Mall Kelapa Gading stop (start of every option)',20,'#2e9e50',anchor='middle',weight='600')
+F0=YT+110
+def feeder(x,key,color,head,sub,stats,yend,final_big=True):
+ st=S[key]['stops'][1:];ys=[F0+(yend-F0)*i/(len(st)-1) for i in range(len(st))]
+ if x==X4:line(x,YT,x,yend,color)
+ else:add(f'<path d="M {X4} {YT} L {x} {YT} L {x} {yend}" fill="none" stroke="{color}" stroke-width="6"/>')
+ _col(x,ys,[t['name'] for t in st],color,bigs=(len(st)-1,),wrapn=44)
+ text(x+23,YT+34,head,22,color,weight='600');text(x+23,YT+56,sub,15);text(x+23,YT+76,stats,14)
+ return ys
+y12=feeder(X10,'12P',c12,'Main: 12P → Sunter Kelapa Gading','then 10 toward PGC to Pemuda Pramuka (green ring)','12P: 9 stops, ~21 min sched.; then 10: ~28 min',-175)
+y61=feeder(X4,'JAK61',cB,'Option 2: JAK.61 → Pulo Gadung 5','then 4 from Pulo Gadung (starts empty) to Simpang Pramuka 2 (green ring)','JAK.61: 14 stops, ~33 min sched.; then 4: ~23 min',-396)
+y59=feeder(X59,'JAK59',cA,'Option 3: JAK.59 → Simpang Arion','then 4 from Pemuda Rawamangun to Simpang Pramuka 2 (green ring)','JAK.59: 19 stops, ~46 min sched.; then 4: ~11 min',-130)
+# transfer walks (dashed, unverified) and their notes
+line(X10,-175+14,X10,ys10[0]-14,'#888',True)
+for k,t in enumerate(['walk ~25 m between the two Sunter Kelapa Gading','platforms (Utara to Selatan). Crossing, gate','and second fare unverified.']):text(X10+23,-146+k*17,t,14)
+line(X4,-396+14,X4,ys4[0]-14,'#888',True)
+for k,t in enumerate(['walk ~95 m inside the Pulo Gadung','terminal area; Pulo Gadung 5 is a JAK','stop, Pulo Gadung is the 4 halte.','Fare gate / access unverified.']):text(X4+23,-356+k*17,t,14)
+add(f'<path d="M {X59} {-130+14} L {X59} -36 L {X4+16} -36" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+for k,t in enumerate(['walk ~75 m to Pemuda Rawamangun','(corridor 4). Crossing and gate','access unverified.']):text(X4+40,-14+k*17,t,14)
+mv_close()
+# ride counts and the alighting stops on the shared columns
+text(X10+360,-62,'12P then 10: ride 6 stops from Sunter Kelapa Gading',15,c10,weight='600')
+add(f'<circle cx="{X10}" cy="295" r="17" fill="none" stroke="#2e9e50" stroke-width="3"/>')
+text(420,288,'◀ Main option gets off here',16,'#2e9e50',weight='600')
+text(420,305,'~160 m to Pramuka BPKP 2, then',15)
+text(420,321,'the ~850 m walk home (unverified)',15)
+add(f'<circle cx="{X4}" cy="240" r="17" fill="none" stroke="#2e9e50" stroke-width="3"/>')
 # Option A note sits beside the 6 / Ragunan stations it explains (rider, 23 Nov 2026),
 # in the empty area left of the corridor 6 spine; right edge kept clear of the spine.
 AX,AY=1280,1560
@@ -637,64 +699,8 @@ text(2320,yb+350,'On-ground sidewalks, crossings and gate access still unverifie
 text(2320,yb+380,'GTFS 4C-R09 / R10 and S61-R02 / R01 checked 23 Nov 2026. Short turns also exist.',17,anchor='middle')
 mv_close()
 add('</g>')
-# Mall Kelapa Gading -> home (Irvan's request 26 Nov; corrected same day after he spotted the stop):
-# Mall Kelapa Gading IS a TransJakarta stop (B02191P), served by 12P and four JAK feeders.
-# Main option: 12P to Sunter Kelapa Gading, then corridor 10 toward PGC to Pemuda Pramuka (~160 m
-# straight line from Pramuka BPKP 2, the stop the outbound 4C boards). Alternatives: JAK.61 or JAK.59
-# then corridor 4 to Simpang Pramuka 2. Stop lists come from data/route-stops.json (GTFS 26 Nov 2026).
-MX,MY=3120,3180
-cB,cA,c4m='#c2185b','#7a5230',COL['4']
-c12,c10='#5a8f5a',COL['10']
-mv_open('mkg-home','Mall Kelapa Gading to home routes')
-text(MX,MY,'Mall Kelapa Gading → home',30,'#2e9e50',weight='600')
-text(MX,MY+30,'Mall Kelapa Gading is a TransJakarta stop (12P and JAK feeders), not a BRT corridor stop. Each option has one change.',17)
-text(MX,MY+54,'Main option (left): 12P (~every 5 min), then corridor 10 toward PGC to Pemuda Pramuka. Alternatives: JAK.61 or JAK.59, then the 4.',17)
-text(MX,MY+78,'GTFS 26 Nov 2026, scheduled times only. Fare, gate, crossing and walks unverified. Also ~400 m away: LRT Boulevard Utara.',17)
-add(f'<rect x="{MX-9}" y="{MY+112}" width="18" height="18" rx="3" fill="#2e9e50"/>')
-text(MX+24,MY+127,'Mall Kelapa Gading stop (start of every option)',18,weight='600')
-GAP=96;TOP=MY+250
-def mcol(x,color,fa,fb,label,sub,c2=c4m):
- na,nb=len(fa),len(fb);hops=na+nb-1
- total=(max(len(S['JAK61']['stops'])+len(S['4PG']['stops']),len(S['JAK59']['stops'])+len(S['4RW']['stops']))-1)*68+GAP
- st=(total-GAP)/(hops-1)
- text(x,TOP-62,label,22,color,weight='600');text(x,TOP-38,sub,15)
- ys=[]
- for i in range(na+nb):ys.append(TOP+i*st+(GAP if i>=na else 0))
- line(x,ys[0],x,ys[na-1],color);line(x,ys[na],x,ys[-1],c2)
- for i,nm in enumerate(fa+fb):
-  y=ys[i];big=i in (0,na-1,na,na+nb-1)
-  add(f'<circle cx="{x}" cy="{y:.0f}" r="{12 if big else 7}" fill="Canvas" stroke="{color if i<na else c2}" stroke-width="4"/>')
-  text(x+23,round(y+6),nm,20,anchor='start',weight='600' if big else 'normal')
-  if i not in (na-1,len(ys)-1) and i%3==1:tri(x,y+st/2,color if i<na else c2,False)
- return ys,na
-X0,X1,X2=3260,3700,4140
-ys0,na0=mcol(X0,c12,[s['name'] for s in S['12P']['stops']],[s['name'] for s in S['10SK']['stops']],'Main: 12P → Sunter Kelapa Gading','then 10 toward PGC to Pemuda Pramuka',c10)
-ysB,naB=mcol(X1,cB,[s['name'] for s in S['JAK61']['stops']],[s['name'] for s in S['4PG']['stops']],'Option 2: JAK.61 → Pulo Gadung 5','then 4 from Pulo Gadung (starts empty)')
-ysA,naA=mcol(X2,cA,[s['name'] for s in S['JAK59']['stops']],[s['name'] for s in S['4RW']['stops']],'Option 3: JAK.59 → Simpang Arion','then 4 from Pemuda Rawamangun')
-for ys,na,x,t in ((ys0,na0,X0,['walk ~25 m between the two','Sunter Kelapa Gading platforms','(Utara to Selatan). Crossing, gate','and second fare unverified.']),
-                  (ysB,naB,X1,['walk ~95 m inside the Pulo Gadung','terminal area; Pulo Gadung 5 is a JAK','stop, Pulo Gadung is the 4 halte.','Fare gate / access unverified.']),
-                  (ysA,naA,X2,['walk ~75 m to Pemuda Rawamangun','(corridor 4). Crossing and gate','access unverified.'])):
- y0=ys[na-1]+14;y1=ys[na]-14
- line(x,y0,x,y1,'#888',True)
- for k,s in enumerate(t):text(x+23,round((y0+y1)/2-6*len(t)+k*17+6),s,14)
-text(X0,ys0[-1]+44,'10 toward PGC: ride 6 stops',16,c10,weight='600')
-text(X1,ysB[-1]+44,'4 ↓ Galunggung: ride 8 stops',16,c4m,weight='600')
-text(X2,ysA[-1]+44,'4 ↓ Galunggung: ride 4 stops',16,c4m,weight='600')
-text(X0,TOP-12,'12P: 9 stops, ~21 min sched.; then 10: ~28 min',14)
-text(X1,TOP-12,'JAK.61: 14 stops, ~33 min sched.; then 4: ~23 min',14);text(X2,TOP-12,'JAK.59: 19 stops, ~46 min sched.; then 4: ~11 min',14)
-ey=max(ysA[-1],ysB[-1],ys0[-1]);hx=3700;hy=ey+190
-add(f'<path d="M {X0} {ys0[-1]+58} L {X0} {hy-40} L {hx} {hy-40} L {hx} {hy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M {X1} {ysB[-1]+58} L {X1} {hy-40} L {hx} {hy-40}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M {X2} {ysA[-1]+58} L {X2} {hy-40} L {hx} {hy-40}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<rect x="{hx-9}" y="{hy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
-text(hx,hy+50,'Home: Green Pramuka City',24,'#2e9e50',anchor='middle',weight='600')
-text(hx,hy+80,'Main: Pemuda Pramuka is ~160 m (straight line) from Pramuka BPKP 2;',16,anchor='middle')
-text(hx,hy+102,'Simpang Pramuka 2 (options 2, 3) is ~100 m from it. Then the same ~850 m walk home.',16,anchor='middle')
-text(hx,hy+124,'Crossings at the stops unchecked. Option 2 boards the 4 at its first stop, so it starts empty.',16,anchor='middle')
-mv_close()
-MKGEND=round(hy+160)
 # Source/service caveats stay within the unified map, below the network only as notes.
-end=max(ry+150,S11END,5400,MKGEND+80)
+end=max(ry+150,S11END,5400)
 for i,t in enumerate([
  'Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.',
  '7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;',
@@ -706,8 +712,9 @@ for i,t in enumerate([
  'Bakoel Koffie (Cikini): on the 5M leg, get off at Farmasi RP Soeroso (~100 m). Home via the right column: 5M Kantor Pos Cikini to Megaria,',
  'then 4C to Pramuka BPKP 1 - official GTFS trips 5M-R02 / 4C-R10, checked 22 Nov 2026. Fresh tap each boarding.',
 ]):text(60,end+i*31,t,18)
+add('</g>')
 add('</svg>')
-H=end+340
+H=end+340+DY
 svg=f'<svg viewBox="0 0 4600 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
 from map_bridges import add_bridges
 svg=add_bridges(svg)

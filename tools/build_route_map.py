@@ -637,55 +637,62 @@ text(2320,yb+350,'On-ground sidewalks, crossings and gate access still unverifie
 text(2320,yb+380,'GTFS 4C-R09 / R10 and S61-R02 / R01 checked 23 Nov 2026. Short turns also exist.',17,anchor='middle')
 mv_close()
 add('</g>')
-# Mall Kelapa Gading -> home (user request 26 Nov): two feeder + corridor 4 options, drawn in the free
-# area at the lower right. Both end at Simpang Pramuka 2, the corridor 4 stop ~100 m from Pramuka BPKP 2
-# (the stop the outbound 4C boards), so the final walk is the existing ~850 m home walk.
-# Stop lists come from data/route-stops.json (GTFS 26 Nov 2026); no stop is invented.
+# Mall Kelapa Gading -> home (Irvan's request 26 Nov; corrected same day after he spotted the stop):
+# Mall Kelapa Gading IS a TransJakarta stop (B02191P), served by 12P and four JAK feeders.
+# Main option: 12P to Sunter Kelapa Gading, then corridor 10 toward PGC to Pemuda Pramuka (~160 m
+# straight line from Pramuka BPKP 2, the stop the outbound 4C boards). Alternatives: JAK.61 or JAK.59
+# then corridor 4 to Simpang Pramuka 2. Stop lists come from data/route-stops.json (GTFS 26 Nov 2026).
 MX,MY=3120,3180
 cB,cA,c4m='#c2185b','#7a5230',COL['4']
+c12,c10='#5a8f5a',COL['10']
 mv_open('mkg-home','Mall Kelapa Gading to home routes')
 text(MX,MY,'Mall Kelapa Gading → home',30,'#2e9e50',weight='600')
-text(MX,MY+30,'Two options, one change each. Both end at Simpang Pramuka 2 (corridor 4 toward Galunggung).',17)
-text(MX,MY+54,'MKG is only on feeder routes (JAK), not a busway corridor: allow a fresh tap at the change.',17)
-text(MX,MY+78,'GTFS 26 Nov 2026, scheduled times only (JAK is every ~20 min, 05:00-22:00). No live arrivals.',17)
+text(MX,MY+30,'Mall Kelapa Gading is a TransJakarta stop (12P and JAK feeders), not a BRT corridor stop. Each option has one change.',17)
+text(MX,MY+54,'Main option (left): 12P (~every 5 min), then corridor 10 toward PGC to Pemuda Pramuka. Alternatives: JAK.61 or JAK.59, then the 4.',17)
+text(MX,MY+78,'GTFS 26 Nov 2026, scheduled times only. Fare, gate, crossing and walks unverified. Also ~400 m away: LRT Boulevard Utara.',17)
 add(f'<rect x="{MX-9}" y="{MY+112}" width="18" height="18" rx="3" fill="#2e9e50"/>')
-text(MX+24,MY+127,'Mall Kelapa Gading stop (start of both options)',18,weight='600')
+text(MX+24,MY+127,'Mall Kelapa Gading stop (start of every option)',18,weight='600')
 GAP=96;TOP=MY+250
-def mcol(x,color,fa,fb,wa,wb,label,sub,hdr_dx=0):
+def mcol(x,color,fa,fb,label,sub,c2=c4m):
  na,nb=len(fa),len(fb);hops=na+nb-1
- total=(max(len(S['JAK61']['stops'])+len(S['4PG']['stops']),len(S['JAK59']['stops'])+len(S['4RW']['stops']))-1)*44+GAP
+ total=(max(len(S['JAK61']['stops'])+len(S['4PG']['stops']),len(S['JAK59']['stops'])+len(S['4RW']['stops']))-1)*68+GAP
  st=(total-GAP)/(hops-1)
  text(x,TOP-62,label,22,color,weight='600');text(x,TOP-38,sub,15)
  ys=[]
  for i in range(na+nb):ys.append(TOP+i*st+(GAP if i>=na else 0))
- line(x,ys[0],x,ys[na-1],color);line(x,ys[na],x,ys[-1],c4m)
+ line(x,ys[0],x,ys[na-1],color);line(x,ys[na],x,ys[-1],c2)
  for i,nm in enumerate(fa+fb):
   y=ys[i];big=i in (0,na-1,na,na+nb-1)
-  add(f'<circle cx="{x}" cy="{y:.0f}" r="{12 if big else 7}" fill="Canvas" stroke="{color if i<na else c4m}" stroke-width="4"/>')
+  add(f'<circle cx="{x}" cy="{y:.0f}" r="{12 if big else 7}" fill="Canvas" stroke="{color if i<na else c2}" stroke-width="4"/>')
   text(x+23,round(y+6),nm,20,anchor='start',weight='600' if big else 'normal')
-  if i not in (na-1,len(ys)-1) and i%3==1:tri(x,y+st/2,color if i<na else c4m,False)
+  if i not in (na-1,len(ys)-1) and i%3==1:tri(x,y+st/2,color if i<na else c2,False)
  return ys,na
-tB=S['JAK61']['stops']+S['4PG']['stops'];tA=S['JAK59']['stops']+S['4RW']['stops']
-ysB,naB=mcol(3260,cB,[s['name'] for s in S['JAK61']['stops']],[s['name'] for s in S['4PG']['stops']],0,0,'Option 1: JAK.61 → Pulo Gadung 5','then 4 from Pulo Gadung (starts empty)')
-ysA,naA=mcol(3700,cA,[s['name'] for s in S['JAK59']['stops']],[s['name'] for s in S['4RW']['stops']],0,0,'Option 2: JAK.59 → Simpang Arion','then 4 from Pemuda Rawamangun')
-for ys,na,x,t in ((ysB,naB,3260,['walk ~95 m inside the Pulo Gadung','terminal area; Pulo Gadung 5 is a JAK','stop, Pulo Gadung is the 4 halte.','Fare gate / access unverified.']),
-                  (ysA,naA,3700,['walk ~75 m to Pemuda Rawamangun','(corridor 4). Crossing and gate','access unverified.'])):
+X0,X1,X2=3260,3700,4140
+ys0,na0=mcol(X0,c12,[s['name'] for s in S['12P']['stops']],[s['name'] for s in S['10SK']['stops']],'Main: 12P → Sunter Kelapa Gading','then 10 toward PGC to Pemuda Pramuka',c10)
+ysB,naB=mcol(X1,cB,[s['name'] for s in S['JAK61']['stops']],[s['name'] for s in S['4PG']['stops']],'Option 2: JAK.61 → Pulo Gadung 5','then 4 from Pulo Gadung (starts empty)')
+ysA,naA=mcol(X2,cA,[s['name'] for s in S['JAK59']['stops']],[s['name'] for s in S['4RW']['stops']],'Option 3: JAK.59 → Simpang Arion','then 4 from Pemuda Rawamangun')
+for ys,na,x,t in ((ys0,na0,X0,['walk ~25 m between the two','Sunter Kelapa Gading platforms','(Utara to Selatan). Crossing, gate','and second fare unverified.']),
+                  (ysB,naB,X1,['walk ~95 m inside the Pulo Gadung','terminal area; Pulo Gadung 5 is a JAK','stop, Pulo Gadung is the 4 halte.','Fare gate / access unverified.']),
+                  (ysA,naA,X2,['walk ~75 m to Pemuda Rawamangun','(corridor 4). Crossing and gate','access unverified.'])):
  y0=ys[na-1]+14;y1=ys[na]-14
  line(x,y0,x,y1,'#888',True)
  for k,s in enumerate(t):text(x+23,round((y0+y1)/2-6*len(t)+k*17+6),s,14)
-text(3260,ysB[-1]+44,'4 ↓ Galunggung: ride 8 stops',16,c4m,weight='600')
-text(3700,ysA[-1]+44,'4 ↓ Galunggung: ride 4 stops',16,c4m,weight='600')
-text(3260,TOP-12,'JAK.61: 14 stops, ~33 min sched.; then 4: ~23 min',14);text(3700,TOP-12,'JAK.59: 19 stops, ~46 min sched.; then 4: ~11 min',14)
-ey=max(ysA[-1],ysB[-1]);hx=3480;hy=ey+190
-add(f'<path d="M 3260 {ysB[-1]+58} L 3260 {hy-40} L {hx} {hy-40} L {hx} {hy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
-add(f'<path d="M 3700 {ysA[-1]+58} L 3700 {hy-40} L {hx} {hy-40}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+text(X0,ys0[-1]+44,'10 toward PGC: ride 6 stops',16,c10,weight='600')
+text(X1,ysB[-1]+44,'4 ↓ Galunggung: ride 8 stops',16,c4m,weight='600')
+text(X2,ysA[-1]+44,'4 ↓ Galunggung: ride 4 stops',16,c4m,weight='600')
+text(X0,TOP-12,'12P: 9 stops, ~21 min sched.; then 10: ~28 min',14)
+text(X1,TOP-12,'JAK.61: 14 stops, ~33 min sched.; then 4: ~23 min',14);text(X2,TOP-12,'JAK.59: 19 stops, ~46 min sched.; then 4: ~11 min',14)
+ey=max(ysA[-1],ysB[-1],ys0[-1]);hx=3700;hy=ey+190
+add(f'<path d="M {X0} {ys0[-1]+58} L {X0} {hy-40} L {hx} {hy-40} L {hx} {hy}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M {X1} {ysB[-1]+58} L {X1} {hy-40} L {hx} {hy-40}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+add(f'<path d="M {X2} {ysA[-1]+58} L {X2} {hy-40} L {hx} {hy-40}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
 add(f'<rect x="{hx-9}" y="{hy}" width="18" height="18" rx="3" fill="#2e9e50"/>')
 text(hx,hy+50,'Home: Green Pramuka City',24,'#2e9e50',anchor='middle',weight='600')
-text(hx,hy+80,'Simpang Pramuka 2 is ~100 m from Pramuka BPKP 2,',16,anchor='middle')
-text(hx,hy+102,'the stop the outbound 4C boards; then the same ~850 m walk home.',16,anchor='middle')
-text(hx,hy+124,'Crossing at the stop unchecked. Option 1 boards the 4 at its first stop, so it starts empty.',16,anchor='middle')
+text(hx,hy+80,'Main: Pemuda Pramuka is ~160 m (straight line) from Pramuka BPKP 2;',16,anchor='middle')
+text(hx,hy+102,'Simpang Pramuka 2 (options 2, 3) is ~100 m from it. Then the same ~850 m walk home.',16,anchor='middle')
+text(hx,hy+124,'Crossings at the stops unchecked. Option 2 boards the 4 at its first stop, so it starts empty.',16,anchor='middle')
 mv_close()
-MKGEND=hy+160
+MKGEND=round(hy+160)
 # Source/service caveats stay within the unified map, below the network only as notes.
 end=max(ry+150,S11END,5400,MKGEND+80)
 for i,t in enumerate([
@@ -701,12 +708,12 @@ for i,t in enumerate([
 ]):text(60,end+i*31,t,18)
 add('</svg>')
 H=end+340
-svg=f'<svg viewBox="0 0 4200 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
+svg=f'<svg viewBox="0 0 4600 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)
 from map_bridges import add_bridges
 svg=add_bridges(svg)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.
-src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|4200 \d+|5600 \d+|5000 \d+|3000 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
+src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|4600 \d+|4200 \d+|5600 \d+|5000 \d+|3000 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
 assert n==2,n
 src=re.sub(r'<!-- map-reading-notes:begin -->.*?<!-- map-reading-notes:end -->',lambda _: (ROOT/'data/map-reading-notes.html').read_text().strip(),src,flags=re.S)
 p.write_text(src)

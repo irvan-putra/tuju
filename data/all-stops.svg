@@ -1,4 +1,4 @@
-<svg viewBox="0 0 4200 5952" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
+<svg viewBox="0 0 4600 6037" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
 <title id="all-stops-title">Outbound routes, Arkadia homebound options and the Cikini return, with intermediate stops</title>
 <desc id="all-stops-desc">One connected schematic, not to scale. Read each corridor leg downward in its listed direction; the 7E return leg is drawn upward on the left after a direction switch, ending its selected leg at Department of Agriculture, which is the same station as Simpang Ragunan Ar-Raudhah (rider, 19 Nov 2026). Corridor 6 links this station with Ragunan - the destination pin - in both directions, and the ride home boards corridor 6 / 6A there toward Galunggung - the direction, not the transfer - changing at Patra Kuningan to 4D for Simpang Pramuka 1; teal rings mark the 4D return stops. Gate access and fare continuity between 7E and corridor 6 are unverified. The 7A route boards at Phe Tower Kebagusan, shares the 7E stops Plaza Oleos, Kebagusan Raya, Kementan and Kementan 2, then leaves the 7E column and ends at Masjid Ar-Raudhah, the same station where the outbound 7E leg begins (rider correction, 19 Nov 2026), about 140 m on foot from Department of Agriculture via Akses A. Arrowheads mark travel direction. Hollow circles are stops; larger rings are boarding, transfer or alighting points. The corridor 4 leg uses Galunggung via Saharjo; 5M uses the via Cikini pattern. Other patterns may skip stops. The road by the venue is drawn between the two 7E directions: the pedestrian bridge between the Mujair and Phe Tower stops crosses it, the venue sits beside Phe Tower Kebagusan, and Jln. Gabus Raya (far side) and Baung (venue side) are both farther along toward Kampung Rambutan, and the Flyover Raya Bogor direction switch stays inside the paid area with no new fare (all firsthand 18 Nov 2026). The 7F homebound shares the Kayu Putih Rawasari, Pemuda Pramuka and Utan Kayu Rawamangun station areas with the outbound 10 column, then branches left toward Flyover Raya Bogor. At the 4D Rasuna Said terminus, the venue access block carries the official IDSW access guideline (idsw.dev, checked 21 Nov 2026): LRT Rasuna Said is the other official nearest stop, about 2 minutes, sharing the same pedestrian-bridge walk; the final walk runs toward Plaza Festival for about 150 m into the Gedung PPHUI complex; and the Sunday 22 November Car Free Day window 05:30-09:00 WIB bars car and motorbike gate drop-off while the LRT and corridor 6/6A keep running and drivers park at Plaza Festival. Bakoel Koffie (Cikini) is on the 5M leg: get off at Farmasi RP Soeroso, about 100 m away. The ride home boards the 5M at Kantor Pos Cikini (about 90 m from the venue) toward Kampung Melayu and changes at Megaria to 4C for Pramuka BPKP 1; it runs back up the right-hand column with its intermediate stops and rejoins the start area over the top (official GTFS trips 5M-R02 and 4C-R10, checked 22 Nov 2026; curbside feeders, so allow a fresh tap at each boarding).</desc>
 <g transform="translate(420 0)">
@@ -1055,162 +1055,213 @@
 </g>
 <g class="mv" data-move="mkg-home" data-label="Mall Kelapa Gading to home routes">
 <text x="3120" y="3180" font-size="30" fill="#2e9e50" text-anchor="start" font-weight="600">Mall Kelapa Gading → home</text>
-<text x="3120" y="3210" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Two options, one change each. Both end at Simpang Pramuka 2 (corridor 4 toward Galunggung).</text>
-<text x="3120" y="3234" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">MKG is only on feeder routes (JAK), not a busway corridor: allow a fresh tap at the change.</text>
-<text x="3120" y="3258" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">GTFS 26 Nov 2026, scheduled times only (JAK is every ~20 min, 05:00-22:00). No live arrivals.</text>
+<text x="3120" y="3210" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Mall Kelapa Gading is a TransJakarta stop (12P and JAK feeders), not a BRT corridor stop. Each option has one change.</text>
+<text x="3120" y="3234" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">Main option (left): 12P (~every 5 min), then corridor 10 toward PGC to Pemuda Pramuka. Alternatives: JAK.61 or JAK.59, then the 4.</text>
+<text x="3120" y="3258" font-size="17" fill="currentColor" text-anchor="start" font-weight="normal">GTFS 26 Nov 2026, scheduled times only. Fare, gate, crossing and walks unverified. Also ~400 m away: LRT Boulevard Utara.</text>
 <rect x="3111" y="3292" width="18" height="18" rx="3" fill="#2e9e50"/>
-<text x="3144" y="3307" font-size="18" fill="currentColor" text-anchor="start" font-weight="600">Mall Kelapa Gading stop (start of both options)</text>
-<text x="3260" y="3368" font-size="22" fill="#c2185b" text-anchor="start" font-weight="600">Option 1: JAK.61 → Pulo Gadung 5</text>
-<text x="3260" y="3392" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">then 4 from Pulo Gadung (starts empty)</text>
-<path d="M 3260 3430.0 L 3260 4102.0" fill="none" stroke="#c2185b" stroke-width="6"/>
-<path d="M 3260 4246.0 L 3260 4630.0" fill="none" stroke="#1769aa" stroke-width="6"/>
-<circle cx="3260" cy="3430" r="12" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3144" y="3307" font-size="18" fill="currentColor" text-anchor="start" font-weight="600">Mall Kelapa Gading stop (start of every option)</text>
+<text x="3260" y="3368" font-size="22" fill="#5a8f5a" text-anchor="start" font-weight="600">Main: 12P → Sunter Kelapa Gading</text>
+<text x="3260" y="3392" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">then 10 toward PGC to Pemuda Pramuka</text>
+<path d="M 3260 3430.0 L 3260 4409.2" fill="none" stroke="#5a8f5a" stroke-width="6"/>
+<path d="M 3260 4614.0 L 3260 5266.8" fill="none" stroke="#6536b0" stroke-width="6"/>
+<circle cx="3260" cy="3430" r="12" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
 <text x="3283" y="3436" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Mall Kelapa Gading</text>
-<circle cx="3260" cy="3478" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3484" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">St. LRT Boulevard Utara 1</text>
-<path d="M 3260 3515.0 L 3249 3491.0 L 3271 3491.0 Z" fill="#c2185b" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3260" cy="3526" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3532" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Taman Jogging Kelapa Gading 2</text>
-<circle cx="3260" cy="3574" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3580" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Kelapa Cengkir Barat VIII</text>
-<circle cx="3260" cy="3622" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3628" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Boulevard Kelapa Cengkir Raya</text>
-<path d="M 3260 3659.0 L 3249 3635.0 L 3271 3635.0 Z" fill="#c2185b" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3260" cy="3670" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3676" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Kelapa Cengkir Raya</text>
-<circle cx="3260" cy="3718" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3724" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Kelapa Cengkir Flamboyan</text>
-<circle cx="3260" cy="3766" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3772" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Jln. Tarian Raya Barat</text>
-<path d="M 3260 3803.0 L 3249 3779.0 L 3271 3779.0 Z" fill="#c2185b" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3260" cy="3814" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3820" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Arteri Klp. Gading 1</text>
-<circle cx="3260" cy="3862" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3868" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Arteri Klp. Gading 3</text>
-<circle cx="3260" cy="3910" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3916" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">SMPN 170</text>
-<path d="M 3260 3947.0 L 3249 3923.0 L 3271 3923.0 Z" fill="#c2185b" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3260" cy="3958" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="3964" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sbr. Puskesmas Pegangsaan Dua</text>
-<circle cx="3260" cy="4006" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="4012" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Kesadaran Pool Bus 2</text>
-<circle cx="3260" cy="4054" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="4060" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">PTC Pulo Gadung 1</text>
-<path d="M 3260 4091.0 L 3249 4067.0 L 3271 4067.0 Z" fill="#c2185b" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3260" cy="4102" r="12" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
-<text x="3283" y="4108" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Pulo Gadung 5</text>
-<circle cx="3260" cy="4246" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3283" y="4252" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Pulo Gadung</text>
-<circle cx="3260" cy="4294" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3283" y="4300" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pasar Pulo Gadung</text>
-<path d="M 3260 4331.0 L 3249 4307.0 L 3271 4307.0 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3260" cy="4342" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3283" y="4348" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pemuda Merdeka</text>
-<circle cx="3260" cy="4390" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3283" y="4396" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Layur</text>
-<circle cx="3260" cy="4438" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3283" y="4444" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pemuda Rawamangun</text>
-<path d="M 3260 4475.0 L 3249 4451.0 L 3271 4451.0 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3260" cy="4486" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3283" y="4492" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Velodrome</text>
-<circle cx="3260" cy="4534" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3283" y="4540" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kayu Jati</text>
-<circle cx="3260" cy="4582" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3283" y="4588" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rawamangun</text>
-<path d="M 3260 4619.0 L 3249 4595.0 L 3271 4595.0 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3260" cy="4630" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3283" y="4636" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Pramuka 2</text>
-<text x="3700" y="3368" font-size="22" fill="#7a5230" text-anchor="start" font-weight="600">Option 2: JAK.59 → Simpang Arion</text>
-<text x="3700" y="3392" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">then 4 from Pemuda Rawamangun</text>
-<path d="M 3700 3430.0 L 3700 4302.347826086956" fill="none" stroke="#7a5230" stroke-width="6"/>
-<path d="M 3700 4444.260869565217 L 3700 4627.913043478261" fill="none" stroke="#1769aa" stroke-width="6"/>
-<circle cx="3700" cy="3430" r="12" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<circle cx="3260" cy="3539" r="7" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
+<text x="3283" y="3545" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">St. LRT Boulevard Utara 1</text>
+<path d="M 3260 3606.2000000000003 L 3249 3582.2000000000003 L 3271 3582.2000000000003 Z" fill="#5a8f5a" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3260" cy="3648" r="7" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
+<text x="3283" y="3654" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Boulevard Pelepah Raya</text>
+<circle cx="3260" cy="3756" r="7" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
+<text x="3283" y="3762" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">ACE Hardware Kelapa Gading</text>
+<circle cx="3260" cy="3865" r="7" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
+<text x="3283" y="3871" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Boulevard Bukit Gading Raya</text>
+<path d="M 3260 3932.6 L 3249 3908.6 L 3271 3908.6 Z" fill="#5a8f5a" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3260" cy="3974" r="7" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
+<text x="3283" y="3980" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Institut Kesehatan Indonesia</text>
+<circle cx="3260" cy="4083" r="7" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
+<text x="3283" y="4089" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Ruko Boulevard Barat Raya</text>
+<circle cx="3260" cy="4192" r="7" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
+<text x="3283" y="4198" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Boulevard Inspeksi Kali Sunter</text>
+<path d="M 3260 4259.0 L 3249 4235.0 L 3271 4235.0 Z" fill="#5a8f5a" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3260" cy="4300" r="7" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
+<text x="3283" y="4306" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sunter Boulevard Barat 1</text>
+<circle cx="3260" cy="4409" r="12" fill="Canvas" stroke="#5a8f5a" stroke-width="4"/>
+<text x="3283" y="4415" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Sunter Kelapa Gading Arah Utara</text>
+<circle cx="3260" cy="4614" r="12" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="3283" y="4620" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Sunter Kelapa Gading Arah Selatan</text>
+<path d="M 3260 4681.4 L 3249 4657.4 L 3271 4657.4 Z" fill="#6536b0" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3260" cy="4723" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="3283" y="4729" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kodamar</text>
+<circle cx="3260" cy="4832" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="3283" y="4838" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Cempaka</text>
+<circle cx="3260" cy="4940" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="3283" y="4946" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Cempaka Putih</text>
+<path d="M 3260 5007.799999999999 L 3249 4983.799999999999 L 3271 4983.799999999999 Z" fill="#6536b0" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3260" cy="5049" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="3283" y="5055" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pulo Mas Bypass</text>
+<circle cx="3260" cy="5158" r="7" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="3283" y="5164" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kayu Putih Rawasari</text>
+<circle cx="3260" cy="5267" r="12" fill="Canvas" stroke="#6536b0" stroke-width="4"/>
+<text x="3283" y="5273" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Pemuda Pramuka</text>
+<text x="3700" y="3368" font-size="22" fill="#c2185b" text-anchor="start" font-weight="600">Option 2: JAK.61 → Pulo Gadung 5</text>
+<text x="3700" y="3392" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">then 4 from Pulo Gadung (starts empty)</text>
+<path d="M 3700 3430.0 L 3700 4468.545454545454" fill="none" stroke="#c2185b" stroke-width="6"/>
+<path d="M 3700 4638.727272727273 L 3700 5232.181818181818" fill="none" stroke="#1769aa" stroke-width="6"/>
+<circle cx="3700" cy="3430" r="12" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
 <text x="3723" y="3436" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Mall Kelapa Gading</text>
-<circle cx="3700" cy="3476" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3482" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">St. LRT Boulevard Utara 1</text>
-<path d="M 3700 3511.8695652173915 L 3689 3487.8695652173915 L 3711 3487.8695652173915 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3700" cy="3522" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3528" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Boulevard Pelepah Raya</text>
-<circle cx="3700" cy="3568" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3574" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">ACE Hardware Kelapa Gading</text>
-<circle cx="3700" cy="3614" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3620" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Perumahan Bukit Gading Mediterania</text>
-<path d="M 3700 3649.608695652174 L 3689 3625.608695652174 L 3711 3625.608695652174 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3700" cy="3660" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3666" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Casablanca IX</text>
-<circle cx="3700" cy="3705" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3711" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Boulevard Bukit Gading Raya</text>
-<circle cx="3700" cy="3751" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3757" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Mahatma Gading School</text>
-<path d="M 3700 3787.3478260869565 L 3689 3763.3478260869565 L 3711 3763.3478260869565 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3700" cy="3797" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3803" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Disperindagkop</text>
-<circle cx="3700" cy="3843" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3849" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">ASMI 1</text>
-<circle cx="3700" cy="3889" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3895" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Perintis Pulo Mas Timur</text>
-<path d="M 3700 3925.086956521739 L 3689 3901.086956521739 L 3711 3901.086956521739 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3700" cy="3935" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3941" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pulo Mas Residence</text>
-<circle cx="3700" cy="3981" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="3987" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pacuan Kuda Pulo Mas 1</text>
-<circle cx="3700" cy="4027" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="4033" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pacuan Kuda Pulo Mas 2</text>
-<path d="M 3700 4062.8260869565215 L 3689 4038.8260869565215 L 3711 4038.8260869565215 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3700" cy="4073" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="4079" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Global SeVilla Pulo Mas</text>
-<circle cx="3700" cy="4119" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="4125" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sbr. SMAN 21</text>
-<circle cx="3700" cy="4165" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="4171" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sbr. Kel. Kayu Putih</text>
-<path d="M 3700 4200.565217391304 L 3689 4176.565217391304 L 3711 4176.565217391304 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3700" cy="4211" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="4217" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sbr. Panti Asuhan Putera Mulia</text>
-<circle cx="3700" cy="4256" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="4262" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">St. LRT Velodrome 1</text>
-<circle cx="3700" cy="4302" r="12" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
-<text x="3723" y="4308" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Arion</text>
-<circle cx="3700" cy="4444" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3723" y="4450" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Pemuda Rawamangun</text>
-<circle cx="3700" cy="4490" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3723" y="4496" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Velodrome</text>
-<circle cx="3700" cy="4536" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3723" y="4542" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kayu Jati</text>
-<path d="M 3700 4572.043478260869 L 3689 4548.043478260869 L 3711 4548.043478260869 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="3700" cy="4582" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3723" y="4588" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rawamangun</text>
-<circle cx="3700" cy="4628" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
-<text x="3723" y="4634" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Pramuka 2</text>
-<path d="M 3260 4116.0 L 3260 4232.0" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="3283" y="4156" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">walk ~95 m inside the Pulo Gadung</text>
-<text x="3283" y="4173" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">terminal area; Pulo Gadung 5 is a JAK</text>
-<text x="3283" y="4190" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">stop, Pulo Gadung is the 4 halte.</text>
-<text x="3283" y="4207" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">Fare gate / access unverified.</text>
-<path d="M 3700 4316.347826086956 L 3700 4430.260869565217" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<text x="3723" y="4361" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">walk ~75 m to Pemuda Rawamangun</text>
-<text x="3723" y="4378" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">(corridor 4). Crossing and gate</text>
-<text x="3723" y="4395" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">access unverified.</text>
-<text x="3260" y="4674.0" font-size="16" fill="#1769aa" text-anchor="start" font-weight="600">4 ↓ Galunggung: ride 8 stops</text>
-<text x="3700" y="4671.913043478261" font-size="16" fill="#1769aa" text-anchor="start" font-weight="600">4 ↓ Galunggung: ride 4 stops</text>
-<text x="3260" y="3418" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">JAK.61: 14 stops, ~33 min sched.; then 4: ~23 min</text>
-<text x="3700" y="3418" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">JAK.59: 19 stops, ~46 min sched.; then 4: ~11 min</text>
-<path d="M 3260 4688.0 L 3260 4780.0 L 3480 4780.0 L 3480 4820.0" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<path d="M 3700 4685.913043478261 L 3700 4780.0 L 3480 4780.0" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
-<rect x="3471" y="4820.0" width="18" height="18" rx="3" fill="#2e9e50"/>
-<text x="3480" y="4870.0" font-size="24" fill="#2e9e50" text-anchor="middle" font-weight="600">Home: Green Pramuka City</text>
-<text x="3480" y="4900.0" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">Simpang Pramuka 2 is ~100 m from Pramuka BPKP 2,</text>
-<text x="3480" y="4922.0" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">the stop the outbound 4C boards; then the same ~850 m walk home.</text>
-<text x="3480" y="4944.0" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">Crossing at the stop unchecked. Option 1 boards the 4 at its first stop, so it starts empty.</text>
+<circle cx="3700" cy="3504" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="3510" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">St. LRT Boulevard Utara 1</text>
+<path d="M 3700 3554.272727272727 L 3689 3530.272727272727 L 3711 3530.272727272727 Z" fill="#c2185b" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3700" cy="3578" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="3584" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Taman Jogging Kelapa Gading 2</text>
+<circle cx="3700" cy="3653" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="3659" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Kelapa Cengkir Barat VIII</text>
+<circle cx="3700" cy="3727" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="3733" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Boulevard Kelapa Cengkir Raya</text>
+<path d="M 3700 3776.818181818182 L 3689 3752.818181818182 L 3711 3752.818181818182 Z" fill="#c2185b" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3700" cy="3801" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="3807" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Kelapa Cengkir Raya</text>
+<circle cx="3700" cy="3875" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="3881" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Kelapa Cengkir Flamboyan</text>
+<circle cx="3700" cy="3949" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="3955" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Jln. Tarian Raya Barat</text>
+<path d="M 3700 3999.363636363636 L 3689 3975.363636363636 L 3711 3975.363636363636 Z" fill="#c2185b" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3700" cy="4023" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="4029" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Arteri Klp. Gading 1</text>
+<circle cx="3700" cy="4098" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="4104" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Arteri Klp. Gading 3</text>
+<circle cx="3700" cy="4172" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="4178" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">SMPN 170</text>
+<path d="M 3700 4221.909090909091 L 3689 4197.909090909091 L 3711 4197.909090909091 Z" fill="#c2185b" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3700" cy="4246" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="4252" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sbr. Puskesmas Pegangsaan Dua</text>
+<circle cx="3700" cy="4320" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="4326" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Kesadaran Pool Bus 2</text>
+<circle cx="3700" cy="4394" r="7" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="4400" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">PTC Pulo Gadung 1</text>
+<path d="M 3700 4444.454545454545 L 3689 4420.454545454545 L 3711 4420.454545454545 Z" fill="#c2185b" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3700" cy="4469" r="12" fill="Canvas" stroke="#c2185b" stroke-width="4"/>
+<text x="3723" y="4475" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Pulo Gadung 5</text>
+<circle cx="3700" cy="4639" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="3723" y="4645" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Pulo Gadung</text>
+<circle cx="3700" cy="4713" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="3723" y="4719" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pasar Pulo Gadung</text>
+<path d="M 3700 4763.0 L 3689 4739.0 L 3711 4739.0 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3700" cy="4787" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="3723" y="4793" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pemuda Merdeka</text>
+<circle cx="3700" cy="4861" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="3723" y="4867" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Layur</text>
+<circle cx="3700" cy="4935" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="3723" y="4941" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pemuda Rawamangun</text>
+<path d="M 3700 4985.545454545455 L 3689 4961.545454545455 L 3711 4961.545454545455 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3700" cy="5010" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="3723" y="5016" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Velodrome</text>
+<circle cx="3700" cy="5084" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="3723" y="5090" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kayu Jati</text>
+<circle cx="3700" cy="5158" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="3723" y="5164" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rawamangun</text>
+<path d="M 3700 5208.090909090909 L 3689 5184.090909090909 L 3711 5184.090909090909 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="3700" cy="5232" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="3723" y="5238" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Pramuka 2</text>
+<text x="4140" y="3368" font-size="22" fill="#7a5230" text-anchor="start" font-weight="600">Option 3: JAK.59 → Simpang Arion</text>
+<text x="4140" y="3392" font-size="15" fill="currentColor" text-anchor="start" font-weight="normal">then 4 from Pemuda Rawamangun</text>
+<path d="M 4140 3430.0 L 4140 4778.173913043478" fill="none" stroke="#7a5230" stroke-width="6"/>
+<path d="M 4140 4945.130434782609 L 4140 5228.95652173913" fill="none" stroke="#1769aa" stroke-width="6"/>
+<circle cx="4140" cy="3430" r="12" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="3436" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Mall Kelapa Gading</text>
+<circle cx="4140" cy="3501" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="3507" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">St. LRT Boulevard Utara 1</text>
+<path d="M 4140 3549.4347826086955 L 4129 3525.4347826086955 L 4151 3525.4347826086955 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="4140" cy="3572" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="3578" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Boulevard Pelepah Raya</text>
+<circle cx="4140" cy="3643" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="3649" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">ACE Hardware Kelapa Gading</text>
+<circle cx="4140" cy="3714" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="3720" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Perumahan Bukit Gading Mediterania</text>
+<path d="M 4140 3762.304347826087 L 4129 3738.304347826087 L 4151 3738.304347826087 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="4140" cy="3785" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="3791" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Casablanca IX</text>
+<circle cx="4140" cy="3856" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="3862" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Jln. Boulevard Bukit Gading Raya</text>
+<circle cx="4140" cy="3927" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="3933" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Mahatma Gading School</text>
+<path d="M 4140 3975.173913043478 L 4129 3951.173913043478 L 4151 3951.173913043478 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="4140" cy="3998" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4004" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Disperindagkop</text>
+<circle cx="4140" cy="4069" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4075" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">ASMI 1</text>
+<circle cx="4140" cy="4140" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4146" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Simpang Perintis Pulo Mas Timur</text>
+<path d="M 4140 4188.043478260869 L 4129 4164.043478260869 L 4151 4164.043478260869 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="4140" cy="4211" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4217" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pulo Mas Residence</text>
+<circle cx="4140" cy="4281" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4287" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pacuan Kuda Pulo Mas 1</text>
+<circle cx="4140" cy="4352" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4358" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Pacuan Kuda Pulo Mas 2</text>
+<path d="M 4140 4400.913043478261 L 4129 4376.913043478261 L 4151 4376.913043478261 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="4140" cy="4423" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4429" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Global SeVilla Pulo Mas</text>
+<circle cx="4140" cy="4494" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4500" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sbr. SMAN 21</text>
+<circle cx="4140" cy="4565" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4571" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sbr. Kel. Kayu Putih</text>
+<path d="M 4140 4613.782608695652 L 4129 4589.782608695652 L 4151 4589.782608695652 Z" fill="#7a5230" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="4140" cy="4636" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4642" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Sbr. Panti Asuhan Putera Mulia</text>
+<circle cx="4140" cy="4707" r="7" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4713" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">St. LRT Velodrome 1</text>
+<circle cx="4140" cy="4778" r="12" fill="Canvas" stroke="#7a5230" stroke-width="4"/>
+<text x="4163" y="4784" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Arion</text>
+<circle cx="4140" cy="4945" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="4163" y="4951" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Pemuda Rawamangun</text>
+<circle cx="4140" cy="5016" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="4163" y="5022" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Velodrome</text>
+<circle cx="4140" cy="5087" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="4163" y="5093" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Kayu Jati</text>
+<path d="M 4140 5135.521739130435 L 4129 5111.521739130435 L 4151 5111.521739130435 Z" fill="#1769aa" stroke="Canvas" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="4140" cy="5158" r="7" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="4163" y="5164" font-size="20" fill="currentColor" text-anchor="start" font-weight="normal">Rawamangun</text>
+<circle cx="4140" cy="5229" r="12" fill="Canvas" stroke="#1769aa" stroke-width="4"/>
+<text x="4163" y="5235" font-size="20" fill="currentColor" text-anchor="start" font-weight="600">Simpang Pramuka 2</text>
+<path d="M 3260 4423.2 L 3260 4600.0" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="3283" y="4494" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">walk ~25 m between the two</text>
+<text x="3283" y="4511" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">Sunter Kelapa Gading platforms</text>
+<text x="3283" y="4528" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">(Utara to Selatan). Crossing, gate</text>
+<text x="3283" y="4545" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">and second fare unverified.</text>
+<path d="M 3700 4482.545454545454 L 3700 4624.727272727273" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="3723" y="4536" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">walk ~95 m inside the Pulo Gadung</text>
+<text x="3723" y="4553" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">terminal area; Pulo Gadung 5 is a JAK</text>
+<text x="3723" y="4570" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">stop, Pulo Gadung is the 4 halte.</text>
+<text x="3723" y="4587" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">Fare gate / access unverified.</text>
+<path d="M 4140 4792.173913043478 L 4140 4931.130434782609" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<text x="4163" y="4850" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">walk ~75 m to Pemuda Rawamangun</text>
+<text x="4163" y="4867" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">(corridor 4). Crossing and gate</text>
+<text x="4163" y="4884" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">access unverified.</text>
+<text x="3260" y="5310.8" font-size="16" fill="#6536b0" text-anchor="start" font-weight="600">10 toward PGC: ride 6 stops</text>
+<text x="3700" y="5276.181818181818" font-size="16" fill="#1769aa" text-anchor="start" font-weight="600">4 ↓ Galunggung: ride 8 stops</text>
+<text x="4140" y="5272.95652173913" font-size="16" fill="#1769aa" text-anchor="start" font-weight="600">4 ↓ Galunggung: ride 4 stops</text>
+<text x="3260" y="3418" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">12P: 9 stops, ~21 min sched.; then 10: ~28 min</text>
+<text x="3700" y="3418" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">JAK.61: 14 stops, ~33 min sched.; then 4: ~23 min</text>
+<text x="4140" y="3418" font-size="14" fill="currentColor" text-anchor="start" font-weight="normal">JAK.59: 19 stops, ~46 min sched.; then 4: ~11 min</text>
+<path d="M 3260 5324.8 L 3260 5416.8 L 3700 5416.8 L 3700 5456.8" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 3700 5290.181818181818 L 3700 5416.8 L 3700 5416.8" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M 4140 5286.95652173913 L 4140 5416.8 L 3700 5416.8" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>
+<rect x="3691" y="5456.8" width="18" height="18" rx="3" fill="#2e9e50"/>
+<text x="3700" y="5506.8" font-size="24" fill="#2e9e50" text-anchor="middle" font-weight="600">Home: Green Pramuka City</text>
+<text x="3700" y="5536.8" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">Main: Pemuda Pramuka is ~160 m (straight line) from Pramuka BPKP 2;</text>
+<text x="3700" y="5558.8" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">Simpang Pramuka 2 (options 2, 3) is ~100 m from it. Then the same ~850 m walk home.</text>
+<text x="3700" y="5580.8" font-size="16" fill="currentColor" text-anchor="middle" font-weight="normal">Crossings at the stops unchecked. Option 2 boards the 4 at its first stop, so it starts empty.</text>
 </g>
-<text x="60" y="5612" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.</text>
-<text x="60" y="5643" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;</text>
-<text x="60" y="5674" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Traveloka 05:00-22:00. Do not assume late service. No guaranteed arrival times for either return option.</text>
-<text x="60" y="5705" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Return: 19 Nov rider corrections for 7E / 6 / 4D and 7A at Masjid Ar-Raudhah; other stops: Catenary GTFS rendering, 4 cross-check: halte.id.</text>
-<text x="60" y="5736" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Ragunan access / fare continuity, Gojek fare/time and 7F access remain unverified. Patterns may change.</text>
-<text x="60" y="5767" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Outbound: TransJakarta operator GTFS checked 18 Nov 2026; 4D: jaGOdetabek / halte.id, not GTFS. No live arrivals.</text>
-<text x="60" y="5798" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">IDSW venue access: official access guideline (idsw.dev) checked 21 Nov 2026 - JPO walk, LRT Rasuna Said, CFD Sun 05:30-09:00.</text>
-<text x="60" y="5829" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Bakoel Koffie (Cikini): on the 5M leg, get off at Farmasi RP Soeroso (~100 m). Home via the right column: 5M Kantor Pos Cikini to Megaria,</text>
-<text x="60" y="5860" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">then 4C to Pramuka BPKP 1 - official GTFS trips 5M-R02 / 4C-R10, checked 22 Nov 2026. Fresh tap each boarding.</text>
+<text x="60" y="5697" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.</text>
+<text x="60" y="5728" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;</text>
+<text x="60" y="5759" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Traveloka 05:00-22:00. Do not assume late service. No guaranteed arrival times for either return option.</text>
+<text x="60" y="5790" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Return: 19 Nov rider corrections for 7E / 6 / 4D and 7A at Masjid Ar-Raudhah; other stops: Catenary GTFS rendering, 4 cross-check: halte.id.</text>
+<text x="60" y="5821" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Ragunan access / fare continuity, Gojek fare/time and 7F access remain unverified. Patterns may change.</text>
+<text x="60" y="5852" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Outbound: TransJakarta operator GTFS checked 18 Nov 2026; 4D: jaGOdetabek / halte.id, not GTFS. No live arrivals.</text>
+<text x="60" y="5883" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">IDSW venue access: official access guideline (idsw.dev) checked 21 Nov 2026 - JPO walk, LRT Rasuna Said, CFD Sun 05:30-09:00.</text>
+<text x="60" y="5914" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">Bakoel Koffie (Cikini): on the 5M leg, get off at Farmasi RP Soeroso (~100 m). Home via the right column: 5M Kantor Pos Cikini to Megaria,</text>
+<text x="60" y="5945" font-size="18" fill="currentColor" text-anchor="start" font-weight="normal">then 4C to Pramuka BPKP 1 - official GTFS trips 5M-R02 / 4C-R10, checked 22 Nov 2026. Fresh tap each boarding.</text>
 <g id="nonconnecting-crossings" aria-label="Line hops: crossing only, no transfer">
 <path d="M 567.00 1351.00 L 613.00 1351.00" fill="none" stroke="Canvas" stroke-width="19"/>
 <path d="M 567.00 1351.00 Q 590.00 1375.00 613.00 1351.00" fill="none" stroke="Canvas" stroke-width="19" stroke-linecap="round"/>

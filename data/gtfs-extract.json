@@ -68,6 +68,18 @@
     "lon": 106.64559
    }
   ],
+  "boulevardbukitgadingraya": [
+   {
+    "lat": -6.15515,
+    "lon": 106.89579
+   }
+  ],
+  "boulevardinspeksikalisunter": [
+   {
+    "lat": -6.151094,
+    "lon": 106.88901
+   }
+  ],
   "boulevardkelapacengkirraya": [
    {
     "lat": -6.165966,
@@ -214,6 +226,20 @@
    {
     "lat": -6.250171,
     "lon": 106.873627
+   }
+  ],
+  "cempakaputih": [
+   {
+    "lat": -6.174207,
+    "lon": 106.87642
+   },
+   {
+    "lat": -6.174226,
+    "lon": 106.876454
+   },
+   {
+    "lat": -6.174225,
+    "lon": 106.876412
    }
   ],
   "chaseplaza": [
@@ -538,6 +564,12 @@
     "lon": 106.824377
    }
   ],
+  "institutkesehatanindonesia": [
+   {
+    "lat": -6.154063,
+    "lon": 106.89392
+   }
+  ],
   "itcserpong1": [
    {
     "lat": -6.286016,
@@ -852,6 +884,20 @@
    {
     "lat": -6.208506,
     "lon": 106.859373
+   }
+  ],
+  "kodamar": [
+   {
+    "lat": -6.162043,
+    "lon": 106.88169
+   },
+   {
+    "lat": -6.162075,
+    "lon": 106.881708
+   },
+   {
+    "lat": -6.16205,
+    "lon": 106.881665
    }
   ],
   "konsilkedokteranindonesia": [
@@ -1436,6 +1482,20 @@
     "lon": 106.90901
    }
   ],
+  "pulomasbypass": [
+   {
+    "lat": -6.176953,
+    "lon": 106.876
+   },
+   {
+    "lat": -6.176988,
+    "lon": 106.875987
+   },
+   {
+    "lat": -6.176998,
+    "lon": 106.87603
+   }
+  ],
   "pulomasresidence": [
    {
     "lat": -6.175379,
@@ -1554,6 +1614,12 @@
    {
     "lat": -6.198015,
     "lon": 106.837005
+   }
+  ],
+  "rukoboulevardbaratraya": [
+   {
+    "lat": -6.152164,
+    "lon": 106.89078
    }
   ],
   "rukobsdsektor7": [
@@ -1702,6 +1768,20 @@
     "lon": 106.875959
    }
   ],
+  "simpangcempaka": [
+   {
+    "lat": -6.165888,
+    "lon": 106.8792
+   },
+   {
+    "lat": -6.165896,
+    "lon": 106.879229
+   },
+   {
+    "lat": -6.165886,
+    "lon": 106.879175
+   }
+  ],
   "simpangjlntarianrayabarat": [
    {
     "lat": -6.170599,
@@ -1828,6 +1908,24 @@
    {
     "lat": -6.225826,
     "lon": 106.80402
+   }
+  ],
+  "sunterboulevardbarat1": [
+   {
+    "lat": -6.149527,
+    "lon": 106.88866
+   }
+  ],
+  "sunterkelapagadingarahselatan": [
+   {
+    "lat": -6.142928,
+    "lon": 106.890928
+   }
+  ],
+  "sunterkelapagadingarahutara": [
+   {
+    "lat": -6.14293,
+    "lon": 106.890714
    }
   ],
   "surabaya": [
@@ -2164,6 +2262,16 @@
    "lon": 106.64559,
    "name": "Bhayangkara 2"
   },
+  "B00166P": {
+   "lat": -6.15515,
+   "lon": 106.89579,
+   "name": "Boulevard Bukit Gading Raya"
+  },
+  "B00168P": {
+   "lat": -6.151094,
+   "lon": 106.88901,
+   "name": "Boulevard Inspeksi Kali Sunter"
+  },
   "B00171P": {
    "lat": -6.165966,
    "lon": 106.90211,
@@ -2404,6 +2512,11 @@
    "lon": 106.83672,
    "name": "RSIA Bunda 2"
   },
+  "B03228P": {
+   "lat": -6.152164,
+   "lon": 106.89078,
+   "name": "Ruko Boulevard Barat Raya"
+  },
   "B03414P": {
    "lat": -6.256133,
    "lon": 106.65144,
@@ -2504,6 +2617,11 @@
    "lon": 106.80402,
    "name": "Summitmas"
   },
+  "B05549P": {
+   "lat": -6.149527,
+   "lon": 106.88866,
+   "name": "Sunter Boulevard Barat 1"
+  },
   "B05565P": {
    "lat": -6.240488,
    "lon": 106.6474,
@@ -2563,6 +2681,11 @@
    "lat": -6.266719,
    "lon": 106.65469,
    "name": "WTC Matahari 2"
+  },
+  "B06074P": {
+   "lat": -6.154063,
+   "lon": 106.89392,
+   "name": "Institut Kesehatan Indonesia"
   },
   "B06425P": {
    "lat": -6.193536,
@@ -2959,6 +3082,36 @@
    "lon": 106.875451,
    "name": "Kayu Putih Rawasari"
   },
+  "G00477": {
+   "lat": -6.176998,
+   "lon": 106.87603,
+   "name": "Pulo Mas Bypass"
+  },
+  "G00479": {
+   "lat": -6.174226,
+   "lon": 106.876454,
+   "name": "Cempaka Putih"
+  },
+  "G00485": {
+   "lat": -6.165896,
+   "lon": 106.879229,
+   "name": "Simpang Cempaka"
+  },
+  "G00489": {
+   "lat": -6.162075,
+   "lon": 106.881708,
+   "name": "Kodamar"
+  },
+  "G00492": {
+   "lat": -6.14293,
+   "lon": 106.890714,
+   "name": "Sunter Kelapa Gading Arah Utara"
+  },
+  "G00494": {
+   "lat": -6.142928,
+   "lon": 106.890928,
+   "name": "Sunter Kelapa Gading Arah Selatan"
+  },
   "G00665": {
    "lat": -6.227374,
    "lon": 106.817584,
@@ -3029,6 +3182,26 @@
    "G00511": 0,
    "G00718": 83,
    "G00765": 88
+  },
+  "12P-R01": {
+   "B00006P": 12,
+   "B00166P": 14,
+   "B00168P": 19,
+   "B00174P": 9,
+   "B02191P": 5,
+   "B03228P": 17,
+   "B05469P": 7,
+   "B05473P": 0,
+   "B05549P": 22,
+   "B06074P": 15,
+   "B06075P": 59,
+   "B06078P": 57,
+   "B06080P": 56,
+   "B06082P": 55,
+   "G00492": 26,
+   "G00562": 37,
+   "G00563": 43,
+   "P00095": 63
   },
   "4-R26": {
    "B08048P": 23,

@@ -51,7 +51,7 @@ public class MapGestureTest {
             });
         });
         assertTrue("Read map's actual document offset",done.await(5,java.util.concurrent.TimeUnit.SECONDS));
-        final float px = web.getWidth() * scale(web) / (4200f * initialScale);
+        final float px = web.getWidth() * scale(web) / (4600f * initialScale);
         getInstrumentation().runOnMainSync(() -> {
             web.getSettings().setJavaScriptEnabled(false);
             web.scrollTo((int)(x*px),(int)(top[0]*web.getScale()+y*px));
@@ -113,7 +113,7 @@ public class MapGestureTest {
         getInstrumentation().runOnMainSync(() -> web.zoomBy((before * 6f) / web.getScale()));
         Thread.sleep(800);
         assertTrue("Return capture must remain zoomed", scale(web) > before * 1.5f);
-        final float svgPixels = web.getWidth() * scale(web) / (4200f * before);
+        final float svgPixels = web.getWidth() * scale(web) / (4600f * before);
         mapPosition(web, 2200, 1190);
         Thread.sleep(600);
         getInstrumentation().getUiAutomation().takeScreenshot().compress(android.graphics.Bitmap.CompressFormat.PNG,100,new java.io.FileOutputStream(new java.io.File(activity.getExternalFilesDir(null), "grand-indonesia.png")));

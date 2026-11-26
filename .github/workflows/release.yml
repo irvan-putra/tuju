@@ -119,6 +119,8 @@ jobs:
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
 
+          0.2.26 corrects the Mall Kelapa Gading routes home. The mall is a TransJakarta stop served by 12P and four JAK feeders (0.2.25 wrongly said there was no stop). The main option is now 12P to Sunter Kelapa Gading, then corridor 10 toward PGC to Pemuda Pramuka, a short walk from Pramuka BPKP 2. The JAK.61 and JAK.59 options with the 4 stay as alternatives. Scheduled times from the operator GTFS (26 Nov 2026); fares, gates, crossings and walks are unverified.
+
           0.2.25 adds the two ways home from Mall Kelapa Gading: JAK.61 to Pulo Gadung 5 then the 4, or JAK.59 to Simpang Arion then the 4, both ending at Simpang Pramuka 2 near Pramuka BPKP 2. Every stop is drawn from the operator GTFS (26 Nov 2026), with scheduled times only, and the fare, gate and crossing at each change are marked unverified.
 
           0.2.24 adds Autograph Tower (Thamrin Nine / Academy @ UC) and Centennial Tower to the combined map and offline readable route notes, with separate outbound / return walks. The Tosari and Denpasar direction stops are kept distinct. Maps walking estimates, stairs, restricted access, Cawang interchange and service limits remain visible. No personal event schedule is included.

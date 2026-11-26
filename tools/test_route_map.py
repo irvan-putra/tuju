@@ -17,12 +17,16 @@ class StopMapTest(unittest.TestCase):
  def test_mall_kelapa_gading_home_routes(self):
   svg=(ROOT/'data/all-stops.svg').read_text()
   self.assertIn('data-move="mkg-home"',svg)
+  self.assertEqual(S['12P']['stops'][0]['name'],'Mall Kelapa Gading')
+  self.assertEqual(S['12P']['stops'][-1]['name'],'Sunter Kelapa Gading Arah Utara')
+  self.assertEqual(S['10SK']['stops'][0]['name'],'Sunter Kelapa Gading Arah Selatan')
+  self.assertEqual(S['10SK']['stops'][-1]['name'],'Pemuda Pramuka')
   for key,last in (('JAK61','Pulo Gadung 5'),('JAK59','Simpang Arion'),('4PG','Simpang Pramuka 2'),('4RW','Simpang Pramuka 2')):
    self.assertEqual(S[key]['stops'][-1]['name'],last)
   self.assertEqual(S['JAK61']['stops'][0]['name'],'Mall Kelapa Gading')
   self.assertEqual(S['JAK59']['stops'][0]['name'],'Mall Kelapa Gading')
   notes=(ROOT/'android/app/src/main/assets/map.html').read_text()
-  for phrase in ('JAK.61','JAK.59','Simpang Pramuka 2','Pramuka BPKP 2'):
+  for phrase in ('12P','JAK.61','JAK.59','Pemuda Pramuka','Simpang Pramuka 2','Pramuka BPKP 2'):
    self.assertIn(phrase,notes)
 
  def test_directional_sequences(self):
@@ -111,8 +115,8 @@ class StopMapTest(unittest.TestCase):
   self.assertNotIn('Going home from Arkadia',svg)
   self.assertIn('One network · out and home',svg)
   self.assertIn('translate(700 0)',svg)
-  self.assertIn('4200',svg.split('>')[0])
-  height=int(re.search(r'viewBox="0 0 4200 (\d+)"',svg).group(1))
+  self.assertIn('4600',svg.split('>')[0])
+  height=int(re.search(r'viewBox="0 0 4600 (\d+)"',svg).group(1))
   self.assertLess(height,7900)
   self.assertEqual(svg.count('4D leaves here'),1)
  def test_shared_spine_is_not_a_duplicate_return_column(self):
@@ -121,8 +125,11 @@ class StopMapTest(unittest.TestCase):
   for name in ['Pramuka Sari','Utan Kayu','Pasar Genjing','Pasar Rumput','Halimun','Galunggung','Kuningan','Patra Kuningan','Underpass Kuningan','Mampang Prapatan','Duren Tiga','Warung Buncit','Warung Jati','Buncit Indah','Pejaten','Jati Padang','Jati Barat','Pasar Induk','Trikora']:
    self.assertEqual(texts.count(name),1,name)
   # 9/10 Central Park is a twin pair: one outbound and one GTFS return label per shared top station.
-  for name in ['Kayu Putih Rawasari','Pemuda Pramuka','Utan Kayu Rawamangun']:
+  for name in ['Utan Kayu Rawamangun']:
    self.assertEqual(texts.count(name),2,name)
+  # The Mall Kelapa Gading main option (12P then 10) adds one more label for these two stops.
+  for name in ['Kayu Putih Rawasari','Pemuda Pramuka']:
+   self.assertEqual(texts.count(name),3,name)
   self.assertEqual(texts.count('Flyover Kuningan'),1)
   self.assertEqual(texts.count('Halte Manggarai Temporer 1'),1)
   self.assertEqual(texts.count('Phe Tower Kebagusan'),1)

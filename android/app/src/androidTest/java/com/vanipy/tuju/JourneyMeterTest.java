@@ -44,17 +44,18 @@ public class JourneyMeterTest {
         WebView web = (WebView) root.getChildAt(0);
 
         // The meter lives on its own page now (the Meter tab).
-        js(web, "location.href='meter/index.html'");
+        final WebView navWeb = web;
+        instrumentation().runOnMainSync(() -> navWeb.loadUrl("file:///android_asset/meter/index.html"));
         // Wait for the bundled page and its meter script to finish loading.
         String ready = "";
         for (int i = 0; i < 40; i++) {
-            ready = js(web, "document.readyState + ':' + (document.getElementById('jm-leg') ? document.getElementById('jm-leg').options.length : -1)");
-            if (ready.startsWith("complete:") && !ready.endsWith(":-1") && !ready.endsWith(":0")) break;
+            ready = js(web, "document.readyState + '@' + location.href + ':' + (document.getElementById('jm-leg') ? document.getElementById('jm-leg').options.length : -1)");
+            if (ready.startsWith("complete@") && !ready.endsWith(":-1") && !ready.endsWith(":0")) break;
             Thread.sleep(500);
         }
         final WebView webView = web;
         assertTrue("meter did not initialize, last state: " + ready,
-                ready.startsWith("complete:") && !ready.endsWith(":-1") && !ready.endsWith(":0"));
+                ready.startsWith("complete@") && !ready.endsWith(":-1") && !ready.endsWith(":0"));
 
         // Pick leg 0, from stop 0 to stop 2, and read the estimate.
         String est = js(webView,

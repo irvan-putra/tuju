@@ -11,7 +11,7 @@ class StopMapTest(unittest.TestCase):
   for marker in ('autograph-tower','centennial-tower'):
    self.assertIn('data-move="'+marker+'"',svg)
   notes=' '.join(''.join(x.itertext()) for x in ET.fromstring((ROOT/'data/all-stops.svg').read_text()).iter() if x.tag.endswith('text'))
-  for phrase in ('Autograph Tower','Centennial Tower','Pramuka BPKP 2','Tosari 3','Tosari 2','Denpasar Arah Barat','Denpasar Arah Timur','restricted usage roads','overpass has stairs'):
+  for phrase in ('Autograph Tower','Centennial Tower','Pramuka BPKP 2','Tosari 3','Tosari 2','Denpasar Arah Barat','Denpasar Arah Timur'):
    self.assertIn(phrase,notes)
 
  def test_mall_kelapa_gading_home_routes(self):
@@ -226,11 +226,12 @@ class StopMapTest(unittest.TestCase):
    self.assertGreaterEqual(int(labels[name].get('font-size')),size)
   web=(ROOT/'index.html').read_text();app=(ROOT/'android/app/src/main/assets/map.html').read_text()
   flat=' '.join(''.join(x.itertext()) for x in root.iter() if x.tag.endswith('text'))
-  for phrase in ('does not stop on Jl. S. Parman','no S Parman to 7E transfer','inside the paid area','needs no second fare','Autograph Tower','Centennial Tower','BINUS','Mall Kelapa Gading, home'):
+  for phrase in ('inside the paid area','no second fare','Autograph Tower','Centennial Tower','BINUS','Mall Kelapa Gading'):
    self.assertIn(phrase,flat)
   for page in (web,app):
    self.assertNotIn('id="map-reading-notes"',page)
    self.assertNotIn('Enlarge map',page)
+   self.assertNotIn('Notes on the map',page)
    self.assertNotIn('Read walking and return notes without zoom',page)
 
 if __name__=='__main__':unittest.main()

@@ -69,17 +69,18 @@ def extract_card(html):
     m = re.search(
         r'<p class="note">(?P<intro>.*?)</p>\s*'
         r'<svg viewBox="0 0 (?:1700|3000|5000|4200|4600) \d+".*?</svg>\s*'
-        r'<details class="mapzoom">.*?</details>\s*'
-        r'<p class="note">(?P<closing>.*?)</p>',
+        r'(?:<details class="mapzoom">.*?</details>\s*)?'
+        r'(?:<p class="note">(?P<closing>.*?)</p>)?',
         html, re.S)
     if not m:
         sys.exit("combined map card (intro note + (?:1700|3000|5000|4200|4600)-wide svg + closing note) not found in " + SRC)
     svg = re.search(r'<svg viewBox="0 0 (?:1700|3000|5000|4200|4600) \d+".*?</svg>', m.group(0), re.S).group(0)
-    closing = m.group("closing")
+    closing = m.group("closing") or ""
     # The app has no route cards "below" and the map is already enlarged.
     closing = closing.replace("details and fares in the route cards below",
                               "details and fares in the route cards at vanipy.com/tuju/")
     closing = re.sub(r"\s*Small print\?.*", "", closing)
+    svg = re.sub(r'<a href="https?://[^"]*">(.*?)</a>', r'\1', svg, flags=re.S)
     return m.group("intro"), svg, closing
 
 
@@ -137,7 +138,7 @@ def render():
     return PAGE.format(intro='<p class="note">%s</p>' % intro,
                        svg=svg,
                        closing='<p class="note">%s</p>' % closing,
-                       reading_notes=extract_reading_notes(page),
+                       reading_notes='',
                        meter=extract_meter(page),
                        guideline=extract_guideline(page),
                        editor=extract_editor(page))

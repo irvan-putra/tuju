@@ -10,7 +10,7 @@ class StopMapTest(unittest.TestCase):
   svg=(ROOT/'data/all-stops.svg').read_text()
   for marker in ('autograph-tower','centennial-tower'):
    self.assertIn('data-move="'+marker+'"',svg)
-  notes=(ROOT/'android/app/src/main/assets/map.html').read_text()
+  notes=' '.join(''.join(x.itertext()) for x in ET.fromstring((ROOT/'data/all-stops.svg').read_text()).iter() if x.tag.endswith('text'))
   for phrase in ('Autograph Tower','Centennial Tower','Pramuka BPKP 2','Tosari 3','Tosari 2','Denpasar Arah Barat','Denpasar Arah Timur','restricted usage roads','overpass has stairs'):
    self.assertIn(phrase,notes)
 
@@ -53,8 +53,8 @@ class StopMapTest(unittest.TestCase):
    for st in seg['stops']:self.assertIn(st['name'],joined)
  def test_map_and_android_share_exact_svg(self):
   svg=(ROOT/'data/all-stops.svg').read_text().strip()
-  self.assertEqual((ROOT/'index.html').read_text().count(svg),2)
-  self.assertIn(svg,(ROOT/'android/app/src/main/assets/map.html').read_text())
+  self.assertEqual((ROOT/'index.html').read_text().count(svg),1)
+  self.assertIn(re.sub(r'<a href="https?://[^"]*">(.*?)</a>',r'\1',svg,flags=re.S),(ROOT/'android/app/src/main/assets/map.html').read_text())
  def test_halimun_labels_clear_return_arrow_and_branch(self):
   root=ET.fromstring((ROOT/'data/all-stops.svg').read_text())
   labels={''.join(e.itertext()):e for e in root.iter() if e.tag.endswith('text')}
@@ -117,7 +117,7 @@ class StopMapTest(unittest.TestCase):
   self.assertIn('translate(700 0)',svg)
   self.assertIn('4600',svg.split('>')[0])
   height=int(re.search(r'viewBox="0 0 4600 (\d+)"',svg).group(1))
-  self.assertLess(height,7900)
+  self.assertLess(height,10600)
   self.assertEqual(svg.count('4D leaves here'),1)
  def test_shared_spine_is_not_a_duplicate_return_column(self):
   root=ET.fromstring((ROOT/'data/all-stops.svg').read_text())
@@ -225,12 +225,12 @@ class StopMapTest(unittest.TestCase):
   for name,size in (('Grand Indonesia',36),('A · from Phe Tower',26),('Central Park ↔ The Breeze BSD',36),('B · bridge to far-side pickup → Gojek to Flyover Raya Bogor',34)):
    self.assertGreaterEqual(int(labels[name].get('font-size')),size)
   web=(ROOT/'index.html').read_text();app=(ROOT/'android/app/src/main/assets/map.html').read_text()
-  notes=(ROOT/'data/map-reading-notes.html').read_text().strip()
-  self.assertIn(notes,web)
+  flat=' '.join(''.join(x.itertext()) for x in root.iter() if x.tag.endswith('text'))
+  for phrase in ('does not stop on Jl. S. Parman','no S Parman to 7E transfer','inside the paid area','needs no second fare','Autograph Tower','Centennial Tower','BINUS','Mall Kelapa Gading, home'):
+   self.assertIn(phrase,flat)
   for page in (web,app):
-   self.assertIn('id="map-reading-notes"',page)
-   self.assertIn('font:16px/1.6',page)
-   self.assertIn('A line hop or gap at a crossing means the lines do not connect',page)
-   self.assertIn('Read walking and return notes without zoom',page)
+   self.assertNotIn('id="map-reading-notes"',page)
+   self.assertNotIn('Enlarge map',page)
+   self.assertNotIn('Read walking and return notes without zoom',page)
 
 if __name__=='__main__':unittest.main()

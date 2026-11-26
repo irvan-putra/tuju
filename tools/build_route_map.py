@@ -700,7 +700,7 @@ mv_close()
 add('</g>')
 # Source/service caveats stay within the unified map, below the network only as notes.
 end=max(ry+150,S11END,5400)
-for i,t in enumerate([
+_BASE_LINES=([
  'Arrowheads show travel direction. Dashed lines are walks / direction switches, not guaranteed paid-area links.',
  '7F service-hour listings disagree: jaGOdetabek combined patterns until 20:30; Moovit Juanda pattern 07:00-08:20;',
  'Traveloka 05:00-22:00. Do not assume late service. No guaranteed arrival times for either return option.',
@@ -710,7 +710,51 @@ for i,t in enumerate([
  'IDSW venue access: official access guideline (idsw.dev) checked 21 Nov 2026 - JPO walk, LRT Rasuna Said, CFD Sun 05:30-09:00.',
  'Bakoel Koffie (Cikini): on the 5M leg, get off at Farmasi RP Soeroso (~100 m). Home via the right column: 5M Kantor Pos Cikini to Megaria,',
  'then 4C to Pramuka BPKP 1 - official GTFS trips 5M-R02 / 4C-R10, checked 22 Nov 2026. Fresh tap each boarding.',
-]):text(60,end+i*31,t,18)
+])
+yy=end
+for i,t in enumerate(_BASE_LINES):text(60,yy+i*31,t,18)
+yy+=len(_BASE_LINES)*31+20
+# Walking and return notes now live on the map itself (Irvan, 26 Nov 2026: "keep it on the map, not as separate card text").
+from html.parser import HTMLParser
+class _N(HTMLParser):
+ def __init__(s):super().__init__();s.items=[];s.cur=None;s.href=None;s.skip=False
+ def handle_starttag(s,t,a):
+  a=dict(a)
+  if t=='h3':s.skip=True
+  if t in('h4','p','li'):s.cur=[t,[],[]]
+  if t=='a' and s.cur is not None:s.href=a.get('href')
+ def handle_endtag(s,t):
+  if t=='h3':s.skip=False
+  if t in('h4','p','li') and s.cur:
+   s.items.append(s.cur);s.cur=None
+  if t=='a':s.href=None
+ def handle_data(s,d):
+  if s.cur is not None and not s.skip:
+   s.cur[1].append(d)
+   if s.href:s.cur[2].append((d,s.href))
+_n=_N();_n.feed((ROOT/'data/map-reading-notes.html').read_text())
+_n_items=[(k,re.sub(r'\s+',' ',''.join(t)).strip(),l) for k,t,l in _n.items if ''.join(t).strip()]
+add(f'<g id="map-notes" class="map-notes">')
+text(60,yy,'Notes on the map: walks, returns and what is unverified',26,weight='600');yy+=44
+text(60,yy,'7E is a south Jakarta route (Ragunan - Kampung Rambutan): it does not stop on Jl. S. Parman, and Gerbang Tol Tj. Duren is served by 8K/8M/S11/JAK.53, so there is no S Parman to 7E transfer.',18);yy+=31
+text(60,yy,'Firsthand 18 Nov 2026: the Galunggung 4-to-6 change needed no additional fare. Details and fares are in the route cards on vanipy.com/tuju/',18);yy+=48
+for kind,t,links in _n_items:
+ if links:
+  _rest=t
+  for lt,_h in links:_rest=_rest.replace(lt,'')
+  if re.sub(r'[\s·]+','',_rest):
+   for k,part in enumerate(textwrap.wrap(t,165)):text(60,yy,part,18);yy+=28
+   yy+=6
+  for lt,href in links:
+   add(f'<a href="{html.escape(href)}"><text x="60" y="{yy}" font-size="18" fill="#4a7ddb" text-decoration="underline">{html.escape(lt)}</text></a>');yy+=31
+  yy+=10;continue
+ if kind=='h4':
+  yy+=14;text(60,yy,t+' notes',22,weight='600');yy+=34;continue
+ for k,part in enumerate(textwrap.wrap(('- ' if kind=='li' else '')+t,165)):
+  text(60 if k==0 or kind!='li' else 80,yy,part,18);yy+=28
+ yy+=10
+add('</g>')
+end=yy
 add('</g>')
 add('</svg>')
 H=end+340+DY
@@ -720,8 +764,7 @@ svg=add_bridges(svg)
 p=ROOT/'index.html'; src=p.read_text()
 # Both the displayed combined map and its enlarged duplicate use exactly the same SVG.
 src,n=re.subn(r'<svg viewBox="0 0 (?:560 \d+|4600 \d+|4200 \d+|5600 \d+|5000 \d+|3000 \d+|1700 \d+)".*?</svg>',lambda _:svg,src,flags=re.S)
-assert n==2,n
-src=re.sub(r'<!-- map-reading-notes:begin -->.*?<!-- map-reading-notes:end -->',lambda _: (ROOT/'data/map-reading-notes.html').read_text().strip(),src,flags=re.S)
+assert n==1,n
 p.write_text(src)
 (ROOT/'data/all-stops.svg').write_text(svg+'\n')
 print('generated map',len(svg),'bytes')

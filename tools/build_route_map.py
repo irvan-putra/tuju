@@ -559,7 +559,7 @@ y61=feeder(X4,'JAK61',cB,'Option 2: JAK.61 → Pulo Gadung 5','then 4 from Pulo 
 y59=feeder(X59,'JAK59',cA,'Option 3: JAK.59 → Simpang Arion','then 4 from Pemuda Rawamangun to Simpang Pramuka 2 (green ring)','JAK.59: 19 stops, ~46 min sched.; then 4: ~11 min',-130)
 # transfer walks (dashed, unverified) and their notes
 line(X10,-175+14,X10,ys10[0]-14,'#888',True)
-for k,t in enumerate(['walk ~25 m between the two Sunter Kelapa Gading','platforms (Utara to Selatan). Transfer is inside the','paid area (Irvan, 26 Nov 2026). Second fare unverified.']):text(X10+23,-146+k*17,t,14)
+for k,t in enumerate(['walk ~25 m between the two Sunter Kelapa Gading','platforms (Utara to Selatan). Transfer is inside the','paid area, no second fare (Irvan, 26 Nov 2026).']):text(X10+23,-146+k*17,t,14)
 line(X4,-396+14,X4,ys4[0]-14,'#888',True)
 for k,t in enumerate(['walk ~95 m inside the Pulo Gadung','terminal area; Pulo Gadung 5 is a JAK','stop, Pulo Gadung is the 4 halte.','Fare gate / access unverified.']):text(X4+23,-356+k*17,t,14)
 add(f'<path d="M {X59} {-130+14} L {X59} -36 L {X4+16} -36" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')

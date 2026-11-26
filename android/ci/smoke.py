@@ -52,17 +52,13 @@ size = shot("map-fit")
 if size < 20000:
     sys.exit(f"screenshot suspiciously small ({size} bytes); map may not have rendered")
 
-# Scroll down to the journey meter and capture it too.
-for _ in range(4):
-    adb("shell", "input", "swipe", "540", "1800", "540", "500", "300")
-    time.sleep(0.6)
+# Open the Meter tab and capture it.
+for n in nodes():
+    if (n.get("text") or "").strip() == "Meter" or (n.get("content-desc") or "").strip() == "Meter":
+        x1, y1, x2, y2 = map(int, __import__("re").findall(r"\d+", n["bounds"]))
+        adb("shell", "input", "tap", str((x1 + x2) // 2), str((y1 + y2) // 2))
+        break
+time.sleep(1.5)
 shot("journey-meter")
-
-# Keep scrolling to the bottom: the IDSW access guideline card is the last
-# element on the page. Extra swipes past the end are harmless.
-for _ in range(6):
-    adb("shell", "input", "swipe", "540", "1800", "540", "500", "300")
-    time.sleep(0.6)
-shot("access-guideline")
 
 print(f"smoke ok: WebView on screen, map-fit.png {size} bytes")

@@ -2,7 +2,7 @@
 
 The combined busway-route overview map from https://vanipy.com/tuju/ as an
 offline Android app screen: pinch to zoom, drag to pan, with the journey
-meter below the map. No network - the map and meter are bundled in the app.
+meter on its own tab, with a Review tab for the walk checklist. No network - the map and meter are bundled in the app.
 The only permission is location, requested at runtime and only if the rider
 switches the meter's GPS distance on; it tracks only while the screen is
 open and nothing leaves the device.

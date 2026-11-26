@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the journey meter's leg/stop list in index.html from data/*.json.
+"""Generate the journey meter's leg/stop list in meter/index.html from data/*.json.
 
 The meter (the journey-meter card near the top of index.html) times a ride
 between two stops on one leg and compares it with what the operator's data
@@ -23,7 +23,7 @@ import re
 import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-INDEX = os.path.join(ROOT, "index.html")
+INDEX = os.path.join(ROOT, "meter", "index.html")
 
 BEGIN = "journey-segments:begin"
 END = "journey-segments:end"
@@ -97,7 +97,7 @@ def splice(text, new_block):
         r"(/\*\s*" + BEGIN + r".*?\*/\s*)var TUJU_SEGMENTS = .*?;(\s*/\*\s*" + END + r"\s*\*/)",
         re.S)
     if not pattern.search(text):
-        sys.exit("journey-segments markers not found in index.html")
+        sys.exit("journey-segments markers not found in meter/index.html")
     return pattern.sub(lambda m: m.group(1) + new_block + m.group(2), text)
 
 

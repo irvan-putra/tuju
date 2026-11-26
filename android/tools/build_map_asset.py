@@ -7,8 +7,8 @@ notes (they carry the route-uncertainty caveats, which must stay with the
 map). The closing note is adapted for the app: the route cards live on the
 website, not "below", and the map is already enlarged here.
 
-Also extracts the journey-meter block (card, scoped style and script between
-the journey-meter markers): the ride timer, stop picker and optional GPS
+Also bundles the journey meter page (../../meter/index.html) as assets/meter/index.html
+(card, scoped style and script between the journey-meter markers): the ride timer, stop picker and optional GPS
 distance. The meter runs on-device only; the app keeps no network permission.
 
 Also extracts the IDSW access-guideline card (between the access-guideline
@@ -33,6 +33,8 @@ SRC = os.path.join(ROOT, "..", "index.html")
 OUT = os.path.join(ROOT, "app", "src", "main", "assets", "map.html")
 REVIEW_SRC = os.path.join(ROOT, "..", "review", "index.html")
 REVIEW_OUT = os.path.join(ROOT, "app", "src", "main", "assets", "review", "index.html")
+METER_SRC = os.path.join(ROOT, "..", "meter", "index.html")
+METER_OUT = os.path.join(ROOT, "app", "src", "main", "assets", "meter", "index.html")
 
 PAGE = """<!DOCTYPE html>
 <html lang="en">
@@ -53,11 +55,11 @@ PAGE = """<!DOCTYPE html>
 </style>
 </head>
 <body>
+{tabs}
 {intro}
 {svg}
 {closing}
 {reading_notes}
-{meter}
 {editor}
 {guideline}
 </body>
@@ -121,12 +123,33 @@ def extract_guideline(html):
     return g
 
 
-def render_review():
-    with open(os.path.normpath(REVIEW_SRC), encoding="utf-8") as f:
+def app_tabs(page, prefix):
+    """Point the tab bar at the bundled files (prefix is "" or "../")."""
+    m = re.search(r"<!-- tuju-tabs:begin -->.*?<!-- tuju-tabs:end -->", page, re.S)
+    if not m:
+        sys.exit("tab bar markers missing")
+    targets = {"Home": "map.html", "Meter": "meter/index.html", "Review": "review/index.html"}
+    t = re.sub(r'<a href="[^"]*"( aria-current="page")?>(Home|Meter|Review)</a>',
+               lambda x: '<a href="%s%s"%s>%s</a>' % (prefix, targets[x.group(2)], x.group(1) or "", x.group(2)),
+               m.group(0))
+    return page.replace(m.group(0), t)
+
+
+def render_sub(path, name):
+    with open(os.path.normpath(path), encoding="utf-8") as f:
         page = f.read()
+    page = app_tabs(page, "../")
     if re.search(r'(?:src|href)\s*=\s*"https?://', page):
-        sys.exit("review page carries an external URL; the app asset must stay offline")
+        sys.exit(name + " page carries an external URL; the app asset must stay offline")
     return page
+
+
+def render_review():
+    return render_sub(REVIEW_SRC, "review")
+
+
+def render_meter():
+    return render_sub(METER_SRC, "meter")
 
 
 def render():
@@ -135,18 +158,19 @@ def render():
     intro, svg, closing = extract_card(page)
     # In the app the review page is a bundled asset file, not a directory.
     intro = intro.replace('href="review/"', 'href="review/index.html"')
-    return PAGE.format(intro='<p class="note">%s</p>' % intro,
+    return app_tabs(PAGE.format(tabs=re.search(r'<!-- tuju-tabs:begin -->.*?<!-- tuju-tabs:end -->', page, re.S).group(0),
+                       intro='<p class="note">%s</p>' % intro,
                        svg=svg,
                        closing='<p class="note">%s</p>' % closing,
                        reading_notes='',
-                       meter=extract_meter(page),
                        guideline=extract_guideline(page),
-                       editor=extract_editor(page))
+                       editor=extract_editor(page)), "")
 
 
 def main():
     page = render()
     review = render_review()
+    meter = render_meter()
     if "--check" in sys.argv:
         try:
             with open(OUT, encoding="utf-8") as f:
@@ -162,7 +186,14 @@ def main():
             current_review = None
         if current_review != review:
             sys.exit("review/index.html asset is stale; run tools/build_map_asset.py")
-        print("map.html and review asset are up to date")
+        try:
+            with open(METER_OUT, encoding="utf-8") as f:
+                current_meter = f.read()
+        except OSError:
+            current_meter = None
+        if current_meter != meter:
+            sys.exit("meter/index.html asset is stale; run tools/build_map_asset.py")
+        print("map.html, meter and review assets are up to date")
         return
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
@@ -172,6 +203,10 @@ def main():
     with open(REVIEW_OUT, "w", encoding="utf-8") as f:
         f.write(review)
     print("wrote", os.path.relpath(REVIEW_OUT, ROOT), "(%d bytes)" % len(review))
+    os.makedirs(os.path.dirname(METER_OUT), exist_ok=True)
+    with open(METER_OUT, "w", encoding="utf-8") as f:
+        f.write(meter)
+    print("wrote", os.path.relpath(METER_OUT, ROOT), "(%d bytes)" % len(meter))
 
 
 if __name__ == "__main__":

@@ -67,9 +67,9 @@ class StopMapTest(unittest.TestCase):
   self.assertNotIn('Baung',names); self.assertNotIn('Phe Tower Kebagusan',names)
  def test_journey_meter_segments_match_stop_data(self):
   import re as _re
-  t=(ROOT/'index.html').read_text()
+  t=(ROOT/'meter/index.html').read_text()
   m=_re.search(r'var TUJU_SEGMENTS = (\[.*?\]);\s*/\* journey-segments:end',t,_re.S)
-  self.assertIsNotNone(m,'journey segment list missing from index.html')
+  self.assertIsNotNone(m,'journey segment list missing from meter/index.html')
   segs=json.loads(m.group(1))
   expected=[{'label':'%s toward %s'%(s['route'],s['direction']),'stops':[x['name'] for x in s['stops']]} for s in D['segments']]
   ret=json.loads((ROOT/'data/return-stops.json').read_text())
@@ -77,7 +77,7 @@ class StopMapTest(unittest.TestCase):
   self.assertEqual([{k:s[k] for k in ('label','stops')} for s in segs],expected)
  def test_journey_meter_estimates_are_grounded_or_absent(self):
   import re as _re
-  t=(ROOT/'index.html').read_text()
+  t=(ROOT/'meter/index.html').read_text()
   segs=json.loads(_re.search(r'var TUJU_SEGMENTS = (\[.*?\]);\s*/\* journey-segments:end',t,_re.S).group(1))
   for s in segs:
    n=len(s['stops'])
@@ -93,9 +93,23 @@ class StopMapTest(unittest.TestCase):
   self.assertIsNone(bylabel['4D toward Patra Kuningan (westbound pattern)']['sched'])
   self.assertTrue(all(s['sched'] is None for s in segs if ' return: ' in s['label']))
  def test_journey_meter_reaches_android_asset(self):
-  asset=(ROOT/'android/app/src/main/assets/map.html').read_text()
+  asset=(ROOT/'android/app/src/main/assets/meter/index.html').read_text()
   self.assertIn('id="journey-meter"',asset)
   self.assertIn('var TUJU_SEGMENTS = [',asset)
+  self.assertNotIn('id="journey-meter"',(ROOT/'index.html').read_text())
+  self.assertNotIn('id="journey-meter"',(ROOT/'android/app/src/main/assets/map.html').read_text())
+ def test_tabs_on_every_page(self):
+  pages={'index.html':'Home','meter/index.html':'Meter','review/index.html':'Review',
+   'android/app/src/main/assets/map.html':'Home','android/app/src/main/assets/meter/index.html':'Meter','android/app/src/main/assets/review/index.html':'Review'}
+  for p,cur in pages.items():
+   page=(ROOT/p).read_text()
+   self.assertEqual(page.count('class="tuju-tabs"'),1,p)
+   nav=re.search(r'<nav class="tuju-tabs".*?</nav>',page,re.S).group(0)
+   self.assertEqual(re.findall(r'>(Home|Meter|Review)</a>',nav),['Home','Meter','Review'],p)
+   self.assertEqual(re.findall(r'aria-current="page">(\w+)<',nav),[cur],p)
+   if p.startswith('android'):
+    base=(ROOT/p).parent
+    for href in re.findall(r'<a href="([^"]+)"',nav): self.assertTrue((base/href).exists(),(p,href))
  def test_homebound_patterns_are_independent_and_complete(self):
   ret=json.loads((ROOT/'data/return-stops.json').read_text())
   r={x['key']:x['stops'] for x in ret['segments']}
@@ -180,7 +194,8 @@ class StopMapTest(unittest.TestCase):
   web=(ROOT/'index.html').read_text()
   self.assertIn('href="review/"',web)
   asset=(ROOT/'android/app/src/main/assets/review/index.html').read_text()
-  self.assertEqual(asset,page)
+  strip=lambda s:re.sub(r'<!-- tuju-tabs:begin -->.*?<!-- tuju-tabs:end -->','',s,flags=re.S)
+  self.assertEqual(strip(asset),strip(page))
   app=(ROOT/'android/app/src/main/assets/map.html').read_text()
   self.assertIn('href="review/index.html"',app)
  def test_offline_asset(self):

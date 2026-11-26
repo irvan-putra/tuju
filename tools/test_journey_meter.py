@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Unit tests for the journey meter's pure logic, run under node.
 
-Extracts the inline <script> of the journey-meter card from index.html and
+Extracts the inline <script> of the journey-meter card from meter/index.html and
 checks the helpers with synthetic coordinates and times only - no real
 location data ever appears here. Needs node on PATH (GitHub's runners have
 it); skips with a warning where node is missing.
@@ -75,10 +75,10 @@ console.log("journey-meter logic ok: " + m.segments.length + " legs, helpers ver
 
 
 def main():
-    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    html = (ROOT / "meter" / "index.html").read_text(encoding="utf-8")
     m = re.search(r"<!-- journey-meter:begin[^>]*-->.*?<script>(.*?)</script>", html, re.S)
     if not m:
-        sys.exit("journey meter script not found in index.html")
+        sys.exit("journey meter script not found in meter/index.html")
     node = shutil.which("node")
     if not node:
         print("WARNING: node not found; journey meter logic tests skipped")

@@ -7,7 +7,7 @@
 <style>
   :root { color-scheme: light dark; }
   * { box-sizing: border-box; }
-  body { font-family: system-ui, -apple-system, sans-serif; margin: 0 auto; max-width: 44rem; padding: 1.5rem 1rem 6rem; line-height: 1.55; }
+  body { font-family: system-ui, -apple-system, sans-serif; margin: 0 auto; max-width: 44rem; padding: 0 1rem 6rem; line-height: 1.55; }
   h1 { font-size: 1.6rem; margin-bottom: .2rem; }
   h2 { font-size: 1.15rem; margin-top: 1.6rem; border-bottom: 1px solid #8884; padding-bottom: .25rem; }
   h2 .dist { font-size: .8rem; font-weight: normal; opacity: .7; }
@@ -19,7 +19,7 @@
   #loop li { margin: .15rem 0; }
   #loop .leg { font-size: .8rem; opacity: .7; }
   #loop .note { font-size: .82rem; opacity: .8; }
-  #filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 1rem 0 .4rem; position: sticky; top: 0; background: Canvas; padding: .4rem 0; z-index: 30; }
+  #filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 1rem 0 .4rem; position: sticky; top: 3.6rem; background: Canvas; padding: .4rem 0; z-index: 30; }
   #filters button { font: inherit; font-size: .85rem; padding: 5px 12px; border: 1px solid #8886; border-radius: 999px; background: Canvas; color: CanvasText; }
   #filters button.on { background: #4a7ddb; border-color: #4a7ddb; color: #fff; }
   .item { border: 1px solid #8884; border-radius: .75rem; padding: .8rem 1rem; margin: .8rem 0; }
@@ -42,8 +42,16 @@
 </style>
 </head>
 <body data-version="0.2.23">
+<!-- tuju-tabs:begin -->
+<style>
+.tuju-tabs{display:flex;gap:.4rem;position:sticky;top:0;z-index:40;background:Canvas;padding:.45rem .6rem;margin:0 0 .6rem;border-bottom:1px solid #8884}
+.tuju-tabs a{flex:1;text-align:center;padding:.5rem .3rem;border:1px solid #8886;border-radius:999px;color:CanvasText;text-decoration:none;font:600 .95rem system-ui,sans-serif}
+.tuju-tabs a[aria-current="page"]{background:#4a7ddb;border-color:#4a7ddb;color:#fff}
+</style>
+<nav class="tuju-tabs" aria-label="Tuju pages"><a href="../">Home</a><a href="../meter/">Meter</a><a href="./" aria-current="page">Review</a></nav>
+<!-- tuju-tabs:end -->
 <h1>tuju walk review</h1>
-<p class="sub"><a href="../index.html" id="back-link">&larr; tuju map</a> · Things the map marks unverified, as an on-the-ground checklist. Grouped by route, nearest from home first; use the chips to show one route. Tap a status per item, add a note if useful, then copy the result text and send it back.</p>
+<p class="sub">Things the map marks unverified, as an on-the-ground checklist. Grouped by route, nearest from home first; use the chips to show one route. Tap a status per item, add a note if useful, then copy the result text and send it back.</p>
 
 <details id="loop">
 <summary>One-go review loop (transit estimate): 9 stops, ~116 km, ~9 h in transit + ~2.5 h on the ground</summary>
@@ -203,7 +211,6 @@ document.getElementById('review-bar').addEventListener('click',function(e){
  else if(act==='copy'){copyText()}
  else if(act==='reset'){state={};save();document.querySelectorAll('.item input').forEach(function(i){i.value=''});refresh()}
 });
-document.getElementById('back-link').addEventListener('click',function(e){if(history.length>1){history.back();e.preventDefault()}});
 render();
 })();
 </script>

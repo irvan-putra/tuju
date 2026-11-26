@@ -43,6 +43,8 @@ public class JourneyMeterTest {
         android.view.ViewGroup root = (android.view.ViewGroup) activity.findViewById(android.R.id.content);
         WebView web = (WebView) root.getChildAt(0);
 
+        // The meter lives on its own page now (the Meter tab).
+        js(web, "location.href='meter/index.html'");
         // Wait for the bundled page and its meter script to finish loading.
         String ready = "";
         for (int i = 0; i < 40; i++) {

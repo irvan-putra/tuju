@@ -1,10 +1,10 @@
 # tuju
 
 Offline TransJakarta busway-route overview map for one fixed set of routes.
-One screen: pinch to zoom, drag to pan, plus a journey
-meter (ride timer with stop-to-stop estimate, optional GPS distance).
+Three tabs: Home (the map: pinch to zoom, drag to pan), Meter (journey meter:
+ride timer with stop-to-stop estimate, optional GPS distance) and Review (walk-review checklist).
 
-- **Web:** `index.html`, published at https://vanipy.com/tuju/
+- **Web:** `index.html` (Home), `meter/index.html` and `review/index.html`, published at https://vanipy.com/tuju/
 - **Android:** `android/` wraps the same map and meter as an offline app
   (`com.vanipy.tuju`). Everything is bundled; the app has no network
   permission. Location is asked only if you switch the meter's GPS distance

@@ -43,13 +43,27 @@ public class MapAssetTest {
     }
 
     @Test
-    public void mapAssetCarriesTheJourneyMeter() throws Exception {
+    public void meterAssetCarriesTheJourneyMeter() throws Exception {
         MainActivity activity = Robolectric.buildActivity(MainActivity.class).get();
-        String html = readAsset(activity, "map.html");
+        String html = readAsset(activity, "meter/index.html");
         assertTrue("asset must contain the journey meter card",
                 html.contains("id=\"journey-meter\""));
         assertTrue("asset must contain the generated leg list",
                 html.contains("var TUJU_SEGMENTS = [") && html.contains("toward"));
+    }
+
+    @Test
+    public void everyPageHasTheThreeTabs() throws Exception {
+        MainActivity activity = Robolectric.buildActivity(MainActivity.class).get();
+        for (String name : new String[]{"map.html", "meter/index.html", "review/index.html"}) {
+            String html = readAsset(activity, name);
+            assertTrue(name + " has the tab bar", html.contains("class=\"tuju-tabs\""));
+            assertTrue(name + " has Home", html.contains(">Home</a>"));
+            assertTrue(name + " has Meter", html.contains(">Meter</a>"));
+            assertTrue(name + " has Review", html.contains(">Review</a>"));
+        }
+        assertFalse("meter moved off the home page",
+                readAsset(activity, "map.html").contains("id=\"journey-meter\""));
     }
 
     @Test

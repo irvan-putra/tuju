@@ -119,6 +119,8 @@ jobs:
           cat > notes.md <<NOTES
           tuju ${VER}: the combined busway-route overview map from https://vanipy.com/tuju/ as an offline app screen - pinch to zoom, drag to pan, nothing else. Map bundled in the app; no network. Signed with the tuju key (certificate SHA-256 ${EXPECTED_CERT_SHA256}).
 
+          0.2.30 removes two intro texts from the web page (the destination list under the title and the All routes at a glance heading and paragraph), as asked by Irvan on 26 Nov 2026. The map and everything else are unchanged.
+
           0.2.29 marks the 12P to corridor 10 transfer at Sunter Kelapa Gading as needing no second fare, as reported by Irvan from riding it on 26 Nov 2026. Other fares, gates, crossings and walks stay unverified.
 
           0.2.28 moves the Mall Kelapa Gading main option's get-off stop from Pemuda Pramuka to Kayu Putih Rawasari, the stop before it on corridor 10 and the one with the ~230 m walk home (rider correction, 26 Nov 2026). 12P then 10 is now 5 stops, about 26 min scheduled from Sunter Kelapa Gading. The 12P to corridor 10 transfer at Sunter Kelapa Gading is marked as inside the paid area, as confirmed by Irvan on 26 Nov 2026. A second fare, gates and walks remain unverified. Icon badge reads 0.2.28. Physical-phone installation remains unverified.

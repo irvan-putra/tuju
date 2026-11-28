@@ -571,6 +571,44 @@ add(f'<circle cx="{X10}" cy="240" r="17" fill="none" stroke="#2e9e50" stroke-wid
 text(450,244,'◀ Main option gets off here',16,'#2e9e50',weight='600')
 text(450,261,'then the ~230 m walk home (unverified)',15)
 add(f'<circle cx="{X4}" cy="240" r="17" fill="none" stroke="#2e9e50" stroke-width="3"/>')
+# ---- Green Pramuka City -> Pondok Pinang Busway Stop (rider's Google Maps result, 28 Nov 2026) ----
+# Merged into the top feeder band, in the empty space between the 12P column and the JAK.61 column
+# (same ring-and-column style as the feeders). 10 and 6H repeat no stops already drawn on their columns.
+assert [t['name'] for t in S['10']['stops']][0]=='Kayu Putih Rawasari' and S['10 extension']['stops'][-1]['name']=='Cawang Cililitan'
+n7=[t['name'] for t in S['7Q']['stops']];assert n7[0]=='Cawang Cililitan' and n7[-1]=='Duren Tiga 2'
+assert [t['name'] for t in S['6H']['stops']][:8]==['Duren Tiga','Warung Buncit','Warung Jati','Buncit Indah','Pejaten','Jati Padang','Jati Barat','Masjid Ar-Raudhah'] and S['6H']['stops'][-1]['name']=='Pondok Pinang'
+cg,c7,c6='#2e9e50','#916131','#4CAC67'
+def _ring2(x,y,c,big):add(f'<circle cx="{x}" cy="{y}" r="{12 if big else 7}" fill="Canvas" stroke="{c}" stroke-width="4"/>')
+PX,PB,PY,ST=960,790,-1000,30
+mv_open('pondok-pinang','Green Pramuka City to Pondok Pinang ride')
+text(PX-340,PY-92,'Green Pramuka City → Pondok Pinang',22,cg,weight='600')
+text(PX-340,PY-70,'10 → 7Q → 6H, two changes. Maps, scheduled: leave 14:27, off 16:55.',14)
+# leg 1: corridor 10 (stops already on the corridor 10 column), then leg 2: 7Q
+ycc=PY+2*ST;y7=ycc+40;e2=y7+(len(n7)-2)*ST
+line(PX,PY,PX,ycc,COL['10']);line(PX,ycc,PX,e2,c7)
+text(PX+23,PY-50,'10 ↓ PGC · 14:31, 39 min',20,COL['10'],weight='600')
+_ring2(PX,PY,COL['10'],True);text(PX+23,PY+6,'Board at Kayu Putih Rawasari',18,weight='600')
+text(PX+23,PY+ST+5,'9 stops on the corridor 10 column',14,COL['10']);tri(PX,PY+ST,COL['10'],False)
+_ring2(PX,ycc,COL['10'],True);text(PX+23,ycc+6,'Cawang Cililitan',20,weight='600')
+text(PX+23,ycc+26,'change platform 3 min · 7Q 15:13',14,c7)
+for i,nm in enumerate(n7[1:]):
+ yy=y7+i*ST;big=i==len(n7)-2;_ring2(PX,yy,c7,big);text(PX+23,yy+6,nm,20,weight='600' if big else 'normal')
+ if i%4==2 and not big:tri(PX,yy+ST/2,c7,False)
+# leg 3: 6H, drawn left of the 7Q column with labels on the left
+y6=e2+56;n6=['Board at Duren Tiga','@gap','Masjid Ar-Raudhah (7E start)']+[t['name'] for t in S['6H']['stops'][8:]]
+e3=y6+(len(n6)-1)*ST;line(PB,y6,PB,e3,c6)
+text(PB-23,y6-26,'6H ↓ Lebak Bulus 15:59',17,c6,anchor='end',weight='600')
+for i,nm in enumerate(n6):
+ yy=y6+i*ST
+ if nm=='@gap':text(PB-23,yy+5,'6 stops on the corridor 6 column',14,c6,anchor='end');tri(PB,yy,c6,False);continue
+ big=i in (0,len(n6)-1);_ring2(PB,yy,c6,big);text(PB-23,yy+6,nm,20,anchor='end',weight='600' if big else 'normal')
+add(f'<path d="M {PX} {e2+12} L {PX} {y6} L {PB+12} {y6}" fill="none" stroke="currentColor" opacity=".55" stroke-width="3" stroke-dasharray="5 7"/>')
+text(PB+23,y6+22,'walk 1 min (60 m),',14);text(PB+23,y6+38,'fare unverified',14)
+text(PB+23,e3+6,'Off 16:55, exit via Akses A',16,cg,weight='600')
+text(PB+23,e3+26,'then a short walk',14)
+mv_close()
+add(f'<circle cx="{X10}" cy="240" r="17" fill="none" stroke="{cg}" stroke-width="3"/>')
+text(450,282,'Jakarta ride boards here too (top band)',15,cg)
 # Option A note sits beside the 6 / Ragunan stations it explains (rider, 23 Nov 2026),
 # in the empty area left of the corridor 6 spine; right edge kept clear of the spine.
 AX,AY=1280,1560
@@ -717,44 +755,6 @@ yy+=len(_BASE_LINES)*31+20
 # Map notes block removed by Irvan, 26 Nov 2026 ("eh, just remove them"). Old text kept in data/map-reading-notes.html and git history (v0.2.31).
 end=yy
 add('</g>')
-# ---- Green Pramuka City -> Pondok Pinang Busway Stop (rider's Google Maps screenshots, 28 Nov 2026) ----
-# Own block in the empty top-right area, absolute coordinates. The 10 leg repeats the stop names of the
-# corridor 10 column at the far left (same GTFS 10-R01 stops) so the whole ride reads in one piece.
-def _pp_leg(x,y0,items,color,head,sub,last_left=False,step=34):
- """items: ('n',label) stop rings, ('g',text) a gap standing for stops already drawn elsewhere on the map."""
- n=len(items);line(x,y0,x,y0+step*(n-1),color);k=0
- text(x+23,y0-52,head,22,color,weight='600');text(x+23,y0-30,sub,15)
- for i,(kind,nm) in enumerate(items):
-  yy=y0+i*step;big=i in (0,n-1);left=i==n-1 and last_left
-  if kind=='g':
-   text(x+23,yy+5,nm,15,color);tri(x,yy,color,False);continue
-  add(f'<circle cx="{x}" cy="{yy}" r="{12 if big else 7}" fill="Canvas" stroke="{color}" stroke-width="4"/>')
-  text(x-23 if left else x+23,yy+6,nm,20,anchor='end' if left else 'start',weight='600' if big else 'normal')
- return y0+step*(n-1)
-PX=3090;pp7x=PX+400;pp6x=PX+800;PSTEP=34
-assert [t['name'] for t in S['10']['stops']][0]=='Kayu Putih Rawasari' and S['10']['stops'][-1]['name']=='Cawang Sentral' and S['10 extension']['stops'][-1]['name']=='Cawang Cililitan'
-n7=[('n',t['name']) for t in S['7Q']['stops']];assert n7[0][1]=='Cawang Cililitan' and n7[-1][1]=='Duren Tiga 2'
-n10=[('n','Board at Kayu Putih Rawasari'),('g','9 stops, same as the corridor 10 column (far left)'),('n','Cawang Cililitan')]
-assert [t['name'] for t in S['6H']['stops']][:8]==['Duren Tiga','Warung Buncit','Warung Jati','Buncit Indah','Pejaten','Jati Padang','Jati Barat','Masjid Ar-Raudhah'] and S['6H']['stops'][-1]['name']=='Pondok Pinang'
-n6=[('n','Board at Duren Tiga (corridor 6 station)'),('g','6 stops, same as the corridor 6 column'),('n','Masjid Ar-Raudhah (7E start station)')]+[('n',t['name']) for t in S['6H']['stops'][8:]]
-mv_open('pondok-pinang','Green Pramuka City to Pondok Pinang ride')
-text(PX-60,80,'Green Pramuka City → Pondok Pinang Busway Stop',30,'#2e9e50',weight='600')
-text(PX-60,108,"10 → 7Q → 6H, two changes. From the rider's Google Maps result (scheduled times, date not shown): leave 14:27, off at the stop 16:55.",17)
-text(PX-60,130,'Stops, order and ride minutes (39, 31, 56) match the operator GTFS (28 Nov 2026). Fares, gates and paid-area continuity at both changes are unverified.',17)
-add(f'<rect x="{PX-9}" y="150" width="16" height="16" rx="3" fill="#2e9e50"/>')
-text(PX+16,164,'Green Pramuka City · walk 4 min (230 m) · leave 14:27',17,'#2e9e50',weight='600')
-add(f'<path d="M {PX} 170 L {PX} 238" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
-Y1=250
-e1=_pp_leg(PX,Y1,n10,COL['10'],'10 ↓ PGC · 14:31','Kayu Putih Rawasari to Cawang Cililitan, 10 stops, 39 min',last_left=True)
-e2=_pp_leg(pp7x,e1,n7,'#916131','7Q ↓ Blok M · 15:13','Cawang Cililitan to Duren Tiga 2, 16 stops, 31 min',last_left=True)
-e3=_pp_leg(pp6x,e2,n6,'#4CAC67','6H ↓ Lebak Bulus · 15:59','Duren Tiga to Pondok Pinang, 12 stops, 56 min')
-add(f'<path d="M {PX+12} {e1} L {pp7x-12} {e1}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
-text((PX+pp7x)//2,e1-10,'change platform',15,anchor='middle');text((PX+pp7x)//2,e1+22,'N-P-Q to R-S-T (3 min)',15,anchor='middle')
-add(f'<path d="M {pp7x+12} {e2} L {pp6x-12} {e2}" fill="none" stroke="#888" stroke-width="3" stroke-dasharray="5 7"/>')
-text((pp7x+pp6x)//2,e2-10,'walk 1 min (60 m)',15,anchor='middle');text((pp7x+pp6x)//2,e2+22,'to the 6H stop · fare unverified',15,anchor='middle')
-text(pp6x+23,e3+34,'Off at Pondok Pinang Busway Stop 16:55, exit via Akses A',17,'#2e9e50',weight='600')
-text(pp6x+23,e3+58,'then a short walk (Maps: arrive 17:00, 2 h 33 min total)',16)
-mv_close()
 add('</svg>')
 H=end+340+DY
 svg=f'<svg viewBox="0 0 4600 {H}" role="img" aria-labelledby="all-stops-title all-stops-desc" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">\n'+'\n'.join(A)

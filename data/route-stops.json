@@ -1231,6 +1231,193 @@
           "sequence": 11
         }
       ]
+    },
+    {
+      "route": "10 extension",
+      "trip": "10-R01",
+      "direction": "PGC",
+      "checked": "2026-11-28",
+      "source": "TransJakarta operator GTFS (https://gtfs.transjakarta.co.id/files/file_gtfs.zip), downloaded 28 Nov 2026 (sha256 6f0c4f91...c297), trip 10-R01; scheduled pattern, not live service. Two stops past the end of the 10 segment: Cawang Sentral to Cawang Cililitan.",
+      "stops": [
+        {
+          "id": "G00718",
+          "name": "Cawang Sentral",
+          "sequence": 19
+        },
+        {
+          "id": "G00765",
+          "name": "Cawang Cililitan",
+          "sequence": 20
+        }
+      ]
+    },
+    {
+      "route": "7Q",
+      "trip": "7Q-L02",
+      "direction": "Blok M",
+      "checked": "2026-11-28",
+      "source": "TransJakarta operator GTFS (https://gtfs.transjakarta.co.id/files/file_gtfs.zip), downloaded 28 Nov 2026 (sha256 6f0c4f91...c297), trip 7Q-L02; scheduled pattern, not live service. Boards at the Cawang Cililitan R-S-T platform.",
+      "stops": [
+        {
+          "id": "G00766",
+          "name": "Cawang Cililitan",
+          "sequence": 35
+        },
+        {
+          "id": "G00327",
+          "name": "Cililitan",
+          "sequence": 36
+        },
+        {
+          "id": "B00257P",
+          "name": "Cililitan Kecil",
+          "sequence": 37
+        },
+        {
+          "id": "B01719P",
+          "name": "Jambul",
+          "sequence": 38
+        },
+        {
+          "id": "B02864P",
+          "name": "Plaza Kalibata",
+          "sequence": 39
+        },
+        {
+          "id": "B01794P",
+          "name": "Kalibata City 1",
+          "sequence": 40
+        },
+        {
+          "id": "B01795P",
+          "name": "Kalibata City 2",
+          "sequence": 41
+        },
+        {
+          "id": "B00293P",
+          "name": "Danau Tmp Kalibata",
+          "sequence": 42
+        },
+        {
+          "id": "B07490P",
+          "name": "Makam Pahlawan",
+          "sequence": 43
+        },
+        {
+          "id": "B02982P",
+          "name": "Potlot",
+          "sequence": 44
+        },
+        {
+          "id": "B03195P",
+          "name": "RSIA Duren Tiga 1",
+          "sequence": 45
+        },
+        {
+          "id": "B05273P",
+          "name": "SMAN 55",
+          "sequence": 46
+        },
+        {
+          "id": "B07710P",
+          "name": "Jln. Duren Tiga Raya",
+          "sequence": 47
+        },
+        {
+          "id": "B01695P",
+          "name": "Jln. Veteran 1",
+          "sequence": 48
+        },
+        {
+          "id": "B02877P",
+          "name": "PLN Duren Tiga 1",
+          "sequence": 49
+        },
+        {
+          "id": "B02062P",
+          "name": "Komplek Polri Duren Tiga",
+          "sequence": 50
+        },
+        {
+          "id": "B06638P",
+          "name": "Duren Tiga 2",
+          "sequence": 51
+        }
+      ]
+    },
+    {
+      "route": "6H",
+      "trip": "6H-L04",
+      "direction": "Lebak Bulus",
+      "checked": "2026-11-28",
+      "source": "TransJakarta operator GTFS (https://gtfs.transjakarta.co.id/files/file_gtfs.zip), downloaded 28 Nov 2026 (sha256 6f0c4f91...c297), trip 6H-L04; scheduled pattern, not live service. Boards at Duren Tiga; ends at Pondok Pinang (busway stop).",
+      "stops": [
+        {
+          "id": "G00266",
+          "name": "Duren Tiga",
+          "sequence": 40
+        },
+        {
+          "id": "G00264",
+          "name": "Warung Buncit",
+          "sequence": 41
+        },
+        {
+          "id": "G00263",
+          "name": "Warung Jati",
+          "sequence": 42
+        },
+        {
+          "id": "G00260",
+          "name": "Buncit Indah",
+          "sequence": 43
+        },
+        {
+          "id": "G00258",
+          "name": "Pejaten",
+          "sequence": 44
+        },
+        {
+          "id": "G00255",
+          "name": "Jati Padang",
+          "sequence": 45
+        },
+        {
+          "id": "G00250",
+          "name": "Jati Barat",
+          "sequence": 46
+        },
+        {
+          "id": "B07989P",
+          "name": "Masjid Ar-Raudhah",
+          "sequence": 47
+        },
+        {
+          "id": "B00036P",
+          "name": "Ampera 2",
+          "sequence": 48
+        },
+        {
+          "id": "B02895P",
+          "name": "Poins Square",
+          "sequence": 49
+        },
+        {
+          "id": "G00359",
+          "name": "Lebak Bulus",
+          "sequence": 50
+        },
+        {
+          "id": "B04671P",
+          "name": "Selapa Polri",
+          "sequence": 51
+        },
+        {
+          "id": "G00360",
+          "name": "Pondok Pinang",
+          "sequence": 52
+        }
+      ]
     }
   ],
   "extension_feed_sha256": "6f0c4f9161f3e930efe72d0cefc205dcbcb5fd74d9b8f013a3343d23131fc297",
